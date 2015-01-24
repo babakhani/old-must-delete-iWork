@@ -1,0 +1,46 @@
+﻿<layout>
+    <content>
+        <view iv-type="row">
+            <view iv-type="column" iv-size="4">
+                <form iv-type="form" iv-name="loginForm" iv-title="contactformadd" iv-controller="Contact" iv-action="add" >
+                    <fieldset>
+                        <input iv-type="text" iv-name="fullname" iv-model="contact" />
+                        <input iv-type="text" iv-name="tel1" iv-model="contact" />
+                        <input iv-type="text" iv-name="tel2" iv-model="contact" />
+                        <input iv-type="text" iv-name="tel3" iv-model="contact" />
+                        <input iv-type="text" iv-name="tel4" iv-model="contact" />
+                        <input iv-type="text" iv-name="company" iv-model="company" />
+                        <input iv-type="text" iv-name="unit" iv-model="company" />
+                        <input iv-type="text" iv-name="description" iv-model="company" />
+                        <button iv-type="submit" iv-name="submit" />
+                    </fieldset>
+                    <result>
+                        <view iv-type="error"></view>
+                        <view iv-type="success"></view>
+                    </result>
+                </form>
+            </view>
+        </view>
+    </content>
+</layout>
+<api>
+    <models>
+        <model name="contact">
+            <property name="id" type="integer"></property>
+            <property name="fullname" type="string"></property>
+            <property name="tel1" type="string"></property>
+            <property name="tel2" type="string"></property>
+            <property name="tel3" type="string"></property>
+            <property name="tel4" type="string"></property>
+            <property name="company" type="string"></property>
+            <property name="unit" type="string"></property>
+            <property name="description" type="string"></property>
+        </model>
+        <model name="addResult">
+        </model>
+    </models>
+    <controllers>
+        <controller name="Contact" action="add" requestmodel="contact" responsemodel="addResult">
+        </controller>
+    </controllers>
+</api>

@@ -1,0 +1,16 @@
+﻿{
+    "contact": {
+        "fullname": "Fullname",
+        "tel1": "Home",
+        "tel2": "Mobile",
+        "tel3": "Office",
+        "tel4": "Fax",
+        "company": "Company",
+        "unit": "Unit",
+        "description": "Description"
+    },
+    "general": {
+        "submit": "Submit",
+        "contactformadd": "Add New Contact"
+    }
+}

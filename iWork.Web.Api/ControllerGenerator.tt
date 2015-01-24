@@ -1,0 +1,155 @@
+﻿<#@ template debug="true" hostspecific="true" language="VB" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ assembly name="System.Xml.Linq.dll" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml.XPath.Extensions" #>
+<#@ output extension=".vb" #>
+<#
+	Dim iViewFolderVirtualPath as string = "..\iWork.Web.UI\iView"
+	Dim iViewFolderPhysicalPath as string = Host.ResolvePath(iViewFolderVirtualPath)
+	Dim api As New Api
+	For Each physicalFileName as string In Directory.GetFiles(iViewFolderPhysicalPath, "*.html" ,System.IO.SearchOption.AllDirectories)
+		Dim rootNode As XElement = GetXmlNode(physicalFileName)
+		FillApi(rootNode,api)
+	Next
+
+	For each ctrl as Controller In api.controllers.Values #>
+
+Namespace Controllers	
+
+	Public Interface I<#= ctrl.Name #>Controller
+		<# For each action as Action In ctrl.Actions #>
+		Function <#= action.Name #>(requestModel as <#= action.RequestModel #>) as <#= action.ResponseModel #>
+		<#	Next #>	
+	End Interface
+<#	Next #>
+<#	For each model as Model In api.Models #>
+
+	Public Class <#= model.Name #>
+	<# If model.IsRequestModel And Not model.IsResponseModel #>
+	Inherits RequestModel
+	<# End If #>
+	<# If model.IsResponseModel And Not model.IsRequestModel #>
+	Inherits ResponseModel
+	<# End If #>
+	<# If model.IsResponseModel And model.IsRequestModel #>
+	Inherits RequestResponseModel
+	<# End If #>
+		<# For each prop as Prop In model.Props #>
+		Public Property <#= prop.Name #> as <#= prop.Type #>
+		<#	Next #>	
+	End Class
+<#	Next #>
+
+End Namespace
+
+<#+
+	 Public Function GetXmlNode(physicalFilePathToRead As String) As XElement
+
+        Dim fileStream As New System.IO.StreamReader(physicalFilePathToRead)
+        Dim xrs As New XmlReaderSettings
+        xrs.ConformanceLevel = ConformanceLevel.Fragment
+
+        Dim doc As New XDocument(New XElement("root"))
+        Dim root As XElement = doc.Descendants.First
+
+        Using fs As New StreamReader(physicalFilePathToRead)
+            Using xr As XmlReader = XmlReader.Create(fs, xrs)
+                While xr.Read()
+                    If xr.NodeType = XmlNodeType.Element Then
+                        root.Add(XElement.Load(xr.ReadSubtree()))
+                    End If
+                End While
+            End Using
+        End Using
+
+        Return root
+
+    End Function
+
+    Public Function GetAttributeValue(node As XElement, attributeName As String) As String
+
+        Dim out As String = ""
+        Dim attribute As XAttribute = (From p As XAttribute In node.Attributes Where p.Name = attributeName).SingleOrDefault
+        If attribute IsNot Nothing Then
+            out = attribute.Value
+        End If
+        Return out
+    End Function
+
+    Public Sub FillApi(rootNode As XElement, api As Api)
+
+        For Each controllerNode As XElement In rootNode.XPathSelectElements("./api/controllers/controller[@name]").ToList
+
+            Dim ctrlName As String = GetAttributeValue(controllerNode, "name")
+            Dim controller As Controller
+            If Not api.Controllers.ContainsKey(ctrlName) Then
+                controller = New Controller
+                controller.Name = ctrlName
+                api.Controllers.Add(ctrlName, controller)
+            End If
+
+            Dim action As New Action
+            action.Name = GetAttributeValue(controllerNode, "action")
+            action.RequestModel = GetAttributeValue(controllerNode, "requestmodel")
+            action.ResponseModel = GetAttributeValue(controllerNode, "responsemodel")
+            api.Controllers.Item(ctrlName).Actions.Add(action)
+			api.allactions.add(action)
+        Next
+
+		For Each modelNode As XElement In rootNode.XPathSelectElements("./api/models/model[@name]").ToList
+
+            Dim model As New Model
+            model.Name = GetAttributeValue(modelNode, "name")
+			model.IsRequestModel = api.AllActions.Where(Function (p) p.RequestModel = model.Name).Any
+			model.IsResponseModel = api.AllActions.Where(Function (p) p.ResponseModel = model.Name).Any
+            api.Models.Add(model)
+
+            For Each propNode As XElement In modelNode.XPathSelectElements("./property[@name]").ToList
+                Dim prop As New Prop
+                prop.Name = GetAttributeValue(propNode, "name")
+                prop.Type = GetAttributeValue(propNode, "type")
+                model.Props.Add(prop)
+            Next
+
+        Next
+
+    End Sub
+
+	
+	Public Class Controller
+		Public Property Name As String
+		Public Property Actions As New List(Of Action)
+	End Class
+	Public Class Action
+		Public Property Name As String
+		Public Property RequestModel As String
+		Public Property ResponseModel As String
+	End Class
+	Public Class Api
+		Public Property Controllers As New Dictionary(Of String, Controller)
+		Public Property Models As New List(Of Model)
+		Public property AllActions As New List(Of Action)
+	End Class
+	Public Class Model
+		Public Property Name As String
+		Public Property IsResponseModel As Boolean
+		Public Property IsRequestModel As Boolean
+		Public Property Props As New List(Of Prop)
+	End Class
+	Public Class Prop
+		Public Property Name As String
+		Public Property Type As String
+	End Class
+#>
+
+
+
+
