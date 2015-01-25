@@ -1,9 +1,22 @@
-﻿<layout iv-src="BootstrapLayout.html">
-    <bodycontent>
-        <include iv-src="~/template/layout/TopMenu.html"></include>
-        <include iv-src="~/Template/Layout/Scripts.html"></include>
-        <div class="container">
-            <content></content>
-        </div>
-    </bodycontent>
-</layout>
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Content/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/Content/css/bootswatch.min.css">
+    <script src="/Content/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="/Content/Scripts/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="/Content/Scripts/bootswatch.js"></script>
+    <script>
+        var rootControllerUrl = 'http://localhost:11715/api/';
+    </script>
+</head>
+<body>
+    <div class="container">
+        <content></content>
+    </div>
+</body>
+</html>

@@ -873,6 +873,7 @@
     <Content Include="Content\Scripts\jquery-2.1.1.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.min.js" />
     <Content Include="Content\Scripts\npm.js" />
+    <Content Include="iView\Contacts\Contact.xml" />
     <Content Include="iView\Contacts\ContactsUpdate.html" />
     <Content Include="iView\Contacts\ContactsAdd.html" />
     <Content Include="iView\Contacts\ContactsList.html" />
@@ -891,14 +892,8 @@
     <Content Include="Template\Default\Controls\row\tr.html" />
     <Content Include="Template\Default\Controls\select\select.html" />
     <Content Include="Template\Default\Controls\view\column.html" />
-    <Content Include="Template\Default\Controls\view\error.html" />
     <Content Include="Template\Default\Controls\view\row.html" />
-    <Content Include="Template\Default\Controls\view\success.html" />
-    <Content Include="Template\Default\Layout\BootstrapLayout.html" />
     <Content Include="Template\Default\Layout\Default.html" />
-    <Content Include="Template\Default\Layout\DefaultWithoutMenu.html" />
-    <Content Include="Template\Default\Layout\Scripts.html" />
-    <Content Include="Template\Default\Layout\TopMenu.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -946,7 +941,6 @@
     <Content Include="Content\Scripts\errors.json" />
     <Content Include="Content\Scripts\jquery-2.1.1.min.map" />
     <Content Include="Content\Scripts\version.json" />
-    <Content Include="iView\Contacts\Locales\en\translation.json" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

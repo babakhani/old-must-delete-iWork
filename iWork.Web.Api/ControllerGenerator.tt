@@ -15,21 +15,41 @@
 	Dim iViewFolderVirtualPath as string = "..\iWork.Web.UI\iView"
 	Dim iViewFolderPhysicalPath as string = Host.ResolvePath(iViewFolderVirtualPath)
 	Dim api As New Api
-	For Each physicalFileName as string In Directory.GetFiles(iViewFolderPhysicalPath, "*.html" ,System.IO.SearchOption.AllDirectories)
+	For Each physicalFileName as string In Directory.GetFiles(iViewFolderPhysicalPath, "*" ,System.IO.SearchOption.AllDirectories)
 		Dim rootNode As XElement = GetXmlNode(physicalFileName)
 		FillApi(rootNode,api)
 	Next
 
-	For each ctrl as Controller In api.controllers.Values #>
+#>
 
 Namespace Controllers	
 
+'-----------------------------------------------------------
+'------------------ Interfaces ----------------------------
+'-----------------------------------------------------------
+<# For each ctrl as Controller In api.controllers.Values #>
 	Public Interface I<#= ctrl.Name #>Controller
+
 		<# For each action as Action In ctrl.Actions #>
 		Function <#= action.Name #>(requestModel as <#= action.RequestModel #>) as <#= action.ResponseModel #>
 		<#	Next #>	
 	End Interface
 <#	Next #>
+
+'-----------------------------------------------------------
+'------------------ Controllers ----------------------------
+'-----------------------------------------------------------
+<# For each ctrl as Controller In api.controllers.Values #>
+	Partial Public Class <#= ctrl.Name #>Controller
+		Inherits BaseController
+
+	End Class
+<#	Next #>
+
+
+'-----------------------------------------------------------
+'------------------ Models ----------------------------
+'-----------------------------------------------------------
 <#	For each model as Model In api.Models #>
 
 	Public Class <#= model.Name #>
