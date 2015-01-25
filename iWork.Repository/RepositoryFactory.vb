@@ -3,6 +3,7 @@ Imports StructureMap.Configuration.DSL
 Imports StructureMap.Graph.AssemblyScannerExtensions
 Imports StructureMap.Pipeline
 Imports System.Data.Entity
+Imports StructureMap.Web.Pipeline
 
 Public Class RepositoryFactory
 
@@ -26,8 +27,10 @@ Public Class RepositoryFactory
 
                                                               'Dim unique = New HttpContextLifeCyle()
 
+                                                              init.For(Of DbContext).Use(Of iWorkEntities)()
+                                                              init.For(Of iWorkEntities).LifecycleIs(Of HybridLifecycle)()
+                                                              init.For(Of DbContext).LifecycleIs(Of HybridLifecycle)()
 
-                                                              init.For(Of DbContext).LifecycleIs(Of HttpContextLifeCyle).Use(Of iWorkEntities)()
                                                               init.For(Of IUnitOfWork).Use(Of EF.UnitOfWork)()
                                                               init.For(GetType(IGenericRepository(Of ,))).Use(GetType(EF.GenericRepository(Of ,)))
                                                               init.For(GetType(IGenericRepository(Of ))).Use(GetType(EF.GenericRepository(Of )))
@@ -46,25 +49,25 @@ Public Class RepositoryFactory
     Public Shared Function GetInstance(Of T)() As T
 
         Init()
+
+        'Dim ctx1 = StructureMapContainer.GetInstance(Of iWorkEntities)()
+        'Dim ctx2
+
+        'Using x = StructureMapContainer.GetInstance(Of IUnitOfWork)()
+        '    ctx2 = StructureMapContainer.GetInstance(Of iWorkEntities)()
+        '    Dim k1 = ctx1 Is ctx2
+        'End Using
+
+        'Using x = StructureMapContainer.GetInstance(Of IUnitOfWork)()
+        '    ctx2 = StructureMapContainer.GetInstance(Of iWorkEntities)()
+        '    Dim k1 = ctx1 Is ctx2
+        'End Using
+
+        'Dim ctx3 = StructureMapContainer.GetInstance(Of iWorkEntities)()
+        'Dim k12 = ctx1 Is ctx3
+
         Return StructureMapContainer.GetInstance(Of T)()
 
     End Function
-
-End Class
-
-Public Class HttpContextLifeCyle
-    Inherits UniquePerRequestLifecycle
-
-    Public Sub New()
-        MyBase.New()
-    End Sub
-
-    Public Overrides Function FindCache(context As ILifecycleContext) As IObjectCache
-        Return MyBase.FindCache(context)
-    End Function
-
-    Public Overrides Sub EjectAll(context As ILifecycleContext)
-        MyBase.EjectAll(context)
-    End Sub
 
 End Class
