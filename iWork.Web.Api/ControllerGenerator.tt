@@ -29,7 +29,7 @@ Namespace Controllers
 '-----------------------------------------------------------
 <# For each ctrl as Controller In api.controllers.Values #>
 	Public Interface I<#= ctrl.Name #>Controller
-
+		Inherits IController
 		<# For each action as Action In ctrl.Actions #>
 		Function <#= action.Name #>(requestModel as <#= action.RequestModel #>) as <#= action.ResponseModel #>
 		<#	Next #>	
@@ -57,7 +57,7 @@ Namespace Controllers
 	Inherits RequestModel
 	<# End If #>
 	<# If model.IsResponseModel And Not model.IsRequestModel #>
-	Inherits ResponseModel
+	Inherits ResponseModel(of <#= model.Name #>)
 	<# End If #>
 	<# If model.IsResponseModel And model.IsRequestModel #>
 	Inherits RequestResponseModel

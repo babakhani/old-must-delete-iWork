@@ -5,9 +5,10 @@ Namespace Controllers
 '------------------ Interfaces ----------------------------
 '-----------------------------------------------------------
 	Public Interface IContactController
-
+		Inherits IController
 				Function Add(requestModel as ivContact) as ivAddResult
-				Function Update(requestModel as ivContact1) as ivAddResult
+				Function Update(requestModel as ivContact) as ivUpdateResult
+				Function Remove(requestModel as ivContactRemove) as ivRemoveResult
 			
 	End Interface
 
@@ -38,14 +39,24 @@ Namespace Controllers
 			
 	End Class
 
-	Public Class ivContact1
+	Public Class ivContactRemove
 		Inherits RequestModel
-							Public Property aaaaaaa as string
+							Public Property ContactId as integer
 			
 	End Class
 
 	Public Class ivAddResult
-			Inherits ResponseModel
+			Inherits ResponseModel(of ivAddResult)
+					
+	End Class
+
+	Public Class ivUpdateResult
+			Inherits ResponseModel(of ivUpdateResult)
+					
+	End Class
+
+	Public Class ivRemoveResult
+			Inherits ResponseModel(of ivRemoveResult)
 					
 	End Class
 
