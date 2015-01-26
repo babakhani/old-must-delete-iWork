@@ -8,52 +8,44 @@ Namespace Controllers
     Public Class ContactController
         Implements IContactController
 
-
         Public Sub New()
             Mapper.CreateMap(Of ivContact, Contact)()
         End Sub
 
-
-        Public Function Add(requestModel As ivContact) As ivAddResult Implements IContactController.Add
-
-            Try
-
-                Dim contact = Mapper.Map(Of Contact)(requestModel)
-                Dim srv = ServiceFactory.GetInstance(Of ContactService)()
-                srv.Add(contact)
-
-                Return ivAddResult.SendOK("Contact has been added successfully.", contact.ContactId)
-
-            Catch ex As Exception
-
-                Return ivAddResult.SendError(ex.ToString, ex.StackTrace)
-
-            End Try
-            
-
-        End Function
-
-        Public Function Remove(requestModel As ivContactRemove) As ivRemoveResult Implements IContactController.Remove
-
-            Dim srv = ServiceFactory.GetInstance(Of ContactService)()
-
-        End Function
-
-        Public Function Update(requestModel As ivContact) As ivUpdateResult Implements IContactController.Update
+        Public Function Add(requestModel As ivContact) As ivGeneralResult Implements IContactController.Add
 
             Dim contact = Mapper.Map(Of Contact)(requestModel)
-            Dim srv = ServiceFactory.GetInstance(Of ContactService)()
-            srv.Add(contact)
+            Helper.GetService(Of ContactService).Add(contact)
 
-            Dim out As New ivAddResult
-            out.Data = contact.ContactId
-            out.HasError = False
-            out.Message = contact.ContactId.ToString
+            Return ivGeneralResult.SendOK("Contact has been added successfully.", contact.ContactId)
+
+        End Function
+
+        Public Function Search(requestModel As ivContactSearch) As ivGeneralResult Implements IContactController.Search
+
+            Dim data = Helper.GetService(Of ContactService).Search(requestModel.term)
+            Dim out = ivGeneralResult.SendOK("", data)
+            Return out
+
+        End Function
+
+        Public Function Remove(requestModel As ivContactRemove) As ivGeneralResult Implements IContactController.Remove
+
+            Helper.GetService(Of ContactService).Remove(requestModel.ContactId)
+            Return ivGeneralResult.SendOK("Contact has been removed successfully.", requestModel.ContactId)
+
+        End Function
+
+        Public Function Update(requestModel As ivContact) As ivGeneralResult Implements IContactController.Update
+
+            Dim contact = Mapper.Map(Of Contact)(requestModel)
+            Helper.GetService(Of ContactService).Update(contact)
+
+            Return ivGeneralResult.SendOK("Contact has been updated successfully.", contact.ContactId)
 
         End Function
 
     End Class
-
 
 End Namespace
 

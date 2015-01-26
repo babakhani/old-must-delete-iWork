@@ -1,6 +1,7 @@
 ﻿Imports iWork.Repository
 
 Public Class ContactService
+    Implements IService
 
     Public Sub Add(value As Contact)
 
@@ -40,16 +41,18 @@ Public Class ContactService
 
     Public Function Search(term As String) As IEnumerable(Of Contact)
 
-        Dim out
+        Dim rep = Helper.GetRepository(Of Contact)()
+        Dim out = From p In rep.GetAll Where p.Fullname.Contains(term) OrElse
+                  p.Company.Contains(term) OrElse
+                  p.Unit.Contains(term) OrElse
+                  p.Tel1.Contains(term) OrElse
+                  p.Tel2.Contains(term) OrElse
+                  p.Tel3.Contains(term) OrElse
+                  p.Tel4.Contains(term) OrElse
+                  p.Description.Contains(term)
 
-        Using uow = Helper.GetUOW
 
-            Dim rep = Helper.GetRepository(Of Contact)()
-            out = rep.GetAll.Where(Function(x) x.Fullname.Contains(term)).ToList()
-
-        End Using
-
-        Return out
+        Return out.ToList
 
     End Function
 

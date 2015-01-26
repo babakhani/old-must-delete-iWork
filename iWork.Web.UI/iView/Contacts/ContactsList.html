@@ -1,1 +1,26 @@
-﻿
+﻿<layout>
+    <content>
+        <view iv-type="row">
+            <view iv-type="column" iv-size="10">
+                <form iv-type="form" iv-name="searchForm" iv-title="Search Contact" iv-controller="Contact" iv-action="Search" iv-model="ivContactSearch">
+                    <fieldset>
+                        <input iv-type="text" iv-name="term" iv-label="Term" />
+                        <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                    </fieldset>
+                </form>
+                <table>
+                    <tr ng-repeat="x in data">
+                        <td>{{ x.Fullname }}</td>
+                        <td>{{ x.Company }}</td>
+                        <td>{{ x.Unit }}</td>
+                        <td>{{ x.Tel1 }}</td>
+                        <td>{{ x.Tel2 }}</td>
+                        <td>{{ x.Tel3 }}</td>
+                        <td>{{ x.Tel4 }}</td>
+                        <td>{{ x.Description }}</td>
+                    </tr>
+                </table> 
+            </view>
+        </view>
+    </content>
+</layout>
