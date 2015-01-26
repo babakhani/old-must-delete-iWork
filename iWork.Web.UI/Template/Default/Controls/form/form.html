@@ -7,10 +7,10 @@
             <form name="$iv-name" class="form-horizontal">
                 <iv-content>
                 </iv-content>
-                <div class="alert alert-dismissable alert-danger" ng-show="isFormSubmitted && showError">
+                <div class="alert alert-dismissable alert-danger" ng-show="isFormSubmitted && !result.HasError">
                     {{result.Message}}
                 </div>
-                <div class="alert alert-dismissable alert-success" ng-show="isFormSubmitted && !showError">
+                <div class="alert alert-dismissable alert-success" ng-show="isFormSubmitted && result.HasError">
                     {{result.Message}}
                 </div>
                 <result>
@@ -28,12 +28,12 @@
                     $scope.result = responseData;
                     if (responseData.HasError)
                     {
-                        $scope.showError = true;
+                        //$scope.showError = true;
                         //$scope.error = responseData.Error;
                     }
                     else
                     {
-                        $scope.showError = false;
+                        //$scope.showError = false;
                         if ("$iv-redirecturl" != ""){
                             $window.location = "$iv-redirecturl";
                         }
