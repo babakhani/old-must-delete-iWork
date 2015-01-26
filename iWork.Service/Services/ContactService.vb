@@ -4,9 +4,9 @@ Public Class ContactService
 
     Public Sub Add(value As Contact)
 
-        Using uow = RepositoryFactory.GetInstance(Of IUnitOfWork)()
+        Using uow = Helper.GetUOW
 
-            Dim rep = RepositoryFactory.GetInstance(Of IGenericRepository(Of Contact))()
+            Dim rep = Helper.GetRepository(Of Contact)()
             rep.Add(value)
             uow.Commit()
 
@@ -16,9 +16,9 @@ Public Class ContactService
 
     Public Sub Update(value As Contact)
 
-        Using uow = RepositoryFactory.GetInstance(Of IUnitOfWork)()
+        Using uow = Helper.GetUOW
 
-            Dim rep = RepositoryFactory.GetInstance(Of IGenericRepository(Of Contact))()
+            Dim rep = Helper.GetRepository(Of Contact)()
             rep.Update(value)
             uow.Commit()
 
@@ -28,9 +28,9 @@ Public Class ContactService
 
     Public Sub Remove(value As Long)
 
-        Using uow = RepositoryFactory.GetInstance(Of IUnitOfWork)()
+        Using uow = Helper.GetUOW
 
-            Dim rep = RepositoryFactory.GetInstance(Of IGenericRepository(Of Contact))()
+            Dim rep = Helper.GetRepository(Of Contact)()
             rep.Remove(value)
             uow.Commit()
 
@@ -42,9 +42,9 @@ Public Class ContactService
 
         Dim out
 
-        Using uow = RepositoryFactory.GetInstance(Of IUnitOfWork)()
+        Using uow = Helper.GetUOW
 
-            Dim rep = RepositoryFactory.GetInstance(Of IGenericRepository(Of Contact))()
+            Dim rep = Helper.GetRepository(Of Contact)()
             out = rep.GetAll.Where(Function(x) x.Fullname.Contains(term)).ToList()
 
         End Using
