@@ -125,6 +125,7 @@
     <Compile Include="Core\Helper.vb" />
     <Compile Include="Core\IController.vb" />
     <Compile Include="Core\Mapper.vb" />
+    <Compile Include="Core\RequestIdModel.vb" />
     <Compile Include="Core\WebApiConfig.vb" />
     <Compile Include="ControllerGenerator.vb">
       <AutoGen>True</AutoGen>

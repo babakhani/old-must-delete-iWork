@@ -56,4 +56,10 @@ Public Class ContactService
 
     End Function
 
+    Public Function GetById(contactId As Integer) As Contact
+
+        Return Helper.GetRepository(Of Contact).GetById(contactId)
+
+    End Function
+
 End Class
