@@ -7,19 +7,37 @@
                         <input iv-type="text" iv-name="term" iv-label="Term" />
                         <button iv-type="submit" iv-name="submit" iv-label="Submit" />
                     </fieldset>
+                    <result>
+                        <table class="table table-striped table-hover ">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Fullname</th>
+                                    <th>Company</th>
+                                    <th>Unit</th>
+                                    <th>Home</th>
+                                    <th>Mobile</th>
+                                    <th>Office</th>
+                                    <th>Fax</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in result.Data">
+                                    <td>{{ x.ContactId }}</td>
+                                    <td>{{ x.Fullname }}</td>
+                                    <td>{{ x.Company }}</td>
+                                    <td>{{ x.Unit }}</td>
+                                    <td>{{ x.Tel1 }}</td>
+                                    <td>{{ x.Tel2 }}</td>
+                                    <td>{{ x.Tel3 }}</td>
+                                    <td>{{ x.Tel4 }}</td>
+                                    <td>{{ x.Description }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </result>
                 </form>
-                <table>
-                    <tr ng-repeat="x in data">
-                        <td>{{ x.Fullname }}</td>
-                        <td>{{ x.Company }}</td>
-                        <td>{{ x.Unit }}</td>
-                        <td>{{ x.Tel1 }}</td>
-                        <td>{{ x.Tel2 }}</td>
-                        <td>{{ x.Tel3 }}</td>
-                        <td>{{ x.Tel4 }}</td>
-                        <td>{{ x.Description }}</td>
-                    </tr>
-                </table> 
             </view>
         </view>
     </content>

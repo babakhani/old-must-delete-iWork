@@ -24,7 +24,7 @@ Namespace Controllers
         Public Function Search(requestModel As ivContactSearch) As ivGeneralResult Implements IContactController.Search
 
             Dim data = Helper.GetService(Of ContactService).Search(requestModel.term)
-            Dim out = ivGeneralResult.SendOK("", data)
+            Dim out = ivGeneralResult.SendOK(data.Count.ToString & " record(s) found!", data)
             Return out
 
         End Function

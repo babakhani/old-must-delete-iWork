@@ -7,12 +7,14 @@
             <form name="$iv-name" class="form-horizontal">
                 <iv-content>
                 </iv-content>
-                <div class="alert alert-dismissable alert-danger" ng-show="isFormSubmitted && data.HasError">
-                    {{data.Message}}
+                <div class="alert alert-dismissable alert-danger" ng-show="isFormSubmitted && showError">
+                    {{result.Message}}
                 </div>
-                <div class="alert alert-dismissable alert-success" ng-show="isFormSubmitted && !data.HasError">
-                    {{data.Message}}
+                <div class="alert alert-dismissable alert-success" ng-show="isFormSubmitted && !showError">
+                    {{result.Message}}
                 </div>
+                <result>
+                </result>
             </form>
         </div>
     </div>
@@ -21,12 +23,13 @@
             $scope.isFormSubmitted = false;
             $scope.formsubmit = function () {
                 $http.post(rootControllerUrl + "$iv-controller/$iv-action", $scope.$iv-model).
-                success(function (data, status, headers, config) {
+                success(function (responseData, status, headers, config) {
                     $scope.isFormSubmitted = true;
-                    $scope.data = data;
-                    if (data.HasError)
+                    $scope.result = responseData;
+                    if (responseData.HasError)
                     {
-                        $scope.error = data.Error;
+                        $scope.showError = true;
+                        //$scope.error = responseData.Error;
                     }
                     else
                     {
@@ -36,10 +39,10 @@
                         }
                     }
                 }).
-                error(function (data, status, headers, config) {
+                error(function (responseData, status, headers, config) {
                     $scope.isFormSubmitted = true;
-                    $scope.data = data;
-                    $scope.error = "Server error!";
+                    $scope.result = responseData;
+                    $scope.error = responseData.Error;
                 });
             };
         }
