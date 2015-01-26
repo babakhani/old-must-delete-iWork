@@ -38,4 +38,19 @@ Public Class ContactService
 
     End Sub
 
+    Public Function Search(term As String) As IEnumerable(Of Contact)
+
+        Dim out
+
+        Using uow = RepositoryFactory.GetInstance(Of IUnitOfWork)()
+
+            Dim rep = RepositoryFactory.GetInstance(Of IGenericRepository(Of Contact))()
+            out = rep.GetAll.Where(Function(x) x.Fullname.Contains(term)).ToList()
+
+        End Using
+
+        Return out
+
+    End Function
+
 End Class

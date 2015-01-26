@@ -22,8 +22,8 @@ Namespace EF
             If Not Me.disposedValue Then
                 If disposing Then
                     If DbContext IsNot Nothing Then
-                        DbContext.Dispose()
-                        DbContext = Nothing
+                        'DbContext.Dispose()
+                        'DbContext = Nothing
                     End If
                 End If
 
