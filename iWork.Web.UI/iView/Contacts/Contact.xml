@@ -1,0 +1,33 @@
+﻿<api>
+  <models>
+    <model name="ivContact">
+      <property name="ContactId" type="integer"></property>
+      <property name="Fullname" type="string"></property>
+      <property name="Tel1" type="string"></property>
+      <property name="Tel2" type="string"></property>
+      <property name="Tel3" type="string"></property>
+      <property name="Tel4" type="string"></property>
+      <property name="Company" type="string"></property>
+      <property name="Unit" type="string"></property>
+      <property name="Description" type="string"></property>
+    </model>
+    <model name="ivContactRemove">
+      <property name="ContactId" type="integer"></property>
+    </model>
+    <model name="ivContactSearch">
+      <property name="term" type="string"></property>
+    </model>
+  </models>
+  <controllers>
+    <controller name="Contact" action="Add" requestmodel="ivContact" responsemodel="ResponseModel">
+    </controller>
+    <controller name="Contact" action="Update" requestmodel="ivContact" responsemodel="ResponseModel">
+    </controller>
+    <controller name="Contact" action="Remove" requestmodel="RequestIdModel" responsemodel="ResponseModel">
+    </controller>
+    <controller name="Contact" action="Search" requestmodel="ivContactSearch" responsemodel="ResponseModel">
+    </controller>
+    <controller name="Contact" action="GetById" requestmodel="RequestIdModel" responsemodel="ResponseModel">
+    </controller>
+  </controllers>
+</api>
