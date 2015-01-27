@@ -4,19 +4,41 @@
     <meta charset="utf-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/Content/css/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="/Content/css/bootswatch.min.css">
+    <link rel="stylesheet" href="/Content/lib/bootstrap/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/Content/css/page.css" media="screen">
     <script src="/Content/Scripts/jquery-2.1.1.min.js"></script>
-    <script src="/Content/Scripts/bootstrap.min.js"></script>
+    <script src="/Content/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-    <script src="/Content/Scripts/bootswatch.js"></script>
     <script>
         var rootControllerUrl = 'http://localhost:11715/api/';
     </script>
 </head>
 <body>
-    <div class="container">
-        <content></content>
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <div class="navbar-header col-md-2 ">
+            <a class="navbar-brand" href="#">iWork</a>
+        </div>
+        <div id="navbar" class="col-md-10 hidden-xs">
+            <ul class="nav navbar-nav">
+                <li><a href="/iView/Contacts/Contactsadd.html">Add Contact</a></li>
+                <li><a href="/iView/Contacts/Contactslist.html">Conatct List</a></li>
+            </ul>
+            <div class="nav navbar-nav navbar-right">
+            </div>
+        </div>
+    </nav>
+    <div class="container page-container">
+        <div class="col-xs-2 sub-menu hidden-xs">
+            <!--<ul>
+                <li><a href="#" >Sub Menu 1</a></li>
+                <li><a href="#">Sub Menu 2</a></li>
+                <li><a href="#">Sub Menu 3</a></li>
+            </ul>-->
+        </div>
+        <div class="col-md-10 main-content">
+            <content></content>
+        </div>
     </div>
 </body>
 </html>

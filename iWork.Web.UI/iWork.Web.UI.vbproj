@@ -104,6 +104,14 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bootswatch.min.css" />
+    <Content Include="Content\css\page.css" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\lib\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\lib\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\Scripts\angular-animate.js" />
     <Content Include="Content\Scripts\angular-animate.min.js" />
     <Content Include="Content\Scripts\angular-aria.js" />
@@ -875,6 +883,11 @@
     <Content Include="Content\Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Content\Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Content\Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Content\Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.min.js" />
@@ -885,6 +898,7 @@
     <Content Include="iView\Contacts\ContactsAdd.html" />
     <Content Include="iView\Contacts\ContactsList.html" />
     <Content Include="Manifest.xml" />
+    <Content Include="Template\Default\Controls\button\cancel.html" />
     <Content Include="Template\Default\Controls\button\submit.html" />
     <Content Include="Template\Default\Controls\column\td.html" />
     <Content Include="Template\Default\Controls\form\form.html" />
