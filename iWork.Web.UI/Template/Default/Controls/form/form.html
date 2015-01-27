@@ -1,22 +1,18 @@
 ﻿<control iv-redirecturl="" iv-title="Form Title">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">$iv-title</h3>
-        </div>
-        <div class="panel-body" ng-controller="$iv-controller" onsubmit="return false;">
-            <form name="$iv-name" class="form-horizontal">
-                <iv-content>
-                </iv-content>
-                <div class="alert alert-dismissable alert-danger" ng-show="isFormSubmitted && !result.HasError">
-                    {{result.Message}}
-                </div>
-                <div class="alert alert-dismissable alert-success" ng-show="isFormSubmitted && result.HasError">
-                    {{result.Message}}
-                </div>
-                <result>
-                </result>
-            </form>
-        </div>
+    <div class="form-container" ng-controller="$iv-controller" onsubmit="return false;">
+        <h3 class="panel-title">$iv-title</h3>
+        <form name="$iv-name" class="form-horizontal">
+            <iv-content>
+            </iv-content>
+            <div class="alert alert-dismissable alert-danger" ng-show="isFormSubmitted && !result.HasError">
+                {{result.Message}}
+            </div>
+            <div class="alert alert-dismissable alert-success" ng-show="isFormSubmitted && result.HasError">
+                {{result.Message}}
+            </div>
+            <result>
+            </result>
+        </form>
     </div>
     <script>
         function $iv-controller($scope, $location, $window, $http) {

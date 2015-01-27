@@ -1,7 +1,6 @@
 ﻿<layout>
     <content>
         <view iv-type="row">
-            <view iv-type="column" iv-size="4">
                 <form iv-type="form" iv-name="loginForm" iv-title="Add New Contact" iv-controller="Contact" iv-action="add" iv-model="ivContact">
                     <fieldset>
                         <input iv-type="text" iv-name="fullname" iv-label="Fullname" />
@@ -13,9 +12,9 @@
                         <input iv-type="text" iv-name="unit" iv-label="Unit" />
                         <input iv-type="text" iv-name="description" iv-label="Description" />
                         <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                        <button iv-type="cancel" iv-name="cancel" iv-label="Cancel" />
                     </fieldset>
                 </form>
-            </view>
         </view>
     </content>
 </layout>
