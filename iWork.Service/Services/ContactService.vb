@@ -1,9 +1,10 @@
-﻿Imports iWork.Repository
+﻿Imports iWork.Core
+Imports iWork.Entities
 
 Public Class ContactService
-    Implements IService
+    Implements IContactService
 
-    Public Sub Add(value As Contact)
+    Public Sub Add(value As Contact) Implements IContactService.Add
 
         Using uow = Helper.GetUOW
 
@@ -15,7 +16,7 @@ Public Class ContactService
 
     End Sub
 
-    Public Sub Update(value As Contact)
+    Public Sub Update(value As Contact) Implements IContactService.Update
 
         Using uow = Helper.GetUOW
 
@@ -27,7 +28,7 @@ Public Class ContactService
 
     End Sub
 
-    Public Sub Remove(value As Long)
+    Public Sub Remove(value As Long) Implements IContactService.Remove
 
         Using uow = Helper.GetUOW
 
@@ -39,7 +40,7 @@ Public Class ContactService
 
     End Sub
 
-    Public Function Search(term As String) As IEnumerable(Of Contact)
+    Public Function Search(term As String) As IEnumerable(Of Contact) Implements IContactService.Search
 
         Dim rep = Helper.GetRepository(Of Contact)()
         Dim out = From p In rep.GetAll Where p.Fullname.Contains(term) OrElse
@@ -56,10 +57,11 @@ Public Class ContactService
 
     End Function
 
-    Public Function GetById(contactId As Integer) As Contact
+    Public Function GetById(contactId As Integer) As Contact Implements IContactService.GetById
 
         Return Helper.GetRepository(Of Contact).GetById(contactId)
 
     End Function
+
 
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.Entity
+Imports iWork.Core
 
 Namespace EF
 
@@ -22,6 +23,7 @@ Namespace EF
             If Not Me.disposedValue Then
                 If disposing Then
                     If DbContext IsNot Nothing Then
+                        'todo: think
                         'DbContext.Dispose()
                         'DbContext = Nothing
                     End If

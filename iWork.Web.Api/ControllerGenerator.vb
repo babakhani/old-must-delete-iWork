@@ -1,4 +1,6 @@
-﻿
+﻿Imports iWork.Core
+Imports iWork.Core.Controllers
+
 Namespace Controllers	
 
 '-----------------------------------------------------------

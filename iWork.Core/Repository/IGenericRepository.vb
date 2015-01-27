@@ -16,6 +16,3 @@ Public Interface IGenericRepository(Of TEntity As Class)
 
 End Interface
 
-Public Interface IRepository
-
-End Interface

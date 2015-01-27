@@ -122,21 +122,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Helper.vb" />
-    <Compile Include="Core\IController.vb" />
-    <Compile Include="Core\Mapper.vb" />
-    <Compile Include="Core\RequestIdModel.vb" />
-    <Compile Include="Core\WebApiConfig.vb" />
+    <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="ControllerGenerator.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ControllerGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BaseController.vb" />
     <Compile Include="Controllers\ContactController.vb" />
-    <Compile Include="Core\BaseController.vb" />
-    <Compile Include="Core\RequestModel.vb" />
-    <Compile Include="Core\RequestResponseModel.vb" />
-    <Compile Include="Core\ResponseModel.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,6 +176,10 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="packages.config" />
+    <Content Include="Castle.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,6 +191,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\iWork.Core\iWork.Core.vbproj">
+      <Project>{d321f516-7d55-4b7d-adc5-2e470ec6dd57}</Project>
+      <Name>iWork.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iWork.Entities\iWork.Entities.vbproj">
+      <Project>{0da92c20-d75c-4736-8e42-6ce6159f6fff}</Project>
+      <Name>iWork.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\iWork.Repository\iWork.Repository.vbproj">
       <Project>{18537e9d-a25b-4d65-b2e1-a3cb1a646289}</Project>
       <Name>iWork.Repository</Name>

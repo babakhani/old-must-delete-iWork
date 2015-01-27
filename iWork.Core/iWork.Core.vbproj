@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E1AADCB-2FAA-4A90-ADE7-EA1F1A9C74C1}</ProjectGuid>
+    <ProjectGuid>{D321F516-7D55-4B7D-ADC5-2E470EC6DD57}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>iWork.Service</RootNamespace>
-    <AssemblyName>iWork.Service</AssemblyName>
+    <RootNamespace>iWork.Core</RootNamespace>
+    <AssemblyName>iWork.Core</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -18,7 +18,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>iWork.Service.xml</DocumentationFile>
+    <DocumentationFile>iWork.Core.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +27,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>iWork.Service.xml</DocumentationFile>
+    <DocumentationFile>iWork.Core.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -43,6 +43,18 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -62,7 +74,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IContactService.vb" />
+    <Compile Include="Helper.vb" />
+    <Compile Include="Controller\IController.vb" />
+    <Compile Include="Controller\RequestIdModel.vb" />
+    <Compile Include="Controller\RequestModel.vb" />
+    <Compile Include="Controller\RequestResponseModel.vb" />
+    <Compile Include="Controller\ResponseModel.vb" />
+    <Compile Include="IoC\IoC.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -78,7 +96,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Services\ContactService.vb" />
+    <Compile Include="Repository\IGenericRepository.vb" />
+    <Compile Include="Repository\IRepository.vb" />
+    <Compile Include="Repository\IUnitOfWork.vb" />
+    <Compile Include="Service\IService.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -98,18 +119,10 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\iWork.Core\iWork.Core.vbproj">
-      <Project>{d321f516-7d55-4b7d-adc5-2e470ec6dd57}</Project>
-      <Name>iWork.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\iWork.Entities\iWork.Entities.vbproj">
-      <Project>{0da92c20-d75c-4736-8e42-6ce6159f6fff}</Project>
-      <Name>iWork.Entities</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

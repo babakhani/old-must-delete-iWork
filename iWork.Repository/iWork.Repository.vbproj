@@ -49,15 +49,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Net4">
-      <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.Net4.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Web">
-      <HintPath>..\packages\structuremap.web.3.1.0.133\lib\net40\StructureMap.Web.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -80,28 +71,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contact.vb">
-      <DependentUpon>iWorkModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\GenericRepository.vb" />
-    <Compile Include="EF\UnitOfWork.vb" />
-    <Compile Include="IGenericRepository.vb" />
-    <Compile Include="IUnitOfWork.vb" />
-    <Compile Include="iWorkModel.Context.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>iWorkModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="iWorkModel.Designer.vb">
+    <Compile Include="EF\iWorkModel.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>iWorkModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="iWorkModel.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>iWorkModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="EF\UnitOfWork.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -117,7 +93,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RepositoryFactory.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -128,23 +103,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="iWorkModel.edmx">
+    <None Include="App.Config" />
+    <EntityDeploy Include="EF\iWorkModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>iWorkModel.Designer.vb</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
-    <None Include="iWorkModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+    <None Include="EF\iWorkModel.edmx.diagram">
       <DependentUpon>iWorkModel.edmx</DependentUpon>
-      <LastGenOutput>iWorkModel.Context.vb</LastGenOutput>
-    </None>
-    <None Include="iWorkModel.edmx.diagram">
-      <DependentUpon>iWorkModel.edmx</DependentUpon>
-    </None>
-    <None Include="iWorkModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>iWorkModel.edmx</DependentUpon>
-      <LastGenOutput>iWorkModel.vb</LastGenOutput>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -159,6 +124,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iWork.Core\iWork.Core.vbproj">
+      <Project>{d321f516-7d55-4b7d-adc5-2e470ec6dd57}</Project>
+      <Name>iWork.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iWork.Entities\iWork.Entities.vbproj">
+      <Project>{0da92c20-d75c-4736-8e42-6ce6159f6fff}</Project>
+      <Name>iWork.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
