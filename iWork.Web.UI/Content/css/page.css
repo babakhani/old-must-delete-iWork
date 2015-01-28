@@ -7,7 +7,7 @@
 .page-container {
     background-color: rgb(255,255,255);
     width: 1402px;
-    height: 684px;
+    min-height:700px;
     /* Firefox v3.5+ */
     -moz-box-shadow: 0px 0px 3px 1px rgba(204,204,204,0.65);
     /* Safari v3.0+ and by Chrome v0.2+ */
@@ -87,6 +87,10 @@
     width: 100% !important;
 }
 
+.form-container fieldset{
+    margin-bottom:8px;
+}
+
     .form-container h3 {
         display: block;
         font-size: 28px;
@@ -134,3 +138,45 @@
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color: #333333 !important;
 }
+/*
+.form-group input.ng-invalid-required{
+    border-bottom:1px solid #F43E00;
+}
+.form-group input.ng-invalid{
+    border-bottom:1px solid #F43E00;
+}
+*/
+
+.search-box{
+    display:block;
+    float:left;
+    width:100%;
+    border-bottom: 1px solid #eeeeee;
+    position:relative;
+    overflow:hidden;
+
+    
+}
+    .search-box input {
+        border:none !important;
+        float:left;
+        font-size:20px;
+        margin-left:28px;
+        color:#333333;
+    }
+    .search-box span.search-box-icon{
+        float:left;
+        position:absolute;
+        top:5px;
+        left:4px;
+        font-size:24px;
+        color:#999999;
+
+    }
+
+    .search-box-message{
+        display:block;
+        font-size:11px;
+        color:#999999;
+        margin-top:3px;
+    }

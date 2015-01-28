@@ -1,13 +1,13 @@
-﻿<control iv-redirecturl="" iv-title="Form Title">
+﻿<control iv-redirecturl="null" iv-title="null">
     <div class="form-container" ng-controller="$iv-controller" onsubmit="return false;">
-        <h3 class="panel-title">$iv-title</h3>
-        <form name="$iv-name" class="form-horizontal">
+        <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
+        <form name="$iv-name" class="form-horizontal" ng-keyup="$event.keyCode == 13 && formsubmit()">
             <iv-content>
             </iv-content>
-            <div class="alert alert-dismissable alert-danger" ng-show="isFormSubmitted && !result.HasError">
+            <div class="alert alert-dismissable alert-danger" ng-show="showErrorMessage">
                 {{result.Message}}
             </div>
-            <div class="alert alert-dismissable alert-success" ng-show="isFormSubmitted && result.HasError">
+            <div class="alert alert-dismissable alert-success" ng-show="showSuccessMessage">
                 {{result.Message}}
             </div>
             <result>
@@ -17,25 +17,44 @@
     <script>
         function $iv-controller($scope, $location, $window, $http) {
             $scope.isFormSubmitted = false;
+            $scope.showFormTitle = '$iv-title' !== 'null';
+
+            $scope.formreset = function () {
+                $('form').find("input[type=text], textarea").val("");
+                $scope.showErrorMessage = false;
+                $scope.showSuccessMessage = false;
+            }
             $scope.formsubmit = function () {
-                $http.post(rootControllerUrl + "$iv-controller/$iv-action", $scope.$iv-model).
+                if($('form .ng-invalid').length > 0){
+                    return false;
+                }
+                $http({
+                    method  : 'POST',
+                    url     : rootControllerUrl + "$iv-controller/$iv-action",
+                    data    : $('form').serialize(),
+                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+                }).
                 success(function (responseData, status, headers, config) {
                     $scope.isFormSubmitted = true;
                     $scope.result = responseData;
-                    if (responseData.HasError)
+                    if (responseData.HasError == 'True')
                     {
-                        //$scope.showError = true;
-                        //$scope.error = responseData.Error;
+                        $scope.showErrorMessage = true;
+                        $scope.showSuccessMessage = false;
+                        $scope.error = responseData.Error;
                     }
                     else
                     {
-                        //$scope.showError = false;
+                        $scope.showErrorMessage =false;
+                        $scope.showSuccessMessage = true;
                         if ("$iv-redirecturl" != ""){
                             $window.location = "$iv-redirecturl";
                         }
                     }
                 }).
                 error(function (responseData, status, headers, config) {
+                    $scope.showErrorMessage =true;
+                    $scope.showSuccessMessage = false;
                     $scope.isFormSubmitted = true;
                     $scope.result = responseData;
                     $scope.error = responseData.Error;

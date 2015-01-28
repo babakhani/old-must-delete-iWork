@@ -1,6 +1,16 @@
-﻿<control>
+﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="">
     <div class="form-group">
         <label for="$iv-name" class="control-label">$iv-label</label>
-        <input type="text" class="form-control" name="$iv-name" id="$iv-name" placeholder="$iv-label" ng-model="$iv-model.$iv-name" />
+        <input type="$iv-input-type"
+               class="form-control"
+               name="$iv-name"
+               id="$iv-name"
+               placeholder="$iv-label"
+               ng-model="$iv-model.$iv-name"
+               ng-required="$iv-required"
+               ng-minlength="$iv-minlength"
+               ng-maxlength="$iv-maxlength"
+               ng-pattern="$iv-pattern"
+               ng-change="$iv-change" />
     </div>
 </control>
