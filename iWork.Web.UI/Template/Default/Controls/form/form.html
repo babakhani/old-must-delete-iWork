@@ -1,5 +1,5 @@
-﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true">
-    <div class="form-container" ng-controller="$iv-controller" onsubmit="return false;">
+﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true" >
+    <div class="form-container" ng-controller="$iv-controller_$iv-action" onsubmit="return false;">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
         <form name="$iv-name" class="form-horizontal" ng-keyup="$event.keyCode == 13 && formsubmit()">
             <iv-content>
@@ -15,23 +15,41 @@
         </form>
     </div>
     <script>
-        function $iv-controller($rootScope,$scope, $location, $window, $http) {
+        function $iv-controller_$iv-action($rootScope,$scope, $element, $location, $window, $http) {
+
+
             $scope.messageEnabled = $iv-show-message;
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
+            $scope.formUpdate = function(entityID){
+                console.log("$scope.formUpdate  " + entityID)
+                $http({
+                    method  : 'GET',
+                    url     : rootControllerUrl + "$iv-controller/GetById",
+                    data: {
+                        ContactId: entityID
+                    },
+                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+                }).
+                success(function (responseData, status, headers, config) {
+                }).
+                error(function (responseData, status, headers, config) {
+                });
+            }
             $scope.formreset = function () {
-                $('form').find("input[type=text], textarea").val("");
+                $element.find('form').find("input[type=text], textarea").val("");
                 $scope.showErrorMessage = false;
                 $scope.showSuccessMessage = false;
             }
             $scope.formsubmit = function () {
-                if($('form .ng-invalid').length > 0){
+                if( $element.find('form .ng-invalid').length > 0){
                     return false;
                 }
+                $element.find('form [type=submit]').button('loading');
                 $http({
                     method  : 'POST',
                     url     : rootControllerUrl + "$iv-controller/$iv-action",
-                    data    : $('form').serialize(),
+                    data    : $element.find('form').serialize(),
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
                 }).
                 success(function (responseData, status, headers, config) {
@@ -42,16 +60,19 @@
                         $scope.showErrorMessage = true;
                         $scope.showSuccessMessage = false;
                         $scope.error = responseData.Error;
+                        
                     }
                     else
                     {
                         $scope.showErrorMessage =false;
                         $scope.showSuccessMessage = true;
-                        $rootScope.$broadcast('$iv-controller', responseData);
+                        $rootScope.$broadcast('$iv-name', responseData);
                         if ("$iv-redirecturl" !== "null"){
                             $window.location = "$iv-redirecturl";
                         }
+                        
                     }
+                    $element.find('form [type=submit]').button('reset');
                 }).
                 error(function (responseData, status, headers, config) {
                     $scope.showErrorMessage =true;
@@ -59,7 +80,8 @@
                     $scope.isFormSubmitted = true;
                     $scope.result = responseData;
                     $scope.error = responseData.Error;
-                });
+                    $element.find('form [type=submit]').button('reset');
+                })
             };
         }
     </script>

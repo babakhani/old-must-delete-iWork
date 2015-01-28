@@ -1,4 +1,4 @@
-﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="">
+﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="" >
     <div class="form-group">
         <div class="search-box" >
             <span class="search-box-icon glyphicon glyphicon-search" aria-hidden="true" ></span>
@@ -13,6 +13,7 @@
                    ng-maxlength="$iv-maxlength"
                    ng-pattern="$iv-pattern"
                    ng-change="$iv-change"
+                   autofocus
                    />
         </div>
         <span class="search-box-message" >{{result.Message}}</span>
