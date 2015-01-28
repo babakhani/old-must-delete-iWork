@@ -1,13 +1,13 @@
-﻿<control iv-redirecturl="null" iv-title="null">
+﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true">
     <div class="form-container" ng-controller="$iv-controller" onsubmit="return false;">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
         <form name="$iv-name" class="form-horizontal" ng-keyup="$event.keyCode == 13 && formsubmit()">
             <iv-content>
             </iv-content>
-            <div class="alert alert-dismissable alert-danger" ng-show="showErrorMessage">
+            <div class="alert alert-dismissable alert-danger" ng-show="showErrorMessage && messageEnabled">
                 {{result.Message}}
             </div>
-            <div class="alert alert-dismissable alert-success" ng-show="showSuccessMessage">
+            <div class="alert alert-dismissable alert-success" ng-show="showSuccessMessage && messageEnabled">
                 {{result.Message}}
             </div>
             <result>
@@ -15,10 +15,10 @@
         </form>
     </div>
     <script>
-        function $iv-controller($scope, $location, $window, $http) {
+        function $iv-controller($rootScope,$scope, $location, $window, $http) {
+            $scope.messageEnabled = $iv-show-message;
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
-
             $scope.formreset = function () {
                 $('form').find("input[type=text], textarea").val("");
                 $scope.showErrorMessage = false;
@@ -47,7 +47,8 @@
                     {
                         $scope.showErrorMessage =false;
                         $scope.showSuccessMessage = true;
-                        if ("$iv-redirecturl" != ""){
+                        $rootScope.$broadcast('$iv-controller', responseData);
+                        if ("$iv-redirecturl" !== "null"){
                             $window.location = "$iv-redirecturl";
                         }
                     }

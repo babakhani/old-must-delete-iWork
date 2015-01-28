@@ -1,0 +1,55 @@
+﻿<layout>
+    <content>
+        <view iv-type="row">
+            <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-action="Search" iv-model="ivContactSearch" iv-show-message="false">
+                <fieldset>
+                    <input iv-type="search" iv-name="term" iv-label="Search contatc" />
+                </fieldset>
+            </form>
+            <view iv-type="column" iv-size="2">
+                <grid iv-type="table" iv-controller="contactGrid2" iv-observe="Contact">
+                   
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Fullname</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in result.Data">
+                                <td>{{ x.ContactId }}</td>
+                                <td>{{ x.Fullname }}</td>
+                            </tr>
+                        </tbody>
+                </grid>
+            </view>
+            <view iv-type="column" iv-size="10">
+                <grid iv-type="table" iv-controller="contactGrid" iv-observe="Contact">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Unit</th>
+                                <th>Home</th>
+                                <th>Mobile</th>
+                                <th>Office</th>
+                                <th>Fax</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in result.Data">
+                                <td>{{ x.Company }}</td>
+                                <td>{{ x.Unit }}</td>
+                                <td>{{ x.Tel1 }}</td>
+                                <td>{{ x.Tel2 }}</td>
+                                <td>{{ x.Tel3 }}</td>
+                                <td>{{ x.Tel4 }}</td>
+                                <td>{{ x.Description }}</td>
+                            </tr>
+                        </tbody>
+                </grid>
+
+            </view>
+        </view>
+    </content>
+</layout>

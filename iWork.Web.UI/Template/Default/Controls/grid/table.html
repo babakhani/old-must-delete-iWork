@@ -1,1 +1,18 @@
-﻿<table></table>
+﻿<control iv-title="null" iv-observe="null" >
+    <div class="form-container" ng-controller="$iv-controller" >
+        <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
+        <table class="table table-striped table-hover ">
+            <iv-content>
+            </iv-content>
+        </table>
+    </div>
+    <script>
+        function $iv-controller($scope, $location, $window, $http) {
+            if($iv-observe !== 'null'){
+                $scope.$on('$iv-observe', function(event, args) {
+                    $scope.result = args;
+                });
+            }
+        }
+    </script>
+</control>
