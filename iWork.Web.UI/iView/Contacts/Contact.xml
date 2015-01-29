@@ -11,15 +11,12 @@
       <property name="Unit" type="string"></property>
       <property name="Description" type="string"></property>
     </model>
-    <model name="ivContactRemove">
-      <property name="ContactId" type="integer"></property>
-    </model>
     <model name="ivContactSearch">
       <property name="term" type="string"></property>
     </model>
   </models>
   <controllers>
-    <controller name="Contact" action="Add" requestmodel="ivContact" responsemodel="ResponseModel">
+    <controller name="Contact" action="Add" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="allowRoles" denyroles="denyRoles" allowusers="allowUsers" denyusers="denyUsers">
     </controller>
     <controller name="Contact" action="Update" requestmodel="ivContact" responsemodel="ResponseModel">
     </controller>

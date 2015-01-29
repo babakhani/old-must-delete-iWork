@@ -8,12 +8,23 @@ Namespace Controllers
 '-----------------------------------------------------------
 	Public Interface IContactController
 		Inherits IController
-				Function Add(requestModel as ivContact) as ResponseModel
-				Function Update(requestModel as ivContact) as ResponseModel
-				Function Remove(requestModel as RequestIdModel) as ResponseModel
-				Function Search(requestModel as ivContactSearch) as ResponseModel
-				Function GetById(requestModel as RequestIdModel) as ResponseModel
-			
+
+		<Authorize(allowRoles:="allowRoles", allowUsers:="allowUsers", denyRoles:="denyRoles", denyUsers:="denyUsers")>
+		Function Add(requestModel as ivContact) as ResponseModel
+
+		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		Function Update(requestModel as ivContact) as ResponseModel
+
+		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		Function Remove(requestModel as RequestIdModel) as ResponseModel
+
+		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		Function Search(requestModel as ivContactSearch) as ResponseModel
+
+		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		Function GetById(requestModel as RequestIdModel) as ResponseModel
+
+	
 	End Interface
 
 '-----------------------------------------------------------
@@ -40,11 +51,6 @@ Namespace Controllers
 				Public Property Company as string
 				Public Property Unit as string
 				Public Property Description as string
-			
-	End Class
-
-	Public Class ivContactRemove
-							Public Property ContactId as integer
 			
 	End Class
 
