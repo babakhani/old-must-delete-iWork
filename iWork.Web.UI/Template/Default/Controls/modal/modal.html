@@ -1,0 +1,21 @@
+﻿<control iv-modal-id="null" iv-form-modal="false">
+    <div id="$iv-modal-id" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <iv-content></iv-content>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#$iv-modal-id').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var recipient = button.data('entity-id')
+            if ('$iv-form-modal' !== 'false' && recipient) {
+                var formController = $(this).find('.modal-body [ng-controller]')
+                angular.element(formController[0]).scope().formUpdate(recipient);
+            }
+        });
+    </script>
+</control>
