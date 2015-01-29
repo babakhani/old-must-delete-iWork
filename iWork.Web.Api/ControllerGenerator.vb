@@ -1,5 +1,6 @@
 ﻿Imports iWork.Core
-Imports iWork.Core.Controllers
+Imports iWork.Core.Web
+Imports iWork.Core.Web.Controllers
 
 Namespace Controllers	
 
@@ -31,7 +32,7 @@ Namespace Controllers
 '------------------ Controllers ----------------------------
 '-----------------------------------------------------------
 	Partial Public Class ContactController
-		Inherits BaseController
+        Inherits BaseController
 
 	End Class
 

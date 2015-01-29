@@ -3,6 +3,7 @@ Imports System.Web.Http
 Imports iWork.Repository
 Imports iWork.Service
 Imports iWork.Core
+Imports iWork.Core.Web
 Imports iWork.Entities
 
 Namespace Controllers

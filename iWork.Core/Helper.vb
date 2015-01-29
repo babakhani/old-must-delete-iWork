@@ -9,15 +9,15 @@
     End Function
 
     Public Shared Function GetService(Of T As IService)() As T
-        Return IoC.GetService(Of T)()
+        Return Application.GetService(Of T)()
     End Function
 
     Public Shared Function GetUOW() As IUnitOfWork
-        Return IoC.GetUnitOfWork(Of IUnitOfWork)()
+        Return Application.GetService(Of IUnitOfWork)()
     End Function
 
     Public Shared Function GetRepository(Of T As Class)() As IGenericRepository(Of T)
-        Return IoC.GetRepository(Of IGenericRepository(Of T))()
+        Return Application.GetService(Of IGenericRepository(Of T))()
     End Function
 
 End Class
