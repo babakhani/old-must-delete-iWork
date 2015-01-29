@@ -124,7 +124,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\IocContainer.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="ControllerGenerator.vb">
       <AutoGen>True</AutoGen>
