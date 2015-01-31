@@ -78,12 +78,10 @@
                     }
                     $(window).trigger('resize');
                     $element.find('form [type=submit]').button('reset');
-
                     if($iv-show-modal !== false){
                         $('#formSuccessModal').modal('show');
                         $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                     }
-
                 }).
                 error(function (responseData, status, headers, config) {
                     $scope.showErrorMessage =true;

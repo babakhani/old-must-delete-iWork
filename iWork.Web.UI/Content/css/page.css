@@ -25,6 +25,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffcccccc,Strength=4);
     width: 100%;
     z-index: 4000;
+
 }
 
     .page-container > div {
@@ -106,8 +107,6 @@ body {
     }
 
 .sub-menu {
-    padding-right: 0px !important;
-    padding-left: 0px !important;
 }
 
     .sub-menu ul {
@@ -177,9 +176,12 @@ body {
 }
 
     .form-horizontal .form-group label {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: lighter;
-        color: #999;
+        color: #333333;
+        text-align:left;
+        padding-right:0px;
+        padding-left:0px;
     }
 
     .form-horizontal .form-group input {
@@ -195,21 +197,21 @@ body {
     }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color: #333333 !important;
+    color: #cccccc !important;
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #333333 !important;
+    color: #cccccc !important;
     opacity: 1;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #333333 !important;
+    color: #cccccc !important;
     opacity: 1;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #333333 !important;
+    color: #cccccc !important;
 }
 /*
 .form-group input.ng-invalid-required{

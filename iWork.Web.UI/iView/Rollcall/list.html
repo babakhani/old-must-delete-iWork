@@ -2,13 +2,20 @@
 
     <sidecontent>
         <ul>
-            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#" >Sub Menu 1</a></li>
-            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#">Sub Menu 2</a></li>
-            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#">Sub Menu 3</a></li>
+            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#" >Today Rollcall</a></li>
+            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#">Office Rollcall State</a></li>
         </ul>
     </sidecontent>
 
     <content>
-        This is rollcall page
+        <form iv-type="form" iv-name="loginForm" iv-controller="Rollcall" iv-action="add" iv-model="ivContact">
+            <fieldset>
+                <input iv-type="text" iv-name="start" iv-label="Start Time" iv-required="true" />
+                <input iv-type="text" iv-name="end" iv-label="End Time" />
+                <input iv-type="text" iv-name="sentence" iv-label="Sentence" iv-input-type="tel" />
+                <input iv-type="text" iv-name="description" iv-label="Description" />
+                <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+            </fieldset>
+        </form>
     </content>
 </layout>
