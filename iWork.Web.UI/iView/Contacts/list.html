@@ -1,81 +1,93 @@
 ﻿<layout>
+    <sidecontent>
+        <ul>
+            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#">Sub Menu 1</a></li>
+            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#">Sub Menu 2</a></li>
+            <li><icon iv-type="svg" iv-icon="scope"></icon><a href="#">Sub Menu 3</a></li>
+        </ul>
+    </sidecontent>
     <content>
         <view iv-type="row">
+            <button iv-type="iconic"
+                    iv-toggle="modal"
+                    iv-icon="address-book"
+                    iv-target="#contactForm"
+                    iv-label="Search Contact"
+                    iv-toggle="modal"
+                    iv-target="#contactForm"
+                    iv-toggle="slik"
+                    iv-target="0"></button>
+            <button iv-type="iconic"
+                    iv-toggle="modal"
+                    iv-icon="add-user"
+                    iv-target="#contactForm"
+                    iv-label="Add Contact"
+                    iv-toggle="modal"
+                    iv-target="#contactForm"
+                    iv-toggle="slik"
+                    iv-target="1"></button>
 
-            <button iv-type="add" iv-toggle="modal" iv-target="#contactForm"> </button>
-
-
-            <modal iv-type="modal" iv-modal-id="contactForm" iv-form-modal="true">
-                <form iv-type="form" iv-name="loginForm" iv-title="Add New Contact" iv-controller="Contact" iv-action="add" iv-model="ivContact">
-                    <fieldset>
-                        <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" />
-                        <input iv-type="text" iv-name="tel1" iv-label="Home" />
-                        <input iv-type="text" iv-name="tel2" iv-label="Mobile" iv-input-type="tel" />
-                        <input iv-type="text" iv-name="tel3" iv-label="Office" />
-                        <input iv-type="text" iv-name="tel4" iv-label="Fax" />
-                        <input iv-type="text" iv-name="company" iv-label="Company" />
-                        <input iv-type="text" iv-name="unit" iv-label="Unit" />
-                        <input iv-type="text" iv-name="description" iv-label="Description" />
-                        <button iv-type="submit" iv-name="submit" iv-label="Submit" />
-                        <button iv-type="cancel" iv-name="cancel" iv-label="Cancel" />
-                    </fieldset>
-                </form>
-            </modal>
-            <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
-                <fieldset>
-                    <input iv-type="search" iv-name="term" iv-label="Search contatc" />
-                </fieldset>
-            </form>
-            <view iv-type="column" iv-size="2">
-                <grid iv-type="table" iv-controller="contactGrid2" iv-observe="searchForm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Fullname</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="x in result.Data">
-                            <td>{{ x.ContactId }}</td>
-                            <td>{{ x.Fullname }}</td>
-                        </tr>
-                    </tbody>
-                </grid>
-            </view>
-            <view iv-type="column" iv-size="10">
-                <grid iv-type="table" iv-controller="contactGrid" iv-observe="searchForm">
-                    <thead>
-                        <tr>
-                            <th>Company</th>
-                            <th>Unit</th>
-                            <th>Home</th>
-                            <th>Mobile</th>
-                            <th>Office</th>
-                            <th>Fax</th>
-                            <th>Description</th>
-                            <th>Update</th>
-                            <th>Del</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="x in result.Data">
-                            <td>{{ x.Company }}</td>
-                            <td>{{ x.Unit }}</td>
-                            <td>{{ x.Tel1 }}</td>
-                            <td>{{ x.Tel2 }}</td>
-                            <td>{{ x.Tel3 }}</td>
-                            <td>{{ x.Tel4 }}</td>
-                            <td>{{ x.Description }}</td>
-                            <td>
-                                <button iv-type="update" iv-model="Contact" iv-entity-id="{{x.ContactId}}" iv-toggle="modal" iv-target="#contactForm"></button>
-                            </td>
-                            <td>
-                                <button iv-type="delete" iv-model="Contact" iv-entity-id="{{x.ContactId}}" iv-confirm="true"> </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </grid>
-            </view>
+            <div class="slik-container">
+                <div>
+                    <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
+                        <fieldset>
+                            <input iv-type="search" iv-name="term" iv-label="Search contatc" />
+                        </fieldset>
+                    </form>
+                    <grid iv-type="table" iv-controller="contactGrid" iv-observe="searchForm">
+                        <thead ng-show="result.Data">
+                            <tr>
+                                <th>#</th>
+                                <th>Fullname</th>
+                                <th>Company</th>
+                                <th>Unit</th>
+                                <th>Home</th>
+                                <th>Mobile</th>
+                                <th>Office</th>
+                                <th>Fax</th>
+                                <th>Description</th>
+                                <th>Update</th>
+                                <th>Del</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in result.Data">
+                                <td>{{ x.ContactId }}</td>
+                                <td>{{ x.Fullname }}</td>
+                                <td>{{ x.Company }}</td>
+                                <td>{{ x.Unit }}</td>
+                                <td>{{ x.Tel1 }}</td>
+                                <td>{{ x.Tel2 }}</td>
+                                <td>{{ x.Tel3 }}</td>
+                                <td>{{ x.Tel4 }}</td>
+                                <td>{{ x.Description }}</td>
+                                <td>
+                                    <button iv-type="update" iv-model="Contact" iv-entity-id="{{x.ContactId}}" iv-toggle="modal" iv-target="#contactForm"></button>
+                                </td>
+                                <td>
+                                    <button iv-type="delete" iv-model="Contact" iv-entity-id="{{x.ContactId}}" iv-confirm="true"> </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </grid>
+                </div>
+                <div>
+                    <form iv-type="form" iv-name="loginForm" iv-controller="Contact" iv-action="add" iv-model="ivContact" >
+                        <fieldset>
+                            <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" />
+                            <input iv-type="text" iv-name="tel1" iv-label="Home" />
+                            <input iv-type="text" iv-name="tel2" iv-label="Mobile" iv-input-type="tel" />
+                            <input iv-type="text" iv-name="tel3" iv-label="Office" />
+                            <input iv-type="text" iv-name="tel4" iv-label="Fax" />
+                            <input iv-type="text" iv-name="company" iv-label="Company" />
+                            <input iv-type="text" iv-name="unit" iv-label="Unit" />
+                            <input iv-type="text" iv-name="description" iv-label="Description" />
+                            <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                            <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </view>
     </content>
 </layout>
