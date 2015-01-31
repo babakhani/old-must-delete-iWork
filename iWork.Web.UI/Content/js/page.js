@@ -1,9 +1,4 @@
-﻿
-
-
-$(document).ready(function () {
-
-
+﻿$(document).ready(function () {
 
     $('#navbar li').each(function () {
         var thisUrl = $(this).find('a').attr("href");
@@ -11,7 +6,6 @@ $(document).ready(function () {
             $(this).addClass('active');
         }
     });
-
 
     // Input Delete Script's
     $(document).on('click', '.remove-entity', function () {
@@ -47,28 +41,28 @@ $(document).ready(function () {
 
 
     // Slick View Script's
-    $('.slik-container').slick({
+    $('.slick-container').slick({
         adaptiveHeight: true,
         accessibility: true,
         arrows: false,
         swipe:false
     }).on('afterChange', function () {
-        $('button[data-toggle]').each(function () {
-            if ($(this).data("target") == $('.slik-container').slick('slickCurrentSlide')) {
+        $('button[data-toggle=slick]').each(function () {
+            if ($(this).data("target") == $('.slick-container').slick('slickCurrentSlide')) {
                 $('[data-toggle]').removeClass('selected')
                 $(this).addClass('selected')
             }
         });
     })
-    $('button[data-toggle]').each(function () {
-        if ($(this).data("target") == $('.slik-container').slick('slickCurrentSlide')) {
+    $('button[data-toggle=slick]').each(function () {
+        if ($(this).data("target") == $('.slick-container').slick('slickCurrentSlide')) {
             $('[data-toggle]').removeClass('selected')
             $(this).addClass('selected')
         }
     });
 
-    $('button[data-toggle]').click(function () {
-        $('.slik-container').slick('slickGoTo', $(this).data("target"));
+    $('button[data-toggle=slick]').click(function () {
+        $('.slick-container').slick('slickGoTo', $(this).data("target"));
         $('[data-toggle]').removeClass('selected')
         $(this).addClass('selected');
     });
