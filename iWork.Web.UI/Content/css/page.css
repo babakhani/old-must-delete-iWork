@@ -1,11 +1,4 @@
-﻿@font-face {
-    font-family: "Open Sans";
-    src: url("../font/OpenSans-Regular.eot?") format("eot"),url("../font/OpenSans-Regular.woff") format("woff"),url("../font/OpenSans-Regular.ttf") format("truetype"),url("../font/OpenSans-Regular.svg#OpenSans") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
-body {
+﻿body {
     font-family: 'Open Sans';
     padding-top: 72px;
     background: #EEEEEE;
@@ -43,25 +36,6 @@ body {
         padding: 0px;
     }
 
-
-    .navbar-fixed-top .bottom-inner-shadow {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 4px;
-        bottom: 0px;
-        right: 0px;
-        left: 0px;
-        overflow: 10000;
-        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.05))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* IE10+ */
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#0d000000',GradientType=0 ); /* IE6-9 */
-    }
-
 .navbar-brand:visited,
 .navbar-brand {
     background-color: #FF5722;
@@ -90,7 +64,6 @@ body {
     transition: all 200ms ease;
 }
 
-
     .navbar-nav li:hover a {
         background: #ffffff !important;
         background-color: rgb(255,255,255);
@@ -105,52 +78,6 @@ body {
         filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=-2,Color=#33000000,Positive=true);
     }
 
-.sub-menu {
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-}
-
-    .sub-menu ul {
-        padding: 0px;
-        margin: 0px;
-    }
-
-    .sub-menu li {
-        list-style: none;
-        width: 100%;
-        height: 32px;
-        line-height: 32px;
-        margin-bottom: 8px;
-    }
-
-        .sub-menu li svg,
-        .sub-menu li a {
-            float: left;
-        }
-
-        .sub-menu li svg {
-            margin: 3px 15px 0px 0px;
-        }
-
-.member-territory {
-    display: block;
-    width: 50px;
-    height: 50px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-    background-color: #ffffff;
-    float: right;
-    margin: 10px;
-    overflow: hidden;
-}
-
-    .member-territory .svg-inject {
-        width: 40px;
-        height: 40px;
-        margin: 5px;
-        fill: #bbbbbb;
-    }
 
 
 /* Form Container
@@ -246,21 +173,6 @@ body {
         color: #999999;
     }
 
-    .search-box button {
-        display: block;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        width: 80px;
-        height: 32px;
-        line-height: 32px;
-        text-align: center;
-        background: #eeeeee;
-        border: none;
-        color: #333333;
-        padding: 0px;
-    }
-
 .search-box-message {
     display: block;
     font-size: 11px;
@@ -276,7 +188,7 @@ body {
     right: 200px;
     left: 200px;
     height: 22px;
-    z-index: 5000000;
+    z-index:5000000;
 }
 
     .ajax-box div.loading {
@@ -285,79 +197,4 @@ body {
         height: 24px;
         margin: 0px auto 0px auto;
         background-image: url("../img/loading.gif");
-    }
-
-
-
-/* Svg icon
-==================================*/
-
-.add-user {
-}
-
-.btn-iconic {
-    background-color: #eeeeee;
-    outline: none;
-}
-
-    .btn-iconic:focus,
-    .btn-iconic:active {
-        outline: none;
-    }
-
-    .btn-iconic span {
-        float: left;
-        height: 28px;
-        line-height: 28px;
-        color: #bbbbbb;
-    }
-
-
-.icon-element {
-    margin: 0px 0px 0px 5px;
-    display: block;
-    text-indent: -9999px;
-    width: 24px;
-    height: 24px;
-    background-size: 24px 24px;
-    background-repeat: no-repeat;
-}
-
-.btn-iconic.selected {
-    color: #2196F3;
-}
-
-    .btn-iconic.selected .svg-inject {
-        fill: #2196F3 !important;
-    }
-
-    .btn-iconic.selected span {
-        color: #2196F3;
-    }
-
-.btn-iconic .svg-inject {
-    fill: #BBBBBB !important;
-    width: 24px;
-    height: 24px;
-    float: left;
-    margin: 0px 0px 0px 5px;
-}
-
-
-.alphabetical-list {
-    padding: 0px;
-    margin: 0px;
-}
-
-    .alphabetical-list li {
-        float: left;
-        list-style: none;
-        width: 3.84%;
-        text-align: center;
-        height: 24px;
-        line-height: 24px;
-    }
-
-    .alphabetical-list li a{
-        color: #bbbbbb;
     }

@@ -1,4 +1,4 @@
-﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true"  iv-show-modal="false" >
+﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true" >
     <div class="form-container" ng-controller="$iv-controller_$iv-action" onsubmit="return false;">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
         <form name="$iv-name" class="form-horizontal" ng-keyup="$event.keyCode == 13 && formsubmit()">
@@ -14,14 +14,10 @@
             </result>
         </form>
     </div>
-    <modal iv-type="modal" iv-modal-id="formSuccessModal">
-        <iv-modalbody>
-            <h3>$iv-controller Add/Update Successfully.</h3>
-            <button iv-type="cancel" iv-label="Done" ></button>
-        </iv-modalbody>
-    </modal>
     <script>
         function $iv-controller_$iv-action($rootScope,$scope, $element, $location, $window, $http) {
+
+
             $scope.messageEnabled = $iv-show-message;
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
@@ -41,7 +37,7 @@
                 });
             }
             $scope.formreset = function () {
-                $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
+                $element.find('form').find("input[type=text], textarea").val("");
                 $scope.showErrorMessage = false;
                 $scope.showSuccessMessage = false;
             }
@@ -76,14 +72,7 @@
                         }
                         
                     }
-                    $(window).trigger('resize');
                     $element.find('form [type=submit]').button('reset');
-
-                    if($iv-show-modal !== false){
-                        $('#formSuccessModal').modal('show');
-                        $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
-                    }
-
                 }).
                 error(function (responseData, status, headers, config) {
                     $scope.showErrorMessage =true;
