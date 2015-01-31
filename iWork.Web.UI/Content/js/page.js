@@ -1,4 +1,18 @@
-﻿$(document).ready(function () {
+﻿
+
+
+$(document).ready(function () {
+
+
+
+    $('#navbar li').each(function () {
+        var thisUrl = $(this).find('a').attr("href");
+        if (window.location.href.indexOf(thisUrl) > 0) {
+            $(this).addClass('active');
+        }
+    });
+
+
     // Input Delete Script's
     $(document).on('click', '.remove-entity', function () {
         var entityID = $(this).attr('data-entity-id');
@@ -9,7 +23,7 @@
         } else {
             var conf = true;
         }
-        
+
         if (conf == true) {
             $.ajax({
                 method: 'POST',
@@ -30,4 +44,38 @@
         }
     });
     // END
+
+
+    // Slick View Script's
+    $('.slik-container').slick({
+        adaptiveHeight: true,
+        accessibility: true,
+        arrows: false,
+        swipe:false
+    }).on('afterChange', function () {
+        $('button[data-toggle]').each(function () {
+            if ($(this).data("target") == $('.slik-container').slick('slickCurrentSlide')) {
+                $('[data-toggle]').removeClass('selected')
+                $(this).addClass('selected')
+            }
+        });
+    })
+    $('button[data-toggle]').each(function () {
+        if ($(this).data("target") == $('.slik-container').slick('slickCurrentSlide')) {
+            $('[data-toggle]').removeClass('selected')
+            $(this).addClass('selected')
+        }
+    });
+
+    $('button[data-toggle]').click(function () {
+        $('.slik-container').slick('slickGoTo', $(this).data("target"));
+        $('[data-toggle]').removeClass('selected')
+        $(this).addClass('selected');
+    });
+    // END
+
+    $('.svg-inject').svgInject();
+    
+
+
 });
