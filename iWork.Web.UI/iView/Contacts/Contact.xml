@@ -16,15 +16,14 @@
     </model>
   </models>
   <controllers>
-    <controller name="Contact" action="Add" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="*" denyroles="?">
-    </controller>
-    <controller name="Contact" action="Update" requestmodel="ivContact" responsemodel="ResponseModel">
-    </controller>
-    <controller name="Contact" action="Remove" requestmodel="RequestIdModel" responsemodel="ResponseModel">
-    </controller>
-    <controller name="Contact" action="Search" requestmodel="ivContactSearch" responsemodel="ResponseModel">
-    </controller>
-    <controller name="Contact" action="GetById" requestmodel="RequestIdModel" responsemodel="ResponseModel">
+    <controller name="Contact">
+      <actions>
+        <action name="Add" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+        <action name="Update" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+        <action name="Remove" requestmodel="RequestIdModel" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+        <action name="Search" requestmodel="ivContactSearch" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+        <action name="GetById" requestmodel="RequestIdModel" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+      </actions>
     </controller>
   </controllers>
 </api>

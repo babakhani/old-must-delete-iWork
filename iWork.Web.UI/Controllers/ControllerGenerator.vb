@@ -13,16 +13,16 @@ Namespace Controllers
 		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
 		Function Add(requestModel as ivContact) as ResponseModel
 
-		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
 		Function Update(requestModel as ivContact) as ResponseModel
 
-		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
 		Function Remove(requestModel as RequestIdModel) as ResponseModel
 
-		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
 		Function Search(requestModel as ivContactSearch) as ResponseModel
 
-		<Authorize(allowRoles:="", allowUsers:="", denyRoles:="", denyUsers:="")>
+		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
 		Function GetById(requestModel as RequestIdModel) as ResponseModel
 
 	

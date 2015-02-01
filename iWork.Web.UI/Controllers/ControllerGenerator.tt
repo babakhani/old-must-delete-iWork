@@ -132,19 +132,26 @@ End Namespace
                 api.Controllers.Add(ctrlName, controller)
             End If
 
-            Dim action As New Action
-            action.Name = GetAttributeValue(controllerNode, "action")
-            action.RequestModel = GetAttributeValue(controllerNode, "requestmodel")
-            action.ResponseModel = GetAttributeValue(controllerNode, "responsemodel")
-            api.Controllers.Item(ctrlName).Actions.Add(action)
-			api.allactions.add(action)
+			For each actionNode As XElement In controllerNode.XPathSelectElements("actions/action").ToList
 
-			Dim authorization As New Authorization
-			authorization.AllowRoles = GetAttributeValue(controllerNode, "allowroles")
-			authorization.DenyRoles = GetAttributeValue(controllerNode, "denyroles")
-			authorization.AllowUsers = GetAttributeValue(controllerNode, "allowusers")
-			authorization.DenyUsers = GetAttributeValue(controllerNode, "denyusers")
-			action.Authorization = authorization
+				Dim action As New Action
+				action.Name = GetAttributeValue(actionNode, "name")
+				action.RequestModel = GetAttributeValue(actionNode, "requestmodel")
+				action.ResponseModel = GetAttributeValue(actionNode, "responsemodel")
+				api.Controllers.Item(ctrlName).Actions.Add(action)
+
+				Dim authorization As New Authorization
+				authorization.AllowRoles = GetAttributeValue(actionNode, "allowroles")
+				authorization.DenyRoles = GetAttributeValue(actionNode, "denyroles")
+				authorization.AllowUsers = GetAttributeValue(actionNode, "allowusers")
+				authorization.DenyUsers = GetAttributeValue(actionNode, "denyusers")
+				action.Authorization = authorization
+				api.AllActions.add(action)
+
+			Next
+            
+
+			
 
         Next
 
