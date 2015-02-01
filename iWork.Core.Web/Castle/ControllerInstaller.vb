@@ -20,7 +20,11 @@ Public Class ControllerInstaller
         'Dim u = Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of IController).ConfigureFor(Of ApiController)(Function(x) x.Forward(proxy).LifestyleScoped)
         'container.Register(u)
 
-        container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of ApiController).LifestyleScoped())
+        container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of ApiController).Configure(Function(x) x.LifestyleScoped())) '.Configure(Function(x) x.Interceptors(Of AuthorizationInterceptor)()))
+        '.Interceptors(Of AuthorizationInterceptor)
+        'container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of ApiController).LifestyleScoped().Configure(Function(c) c.Interceptors(Of AuthorizationInterceptor)()))
+
+
     End Sub
 
 End Class

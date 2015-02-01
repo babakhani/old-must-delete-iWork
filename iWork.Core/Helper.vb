@@ -16,8 +16,12 @@
         Return Application.GetService(Of IUnitOfWork)()
     End Function
 
-    Public Shared Function GetRepository(Of T As Class)() As IGenericRepository(Of T)
+    Public Shared Function GetEntityRepository(Of T As Class)() As IGenericRepository(Of T)
         Return Application.GetService(Of IGenericRepository(Of T))()
+    End Function
+
+    Public Shared Function GetRepository(Of T As IRepository)() As T
+        Return Application.GetService(Of T)()
     End Function
 
 End Class

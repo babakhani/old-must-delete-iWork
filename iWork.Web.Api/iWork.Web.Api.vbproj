@@ -117,7 +117,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ControllerGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\BaseController.vb" />
     <Compile Include="Controllers\ContactController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>

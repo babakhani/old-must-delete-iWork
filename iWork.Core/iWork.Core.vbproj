@@ -97,8 +97,6 @@
     <Compile Include="Repository\IGenericRepository.vb" />
     <Compile Include="Repository\IRepository.vb" />
     <Compile Include="Repository\IUnitOfWork.vb" />
-    <Compile Include="Security\AuthorizationInterceptor.vb" />
-    <Compile Include="Security\AuthorizeAttribute.vb" />
     <Compile Include="Service\IService.vb" />
   </ItemGroup>
   <ItemGroup>

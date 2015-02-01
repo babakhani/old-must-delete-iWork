@@ -23,6 +23,15 @@ Public Class AuthorizationInterceptor
 
     Private Function HasPermission(principal As IPrincipal, authData As AuthorizationData) As Boolean
 
+
+        If (authData.DenyUsers.Contains("?") OrElse authData.DenyRoles.Contains("?")) AndAlso Not principal.Identity.IsAuthenticated Then
+            Return False
+        End If
+
+        If authData.AllowUsers.Contains("*") OrElse authData.AllowRoles.Contains("*") Then
+            Return True
+        End If
+
         For Each deniedUser In authData.DenyUsers
             If principal.Identity.Name = deniedUser Then
                 Return False
@@ -34,14 +43,6 @@ Public Class AuthorizationInterceptor
                 Return False
             End If
         Next
-
-        If authData.DenyUsers.Contains("?") AndAlso Not principal.Identity.IsAuthenticated Then
-            Return False
-        End If
-
-        If authData.AllowUsers.Contains("*") Then
-            Return True
-        End If
 
         For Each allowedUser In authData.AllowUsers
             If principal.Identity.Name = allowedUser Then

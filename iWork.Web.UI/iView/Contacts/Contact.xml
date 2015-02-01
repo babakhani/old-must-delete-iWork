@@ -16,7 +16,7 @@
     </model>
   </models>
   <controllers>
-    <controller name="Contact" action="Add" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="allowRoles" denyroles="denyRoles" allowusers="allowUsers" denyusers="denyUsers">
+    <controller name="Contact" action="Add" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="*" denyroles="?">
     </controller>
     <controller name="Contact" action="Update" requestmodel="ivContact" responsemodel="ResponseModel">
     </controller>

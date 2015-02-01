@@ -1,5 +1,6 @@
 ﻿Imports iWork.Core
 Imports iWork.Entities
+Imports iWork.Repository
 
 Public Class ContactService
     Implements IContactService
@@ -8,7 +9,7 @@ Public Class ContactService
 
         Using uow = Helper.GetUOW
 
-            Dim rep = Helper.GetRepository(Of Contact)()
+            Dim rep = Helper.GetEntityRepository(Of Contact)()
             rep.Add(value)
             uow.Commit()
 
@@ -20,7 +21,7 @@ Public Class ContactService
 
         Using uow = Helper.GetUOW
 
-            Dim rep = Helper.GetRepository(Of Contact)()
+            Dim rep = Helper.GetEntityRepository(Of Contact)()
             rep.Update(value)
             uow.Commit()
 
@@ -32,7 +33,7 @@ Public Class ContactService
 
         Using uow = Helper.GetUOW
 
-            Dim rep = Helper.GetRepository(Of Contact)()
+            Dim rep = Helper.GetEntityRepository(Of Contact)()
             rep.Remove(value)
             uow.Commit()
 
@@ -41,25 +42,12 @@ Public Class ContactService
     End Sub
 
     Public Function Search(term As String) As IEnumerable(Of Contact) Implements IContactService.Search
-
-        Dim rep = Helper.GetRepository(Of Contact)()
-        Dim out = From p In rep.GetAll Where p.Fullname.Contains(term) OrElse
-                  p.Company.Contains(term) OrElse
-                  p.Unit.Contains(term) OrElse
-                  p.Tel1.Contains(term) OrElse
-                  p.Tel2.Contains(term) OrElse
-                  p.Tel3.Contains(term) OrElse
-                  p.Tel4.Contains(term) OrElse
-                  p.Description.Contains(term)
-
-
-        Return out.ToList
-
+        Return Helper.GetRepository(Of IContactRepository).Search(term)
     End Function
 
     Public Function GetById(contactId As Integer) As Contact Implements IContactService.GetById
 
-        Return Helper.GetRepository(Of Contact).GetById(contactId)
+        Return Helper.GetEntityRepository(Of Contact).GetById(contactId)
 
     End Function
 

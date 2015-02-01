@@ -108,6 +108,10 @@
       <Project>{0da92c20-d75c-4736-8e42-6ce6159f6fff}</Project>
       <Name>iWork.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\iWork.Repository\iWork.Repository.vbproj">
+      <Project>{18537e9d-a25b-4d65-b2e1-a3cb1a646289}</Project>
+      <Name>iWork.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
