@@ -1,4 +1,4 @@
-﻿<api>
+﻿<!--<api>
   <models>
     <model name="ivRollcall">
       <property name="RollcallId" type="integer"></property>
@@ -16,4 +16,4 @@
     <controller name="Rollcall" action="Remove" requestmodel="RequestIdModel" responsemodel="ResponseModel">
     </controller>
   </controllers>
-</api>
+</api>-->
