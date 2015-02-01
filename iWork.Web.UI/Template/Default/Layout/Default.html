@@ -5,7 +5,7 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/Content/lib/bootstrap/css/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="/Content/css/page.css" media="screen">
+    <link rel="stylesheet" href="/Content/css/style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/Content/lib/slick/slick.css" />
     <script src="/Content/Scripts/jquery-2.1.1.min.js"></script>
     <script src="/Content/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -13,25 +13,13 @@
     <script type="text/javascript" src="/Content/lib/slick/slick.min.js"></script>
     <script type="text/javascript" src="/Content/lib/jquery.svginject.js"></script>
     <script src="/Content/js/page.js"></script>
-    <script>
-        var rootControllerUrl = '/api/';
-    </script>
 </head>
 <body>
-
-    <div id="ajaxBox" class="ajax-box">
-        <div class="loading"></div>
-        <span class="message" style="display: none;"></span>
-        <span class="error-message" style="display: none;"></span>
-    </div>
-
     <nav class="navbar navbar-default navbar-fixed-top">
-
-
-        <div class="navbar-header col-md-2  col-xs-9">
+        <div class="navbar-header col-md-1 col-xs-9">
             <a class="navbar-brand" href="#">iWork</a>
         </div>
-        <div id="navbar" class="col-md-9 hidden-xs">
+        <div id="navbar" class="col-md-10 hidden-xs">
             <ul class="nav navbar-nav">
                 <li><a href="/iView/Contacts/Contactsadd.html">Add Contact</a></li>
                 <li><a href="/iView/Contacts/Contactslist.html">Conatct List</a></li>
@@ -46,14 +34,13 @@
                 <img class="svg-inject" src="/Content/img/user.svg" />
             </div>
         </div>
-
         <div class="bottom-inner-shadow"></div>
     </nav>
     <div class="container page-container">
-        <div class="col-xs-2 sub-menu hidden-xs">
+        <div class="col-md-1 sub-menu hidden-xs">
             <sidecontent></sidecontent>
         </div>
-        <div class="col-md-10 main-content">
+        <div class="col-md-11 main-content">
             <content></content>
         </div>
     </div>

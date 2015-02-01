@@ -1,7 +1,7 @@
 ﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true"  iv-show-modal="false" >
     <div class="form-container" ng-controller="$iv-controller_$iv-action" onsubmit="return false;">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
-        <form name="$iv-name" class="form-horizontal" ng-keyup="$event.keyCode == 13 && formsubmit()">
+        <form name="$iv-name" class="form-horizontal">
             <iv-content>
             </iv-content>
             <div class="alert alert-dismissable alert-danger" ng-show="showErrorMessage && messageEnabled">
@@ -46,6 +46,9 @@
                 $scope.showSuccessMessage = false;
             }
             $scope.formsubmit = function () {
+
+                console.log('form submit called')
+
                 if( $element.find('form .ng-invalid').length > 0){
                     return false;
                 }

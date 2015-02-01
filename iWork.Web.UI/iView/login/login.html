@@ -1,0 +1,28 @@
+﻿<layout iv-source="login.html">
+    <content>
+        <view iv-type="row">
+            <view iv-type="column" iv-size="6">
+                <view iv-type="spacer" iv-height="100px"></view>
+                <h1>iWork</h1>
+                <p>
+                    <h3>
+                        Ut odio! Est facilisis penatibus integer magna etiam elit sit? Rhoncustor? , elementum velit, purus, et? Lorem, odio porta enim, integer sit. Adipiscing purus tortor, amet. Et nunc! Urna .
+                    </h3>
+                </p>
+            </view>
+            <view iv-type="column" iv-size="6">
+                <view iv-type="spacer" iv-height="100px" ></view>
+                <panel iv-type="image" iv-image="login-header.png" iv-width="385" >
+                    <form iv-type="form" iv-redirecturl="/iView/Contacts/Contactslist.html" iv-name="loginForm" iv-title="" iv-controller="Contact" iv-action="add" iv-model="ivContact">
+                        <fieldset>
+                            <input iv-type="text" iv-name="fullname" iv-label="UserName" iv-required="true" />
+                            <input iv-type="text" iv-name="tel1" iv-label="Password" />
+                            <checkbox iv-type="checkbox" iv-label="Remember Me"></checkbox>
+                            <button iv-type="submit" iv-name="submit" iv-label="Login" />
+                        </fieldset>
+                    </form>
+                </panel>
+            </view>
+        </view>
+    </content>
+</layout>

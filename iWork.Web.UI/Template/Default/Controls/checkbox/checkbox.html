@@ -1,8 +1,7 @@
 ﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="">
     <div class="form-group">
-        <label for="$iv-name" class="control-label col-md-2 col-sm-3">$iv-label</label>
-        <div class="col-md-10 col-sm-9">
-            <input type="$iv-input-type"
+        <label for="$iv-name" class="control-label">
+            <input type="checkbox"
                    class="form-control"
                    name="$iv-name"
                    id="$iv-name"
@@ -13,6 +12,9 @@
                    ng-maxlength="$iv-maxlength"
                    ng-pattern="$iv-pattern"
                    ng-change="$iv-change" />
-        </div>
+            <span>
+                $iv-label
+            </span>
+        </label>
     </div>
 </control>

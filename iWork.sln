@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iWork.Web.UI", "iWork.Web.UI\iWork.Web.UI.vbproj", "{A55C8430-7F72-454D-8752-55F1DAEF45CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C26DA8A2-E22E-4C06-AB8F-490CEA7A0044} = {C26DA8A2-E22E-4C06-AB8F-490CEA7A0044}
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iWork.Web.Api", "iWork.Web.Api\iWork.Web.Api.vbproj", "{C26DA8A2-E22E-4C06-AB8F-490CEA7A0044}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iWork.Repository", "iWork.Repository\iWork.Repository.vbproj", "{18537E9D-A25B-4D65-B2E1-A3CB1A646289}"
 EndProject
@@ -25,6 +30,10 @@ Global
 		{A55C8430-7F72-454D-8752-55F1DAEF45CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A55C8430-7F72-454D-8752-55F1DAEF45CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A55C8430-7F72-454D-8752-55F1DAEF45CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C26DA8A2-E22E-4C06-AB8F-490CEA7A0044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26DA8A2-E22E-4C06-AB8F-490CEA7A0044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26DA8A2-E22E-4C06-AB8F-490CEA7A0044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26DA8A2-E22E-4C06-AB8F-490CEA7A0044}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18537E9D-A25B-4D65-B2E1-A3CB1A646289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18537E9D-A25B-4D65-B2E1-A3CB1A646289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18537E9D-A25B-4D65-B2E1-A3CB1A646289}.Release|Any CPU.ActiveCfg = Release|Any CPU

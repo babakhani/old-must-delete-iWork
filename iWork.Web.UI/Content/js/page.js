@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿var rootControllerUrl = '/api/';
+
+$(document).ready(function () {
 
     $('#navbar li').each(function () {
         var thisUrl = $(this).find('a').attr("href");
