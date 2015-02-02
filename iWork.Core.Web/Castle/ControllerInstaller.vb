@@ -1,5 +1,4 @@
 ﻿Imports Castle.MicroKernel.Registration
-Imports System.Web.Http
 Imports Castle.Windsor
 Imports Castle.MicroKernel.SubSystems.Configuration
 Imports System.Reflection
@@ -17,10 +16,16 @@ Public Class ControllerInstaller
         'Dim intefacesImplemented As Type() = {GetType(IController)}
         'Dim proxy As Type = proxyBuilder.CreateClassProxyType(baseType, intefacesImplemented, ProxyGenerationOptions.Default)
         'container.Register(Component.For(Of IController).Forward(proxy).LifestyleScoped)
+
+        'container.Register(Component.For(Of ApiController).LifestyleScoped.Interceptors(Of AuthorizationInterceptor))
         'Dim u = Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of IController).ConfigureFor(Of ApiController)(Function(x) x.Forward(proxy).LifestyleScoped)
         'container.Register(u)
+        'container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of System.Web.Http.ApiController).Configure(Function(x) x.LifestyleScoped.Interceptors(Of AuthorizationInterceptor)()))
+        'container.Register(Component.For(Of ApiController, IController).LifestyleScoped)
+        'container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of ApiController).Configure(Function(x) x.LifestyleScoped()))
+        'container.Register(Component.For(Of IController).Interceptors(Of AuthorizationInterceptor))
+        'container.Register(Component.For(Of ApiController, IController).LifestyleScoped)
 
-        container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of ApiController).Configure(Function(x) x.LifestyleScoped())) '.Configure(Function(x) x.Interceptors(Of AuthorizationInterceptor)()))
         '.Interceptors(Of AuthorizationInterceptor)
         'container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of ApiController).LifestyleScoped().Configure(Function(c) c.Interceptors(Of AuthorizationInterceptor)()))
 

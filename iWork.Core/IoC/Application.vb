@@ -12,7 +12,7 @@ Public Class Application
 
     Public Sub Install()
 
-        _container = New WindsorContainer("Castle.config")
+        _container = New WindsorContainer("config/Castle.config")
 
         _container.Install(New Installer(Of IRepository))
         _container.Install(New Installer(Of IUnitOfWork))

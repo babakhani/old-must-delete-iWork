@@ -19,7 +19,7 @@ Public Class IoCHttpModule
 
                 If isFirstTime Then
 
-                    Dim container As New WindsorContainer("Castle.config")
+                    Dim container As New WindsorContainer("config/Castle.config")
                     GlobalConfiguration.Configuration.DependencyResolver = New CastleDependencyResolver(container)
                     container.Install(New ControllerInstaller)
 
