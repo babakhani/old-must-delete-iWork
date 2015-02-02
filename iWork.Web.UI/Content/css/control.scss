@@ -1,0 +1,51 @@
+﻿@import '_helper.scss';
+
+.dropzone {
+    padding: 0px;
+    width: 100%;
+    float: left;
+    min-height: 160px;
+    overflow: visible !important;
+    @include border-radius(5px);
+    border: 2px dashed #eeeeee;
+    background-color: #f9f9f9;
+}
+
+.dropzone .dz-preview:hover .dz-image img {
+-webkit-transform: scale(1.05, 1.05);
+    -moz-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+    -o-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+}
+
+.dz-default {
+    font-size: 20px;
+    color: #999999;
+}
+.dz-preview {
+    display: block;
+    float: left;
+
+    @include box-shadow(0px, 0px, 3px, 1px, rgba(204,204,204,0.65));
+    
+}
+.dropzone .dz-preview .dz-image {
+    @include border-radius(5px);
+    border-radius: 0 !important;
+}
+
+.dz-error-message {
+    z-index: 10000;
+}
+
+
+.slick-slide {
+    width: 100%;
+    float: left;
+    height: auto;
+    min-height: 600px;
+    overflow: hidden;
+}
