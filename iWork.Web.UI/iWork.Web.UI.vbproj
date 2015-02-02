@@ -157,6 +157,18 @@
     <Content Include="Content\css\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\style.rtl.css">
+      <DependentUpon>style.rtl.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.rtl.min.css">
+      <DependentUpon>style.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme.css">
+      <DependentUpon>theme.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme.min.css">
+      <DependentUpon>theme.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\_helper.css">
       <DependentUpon>_helper.scss</DependentUpon>
     </Content>
@@ -986,6 +998,14 @@
     <Content Include="Content\css\style.scss" />
     <Content Include="Content\css\style.css.map">
       <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme.scss" />
+    <Content Include="Content\css\theme.css.map">
+      <DependentUpon>theme.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.rtl.scss" />
+    <Content Include="Content\css\style.rtl.css.map">
+      <DependentUpon>style.rtl.css</DependentUpon>
     </Content>
     <None Include="Content\Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.js" />

@@ -49,9 +49,9 @@ $(document).ready(function () {
         adaptiveHeight: true,
         accessibility: true,
         arrows: false,
-        //fade: true,
-        edgeFriction:1,
-        swipe:false
+        edgeFriction: 10,
+        infinite:false,
+        swipe: false
     }).on('afterChange', function () {
         $('button[data-toggle=slick]').each(function () {
             if ($(this).data("target") == $('.slick-container').slick('slickCurrentSlide')) {

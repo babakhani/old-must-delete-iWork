@@ -1,8 +1,9 @@
 ﻿.dropzone {
   float: left;
   min-height: 160px;
-  overflow: visible !important;
   padding: 0px;
+  overflow: visible !important;
+  width: 100%;
   margin: 10px 0px;
   background-color: #f9f9f9;
   border: 2px dashed #eeeeee;
@@ -40,9 +41,6 @@
 
 .dz-error-message {
   z-index: 10000; }
-
-.slick-container {
-  direction: ltr; }
 
 .slick-slide {
   width: 100%;
