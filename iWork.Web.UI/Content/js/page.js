@@ -43,6 +43,33 @@ $(document).ready(function () {
     });
     // END
 
+    // Input Delete Script's
+    $(document).on('click', '.update-entity', function () {
+        var entityID = $(this).attr('data-entity-id');
+        var entityModel = $(this).attr('data-model');
+        var formName = $(this).attr('data-target-form');
+        var slickIndex = $('form[name=' + formName + ']').parents('.slick-slide').data('slick-index');
+        $('.slick-container').slick('slickGoTo', slickIndex);
+        $.ajax({
+            method: 'POST',
+            url: rootControllerUrl + entityModel + "/GetById",
+            data: {
+                ContactId: entityID
+            },
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).
+           success(function (responseData, status, headers, config) {
+               console.log("success Ajax get by id")
+               console.log(responseData)
+           }).
+           error(function (responseData, status, headers, config) {
+               console.log("error Ajax get by id")
+               console.log(responseData)
+           });
+    });
+    // END
+
+
 
     // Slick View Script's
     $('.slick-container').slick({
@@ -50,7 +77,7 @@ $(document).ready(function () {
         accessibility: true,
         arrows: false,
         edgeFriction: 10,
-        infinite:false,
+        infinite: false,
         swipe: false
     }).on('afterChange', function () {
         $('button[data-toggle=slick]').each(function () {

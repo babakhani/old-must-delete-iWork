@@ -10,7 +10,7 @@
 body {
     font-family: 'Open Sans';
     padding-top: 72px;
-    background: #EEEEEE;
+    background: #F4F3F0;
     
 }
 
@@ -36,7 +36,7 @@ body {
 }
 
 .page-container {
-    background-color: #ffffff;
+    
     min-height: 700px;
     width: 100%;
     z-index: 4000;
@@ -47,6 +47,7 @@ body {
     padding: 10px;
     margin: 0px;
     min-height: 700px;
+    background-color: #ffffff;
 }
 
 .navbar-fixed-top {
@@ -117,7 +118,7 @@ body {
 }
 
 .sub-menu {
-    background-color: #F4F3F0;
+    background: none !important;
     padding: 0px 5px 0px 0px !important;
 
     button {

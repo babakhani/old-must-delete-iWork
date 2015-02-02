@@ -7,7 +7,7 @@
 body {
   font-family: 'Open Sans';
   padding-top: 72px;
-  background: #EEEEEE; }
+  background: #F4F3F0; }
 
 .panel-image {
   -webkit-border-radius: 5px;
@@ -31,7 +31,6 @@ body {
   background: none !important; }
 
 .page-container {
-  background-color: #ffffff;
   min-height: 700px;
   width: 100%;
   z-index: 4000;
@@ -40,7 +39,8 @@ body {
 .page-container > div {
   padding: 10px;
   margin: 0px;
-  min-height: 700px; }
+  min-height: 700px;
+  background-color: #ffffff; }
 
 .navbar-fixed-top {
   display: block;
@@ -108,7 +108,7 @@ body {
   box-shadow: 0px -2px 3px 1px rgba(0, 0, 0, 0.2); }
 
 .sub-menu {
-  background-color: #F4F3F0;
+  background: none !important;
   padding: 0px 5px 0px 0px !important; }
   .sub-menu button {
     width: 100%;
