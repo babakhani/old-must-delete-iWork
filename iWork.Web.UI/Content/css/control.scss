@@ -5,14 +5,14 @@
     min-height: 160px;
     overflow: visible !important;
     padding: 0px;
-    margin:10px 0px;
+    margin: 10px 0px;
     background-color: #f9f9f9;
     border: 2px dashed #eeeeee;
     @include border-radius(5px);
 }
 
 .dropzone .dz-preview:hover .dz-image img {
--webkit-transform: scale(1.05, 1.05);
+    -webkit-transform: scale(1.05, 1.05);
     -moz-transform: scale(1.05, 1.05);
     -ms-transform: scale(1.05, 1.05);
     -o-transform: scale(1.05, 1.05);
@@ -25,13 +25,14 @@
     font-size: 20px;
     color: #999999;
 }
+
 .dz-preview {
     display: block;
     float: left;
 
     @include box-shadow(0px, 0px, 3px, 1px, rgba(204,204,204,0.65));
-    
 }
+
 .dropzone .dz-preview .dz-image {
     @include border-radius(5px);
     border-radius: 0 !important;
@@ -41,6 +42,9 @@
     z-index: 10000;
 }
 
+.slick-container {
+    direction: ltr;
+}
 
 .slick-slide {
     width: 100%;
@@ -48,46 +52,65 @@
     height: auto;
     min-height: 600px;
     overflow: hidden;
-    padding:0px;
-    margin:0px;
+    padding: 0px;
+    margin: 0px;
 }
 /* Search Box
 ----------------------------------------------------------------*/
 .search-box {
-    display: block;
-    width:100%;
+    border:1px solid #eeeeee;
+    @include border-radius(5px);
+    .button-box{
+        padding:0px;
+        border:none;
+        background:none;
+    }
+    .input-group-addon{
+        border:none;
+    }
+    input{
+        border:none !important;
+    }
+    button{
+         @include border-radius(0px);
+    }
+    /*display: block;
+    width: 100%;
     overflow: visible;
-    padding:0px !important;
-    margin:0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
     position: relative;
     border-bottom: 1px solid #eeeeee;
-     .form-group{
-         display:block;
-         float:left;
-         width:100%;
-         padding:0px !important;
-         margin:0px !important;
-         width:100% !important;
-     }
+    height:32px;
+    float:right;*/
 }
 
-.search-box input {
+/*.search-box input {
     border: none !important;
     float: left;
     font-size: 20px;
-    margin-left: 28px;
     color: #333333;
-    width:100%;
+    width: 100%;
+    position:absolute;
+    margin:0px;
+    left:28px;
+    height:27px;
 }
 
-.search-box div.search-box-icon {
-    display:block;
+.search-box input:focus,
+.search-box input{
+    outline:none;
+}
+
+.search-box span.search-box-icon {
+    display: block;
     position: absolute;
-    top: 5px;
-    width:24px;
-    left:0px;
-    font-size: 24px;
+    top: 2px;
+    width: 22px;
+    left: 0px;
+    font-size: 22px;
     color: #999999;
+
 }
 
 .search-box button {
@@ -105,10 +128,13 @@
     padding: 0px;
     @include border-radius(3px);
 }
-
-.search-box button.disabled{
-     background: #eeeeee;
+    .search-box button.disabled {
+    background: #eeeeee;
 }
+
+*/
+
+
 
 .search-box-message {
     display: block;
@@ -117,3 +143,135 @@
     margin-top: 3px;
 }
 
+
+
+
+/* Form Container
+======================================================================*/
+.form-container {
+    display: block;
+    width: 100% !important;
+}
+
+.form-container fieldset {
+    margin-bottom: 8px;
+}
+
+.form-container h3 {
+    display: block;
+    font-size: 28px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.form-horizontal .form-group {
+    padding: 0px;
+    margin: 10px 0px !important;
+}
+
+.form-horizontal .form-group label {
+    font-size: 14px;
+    font-weight: lighter;
+    color: #333333;
+    text-align:left;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.form-horizontal .form-group input {
+    border: none;
+    border-bottom: 1px solid #eeeeee;
+    @include border-radius(0px);
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #333333 !important;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #cccccc !important;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #cccccc !important;
+    opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #cccccc !important;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #cccccc !important;
+}
+
+.ajax-box {
+    position: absolute;
+    top: 0px;
+    right: 200px;
+    left: 200px;
+    height: 22px;
+    z-index: 5000000;
+}
+
+.ajax-box div.loading {
+    display: none;
+    width: 220px;
+    height: 24px;
+    margin: 0px auto 0px auto;
+    background-image: url("../img/loading.gif");
+}
+
+
+
+/* Iconic button
+==================================*/
+
+.btn-iconic {
+    background-color: #eeeeee;
+    outline: none;
+}
+
+.btn-iconic:focus,
+.btn-iconic:active {
+    outline: none;
+}
+
+.btn-iconic span {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    color: #bbbbbb;
+}
+
+
+.icon-element {
+    margin: 0px 0px 0px 5px;
+    display: block;
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+}
+
+.btn-iconic.selected {
+    color: #2196F3;
+}
+
+.btn-iconic.selected .svg-inject {
+    fill: #2196F3 !important;
+}
+
+.btn-iconic.selected span {
+    color: #2196F3;
+}
+
+.btn-iconic .svg-inject {
+    fill: #BBBBBB !important;
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin: 0px 0px 0px 5px;
+}
