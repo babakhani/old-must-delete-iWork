@@ -1,4 +1,5 @@
 ﻿Imports System.Web.Http
+Imports Castle.Core.Logging
 
 Namespace Controllers
 

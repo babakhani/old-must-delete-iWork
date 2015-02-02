@@ -32,7 +32,7 @@ Namespace Controllers
 '------------------ Controllers ----------------------------
 '-----------------------------------------------------------
 	Partial Public Class ContactController
-		Inherits BaseController
+        Inherits BaseController
 
 	End Class
 

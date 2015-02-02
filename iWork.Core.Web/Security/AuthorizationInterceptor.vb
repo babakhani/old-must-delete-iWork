@@ -7,15 +7,15 @@ Public Class AuthorizationInterceptor
 
     Public Sub Intercept(invocation As IInvocation) Implements IInterceptor.Intercept
 
-        Dim methodKey As String = invocation.Method.DeclaringType.Name & "." & invocation.Method.Name
+        Dim methodKey As String = invocation.TargetType.Name & "." & invocation.Method.Name
 
-        If Not Attribute.IsDefined(invocation.Method, GetType(AuthorizeAttribute)) Then
-            Throw New UnauthorizedAccessException("There has not been set any permission to method: " & methodKey)
-        End If
+        'If Not Attribute.IsDefined(invocation.Method, GetType(AuthorizeAttribute)) Then
+        '    Throw New UnauthorizedAccessException("There has not been set any permission to method: " & methodKey)
+        'End If
 
-        If Not Me.HasPermission(Thread.CurrentPrincipal, GetAuthorizationData(invocation)) Then
-            Throw New UnauthorizedAccessException("Unauthorized request to: " & methodKey)
-        End If
+        'If Not Me.HasPermission(Thread.CurrentPrincipal, GetAuthorizationData(invocation)) Then
+        '    Throw New UnauthorizedAccessException("Unauthorized request to: " & methodKey)
+        'End If
 
         invocation.Proceed()
 
