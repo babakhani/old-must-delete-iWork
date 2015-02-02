@@ -145,11 +145,23 @@
     <Content Include="Assemblies\iView.ViewEngine.dll" />
     <Content Include="Assemblies\iView.ViewEngine.pdb" />
     <Content Include="Assemblies\iView.ViewEngine.xml" />
-    <Content Include="Content\css\page.css" />
+    <Content Include="Content\css\_helper.css">
+      <DependentUpon>_helper.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\_helper.min.css">
+      <DependentUpon>_helper.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\login.css">
+      <DependentUpon>login.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\login.min.css">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
     <Content Include="Content\font\OpenSans-Regular.svg" />
     <Content Include="Content\img\add-user.svg" />
     <Content Include="Content\img\address-book.svg" />
     <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\login-header.png" />
     <Content Include="Content\img\old-phone.svg" />
     <Content Include="Content\img\scope.svg" />
     <Content Include="Content\img\user.svg" />
@@ -165,6 +177,9 @@
     <Content Include="Content\lib\slick\ajax-loader.gif" />
     <Content Include="Content\lib\slick\fonts\slick.svg" />
     <Content Include="Content\lib\slick\slick-theme.css" />
+    <Content Include="Content\lib\slick\slick-theme.min.css">
+      <DependentUpon>slick-theme.css</DependentUpon>
+    </Content>
     <Content Include="Content\lib\slick\slick.css" />
     <Content Include="Content\lib\slick\slick.js" />
     <Content Include="Content\lib\slick\slick.min.js" />
@@ -930,6 +945,12 @@
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
+    <Content Include="Content\css\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="Controllers\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.vb</LastGenOutput>
@@ -937,6 +958,17 @@
     <Content Include="Config\Castle.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\css\login.scss" />
+    <Content Include="Content\css\login.css.map">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\_helper.scss" />
+    <Content Include="Content\css\_helper.css.map">
+      <DependentUpon>_helper.css</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\slick\slick-theme.css.map">
+      <DependentUpon>slick-theme.css</DependentUpon>
     </Content>
     <None Include="Content\Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.js" />
@@ -949,6 +981,7 @@
     <Content Include="iView\Contacts\ContactsAdd.html" />
     <Content Include="iView\Contacts\ContactsList.html" />
     <Content Include="iView\include\contactForm.html" />
+    <Content Include="iView\login\login.html" />
     <Content Include="iView\Rollcall\list.html" />
     <Content Include="iView\Rollcall\Rollcall.xml" />
     <Content Include="Manifest.xml" />
@@ -958,6 +991,7 @@
     <Content Include="Template\Default\Controls\button\update.html" />
     <Content Include="Template\Default\Controls\button\delete.html" />
     <Content Include="Template\Default\Controls\button\submit.html" />
+    <Content Include="Template\Default\Controls\checkbox\checkbox.html" />
     <Content Include="Template\Default\Controls\column\td.html" />
     <Content Include="Template\Default\Controls\form\form.html" />
     <Content Include="Template\Default\Controls\grid\table.html" />
@@ -970,13 +1004,16 @@
     <Content Include="Template\Default\Controls\label\h3.html" />
     <Content Include="Template\Default\Controls\label\h4.html" />
     <Content Include="Template\Default\Controls\modal\modal.html" />
+    <Content Include="Template\Default\Controls\panel\image.html" />
     <Content Include="Template\Default\Controls\panel\panel.html" />
     <Content Include="Template\Default\Controls\row\tr.html" />
     <Content Include="Template\Default\Controls\select\select.html" />
     <Content Include="Template\Default\Controls\view\column.html" />
     <Content Include="Template\Default\Controls\view\row.html" />
     <Content Include="Template\Default\Controls\view\slik.html" />
+    <Content Include="Template\Default\Controls\view\spacer.html" />
     <Content Include="Template\Default\Layout\Default.html" />
+    <Content Include="Template\Default\Layout\login.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1022,9 +1059,6 @@
     <Content Include="Content\Scripts\errors.json" />
     <Content Include="Content\Scripts\jquery-2.1.1.min.map" />
     <Content Include="Content\Scripts\version.json" />
-    <Content Include="Config\Logging.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -1063,9 +1097,6 @@
       <Project>{3e1aadcb-2faa-4a90-ade7-ea1f1a9c74c1}</Project>
       <Name>iWork.Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Log\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
