@@ -1,5 +1,5 @@
 ﻿var rootControllerUrl = '/api/';
-
+var iDropzone;
 $(document).ready(function () {
 
     $('#navbar li').each(function () {
@@ -72,6 +72,9 @@ $(document).ready(function () {
 
     $('.svg-inject').svgInject();
     
+
+
+    iDropzone = $("#dropzoneUploader").dropzone();
 
 
 });

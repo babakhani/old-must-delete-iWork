@@ -1,0 +1,48 @@
+﻿.dropzone {
+  padding: 0px;
+  width: 100%;
+  float: left;
+  min-height: 160px;
+  overflow: visible !important;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  border: 2px dashed #eeeeee;
+  background-color: #f9f9f9; }
+
+.dropzone .dz-preview:hover .dz-image img {
+  -webkit-transform: scale(1.05, 1.05);
+  -moz-transform: scale(1.05, 1.05);
+  -ms-transform: scale(1.05, 1.05);
+  -o-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+  -webkit-filter: blur(1px);
+  filter: blur(1px); }
+
+.dz-default {
+  font-size: 20px;
+  color: #999999; }
+
+.dropzone .dz-preview .dz-image {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  border-radius: 0px !important; }
+
+.dz-preview {
+  display: block;
+  float: left; }
+
+.dz-error-message {
+  z-index: 10000; }
+
+.slick-slide {
+  width: 100%;
+  float: left;
+  height: auto;
+  min-height: 600px;
+  overflow: hidden; }
+
+/*# sourceMappingURL=control.css.map */
