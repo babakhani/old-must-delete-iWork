@@ -248,10 +248,12 @@ body {
 .search-box {
     display: block;
     float: left;
-    width: 100%;
     border-bottom: 1px solid #eeeeee;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    width:98%;
+    padding:0px !important;
+    margin:0px !important;
 }
 
 .search-box input {
@@ -263,12 +265,15 @@ body {
 }
 
 .search-box span.search-box-icon {
+    display:block;
     float: left;
     position: absolute;
     top: 5px;
-    left: 4px;
+    width:24px;
+    left:0px;
     font-size: 24px;
     color: #999999;
+    
 }
 
 .search-box button {

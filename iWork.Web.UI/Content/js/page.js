@@ -71,10 +71,5 @@ $(document).ready(function () {
     // END
 
     $('.svg-inject').svgInject();
-    
-
-
-    iDropzone = $("#dropzoneUploader").dropzone();
-
-
+  
 });
