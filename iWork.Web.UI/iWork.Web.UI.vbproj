@@ -151,6 +151,12 @@
     <Content Include="Content\css\control.min.css">
       <DependentUpon>control.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\_helper.css">
       <DependentUpon>_helper.scss</DependentUpon>
     </Content>
@@ -954,12 +960,6 @@
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
-    <Content Include="Content\css\style.css">
-      <DependentUpon>style.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\css\style.min.css">
-      <DependentUpon>style.css</DependentUpon>
-    </Content>
     <Content Include="Controllers\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.vb</LastGenOutput>
@@ -982,6 +982,10 @@
     <Content Include="Content\css\control.scss" />
     <Content Include="Content\css\control.css.map">
       <DependentUpon>control.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.scss" />
+    <Content Include="Content\css\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
     </Content>
     <None Include="Content\Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.js" />

@@ -9,22 +9,16 @@
                 iv-target="#contactForm"
                 iv-toggle="slick"
                 iv-target="0"></button>
-        <button iv-type="iconic"
-                iv-toggle="modal"
-                iv-icon="add-user"
-                iv-target="#contactForm"
-                iv-label="Wait"
-                iv-target="#contactForm"
-                iv-toggle="slick"
-                iv-target="1"></button>
     </sidecontent>
     <content>
         <div class="slick-container">
             <div>
-                <uploader iv-type="dropzone" iv-label="File Uplaoder" ></uploader>
-            </div>
-            <div>
-
+                <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
+                    <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" />
+                    <input iv-type="text" iv-name="tel1" iv-label="Home" />
+                    <uploader iv-type="dropzone" iv-label="File Uplaoder"></uploader>
+                    <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                </form>
             </div>
         </div>
     </content>

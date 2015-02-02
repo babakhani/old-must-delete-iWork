@@ -1,14 +1,14 @@
 ﻿@import '_helper.scss';
 
 .dropzone {
-    padding: 0px;
-    width: 100%;
     float: left;
     min-height: 160px;
     overflow: visible !important;
-    @include border-radius(5px);
-    border: 2px dashed #eeeeee;
+    padding: 0px;
+    margin:10px 0px;
     background-color: #f9f9f9;
+    border: 2px dashed #eeeeee;
+    @include border-radius(5px);
 }
 
 .dropzone .dz-preview:hover .dz-image img {
@@ -48,4 +48,72 @@
     height: auto;
     min-height: 600px;
     overflow: hidden;
+    padding:0px;
+    margin:0px;
 }
+/* Search Box
+----------------------------------------------------------------*/
+.search-box {
+    display: block;
+    width:100%;
+    overflow: visible;
+    padding:0px !important;
+    margin:0px !important;
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+     .form-group{
+         display:block;
+         float:left;
+         width:100%;
+         padding:0px !important;
+         margin:0px !important;
+         width:100% !important;
+     }
+}
+
+.search-box input {
+    border: none !important;
+    float: left;
+    font-size: 20px;
+    margin-left: 28px;
+    color: #333333;
+    width:100%;
+}
+
+.search-box div.search-box-icon {
+    display:block;
+    position: absolute;
+    top: 5px;
+    width:24px;
+    left:0px;
+    font-size: 24px;
+    color: #999999;
+}
+
+.search-box button {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 80px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: #eeeeee;
+    border: none;
+    color: #333333;
+    padding: 0px;
+    @include border-radius(3px);
+}
+
+.search-box button.disabled{
+     background: #eeeeee;
+}
+
+.search-box-message {
+    display: block;
+    font-size: 11px;
+    color: #999999;
+    margin-top: 3px;
+}
+

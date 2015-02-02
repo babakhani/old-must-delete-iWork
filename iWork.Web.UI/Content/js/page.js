@@ -1,5 +1,7 @@
 ﻿var rootControllerUrl = '/api/';
 var iDropzone;
+Dropzone.autoDiscover = false;
+
 $(document).ready(function () {
 
     $('#navbar li').each(function () {
@@ -47,6 +49,8 @@ $(document).ready(function () {
         adaptiveHeight: true,
         accessibility: true,
         arrows: false,
+        //fade: true,
+        edgeFriction:1,
         swipe:false
     }).on('afterChange', function () {
         $('button[data-toggle=slick]').each(function () {
@@ -71,5 +75,8 @@ $(document).ready(function () {
     // END
 
     $('.svg-inject').svgInject();
-  
+
+    $(window).resize(function () {
+        $('.slick-list').height('auto');
+    });
 });

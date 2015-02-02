@@ -26,7 +26,6 @@
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
             $scope.formUpdate = function(entityID){
-                console.log("$scope.formUpdate  " + entityID)
                 $http({
                     method  : 'GET',
                     url     : rootControllerUrl + "$iv-controller/GetById",
@@ -46,9 +45,6 @@
                 $scope.showSuccessMessage = false;
             }
             $scope.formsubmit = function () {
-
-                console.log('form submit called')
-
                 if( $element.find('form .ng-invalid').length > 0){
                     return false;
                 }
@@ -67,7 +63,6 @@
                         $scope.showErrorMessage = true;
                         $scope.showSuccessMessage = false;
                         $scope.error = responseData.Error;
-                        
                     }
                     else
                     {
@@ -77,14 +72,15 @@
                         if ("$iv-redirecturl" !== "null"){
                             $window.location = "$iv-redirecturl";
                         }
-                        
                     }
-                    $(window).trigger('resize');
                     $element.find('form [type=submit]').button('reset');
                     if($iv-show-modal !== false){
                         $('#formSuccessModal').modal('show');
                         $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                     }
+                    setTimeout(function(){ 
+                        $(window).trigger('resize'); 
+                    }, 600);
                 }).
                 error(function (responseData, status, headers, config) {
                     $scope.showErrorMessage =true;
