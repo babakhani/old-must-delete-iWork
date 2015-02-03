@@ -10,7 +10,6 @@
         function $iv-controller($scope, $location, $window, $http) {
             if('$iv-observe' !== 'false' && '$iv-action' == 'false'){
                 $scope.$on('$iv-observe', function(event, args) {
-                    console.log(args)
                     $scope.result = args;
                 });
             }else{
@@ -23,12 +22,9 @@
                         headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
                     }).
                     success(function (responseData, status, headers, config) {
-                        console.log('grid load success')
-                        console.log(responseData)
                         $scope.result = responseData;
                     }).
                     error(function (responseData, status, headers, config) {
-                        console.log('grid load error')
                     })
                 }();
             }

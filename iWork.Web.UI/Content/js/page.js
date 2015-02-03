@@ -2,8 +2,9 @@
 var iDropzone;
 Dropzone.autoDiscover = false;
 
-$(document).ready(function () {
+angular.module('iwork', ['datatables']);
 
+$(document).ready(function () {
     $('#navbar li').each(function () {
         var thisUrl = $(this).find('a').attr("href");
         if (window.location.href.indexOf(thisUrl) > 0) {
