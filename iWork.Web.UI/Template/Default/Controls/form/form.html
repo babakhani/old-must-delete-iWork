@@ -1,4 +1,4 @@
-﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true"  iv-show-modal="false" >
+﻿<control iv-redirecturl="null" iv-title="null" iv-show-message="true" iv-show-modal="false">
     <div class="form-container" ng-controller="$iv-controller_$iv-action" onsubmit="return false;">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
         <form name="$iv-name" class="form-horizontal">
@@ -17,7 +17,7 @@
     <modal iv-type="modal" iv-modal-id="formSuccessModal">
         <iv-modalbody>
             <h3>$iv-controller Add/Update Successfully.</h3>
-            <button iv-type="cancel" iv-label="Done" ></button>
+            <button iv-type="cancel" iv-label="Done"></button>
         </iv-modalbody>
     </modal>
     <script>
@@ -25,30 +25,45 @@
             $scope.messageEnabled = $iv-show-message;
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
+            /* Update Form
+            ---------------------------------------*/
             $scope.formUpdate = function(entityID){
-                $http({
-                    method  : 'GET',
-                    url     : rootControllerUrl + "$iv-controller/GetById",
-                    data: {
-                        ContactId: entityID
-                    },
-                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-                }).
-                success(function (responseData, status, headers, config) {
-                }).
-                error(function (responseData, status, headers, config) {
+                var slickIndex = $element.find('form').parents('.slick-slide').data('slick-index');
+                $('.slick-container').slick('slickGoTo', slickIndex);
+
+                /*  Sample Data for update form */
+                var sampleData = {
+                    Company: "qqqqqqqqqqqqq",
+                    ContactId: 16,
+                    Description: "qqqqqqqqqq",
+                    Fullname: "qqqqd",
+                    Gender: 0,
+                    Tel1: "qqqqqqqqqqqq",
+                    Tel2: "qqqqqqqqqqqq",
+                    Tel3: "qqqqqqqqqqqq",
+                    Tel4: "qqqqqqqqqqq",
+                    Unit: "qqqqqqqqqqqqqq"
+                }
+                $.each(sampleData,function(key,val){
+                    console.log(key.toLowerCase())
+                    $element.find('form').find('[name='+key.toLowerCase()+']').val(val);
                 });
             }
+            /* Reset Form
+          ---------------------------------------*/
             $scope.formreset = function () {
                 $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                 $scope.showErrorMessage = false;
                 $scope.showSuccessMessage = false;
             }
+            /* Submit Form
+          ---------------------------------------*/
             $scope.formsubmit = function () {
-                if( $element.find('form .ng-invalid').length > 0){
-                    return false;
-                }
+                //if( $element.find('form .ng-invalid').length > 0){
+                //    return false;
+                //}
                 $element.find('form [type=submit]').button('loading');
+                console.log($element.find('form').serialize())
                 $http({
                     method  : 'POST',
                     url     : rootControllerUrl + "$iv-controller/$iv-action",
@@ -79,8 +94,8 @@
                         $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                     }
 
-                    setTimeout(function(){ 
-                        $(window).trigger('resize'); 
+                    setTimeout(function(){
+                        $(window).trigger('resize');
                     }, 600);
                 }).
                 error(function (responseData, status, headers, config) {

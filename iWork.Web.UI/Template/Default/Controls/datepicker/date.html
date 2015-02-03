@@ -1,0 +1,28 @@
+﻿<control iv-name="" iv-label="" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="">
+    <div class="form-group">
+        <label for="$iv-name" class="control-label col-md-2 col-sm-3">$iv-label</label>
+        <div class=" col-md-10 col-sm-9">
+            <div class='input-group date' id='datetimepicker2'>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                <input type='text'
+                       placeholder="$iv-label"
+                       name="$iv-name"
+                       class="form-control"
+                       ng-model="$iv-model.$iv-name"
+                       ng-required="$iv-required"
+                       ng-minlength="$iv-minlength"
+                       ng-maxlength="$iv-maxlength"
+                       ng-pattern="$iv-pattern"
+                       ng-change="$iv-change" />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+            });
+        });
+    </script>
+</control>

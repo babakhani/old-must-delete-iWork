@@ -1,4 +1,4 @@
-﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="" iv-button-text="Search" >
+﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="" iv-button-text="Search" $iv-autofocus="" >
     <div class="form-group">
 
         <div class="input-group search-box">
@@ -14,7 +14,8 @@
                    ng-maxlength="$iv-maxlength"
                    ng-pattern="$iv-pattern"
                    ng-change="$iv-change"
-                   autofocus />
+                   
+                   $iv-autofocus />
             <div class="input-group-addon button-box">
                 <button iv-type="submit" iv-name="submit" iv-label="$iv-button-text" />
             </div>

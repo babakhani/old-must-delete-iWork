@@ -1,25 +1,33 @@
 ﻿<layout>
     <sidecontent>
         <button iv-type="iconic"
-                iv-toggle="modal"
-                iv-icon="upload"
-                iv-target="#contactForm"
-                iv-label="File Uploader"
-                iv-toggle="modal"
-                iv-target="#contactForm"
+                iv-icon="grid"
+                iv-label="Grid Datatables"
                 iv-toggle="slick"
                 iv-target="0"></button>
+        <button iv-type="iconic"
+                iv-icon="upload"
+                iv-label="File Uploader"
+                iv-toggle="slick"
+                iv-target="1"></button>
+      
     </sidecontent>
     <content>
         <div class="slick-container">
             <div>
+                <grid iv-type="datatables" iv-controller="sampleGrid"></grid>
+            </div>
+            <div>
                 <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
                     <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" />
                     <input iv-type="text" iv-name="tel1" iv-label="Home" />
+                    <datepicker iv-type="time" iv-label="Timepicker" ></datepicker>
+                    <datepicker iv-type="date" iv-label="Datepicker"></datepicker>
                     <uploader iv-type="dropzone" iv-label="File Uplaoder"></uploader>
                     <button iv-type="submit" iv-name="submit" iv-label="Submit" />
                 </form>
             </div>
+            
         </div>
     </content>
 </layout>

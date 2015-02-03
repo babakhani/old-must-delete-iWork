@@ -1,6 +1,16 @@
 ﻿@import '_helper.scss';
 
+/* Over bootstrap
+====================================================*/
 
+.input-group-addon{
+    border:none;
+    background:none;
+}
+
+
+/* File uploader
+====================================================*/
 .dropzone {
     float: left;
     min-height: 160px;

@@ -1,5 +1,5 @@
-﻿<control iv-title="null" iv-observe="null" >
-    <div class="grid-container" ng-controller="$iv-controller" >
+﻿<control iv-title="null" iv-observe="false" iv-url="false" iv-action="false">
+    <div class="grid-container" ng-controller="$iv-controller">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
         <table class="table table-striped table-hover ">
             <iv-content>
@@ -8,10 +8,29 @@
     </div>
     <script>
         function $iv-controller($scope, $location, $window, $http) {
-            if($iv-observe !== 'null'){
+            if('$iv-observe' !== 'false' && '$iv-action' == 'false'){
                 $scope.$on('$iv-observe', function(event, args) {
+                    console.log(args)
                     $scope.result = args;
                 });
+            }else{
+                $scope.gridUpdate = function(){
+                    $http({
+                        method  : 'POST',
+                        url     : rootControllerUrl + "$iv-controller/$iv-action",
+                        // TODO Rreza: remove this line
+                        data    : 'term=a',
+                        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+                    }).
+                    success(function (responseData, status, headers, config) {
+                        console.log('grid load success')
+                        console.log(responseData)
+                        $scope.result = responseData;
+                    }).
+                    error(function (responseData, status, headers, config) {
+                        console.log('grid load error')
+                    })
+                }();
             }
         }
     </script>
