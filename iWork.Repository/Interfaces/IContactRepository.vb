@@ -1,7 +1,8 @@
 ﻿Imports iWork.Entities
+Imports iWork.Core.Repository
 
 Public Interface IContactRepository
-    Inherits iWork.Core.IGenericRepository(Of Contact)
+    Inherits IGenericRepository(Of Contact)
 
     Function Search(term As String) As IEnumerable(Of Contact)
 

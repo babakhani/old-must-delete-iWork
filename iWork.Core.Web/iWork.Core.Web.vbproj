@@ -86,13 +86,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IoC\Application.vb" />
+    <Compile Include="IoC\Installer\ApplicationInstaller.vb" />
+    <Compile Include="IoC\Installer\RepositoryInstaller.vb" />
+    <Compile Include="IoC\Installer\ServiceInstaller.vb" />
+    <Compile Include="IoC\Installer\UnitOfWorkInstaller.vb" />
     <Compile Include="Controller\BaseController.vb" />
     <Compile Include="Controller\IController.vb" />
     <Compile Include="Controller\RequestIdModel.vb" />
     <Compile Include="Controller\RequestModel.vb" />
     <Compile Include="Controller\RequestResponseModel.vb" />
     <Compile Include="Controller\ResponseModel.vb" />
-    <Compile Include="IoC\IoCHttpModule.vb" />
+    <Compile Include="IoC\HttpModule\IoCHttpModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -108,9 +113,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Castle\CastleDependencyResolver.vb" />
-    <Compile Include="Castle\CastleDependencyScope.vb" />
-    <Compile Include="Castle\ControllerInstaller.vb" />
+    <Compile Include="IoC\DependencyResolver.vb" />
+    <Compile Include="IoC\DependencyScope.vb" />
+    <Compile Include="IoC\Installer\ControllerInstaller.vb" />
     <Compile Include="Security\AuthorizationInterceptor.vb" />
     <Compile Include="Security\AuthorizeAttribute.vb" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 ﻿Imports System.Data.Entity
 Imports System.Data.Entity.Infrastructure
 Imports iWork.Core
+Imports iWork.Core.Repository
 
 Namespace EF
 

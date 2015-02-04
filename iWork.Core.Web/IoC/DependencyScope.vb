@@ -2,8 +2,9 @@
 Imports Castle.MicroKernel.Lifestyle.LifestyleExtensions
 Imports Castle.Windsor
 
-Public Class CastleDependencyScope
+Public Class DependencyScope
     Implements IDependencyScope
+    Implements IScope
 
     Private _container As IWindsorContainer
     Private _scope As IDisposable
@@ -52,5 +53,9 @@ Public Class CastleDependencyScope
         Dispose(True)
         GC.SuppressFinalize(Me)
     End Sub
+
+    Public Function GetScopeService(Of T)() As T Implements IScope.GetScopeService
+        Return Container.Resolve(GetType(T))
+    End Function
 
 End Class

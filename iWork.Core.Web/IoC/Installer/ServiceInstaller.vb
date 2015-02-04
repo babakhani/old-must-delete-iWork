@@ -2,11 +2,14 @@
 Imports Castle.Windsor
 Imports Castle.MicroKernel.SubSystems.Configuration
 Imports System.Reflection
+Imports iWork.Core.Service
 
-Public MustInherit Class BaseInstaller
+Public Class ServiceInstaller
     Implements IWindsorInstaller
 
-    Public MustOverride Sub Install(container As IWindsorContainer, store As IConfigurationStore) Implements IWindsorInstaller.Install
+    Public Sub Install(container As IWindsorContainer, store As IConfigurationStore) Implements IWindsorInstaller.Install
+        container.Register(Classes.FromAssemblyInDirectory(AssemblyFilter).BasedOn(Of IService).WithService.FromInterface.LifestylePerWebRequest)
+    End Sub
 
     Public ReadOnly Property AssemblyDirectory() As String
         Get
@@ -24,4 +27,3 @@ Public MustInherit Class BaseInstaller
     End Property
 
 End Class
-

@@ -1,7 +1,7 @@
 ﻿Imports System.Web.Http.Dependencies
 Imports Castle.Windsor
 
-Public Class CastleDependencyResolver
+Public Class DependencyResolver
     Implements IDependencyResolver
 
     Private _container As IWindsorContainer
@@ -52,7 +52,7 @@ Public Class CastleDependencyResolver
     End Sub
 
     Public Function BeginScope() As IDependencyScope Implements IDependencyResolver.BeginScope
-        Return New CastleDependencyScope(_container)
+        Return New DependencyScope(_container)
     End Function
 
 End Class

@@ -1,4 +1,4 @@
-﻿Imports iWork.Core
+﻿Imports iWork.Core.Service
 Imports iWork.Entities
 
 Public Interface IContactService
