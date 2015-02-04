@@ -1,0 +1,97 @@
+﻿<control iv-controller="gridController"
+         iv-title="Grid Title"
+         iv-url="false"
+         iv-serverside="false"
+         iv-pagination-type="full_numbers"
+         iv-display-length="1"
+         iv-ordering="true">
+    <div ng-controller="$iv-controller">
+        <h3>$iv-title</h3>
+        <table id="$iv-controller" class="table row-border hover">
+            <iv-content></iv-content>
+        </table>
+    </div>
+    <script>
+        function $iv-controller($rootScope,$scope, $element, $location, $window, $http)  {
+            $scope.initDatatable = function(){
+                var dtOptions = {
+                    serverSide: $iv-serverside,
+                    paginationType: '$iv-pagination-type',
+                    displayLength: $iv-display-length,
+                    ordering: $iv-ordering,
+                    drawCallback: function( settings ) {
+                        $(window).trigger('resize');
+                    },
+                    rowCallback: function( row, data ) {
+                        var columnDef = $iv-controller_aoColumns;
+                        var $row = $(row);
+                        $.each(columnDef,function(index,config){
+                            if(config.type == 'btn.edite'){
+                                var column = $($row.find('td')[index])
+                                column.empty();
+                                column.append($('<span class="update-entity glyphicon glyphicon-pencil" data-entity-id="1" data-model="Contact" data-target-form="contactForm"></span>'));
+                            }else if(config.type == 'btn.delete'){
+                                var column = $($row.find('td')[index])
+                                column.empty();
+                                column.append($('<span class="remove-entity glyphicon glyphicon-trash" data-entity-id="5" data-model="Contact" data-confirm="true"></span>'));
+                            }
+                        });
+                    },
+                    preDrawCallback: function( settings ) {
+                        $iv-controller_aoColumns = settings.aoColumns;
+                    },
+                    columns:[
+
+                    ]
+                }
+                $element.find('th').each(function () {
+                    var $this = $(this);
+                    var colDef = {
+                        data: $this.data('data'),
+                        aTargets: $this.data('atargets'),
+                        title: $this.data('title'),
+                        cellType: $this.data('cell-type'),
+                        className: $this.data('class-name'),
+                        contentPadding: $this.data('content-padding'),
+                        createdCell: $this.data('created-cell'),
+                        defaultContent: $this.data('default-content'),
+                        name: $this.data('name'),
+                        orderable: $this.data('orderable'),
+                        //orderData: $this.data('atargets'),
+                        //orderDataType: $this.data('order-data-type'),
+                        render: $this.data('render'),
+                        searchable: $this.data('searchable'),
+                        type: $this.data('kind'),
+                        visible: $this.data('visible'),
+                        width: $this.data('width'),
+                        bSortable: false
+                    }
+                    dtOptions.columns.push(colDef);
+                    $this.remove();
+                });
+
+
+                if('$iv-observe' !== 'false' && '$iv-url' == 'false'){
+                    $scope.$on('$iv-observe', function(event, args) {
+                        $scope.reload(args)
+                    });
+                }else{
+                    dtOptions.ajax = {
+                        url : '$iv-url'
+                    }
+
+                }
+                $scope.oTable = $element.find('table').dataTable(dtOptions);
+                //window.ofh = new FixedHeader( dt, {
+                //    "offsetTop": 70
+                //});
+            }
+            $scope.initDatatable();
+            $scope.reload = function(newData){
+                oTable.fnClearTable();
+                oTable.fnAddData(newData)
+            }
+        }
+    </script>
+
+</control>

@@ -128,6 +128,36 @@
     <Content Include="Assemblies\iView.ViewEngine.dll" />
     <Content Include="Assemblies\iView.ViewEngine.pdb" />
     <Content Include="Assemblies\iView.ViewEngine.xml" />
+    <Content Include="Content\css\control.css">
+      <DependentUpon>control.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\control.min.css">
+      <DependentUpon>control.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\datatabels.css">
+      <DependentUpon>datatabels.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\datatabels.min.css">
+      <DependentUpon>datatabels.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.rtl.css">
+      <DependentUpon>style.rtl.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.rtl.min.css">
+      <DependentUpon>style.rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme.css">
+      <DependentUpon>theme.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme.min.css">
+      <DependentUpon>theme.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\_helper.css">
       <DependentUpon>_helper.scss</DependentUpon>
     </Content>
@@ -143,12 +173,38 @@
     <Content Include="Content\font\OpenSans-Regular.svg" />
     <Content Include="Content\img\add-user.svg" />
     <Content Include="Content\img\address-book.svg" />
+    <Content Include="Content\img\area-graph.svg" />
+    <Content Include="Content\img\grid.svg" />
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\img\login-header.png" />
+    <Content Include="Content\img\office.svg" />
     <Content Include="Content\img\old-phone.svg" />
     <Content Include="Content\img\scope.svg" />
+    <Content Include="Content\img\upload.svg" />
     <Content Include="Content\img\user.svg" />
+    <Content Include="Content\img\watch.svg" />
     <Content Include="Content\js\page.js" />
+    <Content Include="Content\lib\angular-datatables.js" />
+    <Content Include="Content\lib\angular-datatables\angular-datatables.js" />
+    <Content Include="Content\lib\angular-datatables\angular-datatables.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\bootstrap\angular-datatables.bootstrap.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\bootstrap\angular-datatables.bootstrap.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\bootstrap\datatables.bootstrap.css" />
+    <Content Include="Content\lib\angular-datatables\plugins\bootstrap\datatables.bootstrap.min.css" />
+    <Content Include="Content\lib\angular-datatables\plugins\colreorder\angular-datatables.colreorder.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\colreorder\angular-datatables.colreorder.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\columnfilter\angular-datatables.columnfilter.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\columnfilter\angular-datatables.columnfilter.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\colvis\angular-datatables.colvis.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\colvis\angular-datatables.colvis.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\fixedcolumns\angular-datatables.fixedcolumns.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\fixedcolumns\angular-datatables.fixedcolumns.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\fixedheader\angular-datatables.fixedheader.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\fixedheader\angular-datatables.fixedheader.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\scroller\angular-datatables.scroller.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\scroller\angular-datatables.scroller.min.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\tabletools\angular-datatables.tabletools.js" />
+    <Content Include="Content\lib\angular-datatables\plugins\tabletools\angular-datatables.tabletools.min.js" />
     <Content Include="Content\lib\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\lib\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\lib\bootstrap\css\bootstrap.css" />
@@ -156,7 +212,31 @@
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\lib\bootstrap\js\bootstrap.js" />
     <Content Include="Content\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\lib\datatables\css\jquery.dataTables.css" />
+    <Content Include="Content\lib\datatables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\lib\datatables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\lib\datatables\images\back_disabled.png" />
+    <Content Include="Content\lib\datatables\images\back_enabled.png" />
+    <Content Include="Content\lib\datatables\images\back_enabled_hover.png" />
+    <Content Include="Content\lib\datatables\images\favicon.ico" />
+    <Content Include="Content\lib\datatables\images\forward_disabled.png" />
+    <Content Include="Content\lib\datatables\images\forward_enabled.png" />
+    <Content Include="Content\lib\datatables\images\forward_enabled_hover.png" />
+    <Content Include="Content\lib\datatables\images\sort_asc.png" />
+    <Content Include="Content\lib\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Content\lib\datatables\images\sort_both.png" />
+    <Content Include="Content\lib\datatables\images\sort_desc.png" />
+    <Content Include="Content\lib\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Content\lib\datatables\js\jquery.dataTables.js" />
+    <Content Include="Content\lib\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="Content\lib\datatables\js\jquery.js" />
+    <Content Include="Content\lib\datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\lib\datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\lib\datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\lib\dropzone.css" />
+    <Content Include="Content\lib\dropzone.js" />
     <Content Include="Content\lib\jquery.svginject.js" />
+    <Content Include="Content\lib\moment.js" />
     <Content Include="Content\lib\slick\ajax-loader.gif" />
     <Content Include="Content\lib\slick\fonts\slick.svg" />
     <Content Include="Content\lib\slick\slick-theme.css" />
@@ -166,6 +246,47 @@
     <Content Include="Content\lib\slick\slick.css" />
     <Content Include="Content\lib\slick\slick.js" />
     <Content Include="Content\lib\slick\slick.min.js" />
+    <Content Include="Content\lib\datatables\js\jquery.dataTables.min.js.map">
+      <DependentUpon>jquery.dataTables.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\angular-datatables.min.js.map">
+      <DependentUpon>angular-datatables.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\bootstrap\angular-datatables.bootstrap.min.js.map">
+      <DependentUpon>angular-datatables.bootstrap.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\colreorder\angular-datatables.colreorder.min.js.map">
+      <DependentUpon>angular-datatables.colreorder.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\columnfilter\angular-datatables.columnfilter.min.js.map">
+      <DependentUpon>angular-datatables.columnfilter.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\fixedcolumns\angular-datatables.fixedcolumns.min.js.map">
+      <DependentUpon>angular-datatables.fixedcolumns.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\scroller\angular-datatables.scroller.min.js.map">
+      <DependentUpon>angular-datatables.scroller.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\tabletools\angular-datatables.tabletools.min.js.map">
+      <DependentUpon>angular-datatables.tabletools.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\bootstrap\js\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\colvis\angular-datatables.colvis.min.js.map">
+      <DependentUpon>angular-datatables.colvis.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\slick\slick.min.js.map">
+      <DependentUpon>slick.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\angular-datatables\plugins\fixedheader\angular-datatables.fixedheader.min.js.map">
+      <DependentUpon>angular-datatables.fixedheader.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\css\datatabels.scss" />
+    <Content Include="Content\css\datatabels.css.map">
+      <DependentUpon>datatabels.css</DependentUpon>
+    </Content>
+    <None Include="Content\sample_data\grid.json" />
     <Content Include="Content\Scripts\angular.min.js" />
     <Content Include="Content\Scripts\bootstrap.js" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
@@ -928,12 +1049,6 @@
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
-    <Content Include="Content\css\style.css">
-      <DependentUpon>style.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\css\style.min.css">
-      <DependentUpon>style.css</DependentUpon>
-    </Content>
     <Content Include="Controllers\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.vb</LastGenOutput>
@@ -953,11 +1068,6 @@
     <Content Include="Content\lib\slick\slick-theme.css.map">
       <DependentUpon>slick-theme.css</DependentUpon>
     </Content>
-    <Content Include="Config\Logging.config" />
-    <Content Include="Config\Castle.config">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Content\Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.js" />
     <Content Include="Content\Scripts\jquery-2.1.1.min.js" />
@@ -969,6 +1079,7 @@
     <Content Include="iView\Contacts\ContactsAdd.html" />
     <Content Include="iView\Contacts\ContactsList.html" />
     <Content Include="iView\include\contactForm.html" />
+    <Content Include="iView\kitchensink\kitchensink.html" />
     <Content Include="iView\login\login.html" />
     <Content Include="iView\Rollcall\list.html" />
     <Content Include="iView\Rollcall\Rollcall.xml" />
@@ -981,7 +1092,12 @@
     <Content Include="Template\Default\Controls\button\submit.html" />
     <Content Include="Template\Default\Controls\checkbox\checkbox.html" />
     <Content Include="Template\Default\Controls\column\td.html" />
+    <Content Include="Template\Default\Controls\datepicker\date.html" />
+    <Content Include="Template\Default\Controls\datepicker\time.html" />
     <Content Include="Template\Default\Controls\form\form.html" />
+    <Content Include="Template\Default\Controls\grid\column.html" />
+    <Content Include="Template\Default\Controls\grid\datatables.html" />
+    <Content Include="Template\Default\Controls\grid\header.html" />
     <Content Include="Template\Default\Controls\grid\table.html" />
     <Content Include="Template\Default\Controls\icon\svg.html" />
     <Content Include="Template\Default\Controls\input\password.html" />
@@ -996,6 +1112,7 @@
     <Content Include="Template\Default\Controls\panel\panel.html" />
     <Content Include="Template\Default\Controls\row\tr.html" />
     <Content Include="Template\Default\Controls\select\select.html" />
+    <Content Include="Template\Default\Controls\uploader\dropzone.html" />
     <Content Include="Template\Default\Controls\view\column.html" />
     <Content Include="Template\Default\Controls\view\row.html" />
     <Content Include="Template\Default\Controls\view\slik.html" />
@@ -1047,6 +1164,9 @@
     <Content Include="Content\Scripts\errors.json" />
     <Content Include="Content\Scripts\jquery-2.1.1.min.map" />
     <Content Include="Content\Scripts\version.json" />
+    <Content Include="Content\Scripts\jquery-2.1.1.min.js.map">
+      <DependentUpon>jquery-2.1.1.min.js</DependentUpon>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

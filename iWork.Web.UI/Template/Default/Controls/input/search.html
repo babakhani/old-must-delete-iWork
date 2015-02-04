@@ -1,9 +1,31 @@
-﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="" >
+﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="" iv-button-text="Search" $iv-autofocus="" >
     <div class="form-group">
-        <div class="search-box" >
+
+        <div class="input-group search-box">
+            <div class="input-group-addon"><span class="search-box-icon glyphicon glyphicon-search" aria-hidden="true"></span></div>
+            <input class="form-control"
+                   type="$iv-input-type"
+                   name="$iv-name"
+                   id="$iv-name"
+                   placeholder="$iv-label"
+                   ng-model="$iv-model.$iv-name"
+                   ng-required="$iv-required"
+                   ng-minlength="$iv-minlength"
+                   ng-maxlength="$iv-maxlength"
+                   ng-pattern="$iv-pattern"
+                   ng-change="$iv-change"
+                   
+                   $iv-autofocus />
+            <div class="input-group-addon button-box">
+                <button iv-type="submit" iv-name="submit" iv-label="$iv-button-text" />
+            </div>
+        </div>
+
+
+        <!--<div class="search-box" >
             <span class="search-box-icon glyphicon glyphicon-search" aria-hidden="true" ></span>
-            <input type="$iv-input-type"
-                   class="form-control"
+            <input
+            type="$iv-input-type"
                    name="$iv-name"
                    id="$iv-name"
                    placeholder="$iv-label"
@@ -16,7 +38,7 @@
                    autofocus
                    />
             <button iv-type="submit" iv-name="submit" iv-label="Go" />
-        </div>
-        <span class="search-box-message" >{{result.Message}}</span>
+        </div>-->
+        <span class="search-box-message">{{result.Message}}</span>
     </div>
 </control>

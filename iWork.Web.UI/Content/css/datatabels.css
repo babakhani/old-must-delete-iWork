@@ -1,0 +1,11 @@
+﻿.dataTables_wrapper label {
+  font-weight: normal;
+  color: #333; }
+.dataTables_wrapper .dataTables_filter input {
+  border: 1px solid #999999; }
+.dataTables_wrapper table tr td {
+  border: 2px solid #333333 !important; }
+.dataTables_wrapper table tr.odd td {
+  background: #f8f8f8; }
+
+/*# sourceMappingURL=datatabels.css.map */

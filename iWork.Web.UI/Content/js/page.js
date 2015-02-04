@@ -1,7 +1,14 @@
 ﻿var rootControllerUrl = '/api/';
 var iDropzone;
-$(document).ready(function () {
+Dropzone.autoDiscover = false;
 
+angular.module('iwork', ['datatables']);
+
+var log = function (x) {
+    console.log(x);
+}
+
+$(document).ready(function () {
     $('#navbar li').each(function () {
         var thisUrl = $(this).find('a').attr("href");
         if (window.location.href.indexOf(thisUrl) > 0) {
@@ -41,13 +48,23 @@ $(document).ready(function () {
     });
     // END
 
+    // Input Delete Script's
+    $(document).on('click', '.update-entity', function () {
+        var entityID = $(this).attr('data-entity-id');
+        var formName = $(this).attr('data-target-form');
+        var controllerElement = $('form[name=' + formName + ']').parents('[ng-controller]')
+        controllerElement.scope().formUpdate(entityID);
+    });
+    // END
 
     // Slick View Script's
     $('.slick-container').slick({
         adaptiveHeight: true,
         accessibility: true,
         arrows: false,
-        swipe:false
+        edgeFriction: 10,
+        infinite: false,
+        swipe: false
     }).on('afterChange', function () {
         $('button[data-toggle=slick]').each(function () {
             if ($(this).data("target") == $('.slick-container').slick('slickCurrentSlide')) {
@@ -71,10 +88,8 @@ $(document).ready(function () {
     // END
 
     $('.svg-inject').svgInject();
-    
 
-
-    iDropzone = $("#dropzoneUploader").dropzone();
-
-
+    $(window).resize(function () {
+        $('.slick-list').height('auto');
+    });
 });
