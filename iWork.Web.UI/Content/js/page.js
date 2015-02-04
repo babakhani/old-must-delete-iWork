@@ -4,6 +4,10 @@ Dropzone.autoDiscover = false;
 
 angular.module('iwork', ['datatables']);
 
+var log = function (x) {
+    console.log(x);
+}
+
 $(document).ready(function () {
     $('#navbar li').each(function () {
         var thisUrl = $(this).find('a').attr("href");
