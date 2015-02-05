@@ -12,10 +12,18 @@
 
     }
     table tr td{
-        border:2px solid #333333 !important;
+        
     }
 
     table tr.odd td {
         background:#f8f8f8;
     }
+     .dataTables_paginate{
+        float:right;
+    }
+
+
+     .dataTables_length{
+         float:left;
+     }
 }

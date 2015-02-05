@@ -1,4 +1,107 @@
-﻿@font-face {
+﻿* {
+  -webkit-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
+  -ms-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  transition: all 400ms ease; }
+
+/*.sub-menu {
+    -moz-animation-name: dropSubMenu;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-duration: 0.5s;
+    -webkit-animation-name: dropSubMenu;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.5s;
+    animation-name: dropSubMenu;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+@-moz-keyframes dropSubMenu {
+    0% {
+        -moz-transform: translateX(-100px);
+    }
+
+    100% {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes dropSubMenu {
+    0% {
+        -webkit-transform: translateX(-100px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes dropSubMenu {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}*/
+.navbar {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  -moz-animation-name: dropHeader;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-in;
+  -moz-animation-duration: 0.2s;
+  -webkit-animation-name: dropHeader;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-duration: 0.2s;
+  animation-name: dropHeader;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.2s; }
+
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+header ul li {
+  display: inline-block;
+  margin-right: 20px; }
+
+@-moz-keyframes dropHeader {
+  0% {
+    -moz-transform: translateY(-40px); }
+
+  100% {
+    -moz-transform: translateY(0); } }
+
+@-webkit-keyframes dropHeader {
+  0% {
+    -webkit-transform: translateY(-40px); }
+
+  100% {
+    -webkit-transform: translateY(0); } }
+
+@keyframes dropHeader {
+  0% {
+    transform: translateY(-40px); }
+
+  100% {
+    transform: translateY(0); } }
+
+/*
+    =============================
+*/
+@font-face {
   font-family: "Open Sans";
   src: url("../font/OpenSans-Regular.eot?") format("eot"), url("../font/OpenSans-Regular.woff") format("woff"), url("../font/OpenSans-Regular.ttf") format("truetype"), url("../font/OpenSans-Regular.svg#OpenSans") format("svg");
   font-weight: normal;
@@ -162,10 +265,12 @@ body {
   color: #333; }
 .dataTables_wrapper .dataTables_filter input {
   border: 1px solid #999999; }
-.dataTables_wrapper table tr td {
-  border: 2px solid #333333 !important; }
 .dataTables_wrapper table tr.odd td {
   background: #f8f8f8; }
+.dataTables_wrapper .dataTables_paginate {
+  float: right; }
+.dataTables_wrapper .dataTables_length {
+  float: left; }
 
 /* Over bootstrap
 ====================================================*/
@@ -226,7 +331,13 @@ body {
   min-height: 600px;
   overflow: hidden;
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+  transition: none; }
+
+.slick-list {
+  width: 100%;
+  float: left;
+  transition: none; }
 
 /* Search Box
 ----------------------------------------------------------------*/

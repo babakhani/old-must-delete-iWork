@@ -57,7 +57,13 @@
   min-height: 600px;
   overflow: hidden;
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+  transition: none; }
+
+.slick-list {
+  width: 100%;
+  float: left;
+  transition: none; }
 
 /* Search Box
 ----------------------------------------------------------------*/
