@@ -1,6 +1,6 @@
 ﻿<!--    Datatables self data loader -->
 <control iv-controller="gridController"
-         iv-title="false"
+         iv-title="null"
          iv-url="false"
          iv-serverside="false"
          iv-searching="true"
@@ -13,18 +13,19 @@
          iv-length-menu=" [ 15, 30, 60,100 ]"
          iv-page-length="15"
          iv-ordering="true"
+         iv-name="gridDefaultName"
          iv-auto-load="true">
 
-    <div ng-controller="$iv-controller">
-        <h3 ng-show="hideTitle">$iv-title</h3>
+    <div ng-controller="$iv-name_grid">
+        <h3 ng-show="showGridTitle">$iv-title</h3>
         <table id="$iv-controller" class="table row-border hover">
             <iv-content></iv-content>
         </table>
     </div>
     <script>
-        function $iv-controller($rootScope,$scope, $element, $location, $window, $http)  {
+        function $iv-name_grid($rootScope,$scope, $element, $location, $window, $http)  {
             $.fn.dataTableExt.sErrMode = 'throw';
-            $scope.hideTitle = '$iv-title' !== 'false';
+            $scope.showGridTitle = '$iv-title' !== 'null';
             $scope.initDatatable = function(){
                 $scope.dtOptions = {
                     dom:'$iv-dom',
@@ -47,7 +48,7 @@
                             return false;
                         };
                         if(aoData.length > 0){
-                            var requestData = {
+                            var datatabelsRequest = {
                                 draw:aoData[0].value,
                                 columns: aoData[1].value,
                                 order: aoData[2].value,
@@ -59,7 +60,7 @@
                             requestData={}
                         }
                         if('$iv-observe' !== 'false'){
-                            requestData.formData = $scope.filteringFormData
+                            requestData = $.extend(datatabelsRequest,$scope.filteringFormData)
                         }
                         oSettings.jqXHR = $.ajax({
                             url: oSettings.ajax.url,
@@ -80,23 +81,30 @@
                         $(window).trigger('resize');
                     },
                     rowCallback: function( row, data ) {
-                        var columnDef = $iv-controller_aoColumns;
+                        var columnDef = $scope.aoColumns;
                         var $row = $(row);
                         $.each(columnDef,function(index,config){
                             if(config.type == 'btn.edite'){
-                                var column = $($row.find('td')[index])
-                                column.empty();
-                                column.append($('<span class="update-entity glyphicon glyphicon-pencil" data-entity-id="1" data-model="Contact" data-target-form="contactForm"></span>'));
+                                var $column = $($row.find('td')[index]);
+                                $column.empty();
+                                $column.append($('<span class="update-entity glyphicon glyphicon-pencil"></span>').data({
+                                    'entity-id':data.id,
+                                    'target-form':config.targetForm
+                                }));
                             }else if(config.type == 'btn.delete'){
-                                var column = $($row.find('td')[index])
-                                column.empty();
-                                column.append($('<span class="remove-entity glyphicon glyphicon-trash" data-entity-id="5" data-model="Contact" data-confirm="true"></span>'));
+                                var $column = $($row.find('td')[index]);
+                                $column.empty();
+                                $column.append($('<span class="remove-entity glyphicon glyphicon-trash" ></span>').data({
+                                    'entity-id':data.id,
+                                    'model': '$iv-controller',
+                                    'confirm':"true"
+                                }));
                             }
                         });
                         $(window).trigger('resize');
                     },
                     preDrawCallback: function( settings ) {
-                        $iv-controller_aoColumns = settings.aoColumns;
+                        $scope.aoColumns = settings.aoColumns;
                     },
                     columns:[
 
@@ -122,8 +130,10 @@
                         type: $this.data('kind'),
                         visible: $this.data('visible'),
                         width: $this.data('width'),
+                        targetForm : $this.data('target-form'),
                         bSortable: false
                     }
+
                     $scope.dtOptions.columns.push(colDef);
                     $this.remove();
                 });
@@ -144,7 +154,7 @@
             if('$iv-observe' !== 'false'){
                 $scope.$on('$iv-observe', function(event, form) {
                     $scope.filteringForm = form;
-                    $scope.filteringFormData = form.serialize();
+                    $scope.filteringFormData = form.serializeObject();
                     if(!$scope.oTable){
                         $scope.oTable = $element.find('table').dataTable($scope.dtOptions);
                     }else{

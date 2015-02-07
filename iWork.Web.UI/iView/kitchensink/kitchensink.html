@@ -7,87 +7,138 @@
                 iv-target="0"></button>
         <button iv-type="iconic"
                 iv-icon="grid"
-                iv-label="Ajax Grid"
+                iv-label="Grid Target Form"
                 iv-toggle="slick"
                 iv-target="1"></button>
+        <button iv-type="iconic"
+                iv-icon="grid"
+                iv-label="Ajax Grid"
+                iv-toggle="slick"
+                iv-target="2"></button>
         <button iv-type="iconic"
                 iv-icon="upload"
                 iv-label="File Uploader"
                 iv-toggle="slick"
-                iv-target="2"></button>
+                iv-target="3"></button>
     </sidecontent>
     <content>
         <div class="slick-container">
+            <!-- Slick 1 -->
             <div>
-                <form iv-type="form" 
-                      iv-title="Observer gird example" 
-                      iv-name="contactSearchForm" 
-                      iv-controller="Contact" 
-                      iv-model="Contact" 
-                      iv-action="Search"
+                <form iv-type="form"
+                      iv-title="Observer gird example"
+                      iv-name="contactSearchForm"
+                      iv-controller="Contact"
+                      iv-model="Contact"
                       iv-show-message="false"
-                      iv-filtering-form="true"
-                      >
+                      iv-filtering-form="true">
                     <fieldset>
                         <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-label="Search contact" />
                     </fieldset>
                 </form>
-
                 <grid iv-type="datatables"
+                      iv-name="filteringGrid"
+                      iv-controller="Contact"
+                      iv-url="/content/sample_data/grid.json"
                       iv-observe="contactSearchForm"
-                      iv-controller="observerGrid"
                       iv-ordering="true"
                       iv-searching="false"
                       iv-display-length="15"
-                      iv-url="/content/sample_data/grid.json"
                       iv-serverside="true"
                       iv-auto-load="false">
-
-                    <grid iv-type="column" iv-title="Name" iv-data="name" iv-atargets="0"></grid>
-                    <grid iv-type="column" iv-title="Position" iv-data="position" iv-atargets="1"></grid>
-                    <grid iv-type="column" iv-title="salary" iv-data="salary" iv-atargets="2"></grid>
-                    <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-atargets="3"></grid>
-                    <grid iv-type="column" iv-title="office" iv-data="office" iv-atargets="4"></grid>
-                    <grid iv-type="column" iv-title="extn" iv-data="extn" iv-atargets="5"></grid>
-                    <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-atargets="6" iv-width="100"></grid>
-                    <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-atargets="7" iv-width="100"></grid>
-
-
+                    <grid iv-type="column" iv-title="Name" iv-data="name" iv-targets="0"></grid>
+                    <grid iv-type="column" iv-title="Position" iv-data="position" iv-targets="1"></grid>
+                    <grid iv-type="column" iv-title="salary" iv-data="salary" iv-targets="2"></grid>
+                    <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-targets="3"></grid>
+                    <grid iv-type="column" iv-title="office" iv-data="office" iv-targets="4"></grid>
+                    <grid iv-type="column" iv-title="extn" iv-data="extn" iv-targets="5"></grid>
+                    <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-target-form="contactForm" iv-targets="6" iv-width="100"></grid>
+                    <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-targets="7" iv-width="100"></grid>
                 </grid>
             </div>
-
-
+            <!-- Slick 2 -->
             <div>
-                <grid iv-type="datatables" 
-                      iv-title="Ajax Grid" 
-                      iv-controller="sampleGrid" 
-                      iv-url="/content/sample_data/grid.json" 
-                      iv-ordering="true" 
-                      iv-display-length="15" 
-                      iv-serverside="false"
-                      >
-                    <grid iv-type="column" iv-title="Name" iv-data="name" iv-atargets="0"></grid>
-                    <grid iv-type="column" iv-title="Position" iv-data="position" iv-atargets="1"></grid>
-                    <grid iv-type="column" iv-title="salary" iv-data="salary" iv-atargets="2"></grid>
-                    <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-atargets="3"></grid>
-                    <grid iv-type="column" iv-title="office" iv-data="office" iv-atargets="4"></grid>
-                    <grid iv-type="column" iv-title="extn" iv-data="extn" iv-atargets="5"></grid>
-                    <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-atargets="6" iv-width="100"></grid>
-                    <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-atargets="7" iv-width="100"></grid>
+                <form iv-type="form"
+                      iv-title="Contact Form"
+                      iv-name="contactForm"
+                      iv-model="ivContact"
+                      iv-controller="Contact"
+                      iv-action="add">
+                    <fieldset>
+                        <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" />
+                        <input iv-type="text" iv-name="tel1" iv-label="Home" />
+                        <input iv-type="text" iv-name="tel2" iv-label="Mobile" iv-input-type="tel" />
+                        <input iv-type="text" iv-name="tel3" iv-label="Office" />
+                        <input iv-type="text" iv-name="tel4" iv-label="Fax" />
+                        <input iv-type="text" iv-name="company" iv-label="Company" />
+                        <input iv-type="text" iv-name="unit" iv-label="Unit" />
+                        <input iv-type="text" iv-name="description" iv-label="Description" />
+                        <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                        <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
+                    </fieldset>
+                </form>
+            </div>
+            <!-- Slick 3 -->
+            <div>
+                <grid iv-type="datatables"
+                      iv-title="Ajax Grid"
+                      iv-name="ajaxGrid"
+                      iv-controller="Contact"
+                      iv-url="/content/sample_data/grid.json"
+                      iv-ordering="true"
+                      iv-display-length="15"
+                      iv-state-save="true"
+                      iv-serverside="false">
+                    <grid iv-type="column" iv-title="Name" iv-data="name" iv-targets="0"></grid>
+                    <grid iv-type="column" iv-title="Position" iv-data="position" iv-targets="1"></grid>
+                    <grid iv-type="column" iv-title="salary" iv-data="salary" iv-targets="2"></grid>
+                    <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-targets="3"></grid>
+                    <grid iv-type="column" iv-title="office" iv-data="office" iv-targets="4"></grid>
+                    <grid iv-type="column" iv-title="extn" iv-data="extn" iv-targets="5"></grid>
+                    <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-target-form="contactForm" iv-targets="6" iv-width="100"></grid>
+                    <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-targets="7" iv-width="100"></grid>
                 </grid>
             </div>
-
+            <!-- Slick 4 -->
             <div>
-                <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="add" iv-show-message="false">
-                    <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" />
-                    <input iv-type="text" iv-name="tel1" iv-label="Home" />
+                <form iv-type="form"
+                      iv-title="Form Control sample"
+                      iv-name="sampleForm"
+                      iv-controller="Contact"
+                      iv-model="Contact"
+                      iv-action="add"
+                      iv-show-message="false">
+                    <input iv-type="search" iv-name="search" iv-label="Search" />
+                    <input iv-type="text" iv-name="text" iv-label="Text" iv-required="true" />
+                    <input iv-type="password" iv-name="pass" iv-label="Password" />
+                    <input iv-type="textarea" iv-name="textarea" iv-label="Textarea" />
+                    <select iv-type="select" iv-name="sampleSelect" iv-label="Dropdown">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <radio iv-type="radiolist">
+                        <radio iv-type="radio" iv-name="radio" iv-value="radio1" iv-id="radio11"></radio>
+                        <radio iv-type="radio" iv-name="radio" iv-value="radio2" iv-id="radio22"></radio>
+                        <radio iv-type="radio" iv-name="radio" iv-value="radio3" iv-id="radio33"></radio>
+                    </radio>
+                    <checkbox iv-type="checkbox" iv-label="Single Checkbox sample" iv-name="check1"></checkbox>
+                    <checkbox iv-type="checklist" iv-label="Checklist sample">
+                        <checkbox iv-type="checkbox" iv-label="Checkbox sample 1" iv-name="check2"></checkbox>
+                        <checkbox iv-type="checkbox" iv-label="Checkbox sample 2" iv-name="check3"></checkbox>
+                        <checkbox iv-type="checkbox" iv-label="Checkbox sample 3" iv-name="check4"></checkbox>
+                        <checkbox iv-type="checkbox" iv-label="Checkbox sample 4" iv-name="check5"></checkbox>
+                        <checkbox iv-type="checkbox" iv-label="Checkbox sample 5" iv-name="check6"></checkbox>
+                        <checkbox iv-type="checkbox" iv-label="Checkbox sample 6" iv-name="check7"></checkbox>
+                    </checkbox>
                     <datepicker iv-type="time" iv-label="Timepicker"></datepicker>
                     <datepicker iv-type="date" iv-label="Datepicker"></datepicker>
                     <uploader iv-type="dropzone" iv-label="File Uplaoder"></uploader>
                     <button iv-type="submit" iv-name="submit" iv-label="Submit" />
                 </form>
             </div>
-
         </div>
     </content>
 </layout>

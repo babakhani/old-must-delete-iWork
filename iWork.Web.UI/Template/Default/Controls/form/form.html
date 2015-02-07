@@ -1,9 +1,11 @@
 ﻿<control iv-redirecturl="null"
          iv-title="null"
+         iv-controller="formDefaultController"
+         iv-action="formDefaultAction"
          iv-show-message="true"
          iv-show-modal="false"
          iv-filtering-form="false">
-    <div class="form-container" ng-controller="$iv-controller_$iv-action" onsubmit="return false;">
+    <div class="form-container" ng-controller="$iv-name_form" onsubmit="return false;">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
         <form name="$iv-name" class="form-horizontal">
             <iv-content>
@@ -25,7 +27,7 @@
         </iv-modalbody>
     </modal>
     <script>
-        function $iv-controller_$iv-action($rootScope,$scope, $element, $location, $window, $http) {
+        function $iv-name_form($rootScope,$scope, $element, $location, $window, $http) {
             $scope.messageEnabled = $iv-show-message;
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
@@ -48,7 +50,6 @@
                     Unit: "qqqqqqqqqqqqqq"
                 }
                 $.each(sampleData,function(key,val){
-                    console.log(key.toLowerCase())
                     $element.find('form').find('[name='+key.toLowerCase()+']').val(val);
                 });
             }
@@ -68,6 +69,9 @@
                 // Ajax Form
                 }else{
                     $element.find('form [type=submit]').button('loading');
+
+                    log($element.find('form').serialize())
+
                     $http({
                         method  : 'POST',
                         url     : rootControllerUrl + "$iv-controller/$iv-action",

@@ -88,67 +88,7 @@
     button{
          @include border-radius(0px);
     }
-    /*display: block;
-    width: 100%;
-    overflow: visible;
-    padding: 0px !important;
-    margin: 0px !important;
-    position: relative;
-    border-bottom: 1px solid #eeeeee;
-    height:32px;
-    float:right;*/
 }
-
-/*.search-box input {
-    border: none !important;
-    float: left;
-    font-size: 20px;
-    color: #333333;
-    width: 100%;
-    position:absolute;
-    margin:0px;
-    left:28px;
-    height:27px;
-}
-
-.search-box input:focus,
-.search-box input{
-    outline:none;
-}
-
-.search-box span.search-box-icon {
-    display: block;
-    position: absolute;
-    top: 2px;
-    width: 22px;
-    left: 0px;
-    font-size: 22px;
-    color: #999999;
-
-}
-
-.search-box button {
-    display: block;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    width: 80px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    background: #eeeeee;
-    border: none;
-    color: #333333;
-    padding: 0px;
-    @include border-radius(3px);
-}
-    .search-box button.disabled {
-    background: #eeeeee;
-}
-
-*/
-
-
 
 .search-box-message {
     display: block;
@@ -156,9 +96,6 @@
     color: #999999;
     margin-top: 3px;
 }
-
-
-
 
 /* Form Container
 ======================================================================*/
@@ -192,15 +129,19 @@
     padding-left: 0px;
 }
 
+.form-horizontal .form-group textarea,
+.form-horizontal .form-group select,
 .form-horizontal .form-group input {
     border: none;
     border-bottom: 1px solid #eeeeee;
-    @include border-radius(0px);
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     color: #333333 !important;
+    @include border-radius(0px);
 }
+
+
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color: #cccccc !important;
@@ -236,8 +177,38 @@
     margin: 0px auto 0px auto;
     background-image: url("../img/loading.gif");
 }
+/* Checklist
+===================================*/
+.checklist{
+    .checkbox-label-column{
+        display:none;
+        
+    }
+    .form-group,
+    .checkbox-input-column{
+        width:auto;
+        float:left;
+        padding-left:0px;
+    }
 
+    div .form-group{
+         margin-top:0 !important;
+        padding-top:0 !important;
+    }
+    .control-label{
+         margin-top:0px;
+        padding-top:0px;
+    }
 
+}
+/* Radio list
+===================================*/
+
+.radio-list{
+    & >  div label{
+        
+    }
+}
 
 /* Iconic button
 ==================================*/
