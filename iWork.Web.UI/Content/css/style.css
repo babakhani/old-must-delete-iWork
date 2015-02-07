@@ -407,6 +407,9 @@ body {
   -ms-border-radius: 0px;
   border-radius: 0px; }
 
+.form-horizontal .done-btn {
+  display: none; }
+
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #cccccc !important; }

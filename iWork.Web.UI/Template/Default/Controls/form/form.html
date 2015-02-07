@@ -31,10 +31,11 @@
             $scope.messageEnabled = $iv-show-message;
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
+            $scope.$form =  $element.find('form')
             /* Update Form
             ---------------------------------------*/
             $scope.formUpdate = function(entityID){
-                var slickIndex = $element.find('form').parents('.slick-slide').data('slick-index');
+                var slickIndex =  $scope.$form.parents('.slick-slide').data('slick-index');
                 $('.slick-container').slick('slickGoTo', slickIndex);
                 /*  Sample Data for update form */
                 var sampleData = {
@@ -50,15 +51,18 @@
                     Unit: "qqqqqqqqqqqqqq"
                 }
                 $.each(sampleData,function(key,val){
-                    $element.find('form').find('[name='+key.toLowerCase()+']').val(val);
+                    $scope.$form.find('[name='+key.toLowerCase()+']').val(val);
                 });
             }
             /* Reset Form
           ---------------------------------------*/
             $scope.formreset = function () {
-                $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
+                $scope.$form.find("input[type=tel],input[type=text], textarea").val("");
                 $scope.showErrorMessage = false;
                 $scope.showSuccessMessage = false;
+                $scope.$form.find('input').removeAttr('disabled');
+                $scope.$form.find('button').show();
+                $scope.$form.find('.done-btn').hide();
             }
             /* Submit Form
           ---------------------------------------*/
@@ -102,6 +106,12 @@
                             $('#formSuccessModal').modal('show');
                             $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                         }
+                        
+                        $scope.$form.find('input').attr('disabled','disabled');
+
+                        $scope.$form.find('button').hide();
+                        $scope.$form.find('.done-btn').show();
+
                         setTimeout(function(){
                             $(window).trigger('resize');
                         }, 600);
