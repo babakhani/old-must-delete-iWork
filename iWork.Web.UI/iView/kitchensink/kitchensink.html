@@ -19,35 +19,53 @@
     <content>
         <div class="slick-container">
             <div>
-
-                <form iv-type="form" iv-title="Observer gird example" iv-name="contactSearchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
+                <form iv-type="form" 
+                      iv-title="Observer gird example" 
+                      iv-name="contactSearchForm" 
+                      iv-controller="Contact" 
+                      iv-model="Contact" 
+                      iv-action="Search"
+                      iv-show-message="false"
+                      iv-filtering-form="true"
+                      >
                     <fieldset>
                         <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-label="Search contact" />
                     </fieldset>
                 </form>
 
                 <grid iv-type="datatables"
-                      iv-controller="observerGrid"
                       iv-observe="contactSearchForm"
+                      iv-controller="observerGrid"
                       iv-ordering="true"
                       iv-searching="false"
                       iv-display-length="15"
-                      iv-serverside="false">
-                    <grid iv-type="column" iv-title="Contact Id" iv-data="ContactId" iv-atargets="0"></grid>
-                    <grid iv-type="column" iv-title="Full name" iv-data="Fullname" iv-atargets="1"></grid>
-                    <grid iv-type="column" iv-title="Gender" iv-data="Gender" iv-atargets="2"></grid>
-                    <grid iv-type="column" iv-title="Tel 1" iv-data="Tel1" iv-atargets="3"></grid>
-                    <grid iv-type="column" iv-title="Tel 2" iv-data="Tel2" iv-atargets="4"></grid>
-                    <grid iv-type="column" iv-title="Tel 3" iv-data="Tel3" iv-atargets="5"></grid>
+                      iv-url="/content/sample_data/grid.json"
+                      iv-serverside="true"
+                      iv-auto-load="false">
 
+                    <grid iv-type="column" iv-title="Name" iv-data="name" iv-atargets="0"></grid>
+                    <grid iv-type="column" iv-title="Position" iv-data="position" iv-atargets="1"></grid>
+                    <grid iv-type="column" iv-title="salary" iv-data="salary" iv-atargets="2"></grid>
+                    <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-atargets="3"></grid>
+                    <grid iv-type="column" iv-title="office" iv-data="office" iv-atargets="4"></grid>
+                    <grid iv-type="column" iv-title="extn" iv-data="extn" iv-atargets="5"></grid>
                     <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-atargets="6" iv-width="100"></grid>
                     <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-atargets="7" iv-width="100"></grid>
-                </grid>
 
+
+                </grid>
             </div>
 
+
             <div>
-                <grid iv-type="datatables" iv-title="Ajax Grid" iv-controller="sampleGrid" iv-url="/content/sample_data/grid.json" iv-ordering="true" iv-display-length="15" iv-serverside="false">
+                <grid iv-type="datatables" 
+                      iv-title="Ajax Grid" 
+                      iv-controller="sampleGrid" 
+                      iv-url="/content/sample_data/grid.json" 
+                      iv-ordering="true" 
+                      iv-display-length="15" 
+                      iv-serverside="false"
+                      >
                     <grid iv-type="column" iv-title="Name" iv-data="name" iv-atargets="0"></grid>
                     <grid iv-type="column" iv-title="Position" iv-data="position" iv-atargets="1"></grid>
                     <grid iv-type="column" iv-title="salary" iv-data="salary" iv-atargets="2"></grid>
