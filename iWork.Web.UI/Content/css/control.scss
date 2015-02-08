@@ -3,9 +3,9 @@
 /* Over bootstrap
 ====================================================*/
 
-.input-group-addon{
-    border:none;
-    background:none;
+.input-group-addon {
+    border: none;
+    background: none;
 }
 
 
@@ -14,9 +14,9 @@
 .dropzone {
     float: left;
     min-height: 160px;
-    padding:0px;
+    padding: 0px;
     overflow: visible !important;
-    width:100%;
+    width: 100%;
     margin: 10px 0px;
     background-color: #f9f9f9;
     border: 2px dashed #eeeeee;
@@ -62,31 +62,38 @@
     overflow: hidden;
     padding: 0px;
     margin: 0px;
-    transition:none;
+    transition: none;
 }
+
 .slick-list {
-    width:100%;
-    float:left;
-     transition:none;
+    width: 100%;
+    float: left;
+    transition: none;
 }
 /* Search Box
 ----------------------------------------------------------------*/
 .search-box {
-    border:1px solid #eeeeee;
+    border: 1px solid #eeeeee;
     @include border-radius(5px);
-    .button-box{
-        padding:0px;
-        border:none;
-        background:none;
+
+    .button-box {
+        padding: 0px;
+        border: none;
+        background: none;
     }
-    .input-group-addon{
-        border:none;
+
+    .input-group-addon {
+        border: none;
     }
-    input{
-        border:none !important;
+
+    input {
+        border: none !important;
+        padding-right: 0px;
+        padding-left: 0px;
     }
-    button{
-         @include border-radius(0px);
+
+    button {
+        @include border-radius(0px);
     }
 }
 
@@ -124,7 +131,7 @@
     font-size: 14px;
     font-weight: lighter;
     color: #333333;
-    text-align:left;
+    text-align: left;
     padding-right: 0px;
     padding-left: 0px;
 }
@@ -141,8 +148,18 @@
     @include border-radius(0px);
 }
 
-.form-horizontal .done-btn{
-    display:none;
+.form-horizontal .form-group textarea:focus,
+.form-horizontal .form-group select:focus,
+.form-horizontal .form-group input:focus {
+    border-bottom: 1px solid #286090;
+}
+
+.form-horizontal .done-btn {
+    display: none;
+}
+
+.form-horizontal .btn {
+    //box-shadow: 0 6px 10px rgba(0,0,0,.23),0 10px 30px rgba(0,0,0,.19);
 }
 
 
@@ -181,36 +198,77 @@
     margin: 0px auto 0px auto;
     background-image: url("../img/loading.gif");
 }
+
 /* Checklist
 ===================================*/
-.checklist{
-    .checkbox-label-column{
-        display:none;
-        
+.magicsuggest-box {
+    .form-control {
+        box-shadow: none;
+        padding: 0px;
+        min-height: 32px;
+        border: none;
     }
+
+    .ms-ctn .ms-sel-ctn {
+        margin-left: 0px;
+    }
+
+    .ms-sel-ctn {
+        padding: 0px;
+
+        input {
+            min-height: 32px;
+            padding: 0px;
+            margin: 0px;
+            text-indent:10px;
+        }
+    }
+
+    .ms-sel-item {
+        height: 28px;
+        line-height: 28px;
+    }
+
+    .ms-ctn-focus {
+        outline: none !important;
+        border: none;
+        box-shadow: none;
+    }
+
+    .dropdown-menu {
+        display: none;
+    }
+}
+
+/* Checklist
+===================================*/
+.checklist {
+    .checkbox-label-column {
+        display: none;
+    }
+
     .form-group,
-    .checkbox-input-column{
-        width:auto;
-        float:left;
-        padding-left:0px;
+    .checkbox-input-column {
+        width: auto;
+        float: left;
+        padding-left: 0px;
     }
 
-    div .form-group{
-         margin-top:0 !important;
-        padding-top:0 !important;
-    }
-    .control-label{
-         margin-top:0px;
-        padding-top:0px;
+    div .form-group {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 
+    .control-label {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
 }
 /* Radio list
 ===================================*/
 
-.radio-list{
-    & >  div label{
-        
+.radio-list {
+    & > div label {
     }
 }
 

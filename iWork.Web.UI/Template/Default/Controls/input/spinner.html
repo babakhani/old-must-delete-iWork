@@ -1,21 +1,20 @@
-﻿<control iv-required="false"
-         iv-minlength=""
-         iv-maxlength=""
-         iv-pattern=""
-         iv-change="">
+﻿<control iv-input-type="text"
+         iv-required="false"
+         iv-min=""
+         iv-max=""
+         iv-step="">
     <div class="form-group">
         <label for="$iv-name" class="control-label col-md-2 col-sm-3">$iv-label</label>
         <div class="col-md-10 col-sm-9">
-            <input type="text"
+            <input type="number"
                    class="form-control"
                    name="$iv-name"
                    id="$iv-name"
                    placeholder="$iv-label"
                    ng-model="$iv-model.$iv-name"
-                   ng-required="$iv-required"
-                   ng-minlength="$iv-minlength"
-                   ng-maxlength="$iv-maxlength"
-                   ng-change="$iv-change" />
+                   step="$iv-step"
+                   min="$iv-min"
+                   max="$iv-max" />
         </div>
     </div>
 </control>

@@ -1,15 +1,24 @@
 ﻿<control>
     <form iv-type="form"
-          iv-title="Form Control sample"
+          iv-title="Form"
           iv-name="sampleForm"
           iv-controller="Contact"
           iv-model="Contact"
           iv-action="add"
           iv-show-message="false">
-        <input iv-type="search" iv-name="search" iv-label="Search" />
-        <input iv-type="text" iv-name="text" iv-label="Text" iv-required="true" />
+
+        <input iv-type="text" iv-name="text" iv-label="Text" />
+
+        <input iv-type="text" iv-name="url" iv-label="Url text" />
+
         <input iv-type="password" iv-name="pass" iv-label="Password" />
+
         <input iv-type="textarea" iv-name="textarea" iv-label="Textarea" />
+
+        <input iv-type="spinner" iv-name="spinner" iv-label="Number Spinner" iv-step="10" iv-min="0" iv-max="200" />
+
+        <magicsuggest iv-type="magicsuggest" iv-label="Maic Suggest" iv-name="tags"></magicsuggest>
+
         <select iv-type="select" iv-name="sampleSelect" iv-label="Dropdown">
             <option>1</option>
             <option>2</option>
@@ -17,28 +26,45 @@
             <option>4</option>
             <option>5</option>
         </select>
-        <radio iv-type="radiolist">
-            <radio iv-type="radio" iv-name="radio" iv-value="radio1" iv-id="radio11"></radio>
-            <radio iv-type="radio" iv-name="radio" iv-value="radio2" iv-id="radio22"></radio>
-            <radio iv-type="radio" iv-name="radio" iv-value="radio3" iv-id="radio33"></radio>
+
+        <radio iv-type="radiolist" iv-label="Radio List">
+            <radio iv-type="radio" iv-name="radio" iv-value="radio1" iv-id="radio11" iv-label="Radio 1"></radio>
+            <radio iv-type="radio" iv-name="radio" iv-value="radio2" iv-id="radio22" iv-label="Radio 2"></radio>
+            <radio iv-type="radio" iv-name="radio" iv-value="radio3" iv-id="radio33" iv-label="Radio 3"></radio>
         </radio>
-        <checkbox iv-type="checkbox" iv-label="Single Checkbox sample" iv-name="check1"></checkbox>
+
+        <radio iv-type="radiolist" iv-label="Radio Switch List">
+            <radio iv-type="switch" iv-name="radioSwitch" iv-value="radio1" iv-id="switch1" iv-checked="checked"></radio>
+            <radio iv-type="switch" iv-name="radioSwitch" iv-value="radio2" iv-id="switch2"></radio>
+            <radio iv-type="switch" iv-name="radioSwitch" iv-value="radio3" iv-id="switch3"></radio>
+        </radio>
+
+        <checkbox iv-type="checkbox" iv-label="Single Checkbox sample" iv-name="check1" iv-checked="true"></checkbox>
+
         <checkbox iv-type="checklist" iv-label="Checklist sample">
-            <checkbox iv-type="checkbox" iv-label="Checkbox sample 1" iv-name="check2"></checkbox>
-            <checkbox iv-type="checkbox" iv-label="Checkbox sample 2" iv-name="check3"></checkbox>
-            <checkbox iv-type="checkbox" iv-label="Checkbox sample 3" iv-name="check4"></checkbox>
-            <checkbox iv-type="checkbox" iv-label="Checkbox sample 4" iv-name="check5"></checkbox>
-            <checkbox iv-type="checkbox" iv-label="Checkbox sample 5" iv-name="check6"></checkbox>
-            <checkbox iv-type="checkbox" iv-label="Checkbox sample 6" iv-name="check7"></checkbox>
+            <checkbox iv-type="checkbox" iv-label="Checkbox 1" iv-name="check2"></checkbox>
+            <checkbox iv-type="checkbox" iv-label="Checkbox 2" iv-name="check3"></checkbox>
+            <checkbox iv-type="checkbox" iv-label="Checkbox 3" iv-name="check4" iv-checked="true"></checkbox>
+            <checkbox iv-type="checkbox" iv-label="Checkbox 4" iv-name="check5"></checkbox>
+            <checkbox iv-type="checkbox" iv-label="Checkbox 5" iv-name="check6" iv-checked="true"></checkbox>
+            <checkbox iv-type="checkbox" iv-label="Checkbox 6" iv-name="check7"></checkbox>
         </checkbox>
-        <datepicker iv-type="time" iv-label="Timepicker"></datepicker>
-        <datepicker iv-type="date" iv-label="Datepicker"></datepicker>
+
+        <checkbox iv-type="switch" iv-name="sampleSwitch1" iv-label="Switch Checkbox" iv-checked="true"></checkbox>
+
+        <checkbox iv-type="checklist" iv-label="Checkbox list">
+            <checkbox iv-type="switch" iv-name="switch2" iv-label="Switch Checkbox"></checkbox>
+            <checkbox iv-type="switch" iv-name="switch3" iv-label="Switch Checkbox"></checkbox>
+            <checkbox iv-type="switch" iv-name="switch4" iv-label="Switch Checkbox"></checkbox>
+        </checkbox>
+
+
+        <datepicker iv-type="time" iv-name="timepicker" iv-label="Timepicker"></datepicker>
+
+        <datepicker iv-type="date" iv-name="datepicker" iv-label="Datepicker"></datepicker>
+
         <uploader iv-type="dropzone" iv-label="File Uplaoder"></uploader>
+
         <button iv-type="submit" iv-name="submit" iv-label="Submit" />
-    </form>    
-
-
-
-
-
+    </form>
 </control>

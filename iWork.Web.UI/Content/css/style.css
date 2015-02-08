@@ -355,7 +355,9 @@ body {
   .search-box .input-group-addon {
     border: none; }
   .search-box input {
-    border: none !important; }
+    border: none !important;
+    padding-right: 0px;
+    padding-left: 0px; }
   .search-box button {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -407,6 +409,9 @@ body {
   -ms-border-radius: 0px;
   border-radius: 0px; }
 
+.form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
+  border-bottom: 1px solid #286090; }
+
 .form-horizontal .done-btn {
   display: none; }
 
@@ -442,6 +447,32 @@ body {
   height: 24px;
   margin: 0px auto 0px auto;
   background-image: url("../img/loading.gif"); }
+
+/* Checklist
+===================================*/
+.magicsuggest-box .form-control {
+  box-shadow: none;
+  padding: 0px;
+  min-height: 32px;
+  border: none; }
+.magicsuggest-box .ms-ctn .ms-sel-ctn {
+  margin-left: 0px; }
+.magicsuggest-box .ms-sel-ctn {
+  padding: 0px; }
+  .magicsuggest-box .ms-sel-ctn input {
+    min-height: 32px;
+    padding: 0px;
+    margin: 0px;
+    text-indent: 10px; }
+.magicsuggest-box .ms-sel-item {
+  height: 28px;
+  line-height: 28px; }
+.magicsuggest-box .ms-ctn-focus {
+  outline: none !important;
+  border: none;
+  box-shadow: none; }
+.magicsuggest-box .dropdown-menu {
+  display: none; }
 
 /* Checklist
 ===================================*/

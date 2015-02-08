@@ -146,18 +146,6 @@
     <Content Include="Content\css\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
-    <Content Include="Content\css\style.rtl.css">
-      <DependentUpon>style.rtl.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\css\style.rtl.min.css">
-      <DependentUpon>style.rtl.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\theme.css">
-      <DependentUpon>theme.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\css\theme.min.css">
-      <DependentUpon>theme.css</DependentUpon>
-    </Content>
     <Content Include="Content\css\_helper.css">
       <DependentUpon>_helper.scss</DependentUpon>
     </Content>
@@ -285,6 +273,16 @@
     <Content Include="Content\css\datatabels.scss" />
     <Content Include="Content\css\datatabels.css.map">
       <DependentUpon>datatabels.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.rtl.scss" />
+    <Content Include="Content\css\style.scss" />
+    <Content Include="Content\css\theme.scss" />
+    <Content Include="Content\css\control.scss" />
+    <Content Include="Content\css\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\control.css.map">
+      <DependentUpon>control.css</DependentUpon>
     </Content>
     <None Include="Content\sample_data\grid.json" />
     <Content Include="Content\Scripts\angular.min.js" />
@@ -1074,22 +1072,26 @@
     <Content Include="Content\Scripts\npm.js" />
     <Content Include="Global.asax" />
     <Content Include="iView\Contacts\Contact.xml" />
+    <Content Include="iView\Contacts\form.html" />
     <Content Include="iView\Contacts\list.html" />
-    <Content Include="iView\Contacts\ContactsUpdate.html" />
-    <Content Include="iView\Contacts\ContactsAdd.html" />
-    <Content Include="iView\Contacts\ContactsList.html" />
     <Content Include="iView\include\contactForm.html" />
+    <Content Include="iView\kitchensink\form.html" />
+    <Content Include="iView\kitchensink\grid-ajax.html" />
+    <Content Include="iView\kitchensink\grid-observer.html" />
     <Content Include="iView\kitchensink\kitchensink.html" />
     <Content Include="iView\login\login.html" />
     <Content Include="iView\Rollcall\list.html" />
     <Content Include="iView\Rollcall\Rollcall.xml" />
     <Content Include="Manifest.xml" />
+    <Content Include="Template\Default\Controls\button\done.html" />
     <Content Include="Template\Default\Controls\button\cancel.html" />
     <Content Include="Template\Default\Controls\button\add.html" />
     <Content Include="Template\Default\Controls\button\iconic.html" />
+    <Content Include="Template\Default\Controls\button\info.html" />
     <Content Include="Template\Default\Controls\button\update.html" />
     <Content Include="Template\Default\Controls\button\delete.html" />
     <Content Include="Template\Default\Controls\button\submit.html" />
+    <Content Include="Template\Default\Controls\checkbox\checklist.html" />
     <Content Include="Template\Default\Controls\checkbox\checkbox.html" />
     <Content Include="Template\Default\Controls\column\td.html" />
     <Content Include="Template\Default\Controls\datepicker\date.html" />
@@ -1097,11 +1099,11 @@
     <Content Include="Template\Default\Controls\form\form.html" />
     <Content Include="Template\Default\Controls\grid\column.html" />
     <Content Include="Template\Default\Controls\grid\datatables.html" />
-    <Content Include="Template\Default\Controls\grid\header.html" />
     <Content Include="Template\Default\Controls\grid\table.html" />
     <Content Include="Template\Default\Controls\icon\svg.html" />
     <Content Include="Template\Default\Controls\input\password.html" />
     <Content Include="Template\Default\Controls\input\search.html" />
+    <Content Include="Template\Default\Controls\input\textarea.html" />
     <Content Include="Template\Default\Controls\input\text.html" />
     <Content Include="Template\Default\Controls\label\h1.html" />
     <Content Include="Template\Default\Controls\label\h2.html" />
@@ -1110,6 +1112,8 @@
     <Content Include="Template\Default\Controls\modal\modal.html" />
     <Content Include="Template\Default\Controls\panel\image.html" />
     <Content Include="Template\Default\Controls\panel\panel.html" />
+    <Content Include="Template\Default\Controls\radio\radiolist.html" />
+    <Content Include="Template\Default\Controls\radio\radio.html" />
     <Content Include="Template\Default\Controls\row\tr.html" />
     <Content Include="Template\Default\Controls\select\select.html" />
     <Content Include="Template\Default\Controls\uploader\dropzone.html" />

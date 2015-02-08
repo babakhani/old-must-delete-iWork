@@ -76,7 +76,7 @@ $(document).ready(function () {
     =====================================================================================*/
     $('.slick-container').slick({
         adaptiveHeight: true,
-        accessibility: true,
+        accessibility: false,
         arrows: false,
         edgeFriction: 10,
         infinite: false,
@@ -116,4 +116,10 @@ $(document).ready(function () {
     $(window).resize(function () {
         $('.slick-list').height('auto');
     });
+
+
+    $(".bootstrap-switch").bootstrapSwitch({
+        size: 'mini'
+    });
+
 });

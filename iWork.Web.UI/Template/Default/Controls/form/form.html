@@ -4,6 +4,7 @@
          iv-action="formDefaultAction"
          iv-show-message="true"
          iv-show-modal="false"
+         iv-single-submit="false"
          iv-filtering-form="false">
     <div class="form-container" ng-controller="$iv-name_form" onsubmit="return false;">
         <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
@@ -67,15 +68,15 @@
             /* Submit Form
           ---------------------------------------*/
             $scope.formsubmit = function () {
+
+                log($element.find('form').serializeObject())
+
                 // Filtering Form
                 if('$iv-filtering-form' === 'true'){
                     $rootScope.$broadcast('$iv-name', $element.find('form'));
-                // Ajax Form
+                    // Ajax Form
                 }else{
                     $element.find('form [type=submit]').button('loading');
-
-                    log($element.find('form').serialize())
-
                     $http({
                         method  : 'POST',
                         url     : rootControllerUrl + "$iv-controller/$iv-action",
@@ -106,12 +107,11 @@
                             $('#formSuccessModal').modal('show');
                             $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                         }
-                        
-                        $scope.$form.find('input').attr('disabled','disabled');
-
-                        $scope.$form.find('button').hide();
-                        $scope.$form.find('.done-btn').show();
-
+                        if($iv-single-submit){
+                            $scope.$form.find('input').attr('disabled','disabled');
+                            $scope.$form.find('button').hide();
+                            $scope.$form.find('.done-btn').show();
+                        }
                         setTimeout(function(){
                             $(window).trigger('resize');
                         }, 600);
