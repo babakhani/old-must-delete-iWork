@@ -4,6 +4,7 @@
          iv-action="formDefaultAction"
          iv-show-message="true"
          iv-show-modal="false"
+         iv-form-name="$iv-name"
          iv-single-submit="false"
          iv-filtering-form="false">
     <div class="form-container" ng-controller="$iv-name_form" onsubmit="return false;">
@@ -68,8 +69,11 @@
             /* Submit Form
           ---------------------------------------*/
             $scope.formsubmit = function () {
+                $scope.submitted = true;
 
-                log($element.find('form').serializeObject())
+                if($scope.$form.find('.ng-invalid').length > 0 ){
+                    return false;
+                }
 
                 // Filtering Form
                 if('$iv-filtering-form' === 'true'){
@@ -126,6 +130,19 @@
                     });
                 }
             };
+
+            $scope.phoneNumberPattern = (function() {
+                var regexp =  /^\d+$/;
+                return {
+                    test: function(value) {
+                        if( $scope.requireTel === false ) {
+                            return true;
+                        }
+                        return regexp.test(value);
+                    }
+                };
+            })();
+
         }
     </script>
 </control>

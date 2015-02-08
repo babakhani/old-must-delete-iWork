@@ -1,8 +1,9 @@
-﻿<control iv-required="false"
+﻿<control iv-label=""
+         iv-required="false"
          iv-minlength=""
          iv-maxlength=""
-         iv-pattern=""
-         iv-change="">
+         iv-pattern="">
+
     <div class="form-group">
         <label for="$iv-name" class="control-label col-md-2 col-sm-3">$iv-label</label>
         <div class="col-md-10 col-sm-9">
@@ -14,8 +15,10 @@
                    ng-model="$iv-model.$iv-name"
                    ng-required="$iv-required"
                    ng-minlength="$iv-minlength"
-                   ng-maxlength="$iv-maxlength"
-                   ng-change="$iv-change" />
+                   ng-pattern="$iv-pattern"
+                   ng-maxlength="$iv-maxlength" />
+            <validation iv-type="validation" ></validation>
+            <!--<include iv-source="/iview/kitchensink/validation-message.html"></include>-->
         </div>
     </div>
 </control>

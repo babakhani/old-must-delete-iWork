@@ -4,6 +4,21 @@
   border: none;
   background: none; }
 
+/* Datepicker
+====================================================*/
+.datepicker.dropdown-menu {
+  width: 250px;
+  height: 270px; }
+  .datepicker.dropdown-menu button {
+    outline: none;
+    border: 0px; }
+  .datepicker.dropdown-menu tbody {
+    height: 180px; }
+  .datepicker.dropdown-menu tbody button {
+    padding: 6px; }
+  .datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+    height: 65px; }
+
 /* File uploader
 ====================================================*/
 .dropzone {
@@ -54,7 +69,7 @@
   width: 100%;
   float: left;
   height: auto;
-  min-height: 600px;
+  min-height: 800px;
   overflow: hidden;
   padding: 0px;
   margin: 0px;
@@ -172,6 +187,19 @@
   height: 24px;
   margin: 0px auto 0px auto;
   background-image: url("../img/loading.gif"); }
+
+/* Form Validation
+========================================*/
+.form-horizontal input.ng-invalid.ng-dirty:focus, .form-horizontal input.ng-invalid.ng-dirty {
+  border-bottom: 1px solid #F43E00 !important; }
+
+.form-horizontal .validation-message {
+  color: red;
+  width: 100%; }
+  .form-horizontal .validation-message span {
+    display: block;
+    width: 100%;
+    font-size: 11px; }
 
 /* Checklist
 ===================================*/

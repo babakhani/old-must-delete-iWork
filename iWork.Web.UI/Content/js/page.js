@@ -2,7 +2,7 @@
 var iDropzone;
 Dropzone.autoDiscover = false;
 
-angular.module('iwork', ['datatables']);
+angular.module('iwork', ['datatables', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
 
 var log = function (x) {
     console.log(x);
@@ -118,8 +118,5 @@ $(document).ready(function () {
     });
 
 
-    $(".bootstrap-switch").bootstrapSwitch({
-        size: 'mini'
-    });
 
 });

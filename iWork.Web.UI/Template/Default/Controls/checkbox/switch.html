@@ -1,12 +1,29 @@
 ﻿<control iv-label="text"
          iv-required="false">
     <div class="form-group">
-        <div class="col-lg-2 checkbox-label-column"></div>
+       <div class="col-lg-2 checkbox-label-column"></div>
         <div class="col-lg-10 checkbox-input-column">
-            <input id="$iv-name" name="$iv-name" class="bootstrap-switch" type="checkbox" ng-checked=" $iv-checked"" />
+             <!--<input id="$iv-name" 
+                   name="$iv-name" 
+                ng-model="$iv-model.$iv-name"
+                   class="bootstrap-switch" 
+                   type="checkbox" 
+                   ng-checked=" $iv-checked"
+                   ng-required="$iv-required"
+                    />-->
+
+            <input bs-switch
+                   ng-model="$iv-model.$iv-name"
+                   name="$iv-name"
+                   type="checkbox"
+                   ng-required="$iv-required"
+                   switch-size="mini">
+
+
             <label for="$iv-name" class="control-label ">
                     $iv-label
             </label>
+            <validation iv-type="validation"></validation>
         </div>
     </div>
 </control>

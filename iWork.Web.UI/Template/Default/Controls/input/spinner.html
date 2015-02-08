@@ -12,9 +12,13 @@
                    id="$iv-name"
                    placeholder="$iv-label"
                    ng-model="$iv-model.$iv-name"
+                   ng-required="$iv-required"
                    step="$iv-step"
                    min="$iv-min"
                    max="$iv-max" />
+
+            <validation iv-type="validation"></validation>
+
         </div>
     </div>
 </control>
