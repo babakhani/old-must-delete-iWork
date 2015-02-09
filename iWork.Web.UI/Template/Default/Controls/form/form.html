@@ -29,15 +29,15 @@
         </iv-modalbody>
     </modal>
     <script>
-        function $iv-name_form($rootScope,$scope, $element, $location, $window, $http) {
+        iWork.controller('$iv-name_form', function ($scope, $element, $rootScope,$http) {
             $scope.messageEnabled = $iv-show-message;
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
-            $scope.$form =  $element.find('form')
+            $scope.$form = $element.find('form')
             /* Update Form
             ---------------------------------------*/
-            $scope.formUpdate = function(entityID){
-                var slickIndex =  $scope.$form.parents('.slick-slide').data('slick-index');
+            $scope.formUpdate = function (entityID) {
+                var slickIndex = $scope.$form.parents('.slick-slide').data('slick-index');
                 $('.slick-container').slick('slickGoTo', slickIndex);
                 /*  Sample Data for update form */
                 var sampleData = {
@@ -52,8 +52,8 @@
                     Tel4: "qqqqqqqqqqq",
                     Unit: "qqqqqqqqqqqqqq"
                 }
-                $.each(sampleData,function(key,val){
-                    $scope.$form.find('[name='+key.toLowerCase()+']').val(val);
+                $.each(sampleData, function (key, val) {
+                    $scope.$form.find('[name=' + key.toLowerCase() + ']').val(val);
                 });
             }
             /* Reset Form
@@ -72,57 +72,55 @@
             $scope.formsubmit = function () {
                 $scope.submitted = true;
 
-                if($scope.$form.find('.ng-invalid').length > 0 ){
+                if ($scope.$form.find('.ng-invalid').length > 0) {
                     return false;
                 }
 
                 // Filtering Form
-                if('$iv-filtering-form' === 'true'){
+                if ('$iv-filtering-form' === 'true') {
                     $rootScope.$broadcast('$iv-name', $element.find('form'));
                     // Ajax Form
-                }else{
+                } else {
                     $element.find('form [type=submit]').button('loading');
                     $http({
-                        method  : 'POST',
-                        url     : rootControllerUrl + "$iv-controller/$iv-action",
-                        data    : $element.find('form').serialize(),
-                        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+                        method: 'POST',
+                        url: rootControllerUrl + "$iv-controller/$iv-action",
+                        data: $element.find('form').serialize(),
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
                     }).
                     success(function (responseData, status, headers, config) {
                         $scope.isFormSubmitted = true;
                         $scope.result = responseData;
-                        if (responseData.HasError == 'True')
-                        {
+                        if (responseData.HasError == 'True') {
                             $scope.showErrorMessage = true;
                             $scope.showSuccessMessage = false;
                             $scope.error = responseData.Error;
                         }
-                        else
-                        {
-                            $scope.showErrorMessage =false;
+                        else {
+                            $scope.showErrorMessage = false;
                             $scope.showSuccessMessage = true;
                             $rootScope.$broadcast('$iv-name', responseData);
-                            if ("$iv-redirecturl" !== "null"){
+                            if ("$iv-redirecturl" !== "null") {
                                 $window.location = "$iv-redirecturl";
                             }
                         }
-                        $rootScope.$broadcast('$iv-name',responseData);
+                        $rootScope.$broadcast('$iv-name', responseData);
                         $element.find('form [type=submit]').button('reset');
-                        if($iv-show-modal !== false){
+                        if ($iv-show-modal !== false) {
                             $('#formSuccessModal').modal('show');
                             $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                         }
-                        if($iv-single-submit){
-                            $scope.$form.find('input').attr('disabled','disabled');
+                        if ($iv-single-submit) {
+                            $scope.$form.find('input').attr('disabled', 'disabled');
                             $scope.$form.find('button').hide();
                             $scope.$form.find('.done-btn').show();
                         }
-                        setTimeout(function(){
+                        setTimeout(function () {
                             $(window).trigger('resize');
                         }, 600);
                     }).
                     error(function (responseData, status, headers, config) {
-                        $scope.showErrorMessage =true;
+                        $scope.showErrorMessage = true;
                         $scope.showSuccessMessage = false;
                         $scope.isFormSubmitted = true;
                         $scope.result = responseData;
@@ -132,18 +130,23 @@
                 }
             };
 
-            $scope.phoneNumberPattern = (function() {
-                var regexp =  /^\d+$/;
+            $scope.phoneNumberPattern = (function () {
+                var regexp = /^\d+$/;
                 return {
-                    test: function(value) {
-                        if( $scope.requireTel === false ) {
+                    test: function (value) {
+                        if ($scope.requireTel === false) {
                             return true;
                         }
                         return regexp.test(value);
                     }
                 };
             })();
+        });
 
-        }
+
+        //function $iv-name_form($rootScope,$scope, $element, $location, $window, $http) {
+            
+
+        //}
     </script>
 </control>

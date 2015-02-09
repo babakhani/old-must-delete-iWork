@@ -239,6 +239,20 @@
     }
 }
 
+/*::-webkit-validation-bubble {border:1px solid red !important;}
+::-webkit-validation-bubble-arrow-clipper {border:1px solid red !important;}
+::-webkit-validation-bubble-arrow {border:1px solid red !important;}
+::-webkit-validation-bubble-message {border:1px solid red !important;}*/
+
+
+.form-help-message{
+    font-size:12px;
+    margin-bottom:10px;
+    color:#999999;
+    text-indent:10px;
+}
+
+
 /* Checklist
 ===================================*/
 .magicsuggest-box {

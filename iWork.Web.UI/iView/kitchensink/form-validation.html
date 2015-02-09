@@ -10,13 +10,14 @@
 
             <input iv-type="text"
                    iv-name="textpattern"
-                   iv-label="Text Pattern"
+                   iv-label="Number pattern"
                    iv-required="true"
                    iv-maxlength="6"
                    iv-minlength="2"
                    iv-pattern="phoneNumberPattern" />
 
-            <input iv-type="text" iv-name="text" iv-label="Text" iv-required="true" iv-maxlength="6" iv-minlength="2" />
+            <formfield iv-type="help-message">This is help message!  Only accept numbers.</formfield>
+            <input iv-type="text" iv-name="text" iv-label="Text" iv-required="true" iv-maxlength="6" iv-minlength="2">
             <input iv-type="password" iv-name="password" iv-label="Password" iv-required="true" iv-minlength="2" />
             <input iv-type="textarea" iv-name="textarea" iv-label="TextArea" iv-required="true" iv-maxlength="6" iv-minlength="2" />
             <input iv-type="spinner" iv-name="spinner" iv-label="Spinner" iv-required="true" iv-max="200" iv-min="0" />

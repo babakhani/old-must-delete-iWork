@@ -2,7 +2,7 @@
 var iDropzone;
 Dropzone.autoDiscover = false;
 
-angular.module('iwork', ['datatables', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
+var iWork = angular.module('iWork', ['mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
 
 var log = function (x) {
     console.log(x);
