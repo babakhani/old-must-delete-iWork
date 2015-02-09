@@ -263,6 +263,10 @@
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.js" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.min.js" />
     <Content Include="Content\lib\angular\angular-bootstrap-switch.js" />
+    <Content Include="Content\lib\animation\css\animsition.css" />
+    <Content Include="Content\lib\animation\css\animsition.min.css" />
+    <Content Include="Content\lib\animation\js\jquery.animsition.js" />
+    <Content Include="Content\lib\animation\js\jquery.animsition.min.js" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.css" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.min.css" />
     <Content Include="Content\lib\bootstrap-switch\js\bootstrap-switch.js" />
@@ -294,6 +298,8 @@
     <Content Include="Content\lib\datatables\js\jquery.js" />
     <Content Include="Content\lib\dropzone\dropzone.css" />
     <Content Include="Content\lib\dropzone\dropzone.js" />
+    <Content Include="Content\lib\element-transitions\elementTransitions.css" />
+    <Content Include="Content\lib\element-transitions\elementTransitions.min.js" />
     <Content Include="Content\lib\jquery.svginject.js" />
     <Content Include="Content\lib\magicsugges\.gitignore" />
     <Content Include="Content\lib\magicsugges\magicsuggest-min.css" />
@@ -388,6 +394,7 @@
     <Content Include="Content\lib\angular-strap\modules\timepicker.min.js.map" />
     <Content Include="Content\lib\angular-strap\modules\tooltip.min.js.map" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.min.js.map" />
+    <Content Include="Content\lib\animation\css\animsition.css.map" />
     <None Include="Content\sample_data\grid.json" />
     <Content Include="Content\lib\angular\angular.min.js" />
     <Content Include="Content\lib\bootstrap\css\bootstrap-theme.css.map" />
@@ -461,6 +468,7 @@
     <Content Include="Template\Default\Controls\grid\datatables.html" />
     <Content Include="Template\Default\Controls\grid\table.html" />
     <Content Include="Template\Default\Controls\icon\svg.html" />
+    <Content Include="Template\Default\Controls\input\email.html" />
     <Content Include="Template\Default\Controls\input\password.html" />
     <Content Include="Template\Default\Controls\input\search.html" />
     <Content Include="Template\Default\Controls\input\spinner.html" />
@@ -476,7 +484,6 @@
     <Content Include="Template\Default\Controls\panel\panel.html" />
     <Content Include="Template\Default\Controls\radio\radiolist.html" />
     <Content Include="Template\Default\Controls\radio\radio.html" />
-    <Content Include="Template\Default\Controls\radio\switch.html" />
     <Content Include="Template\Default\Controls\row\tr.html" />
     <Content Include="Template\Default\Controls\select\select.html" />
     <Content Include="Template\Default\Controls\checkbox\switch.html" />
