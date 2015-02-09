@@ -106,7 +106,7 @@ $(document).ready(function () {
     });
 
     if (window.location.hash !== '') {
-        $('.slick-container').slick('slickGoTo', window.location.hash.split('/')[1]);
+        $('.slick-container').slick('slickGoTo', parseInt(window.location.hash.match(/\d+/)[0]));
     }
 
     //====================================================================================== END
