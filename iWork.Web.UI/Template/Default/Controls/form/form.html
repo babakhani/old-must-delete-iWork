@@ -71,9 +71,13 @@
           ---------------------------------------*/
             $scope.formsubmit = function () {
                 $scope.submitted = true;
-
                 if ($scope.$form.find('.ng-invalid').length > 0) {
+                    $('html, body').animate({
+                        scrollTop: $element.find('form .ng-invalid').offset().top - 70
+                    }, 200);
                     return false;
+                } else {
+                    $element.find('form [type=submit]').removeClass('btn-warning');
                 }
 
                 // Filtering Form

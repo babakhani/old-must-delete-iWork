@@ -199,7 +199,8 @@
   .form-horizontal .validation-message span {
     display: block;
     width: 100%;
-    font-size: 11px; }
+    font-size: 11px;
+    text-indent: 10px; }
 
 /*::-webkit-validation-bubble {border:1px solid red !important;}
 ::-webkit-validation-bubble-arrow-clipper {border:1px solid red !important;}
@@ -210,6 +211,9 @@
   margin-bottom: 10px;
   color: #999999;
   text-indent: 10px; }
+
+.form-horizontal textarea:invalid, .form-horizontal input:invalid {
+  outline: none; }
 
 /* Checklist
 ===================================*/

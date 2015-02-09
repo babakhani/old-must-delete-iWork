@@ -301,6 +301,7 @@
     <Content Include="Content\lib\magicsugges\magicsuggest.css" />
     <Content Include="Content\lib\magicsugges\magicsuggest.js" />
     <Content Include="Content\lib\moment.js" />
+    <Content Include="Content\lib\angular\ng-password-strength.min.js" />
     <Content Include="Content\lib\slick\ajax-loader.gif" />
     <Content Include="Content\lib\slick\fonts\slick.svg" />
     <Content Include="Content\lib\slick\slick-theme.css" />
@@ -402,6 +403,8 @@
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
+    <Content Include="Content\lib\underscore.js" />
+    <Content Include="Content\lib\unserscore.string.js" />
     <Content Include="Controllers\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.vb</LastGenOutput>
@@ -426,6 +429,7 @@
     <Content Include="iView\Contacts\Contact.xml" />
     <Content Include="iView\Contacts\form.html" />
     <Content Include="iView\Contacts\list.html" />
+    <Content Include="iView\kitchensink\test.html" />
     <Content Include="iView\include\contactForm.html" />
     <Content Include="iView\kitchensink\angularstrap.html" />
     <Content Include="iView\kitchensink\form-validation.html" />
@@ -450,6 +454,7 @@
     <Content Include="Template\Default\Controls\column\td.html" />
     <Content Include="Template\Default\Controls\datepicker\date.html" />
     <Content Include="Template\Default\Controls\datepicker\time.html" />
+    <Content Include="Template\Default\Controls\formfield\help-message.html" />
     <Content Include="Template\Default\Controls\form\form.html" />
     <Content Include="iView\kitchensink\validation-message.html" />
     <Content Include="Template\Default\Controls\grid\column.html" />
