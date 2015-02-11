@@ -16,7 +16,7 @@ Namespace Controllers
         Public Function Add(requestModel As ivContact) As ResponseModel Implements IContactController.Add
 
             Dim contact = Mapper.Map(Of Contact)(requestModel)
-            ApplicationConfuration.GetApplication.GetService(Of IContactService).Add(contact)
+            Application.GetService(Of IContactService).Add(contact)
 
             Return ResponseModel.SendOK("Contact has been added successfully.", contact.ContactId)
 
@@ -24,14 +24,14 @@ Namespace Controllers
 
         Public Function Search(requestModel As ivContactSearch) As ResponseModel Implements IContactController.Search
 
-            Dim data = ApplicationConfuration.GetApplication.GetService(Of IContactService).Search(requestModel.term)
+            Dim data = Application.GetService(Of IContactService).Search(requestModel.term)
             Return ResponseModel.SendOK(data.Count.ToString & " record(s) found!", data)
 
         End Function
 
         Public Function Remove(requestModel As RequestIdModel) As ResponseModel Implements IContactController.Remove
 
-            ApplicationConfuration.GetApplication.GetService(Of IContactService).Remove(requestModel.Id)
+            Application.GetService(Of IContactService).Remove(requestModel.Id)
             Return ResponseModel.SendOK("Contact has been removed successfully.", requestModel.Id)
 
         End Function
@@ -39,7 +39,7 @@ Namespace Controllers
         Public Function Update(requestModel As ivContact) As ResponseModel Implements IContactController.Update
 
             Dim contact = Mapper.Map(Of Contact)(requestModel)
-            ApplicationConfuration.GetApplication.GetService(Of IContactService).Update(contact)
+            Application.GetService(Of IContactService).Update(contact)
 
             Return ResponseModel.SendOK("Contact has been updated successfully.", contact.ContactId)
 
@@ -47,7 +47,7 @@ Namespace Controllers
 
         Public Function GetById(requestModel As RequestIdModel) As ResponseModel Implements IContactController.GetById
 
-            Dim data = ApplicationConfuration.GetApplication.GetService(Of IContactService).GetById(requestModel.Id)
+            Dim data = Application.GetService(Of IContactService).GetById(requestModel.Id)
             Return ResponseModel.SendOK("", data)
 
         End Function

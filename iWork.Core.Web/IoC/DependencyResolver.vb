@@ -1,18 +1,17 @@
 ﻿Imports System.Web.Http.Dependencies
 Imports Castle.Windsor
+Imports System.Collections.Concurrent
 
 Public Class DependencyResolver
     Implements IDependencyResolver
 
+    Private _toBeReleased As ConcurrentBag(Of Object)
+
     Private _container As IWindsorContainer
-    Public ReadOnly Property Container As IWindsorContainer
-        Get
-            Return _container
-        End Get
-    End Property
 
     Public Sub New(container As IWindsorContainer)
 
+        _toBeReleased = New ConcurrentBag(Of Object)
         If container Is Nothing Then
             Throw New ArgumentNullException("container", "The instance of the container cannot be null.")
         End If
@@ -21,35 +20,50 @@ Public Class DependencyResolver
     End Sub
 
     Public Sub Dispose() Implements IDisposable.Dispose
-        Dispose(True)
-        GC.SuppressFinalize(Me)
+
+        If _toBeReleased IsNot Nothing Then
+            For Each item In _toBeReleased
+                _container.Release(item)
+            Next
+            _toBeReleased = Nothing
+        End If
+
     End Sub
 
     Public Function GetService(serviceType As Type) As Object Implements IDependencyScope.GetService
-        Try
-            Return Container.Resolve(serviceType)
-        Catch ex As Exception
+
+        If Not _container.Kernel.HasComponent(serviceType) Then
             Return Nothing
-        End Try
+        End If
+
+        Dim resolved = _container.Resolve(serviceType)
+
+        If resolved IsNot Nothing Then
+            _toBeReleased.Add(resolved)
+        End If
+
+        Return resolved
+
     End Function
 
     Public Function GetServices(serviceType As Type) As IEnumerable(Of Object) Implements IDependencyScope.GetServices
-        Return Container.ResolveAll(serviceType).Cast(Of Object)()
+
+        'Return _container.ResolveAll(serviceType).Cast(Of Object).ToArray
+
+        'If Not _container.Kernel.HasComponent(serviceType) Then
+        '    Return Nothing ' Array.CreateInstance(GetType(Object), 1)
+        'End If
+
+        Dim allResolved = _container.ResolveAll(serviceType).Cast(Of Object).ToArray
+
+        If allResolved IsNot Nothing Then
+            allResolved.ToList.ForEach(Sub(x) _toBeReleased.Add(x))
+        End If
+
+        Return allResolved
+
     End Function
 
-    Private disposedValue As Boolean
-
-    Protected Sub Dispose(disposing As Boolean)
-        If Not disposedValue Then
-            If disposing Then
-                If _container IsNot Nothing Then
-                    _container.Dispose()
-                    _container = Nothing
-                End If
-            End If
-        End If
-        disposedValue = True
-    End Sub
 
     Public Function BeginScope() As IDependencyScope Implements IDependencyResolver.BeginScope
         Return New DependencyScope(_container)

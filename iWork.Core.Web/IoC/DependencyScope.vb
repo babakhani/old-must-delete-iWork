@@ -4,7 +4,7 @@ Imports Castle.Windsor
 
 Public Class DependencyScope
     Implements IDependencyScope
-    Implements IScope
+    'Implements IScope
 
     Private _container As IWindsorContainer
     Private _scope As IDisposable
@@ -24,15 +24,17 @@ Public Class DependencyScope
     End Sub
 
     Public Function GetService(serviceType As Type) As Object Implements IDependencyScope.GetService
-        Try
-            Return Container.Resolve(serviceType)
-        Catch ex As Castle.MicroKernel.ComponentNotFoundException
+
+        If _container.Kernel.HasComponent(serviceType) Then
+            Return _container.Kernel.Resolve(serviceType)
+        Else
             Return Nothing
-        End Try
+        End If
+
     End Function
 
     Public Function GetServices(serviceType As Type) As IEnumerable(Of Object) Implements IDependencyScope.GetServices
-        Return Container.ResolveAll(serviceType).Cast(Of Object)()
+        Return Container.ResolveAll(serviceType).Cast(Of Object).ToArray
     End Function
 
     Private disposedValue As Boolean
@@ -54,8 +56,8 @@ Public Class DependencyScope
         GC.SuppressFinalize(Me)
     End Sub
 
-    Public Function GetScopeService(Of T)() As T Implements IScope.GetScopeService
-        Return Container.Resolve(GetType(T))
-    End Function
+    'Public Function GetScopeService(Of T)() As T Implements IScope.GetScopeService
+    '    Return Container.Resolve(GetType(T))
+    'End Function
 
 End Class

@@ -8,9 +8,9 @@ Public Class ContactService
 
     Public Sub Add(value As Contact) Implements IContactService.Add
 
-        Using uow = ApplicationConfuration.GetApplication.GetService(Of IUnitOfWork)()
+        Using uow = Application.GetService(Of IUnitOfWork)()
 
-            Dim rep = ApplicationConfuration.GetApplication.GetService(Of IGenericRepository(Of Contact))()
+            Dim rep = Application.GetService(Of IGenericRepository(Of Contact))()
             rep.Add(value)
             uow.Commit()
 
@@ -20,9 +20,9 @@ Public Class ContactService
 
     Public Sub Update(value As Contact) Implements IContactService.Update
 
-        Using uow = ApplicationConfuration.GetApplication.GetService(Of IUnitOfWork)()
+        Using uow = Application.GetService(Of IUnitOfWork)()
 
-            Dim rep = ApplicationConfuration.GetApplication.GetService(Of IGenericRepository(Of Contact))()
+            Dim rep = Application.GetService(Of IGenericRepository(Of Contact))()
             rep.Update(value)
             uow.Commit()
 
@@ -32,9 +32,9 @@ Public Class ContactService
 
     Public Sub Remove(value As Long) Implements IContactService.Remove
 
-        Using uow = ApplicationConfuration.GetApplication.GetService(Of IUnitOfWork)()
+        Using uow = Application.GetService(Of IUnitOfWork)()
 
-            Dim rep = ApplicationConfuration.GetApplication.GetService(Of IGenericRepository(Of Contact))()
+            Dim rep = Application.GetService(Of IGenericRepository(Of Contact))()
             rep.Remove(value)
             uow.Commit()
 
@@ -43,12 +43,14 @@ Public Class ContactService
     End Sub
 
     Public Function Search(term As String) As IEnumerable(Of Contact) Implements IContactService.Search
-        Return ApplicationConfuration.GetApplication.GetService(Of IContactRepository).Search(term)
+
+        Return Application.GetService(Of IContactRepository).Search(term)
+
     End Function
 
     Public Function GetById(contactId As Integer) As Contact Implements IContactService.GetById
 
-        Return ApplicationConfuration.GetApplication.GetService(Of IGenericRepository(Of Contact))()
+        Return Application.GetService(Of IGenericRepository(Of Contact))()
 
     End Function
 

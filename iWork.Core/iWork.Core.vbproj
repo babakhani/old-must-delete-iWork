@@ -69,9 +69,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationConfuration.vb" />
+    <Compile Include="Application.vb" />
+    <Compile Include="Interfaces\IServiceContainer.vb" />
     <Compile Include="Mapper.vb" />
-    <Compile Include="Interfaces\IApplication.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
