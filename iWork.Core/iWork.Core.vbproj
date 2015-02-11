@@ -120,7 +120,7 @@
     <Compile Include="Controllers\Models\RequestModel.vb" />
     <Compile Include="Controllers\Models\RequestResponseModel.vb" />
     <Compile Include="Controllers\Models\ResponseModel.vb" />
-    <Compile Include="Interfaces\IServiceContainer.vb" />
+    <Compile Include="IoC\IServiceContainer.vb" />
     <Compile Include="IoC\DependencyResolver.vb" />
     <Compile Include="IoC\DependencyScope.vb" />
     <Compile Include="IoC\Extentions.vb" />
@@ -144,7 +144,7 @@
     </Compile>
     <Compile Include="Repositories\IGenericRepository.vb" />
     <Compile Include="Repositories\IRepository.vb" />
-    <Compile Include="Interfaces\IUnitOfWork.vb" />
+    <Compile Include="Repositories\IUnitOfWork.vb" />
     <Compile Include="Security\AuthorizationInterceptor.vb" />
     <Compile Include="Security\AuthorizeAttribute.vb" />
     <Compile Include="Services\IService.vb" />

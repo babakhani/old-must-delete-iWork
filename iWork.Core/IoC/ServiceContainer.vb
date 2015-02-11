@@ -23,12 +23,8 @@ Public Class ServiceContainer
 
         End If
 
-        Dim out = _container.Resolve(Of T)()
+        Return _container.Resolve(Of T)()
 
-
-
-
-        Return out
     End Function
 
 End Class

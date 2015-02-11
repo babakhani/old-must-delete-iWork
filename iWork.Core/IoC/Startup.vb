@@ -11,25 +11,10 @@ Imports iWork.Core.Controllers
 <Assembly: OwinStartup("StartupConfiguration", GetType(Startup))> 
 Public Class Startup
 
-    Dim container = New WindsorContainer("config/Castle.config")
 
     Public Sub Configuration(app As IAppBuilder)
 
-        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IUnitOfWork).WithService.FromInterface.LifestylePerWebRequest)
-        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IRepository).WithService.FromInterface.LifestylePerWebRequest)
-        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IService).WithService.FromInterface.LifestylePerWebRequest)
-        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IController).WithService.FromInterface.LifestylePerWebRequest)
-        container.Register(Component.For(Of IWindsorContainer).Instance(container).LifestylePerWebRequest)
-
-        'todo: amir remove debug trace later
-        Debug.WriteLine("----------------------------------------------------")
-        For Each handler In container.Kernel.GetAssignableHandlers(GetType(Object))
-            For Each ser In handler.ComponentModel.Services
-                Debug.WriteLine(ser.Name & "," & handler.ComponentModel.Implementation.Name)
-            Next
-        Next
-        Debug.WriteLine("----------------------------------------------------")
-
+        Dim container As IWindsorContainer = Bootstrap()
         Dim config As New HttpConfiguration()
         config.DependencyResolver = New DependencyResolver(container)
 
@@ -42,9 +27,35 @@ Public Class Startup
 
         app.UseWebApi(config)
 
+    End Sub
+
+    Private Function Bootstrap() As IWindsorContainer
+
+        Dim container = New WindsorContainer("config/Castle.config")
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IUnitOfWork).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IRepository).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IService).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IController).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Component.For(Of IWindsorContainer).Instance(container).LifestyleSingleton)
+
+#If DEBUG Then
+
+        'todo: amir remove debug trace later
+        Debug.WriteLine("----------------------------------------------------")
+        For Each handler In container.Kernel.GetAssignableHandlers(GetType(Object))
+            For Each ser In handler.ComponentModel.Services
+                Debug.WriteLine(ser.Name & "," & handler.ComponentModel.Implementation.Name)
+            Next
+        Next
+        Debug.WriteLine("----------------------------------------------------")
+
+#End If
+
         Application.InitializeContainer(AddressOf container.Resolve(Of IServiceContainer))
 
-    End Sub
+        Return container
+
+    End Function
 
     Private Function GetAssemblyFilter(container As IWindsorContainer) As AssemblyFilter
 
