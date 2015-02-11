@@ -395,6 +395,8 @@
     <Content Include="Content\lib\angular-strap\modules\tooltip.min.js.map" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.min.js.map" />
     <Content Include="Content\lib\animation\css\animsition.css.map" />
+    <Content Include="Config\Castle.config" />
+    <Content Include="Config\Logging.config" />
     <None Include="Content\sample_data\grid.json" />
     <Content Include="Content\lib\angular\angular.min.js" />
     <Content Include="Content\lib\bootstrap\css\bootstrap-theme.css.map" />
@@ -432,7 +434,6 @@
       <DependentUpon>slick-theme.css</DependentUpon>
     </Content>
     <Content Include="Content\lib\jquery\jquery-2.1.1.min.js" />
-    <Content Include="Global.asax" />
     <Content Include="iView\Contacts\Contact.xml" />
     <Content Include="iView\Contacts\form.html" />
     <Content Include="iView\Contacts\list.html" />
@@ -498,16 +499,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="Controllers\ControllerGenerator.vb">
       <DependentUpon>ControllerGenerator.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Controllers\ContactController.vb" />
-    <Compile Include="Global.asax.vb">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
