@@ -7,7 +7,7 @@ Imports System.Reflection
 Imports iWork.Core.Repositories
 Imports iWork.Core.Services
 
-<Assembly: OwinStartup("StartupConfiguration", GetType(iWork.Core.Startup))> 
+<Assembly: OwinStartup("StartupConfiguration", GetType(Startup))> 
 Public Class Startup
 
     Public Sub Configuration(app As IAppBuilder)
