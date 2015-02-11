@@ -9,16 +9,16 @@
         </div>
     </div>
     <script>
-        $('#$iv-modal-id').appendTo('body');
-        if ($iv-form-modal !== false) {
-            $('#$iv-modal-id').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget)
-                var recipient = button.data('entity-id')
-                if ('$iv-form-modal' !== 'false' && recipient) {
-                    var formController = $(this).find('.modal-body [ng-controller]')
-                    angular.element(formController[0]).scope().formUpdate(recipient);
-                }
-            });
-        }
+        //$('#$iv-modal-id').appendTo('body');
+        //if ($iv-form-modal !== false) {
+        //    $('#$iv-modal-id').on('show.bs.modal', function (event) {
+        //        var button = $(event.relatedTarget)
+        //        var recipient = button.data('entity-id')
+        //        if ('$iv-form-modal' !== 'false' && recipient) {
+        //            var formController = $(this).find('.modal-body [ng-controller]')
+        //            angular.element(formController[0]).scope().formUpdate(recipient);
+        //        }
+        //    });
+        //}
     </script>
 </control>

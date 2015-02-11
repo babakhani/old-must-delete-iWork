@@ -2,11 +2,26 @@
 var iDropzone;
 Dropzone.autoDiscover = false;
 
-angular.module('iwork', ['datatables']);
+var iWork = angular.module('iWork', ['mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
 
 var log = function (x) {
     console.log(x);
 }
+$.fn.serializeObject = function () {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
 
 $(document).ready(function () {
     $('#navbar li').each(function () {
@@ -17,20 +32,19 @@ $(document).ready(function () {
     });
 
     // Input Delete Script's
-    $(document).on('click', '.remove-entity', function () {
-        var entityID = $(this).attr('data-entity-id');
-        var entityModel = $(this).attr('data-model');
-        var removeConfirm = $(this).attr('data-confirm');
+    $(document).on('click', 'span.remove-entity', function () {
+        var entityID = $(this).data('entity-id');
+        var entityController = $(this).data('model');
+        var removeConfirm = $(this).data('confirm');
         if (removeConfirm && removeConfirm !== 'false') {
-            var conf = confirm("Remove " + entityModel + " " + entityID + "!");
+            var conf = confirm("Remove " + entityController + " " + entityID + "!");
         } else {
             var conf = true;
         }
-
         if (conf == true) {
             $.ajax({
                 method: 'POST',
-                url: rootControllerUrl + entityModel + "/remove",
+                url: rootControllerUrl + entityController + "/remove",
                 data: {
                     ContactId: entityID
                 },
@@ -48,19 +62,21 @@ $(document).ready(function () {
     });
     // END
 
-    // Input Delete Script's
+    // Input Update Script's
     $(document).on('click', '.update-entity', function () {
-        var entityID = $(this).attr('data-entity-id');
-        var formName = $(this).attr('data-target-form');
-        var controllerElement = $('form[name=' + formName + ']').parents('[ng-controller]')
+        var entityID = $(this).data('entity-id');
+        var formName = $(this).data('target-form');
+
+        var controllerElement = $('form[name=' + formName + ']').parents('[ng-controller]');
         controllerElement.scope().formUpdate(entityID);
     });
     // END
 
-    // Slick View Script's
+    /* Slick View Script's
+    =====================================================================================*/
     $('.slick-container').slick({
         adaptiveHeight: true,
-        accessibility: true,
+        accessibility: false,
         arrows: false,
         edgeFriction: 10,
         infinite: false,
@@ -82,14 +98,25 @@ $(document).ready(function () {
 
     $('button[data-toggle=slick]').click(function () {
         $('.slick-container').slick('slickGoTo', $(this).data("target"));
+
+        window.location.hash = $(this).data("target");
+
         $('[data-toggle]').removeClass('selected')
         $(this).addClass('selected');
     });
-    // END
+
+    if (window.location.hash !== '') {
+        $('.slick-container').slick('slickGoTo', parseInt(window.location.hash.match(/\d+/)[0]));
+    }
+
+    //====================================================================================== END
 
     $('.svg-inject').svgInject();
 
     $(window).resize(function () {
         $('.slick-list').height('auto');
     });
+
+
+
 });

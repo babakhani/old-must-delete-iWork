@@ -1,20 +1,23 @@
-﻿<control iv-input-type="text" iv-required="false" iv-minlength="" iv-maxlength="" iv-pattern="" iv-change="">
+﻿<control iv-label=""
+         iv-checked="false"
+         iv-required="false" 
+         >
     <div class="form-group">
-        <label for="$iv-name" class="control-label">
-            <input type="checkbox"
-                   class="form-control"
-                   name="$iv-name"
-                   id="$iv-name"
-                   placeholder="$iv-label"
-                   ng-model="$iv-model.$iv-name"
-                   ng-required="$iv-required"
-                   ng-minlength="$iv-minlength"
-                   ng-maxlength="$iv-maxlength"
-                   ng-pattern="$iv-pattern"
-                   ng-change="$iv-change" />
-            <span>
-                $iv-label
-            </span>
-        </label>
+        <div class="col-lg-2 checkbox-label-column"></div>
+        <div class="col-lg-10 checkbox-input-column">
+            <label for="$iv-name" class="control-label ">
+                <input type="checkbox"
+                       class="form-control"
+                       name="$iv-name"
+                       id="$iv-name"
+                       ng-model="$iv-model.$iv-name"
+                       ng-required="$iv-required"
+                       ng-checked="$iv-checked" />
+                <span>
+                    $iv-label
+                </span>
+            </label>
+            <validation iv-type="validation"></validation>
+        </div>
     </div>
 </control>

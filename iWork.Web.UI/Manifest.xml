@@ -6,4 +6,9 @@
   <config>
     <iv-pagecount>10</iv-pagecount>
   </config>
+  
+  <resources>
+    <resource iv-name="bootstrap-switch-js" iv-type="js" iv-source="/Content/lib/bootstrap-switch/js/bootstrap-switch.js"></resource>
+    <resource iv-name="bootstrap-switch-css" iv-type="css" iv-source="/Content/lib/bootstrap-switch/css/bootstrap-switch.css"></resource>
+  </resources>
 </root>

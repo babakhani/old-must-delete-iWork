@@ -2,40 +2,51 @@
     <sidecontent>
         <button iv-type="iconic"
                 iv-icon="grid"
-                iv-label="Grid Datatables"
+                iv-label="Observer Grid"
                 iv-toggle="slick"
                 iv-target="0"></button>
         <button iv-type="iconic"
-                iv-icon="upload"
-                iv-label="File Uploader"
+                iv-icon="grid"
+                iv-label="Grid Target Form"
                 iv-toggle="slick"
                 iv-target="1"></button>
+        <button iv-type="iconic"
+                iv-icon="grid"
+                iv-label="Ajax Grid"
+                iv-toggle="slick"
+                iv-target="2"></button>
+        <button iv-type="iconic"
+                iv-icon="upload"
+                iv-label="Form"
+                iv-toggle="slick"
+                iv-target="3"></button>
+        <button iv-type="iconic"
+                iv-icon="upload"
+                iv-label="Form Validation"
+                iv-toggle="slick"
+                iv-target="4"></button>
     </sidecontent>
     <content>
         <div class="slick-container">
+            <!-- Slick 0 -->
             <div>
-                <grid iv-type="datatables" iv-controller="sampleGrid" iv-url="/content/sample_data/grid.json" iv-ordering="true" iv-display-length="15" iv-serverside="false">
-                    <grid iv-type="column" iv-title="Name" iv-data="name" iv-atargets="0"></grid>
-                    <grid iv-type="column" iv-title="Position" iv-data="position" iv-atargets="1"></grid>
-                    <grid iv-type="column" iv-title="salary" iv-data="salary" iv-atargets="2"></grid>
-                    <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-atargets="3"></grid>
-                    <grid iv-type="column" iv-title="office" iv-data="office" iv-atargets="4"></grid>
-                    <grid iv-type="column" iv-title="extn" iv-data="extn" iv-atargets="5"></grid>
-                    <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-atargets="6" iv-width="100"></grid>
-                    <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-atargets="7" iv-width="100"></grid>
-                </grid>
+                <include iv-source="/iview/kitchensink/grid-observer.html"></include>
             </div>
-            
-
+            <!-- Slick 1 -->
             <div>
-                <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
-                    <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" />
-                    <input iv-type="text" iv-name="tel1" iv-label="Home" />
-                    <datepicker iv-type="time" iv-label="Timepicker"></datepicker>
-                    <datepicker iv-type="date" iv-label="Datepicker"></datepicker>
-                    <uploader iv-type="dropzone" iv-label="File Uplaoder"></uploader>
-                    <button iv-type="submit" iv-name="submit" iv-label="Submit" />
-                </form>
+                <include iv-source="/iview/contacts/form.html"></include>
+            </div>
+            <!-- Slick 2 -->
+            <div>
+                <include iv-source="/iview/kitchensink/grid-ajax.html"></include>
+            </div>
+            <!-- Slick 3 -->
+            <div>
+                <include iv-source="/iview/kitchensink/form.html"></include>
+            </div>
+            <!-- Slick 4 -->
+            <div>
+                <include iv-source="/iview/kitchensink/form-validation.html"></include>
             </div>
         </div>
     </content>

@@ -1,5 +1,126 @@
 ﻿@import '_helper.scss';
 
+* {
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+/*.sub-menu {
+    -moz-animation-name: dropSubMenu;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-duration: 0.5s;
+    -webkit-animation-name: dropSubMenu;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.5s;
+    animation-name: dropSubMenu;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+
+@-moz-keyframes dropSubMenu {
+    0% {
+        -moz-transform: translateX(-100px);
+    }
+
+    100% {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes dropSubMenu {
+    0% {
+        -webkit-transform: translateX(-100px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes dropSubMenu {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}*/
+
+.navbar {
+      -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+    -moz-animation-name: dropHeader;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-duration: 0.2s;
+    -webkit-animation-name: dropHeader;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.2s;
+    animation-name: dropHeader;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.2s;
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+@-moz-keyframes dropHeader {
+    0% {
+        -moz-transform: translateY(-40px);
+    }
+
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes dropHeader {
+    0% {
+        -webkit-transform: translateY(-40px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes dropHeader {
+    0% {
+        transform: translateY(-40px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/*
+    =============================
+*/
+
+
 @font-face {
     font-family: "Open Sans";
     src: url("../font/OpenSans-Regular.eot?") format("eot"),url("../font/OpenSans-Regular.woff") format("woff"),url("../font/OpenSans-Regular.ttf") format("truetype"),url("../font/OpenSans-Regular.svg#OpenSans") format("svg");
@@ -11,7 +132,6 @@ body {
     font-family: 'Open Sans';
     padding-top: 72px;
     background: #F4F3F0;
-    
 }
 
 .panel-image {
@@ -36,7 +156,6 @@ body {
 }
 
 .page-container {
-    
     min-height: 700px;
     width: 100%;
     z-index: 4000;
@@ -125,18 +244,19 @@ body {
         width: 100%;
         background: none;
         margin: 8px 0px 0px 0px;
-        padding:8px 0px 0px 0px !important;
+        padding: 8px 0px 0px 0px !important;
         @include border-radius(0px);
 
         .svg-inject {
             margin: 0px auto !important;
             float: none !important;
-            fill:#75BBF2 !important;
+            fill: #75BBF2 !important;
         }
-        span{
-             color:#75BBF2;
-             width:100%;
-             text-align:center;
+
+        span {
+            color: #75BBF2;
+            width: 100%;
+            text-align: center;
         }
     }
 
@@ -152,10 +272,10 @@ body {
     button.selected {
         background: #fefefe;
         border-left: 5px solid #2196F3;
-        
-        .svg-inject{
-             fill-opacity:1;
-             fill:#2196F3;
+
+        .svg-inject {
+            fill-opacity: 1;
+            fill: #2196F3;
         }
     }
 }
@@ -181,4 +301,3 @@ body {
 @import 'datatabels.scss';
 @import 'control.scss';
 @import '_helper.scss';
-

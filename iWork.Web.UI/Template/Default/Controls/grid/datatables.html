@@ -1,46 +1,113 @@
-﻿<control iv-controller="gridController"
-         iv-title="Grid Title"
+﻿<!--    Datatables self data loader -->
+<control iv-controller="gridController"
+         iv-title="null"
          iv-url="false"
          iv-serverside="false"
+         iv-searching="true"
+         iv-paging="true"
          iv-pagination-type="full_numbers"
-         iv-display-length="1"
-         iv-ordering="true">
-    <div ng-controller="$iv-controller">
-        <h3>$iv-title</h3>
+         iv-display-length="10"
+         iv-dom='flptip'
+         iv-info="true"
+         iv-state-save="false"
+         iv-length-menu=" [ 15, 30, 60,100 ]"
+         iv-page-length="15"
+         iv-ordering="true"
+         iv-name="gridDefaultName"
+         iv-auto-load="true">
+
+    <div ng-controller="$iv-name_grid">
+        <h3 ng-show="showGridTitle">$iv-title</h3>
         <table id="$iv-controller" class="table row-border hover">
             <iv-content></iv-content>
         </table>
     </div>
     <script>
-        function $iv-controller($rootScope,$scope, $element, $location, $window, $http)  {
-            $scope.initDatatable = function(){
-                var dtOptions = {
+
+        iWork.controller('$iv-name_grid', function ($scope, $element, $rootScope, $location, $window, $http) {
+            $.fn.dataTableExt.sErrMode = 'throw';
+            $scope.showGridTitle = '$iv-title' !== 'null';
+            $scope.initDatatable = function () {
+                $scope.dtOptions = {
+                    dom: '$iv-dom',
                     serverSide: $iv-serverside,
                     paginationType: '$iv-pagination-type',
                     displayLength: $iv-display-length,
                     ordering: $iv-ordering,
-                    drawCallback: function( settings ) {
-                        $(window).trigger('resize');
-                    },
-                    rowCallback: function( row, data ) {
-                        var columnDef = $iv-controller_aoColumns;
-                        var $row = $(row);
-                        $.each(columnDef,function(index,config){
-                            if(config.type == 'btn.edite'){
-                                var column = $($row.find('td')[index])
-                                column.empty();
-                                column.append($('<span class="update-entity glyphicon glyphicon-pencil" data-entity-id="1" data-model="Contact" data-target-form="contactForm"></span>'));
-                            }else if(config.type == 'btn.delete'){
-                                var column = $($row.find('td')[index])
-                                column.empty();
-                                column.append($('<span class="remove-entity glyphicon glyphicon-trash" data-entity-id="5" data-model="Contact" data-confirm="true"></span>'));
-                            }
+                    paging: $iv-paging,
+                    searching: $iv-searching,
+                    info: $iv-info,
+                    stateSave: $iv-state-save,
+                    lengthMenu: $iv-length-menu,
+                    pageLength: $iv-page-length,
+                    fnServerData: function (sUrl, aoData, fnCallback, oSettings) {
+                        if ($scope.filteringForm) {
+                            $scope.filteringForm.find('button').button('loading');
+                        }
+                        var fnCallback2 = function (json) {
+                            fnCallback(json);
+                            return false;
+                        };
+                        if (aoData.length > 0) {
+                            var datatabelsRequest = {
+                                draw: aoData[0].value,
+                                columns: aoData[1].value,
+                                order: aoData[2].value,
+                                start: aoData[3].value,
+                                lenght: aoData[4].value,
+                                search: aoData[5].value,
+                            };
+                        } else {
+                            requestData = {}
+                        }
+                        if ('$iv-observe' !== 'false') {
+                            requestData = $.extend(datatabelsRequest, $scope.filteringFormData)
+                        }
+                        oSettings.jqXHR = $.ajax({
+                            url: oSettings.ajax.url,
+                            crossDomain: true,
+                            data: requestData,
+                            type: "GET", //TODO : Get has been change to post by pouya
+                            timeout: 10000,
+                            success: fnCallback2,
+                            complete: function () {
+                                if ($scope.filteringForm) {
+                                    $scope.filteringForm.find('button').button('reset');
+                                }
+                            },
+                            cache: false
                         });
                     },
-                    preDrawCallback: function( settings ) {
-                        $iv-controller_aoColumns = settings.aoColumns;
+                    drawCallback: function (settings) {
+                        $(window).trigger('resize');
                     },
-                    columns:[
+                    rowCallback: function (row, data) {
+                        var columnDef = $scope.aoColumns;
+                        var $row = $(row);
+                        $.each(columnDef, function (index, config) {
+                            if (config.type == 'btn.edite') {
+                                var $column = $($row.find('td')[index]);
+                                $column.empty();
+                                $column.append($('<span class="update-entity glyphicon glyphicon-pencil"></span>').data({
+                                    'entity-id': data.id,
+                                    'target-form': config.targetForm
+                                }));
+                            } else if (config.type == 'btn.delete') {
+                                var $column = $($row.find('td')[index]);
+                                $column.empty();
+                                $column.append($('<span class="remove-entity glyphicon glyphicon-trash" ></span>').data({
+                                    'entity-id': data.id,
+                                    'model': '$iv-controller',
+                                    'confirm': "true"
+                                }));
+                            }
+                        });
+                        $(window).trigger('resize');
+                    },
+                    preDrawCallback: function (settings) {
+                        $scope.aoColumns = settings.aoColumns;
+                    },
+                    columns: [
 
                     ]
                 }
@@ -64,34 +131,41 @@
                         type: $this.data('kind'),
                         visible: $this.data('visible'),
                         width: $this.data('width'),
+                        targetForm: $this.data('target-form'),
                         bSortable: false
                     }
-                    dtOptions.columns.push(colDef);
+
+                    $scope.dtOptions.columns.push(colDef);
                     $this.remove();
                 });
-
-
-                if('$iv-observe' !== 'false' && '$iv-url' == 'false'){
-                    $scope.$on('$iv-observe', function(event, args) {
-                        $scope.reload(args)
-                    });
-                }else{
-                    dtOptions.ajax = {
-                        url : '$iv-url'
+                if ('$iv-observe' !== 'false' && '$iv-url' == 'false') {
+                    $scope.dtOptions.data = [];
+                    $element.hide();
+                } else {
+                    $scope.dtOptions.ajax = {
+                        url: '$iv-url'
                     }
-
                 }
-                $scope.oTable = $element.find('table').dataTable(dtOptions);
-                //window.ofh = new FixedHeader( dt, {
-                //    "offsetTop": 70
-                //});
+                if ('$iv-auto-load' === 'true') {
+                    $scope.oTable = $element.find('table').dataTable($scope.dtOptions);
+                }
+
             }
             $scope.initDatatable();
-            $scope.reload = function(newData){
-                oTable.fnClearTable();
-                oTable.fnAddData(newData)
+            if ('$iv-observe' !== 'false') {
+                $scope.$on('$iv-observe', function (event, form) {
+                    $scope.filteringForm = form;
+                    $scope.filteringFormData = form.serializeObject();
+                    if (!$scope.oTable) {
+                        $scope.oTable = $element.find('table').dataTable($scope.dtOptions);
+                    } else {
+                        $scope.reload();
+                    }
+                });
             }
-        }
+            $scope.reload = function (newData) {
+                $scope.oTable.fnDraw();
+            }
+        });
     </script>
-
 </control>

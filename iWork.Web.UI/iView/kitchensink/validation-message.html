@@ -1,0 +1,9 @@
+﻿<content>
+    <h1>This is validation message</h1>
+    <span class="validation-message" ng-show="($iv-form-name.$iv-name.$dirty || submitted ) && $iv-form-name.$iv-name.$invalid">
+        <span ng-show="$iv-form-name.$iv-name.$error.required">$iv-label is required.</span>
+        <span ng-show="$iv-form-name.$iv-name.$error.maxlength">$iv-label is too long.</span>
+        <span ng-show="$iv-form-name.$iv-name.$error.minlength">$iv-label is too short.</span>
+    </span>
+
+</content>

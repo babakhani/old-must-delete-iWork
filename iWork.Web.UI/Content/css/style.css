@@ -1,4 +1,108 @@
-﻿@font-face {
+﻿* {
+  -webkit-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
+  -ms-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  transition: all 400ms ease; }
+
+/*.sub-menu {
+    -moz-animation-name: dropSubMenu;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-duration: 0.5s;
+    -webkit-animation-name: dropSubMenu;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.5s;
+    animation-name: dropSubMenu;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+
+@-moz-keyframes dropSubMenu {
+    0% {
+        -moz-transform: translateX(-100px);
+    }
+
+    100% {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes dropSubMenu {
+    0% {
+        -webkit-transform: translateX(-100px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes dropSubMenu {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}*/
+.navbar {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  -moz-animation-name: dropHeader;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-in;
+  -moz-animation-duration: 0.2s;
+  -webkit-animation-name: dropHeader;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-duration: 0.2s;
+  animation-name: dropHeader;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.2s; }
+
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+header ul li {
+  display: inline-block;
+  margin-right: 20px; }
+
+@-moz-keyframes dropHeader {
+  0% {
+    -moz-transform: translateY(-40px); }
+
+  100% {
+    -moz-transform: translateY(0); } }
+
+@-webkit-keyframes dropHeader {
+  0% {
+    -webkit-transform: translateY(-40px); }
+
+  100% {
+    -webkit-transform: translateY(0); } }
+
+@keyframes dropHeader {
+  0% {
+    transform: translateY(-40px); }
+
+  100% {
+    transform: translateY(0); } }
+
+/*
+    =============================
+*/
+@font-face {
   font-family: "Open Sans";
   src: url("../font/OpenSans-Regular.eot?") format("eot"), url("../font/OpenSans-Regular.woff") format("woff"), url("../font/OpenSans-Regular.ttf") format("truetype"), url("../font/OpenSans-Regular.svg#OpenSans") format("svg");
   font-weight: normal;
@@ -162,16 +266,33 @@ body {
   color: #333; }
 .dataTables_wrapper .dataTables_filter input {
   border: 1px solid #999999; }
-.dataTables_wrapper table tr td {
-  border: 2px solid #333333 !important; }
 .dataTables_wrapper table tr.odd td {
   background: #f8f8f8; }
+.dataTables_wrapper .dataTables_paginate {
+  float: right; }
+.dataTables_wrapper .dataTables_length {
+  float: left; }
 
 /* Over bootstrap
 ====================================================*/
 .input-group-addon {
   border: none;
   background: none; }
+
+/* Datepicker
+====================================================*/
+.datepicker.dropdown-menu {
+  width: 250px;
+  height: 270px; }
+  .datepicker.dropdown-menu button {
+    outline: none;
+    border: 0px; }
+  .datepicker.dropdown-menu tbody {
+    height: 180px; }
+  .datepicker.dropdown-menu tbody button {
+    padding: 6px; }
+  .datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+    height: 65px; }
 
 /* File uploader
 ====================================================*/
@@ -223,10 +344,16 @@ body {
   width: 100%;
   float: left;
   height: auto;
-  min-height: 600px;
+  min-height: 800px;
   overflow: hidden;
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+  transition: none; }
+
+.slick-list {
+  width: 100%;
+  float: left;
+  transition: none; }
 
 /* Search Box
 ----------------------------------------------------------------*/
@@ -235,16 +362,7 @@ body {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  border-radius: 5px;
-  /*display: block;
-    width: 100%;
-    overflow: visible;
-    padding: 0px !important;
-    margin: 0px !important;
-    position: relative;
-    border-bottom: 1px solid #eeeeee;
-    height:32px;
-    float:right;*/ }
+  border-radius: 5px; }
   .search-box .button-box {
     padding: 0px;
     border: none;
@@ -252,61 +370,15 @@ body {
   .search-box .input-group-addon {
     border: none; }
   .search-box input {
-    border: none !important; }
+    border: none !important;
+    padding-right: 0px;
+    padding-left: 0px; }
   .search-box button {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     -ms-border-radius: 0px;
     border-radius: 0px; }
 
-/*.search-box input {
-    border: none !important;
-    float: left;
-    font-size: 20px;
-    color: #333333;
-    width: 100%;
-    position:absolute;
-    margin:0px;
-    left:28px;
-    height:27px;
-}
-
-.search-box input:focus,
-.search-box input{
-    outline:none;
-}
-
-.search-box span.search-box-icon {
-    display: block;
-    position: absolute;
-    top: 2px;
-    width: 22px;
-    left: 0px;
-    font-size: 22px;
-    color: #999999;
-
-}
-
-.search-box button {
-    display: block;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    width: 80px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    background: #eeeeee;
-    border: none;
-    color: #333333;
-    padding: 0px;
-    @include border-radius(3px);
-}
-    .search-box button.disabled {
-    background: #eeeeee;
-}
-
-*/
 .search-box-message {
   display: block;
   font-size: 11px;
@@ -340,17 +412,23 @@ body {
   padding-right: 0px;
   padding-left: 0px; }
 
-.form-horizontal .form-group input {
+.form-horizontal .form-group textarea, .form-horizontal .form-group select, .form-horizontal .form-group input {
   border: none;
   border-bottom: 1px solid #eeeeee;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  border-radius: 0px;
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
-  color: #333333 !important; }
+  color: #333333 !important;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px; }
+
+.form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
+  border-bottom: 1px solid #286090; }
+
+.form-horizontal .done-btn {
+  display: none; }
 
 ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -385,6 +463,76 @@ body {
   margin: 0px auto 0px auto;
   background-image: url("../img/loading.gif"); }
 
+/* Form Validation
+========================================*/
+.form-horizontal input.ng-invalid.ng-dirty:focus, .form-horizontal input.ng-invalid.ng-dirty {
+  border-bottom: 1px solid #F43E00 !important; }
+
+.form-horizontal .validation-message {
+  color: red;
+  width: 100%; }
+  .form-horizontal .validation-message span {
+    display: block;
+    width: 100%;
+    font-size: 11px;
+    text-indent: 10px; }
+
+/*::-webkit-validation-bubble {border:1px solid red !important;}
+::-webkit-validation-bubble-arrow-clipper {border:1px solid red !important;}
+::-webkit-validation-bubble-arrow {border:1px solid red !important;}
+::-webkit-validation-bubble-message {border:1px solid red !important;}*/
+.form-help-message {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #999999;
+  text-indent: 10px; }
+
+.form-horizontal textarea:invalid, .form-horizontal input:invalid {
+  outline: none; }
+
+/* Checklist
+===================================*/
+.magicsuggest-box .form-control {
+  box-shadow: none;
+  padding: 0px;
+  min-height: 32px;
+  border: none; }
+.magicsuggest-box .ms-ctn .ms-sel-ctn {
+  margin-left: 0px; }
+.magicsuggest-box .ms-sel-ctn {
+  padding: 0px; }
+  .magicsuggest-box .ms-sel-ctn input {
+    min-height: 32px;
+    padding: 0px;
+    margin: 0px;
+    text-indent: 10px; }
+.magicsuggest-box .ms-sel-item {
+  height: 28px;
+  line-height: 28px; }
+.magicsuggest-box .ms-ctn-focus {
+  outline: none !important;
+  border: none;
+  box-shadow: none; }
+.magicsuggest-box .dropdown-menu {
+  display: none; }
+
+/* Checklist
+===================================*/
+.checklist .checkbox-label-column {
+  display: none; }
+.checklist .form-group, .checklist .checkbox-input-column {
+  width: auto;
+  float: left;
+  padding-left: 0px; }
+.checklist div .form-group {
+  margin-top: 0 !important;
+  padding-top: 0 !important; }
+.checklist .control-label {
+  margin-top: 0px;
+  padding-top: 0px; }
+
+/* Radio list
+===================================*/
 /* Iconic button
 ==================================*/
 .btn-iconic {

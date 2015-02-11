@@ -14,6 +14,13 @@
     <model name="ivContactSearch">
       <property name="term" type="string"></property>
     </model>
+    <model name="ivContactList" >
+      <property name="columns" type="object"></property>
+      <property name="order" type="object"></property>
+      <property name="start" type="int"></property>
+      <property name="lenght" type="int"></property>
+      <property name="term" type="string"></property>
+    </model>
   </models>
   <controllers>
     <controller name="Contact">
@@ -23,6 +30,7 @@
         <action name="Remove" requestmodel="RequestIdModel" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
         <action name="Search" requestmodel="ivContactSearch" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
         <action name="GetById" requestmodel="RequestIdModel" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+        <action name="GetList" requestmodel="ivContactList" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
       </actions>
     </controller>
   </controllers>
