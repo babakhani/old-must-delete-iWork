@@ -6,18 +6,20 @@ Imports Castle.MicroKernel.Registration
 Imports System.Reflection
 Imports iWork.Core.Repositories
 Imports iWork.Core.Services
+Imports iWork.Core.Controllers
 
 <Assembly: OwinStartup("StartupConfiguration", GetType(Startup))> 
 Public Class Startup
 
+    Dim container = New WindsorContainer("config/Castle.config")
+
     Public Sub Configuration(app As IAppBuilder)
 
-        Dim container = New WindsorContainer("config/Castle.config")
-
-        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IUnitOfWork).WithService.FromInterface.LifestyleScoped)
-        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IRepository).WithService.FromInterface.LifestyleScoped)
-        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IService).WithService.FromInterface.LifestyleScoped)
-        container.Register(Component.For(Of IWindsorContainer).Instance(container).LifestyleScoped)
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IUnitOfWork).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IRepository).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IService).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Classes.FromAssemblyInDirectory(GetAssemblyFilter(container)).BasedOn(Of IController).WithService.FromInterface.LifestylePerWebRequest)
+        container.Register(Component.For(Of IWindsorContainer).Instance(container).LifestylePerWebRequest)
 
         'todo: amir remove debug trace later
         Debug.WriteLine("----------------------------------------------------")

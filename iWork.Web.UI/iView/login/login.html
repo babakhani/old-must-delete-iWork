@@ -11,12 +11,12 @@
                 </p>
             </view>
             <view iv-type="column" iv-size="6">
-                <view iv-type="spacer" iv-height="100px" ></view>
-                <panel iv-type="image" iv-image="login-header.png" iv-width="385" >
-                    <form iv-type="form" iv-redirecturl="/iView/Contacts/Contactslist.html" iv-name="loginForm" iv-title="" iv-controller="Contact" iv-action="add" iv-model="ivContact">
+                <view iv-type="spacer" iv-height="100px"></view>
+                <panel iv-type="image" iv-image="login-header.png" iv-width="385">
+                    <form iv-type="form" iv-title="Login Form" iv-name="loginForm" iv-model="ivAccount" iv-controller="Account" iv-single-submit="true" iv-action="Authenticate">
                         <fieldset>
-                            <input iv-type="text" iv-name="fullname" iv-label="UserName" iv-required="true" />
-                            <input iv-type="text" iv-name="tel1" iv-label="Password" />
+                            <input iv-type="text" iv-name="Username" iv-label="UserName" />
+                            <input iv-type="text" iv-name="Password" iv-label="Password" />
                             <checkbox iv-type="checkbox" iv-label="Remember Me"></checkbox>
                             <button iv-type="submit" iv-name="submit" iv-label="Login" />
                         </fieldset>
@@ -26,3 +26,18 @@
         </view>
     </content>
 </layout>
+<api>
+    <models>
+        <model name="ivAccount">
+            <property name="Username" type="string"></property>
+            <property name="Password" type="string"></property>
+        </model>
+    </models>
+    <controllers>
+        <controller name="Account">
+            <actions>
+                <action name="Authenticate" requestmodel="ivAccount" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+            </actions>
+        </controller>
+    </controllers>
+</api>

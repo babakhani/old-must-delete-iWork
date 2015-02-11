@@ -432,8 +432,6 @@
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
-    <Content Include="Content\lib\underscore.js" />
-    <Content Include="Content\lib\unserscore.string.js" />
     <Content Include="Controllers\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.vb</LastGenOutput>
@@ -519,6 +517,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ControllerGenerator.vb">
       <DependentUpon>ControllerGenerator.tt</DependentUpon>
       <AutoGen>True</AutoGen>
