@@ -555,10 +555,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\iWork.Core.Web\iWork.Core.Web.vbproj">
-      <Project>{b15af5b0-fa6e-46d2-b31d-37083408c28d}</Project>
-      <Name>iWork.Core.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\iWork.Core\iWork.Core.vbproj">
       <Project>{d321f516-7d55-4b7d-adc5-2e470ec6dd57}</Project>
       <Name>iWork.Core</Name>

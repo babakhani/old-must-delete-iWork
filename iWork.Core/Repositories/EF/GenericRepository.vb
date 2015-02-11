@@ -3,7 +3,7 @@ Imports System.Data.Entity.Infrastructure
 Imports iWork.Core
 Imports iWork.Core.Repository
 
-Namespace EF
+Namespace Repositories.EF
 
     Public Class GenericRepository(Of TEntity As Class, TKey)
         Implements IGenericRepository(Of TEntity, TKey)

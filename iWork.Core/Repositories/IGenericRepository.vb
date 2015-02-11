@@ -1,4 +1,4 @@
-﻿Namespace Repository
+﻿Namespace Repositories
 
     Public Interface IGenericRepository(Of TEntity As Class, TKey)
         Inherits IRepository

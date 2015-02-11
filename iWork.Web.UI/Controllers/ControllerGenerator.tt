@@ -24,8 +24,9 @@
 
 #>
 Imports iWork.Core
-Imports iWork.Core.Web
-Imports iWork.Core.Web.Controllers
+Imports iWork.Service
+Imports iWork.Core.Controllers
+Imports iWork.Entities
 
 Namespace Controllers	
 

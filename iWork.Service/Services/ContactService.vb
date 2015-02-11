@@ -1,7 +1,7 @@
 ﻿Imports iWork.Entities
 Imports iWork.Repository
 Imports iWork.Core
-Imports iWork.Core.Repository
+Imports iWork.Core.Repositories
 
 Public Class ContactService
     Implements IContactService

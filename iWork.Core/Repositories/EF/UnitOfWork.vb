@@ -2,7 +2,7 @@
 Imports iWork.Core
 Imports iWork.Core.Repository
 
-Namespace EF
+Namespace Repositories.EF
 
     Public Class UnitOfWork
         Implements IUnitOfWork

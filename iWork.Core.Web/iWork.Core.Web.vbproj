@@ -101,10 +101,6 @@
     <Compile Include="Controller\BaseController.vb" />
     <Compile Include="Controller\IController.vb" />
     <Compile Include="IoC\ServiceContainer.vb" />
-    <Compile Include="Models\RequestIdModel.vb" />
-    <Compile Include="Models\RequestModel.vb" />
-    <Compile Include="Models\RequestResponseModel.vb" />
-    <Compile Include="Models\ResponseModel.vb" />
     <Compile Include="IoC\Extentions.vb" />
     <Compile Include="IoC\Startup.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

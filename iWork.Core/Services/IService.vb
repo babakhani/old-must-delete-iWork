@@ -1,4 +1,4 @@
-﻿Namespace Service
+﻿Namespace Services
 
     Public Interface IService
 

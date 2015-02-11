@@ -17,8 +17,8 @@
     <model name="ivContactList" >
       <property name="columns" type="object"></property>
       <property name="order" type="object"></property>
-      <property name="start" type="int"></property>
-      <property name="lenght" type="int"></property>
+      <property name="start" type="integer"></property>
+      <property name="lenght" type="integer"></property>
       <property name="term" type="string"></property>
     </model>
   </models>

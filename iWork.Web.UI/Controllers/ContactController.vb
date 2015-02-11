@@ -1,13 +1,13 @@
-﻿Imports iWork.Entities
+﻿Imports iWork.Service
+Imports iWork.Core.Controllers
 Imports iWork.Core
-Imports iWork.Core.Web
-Imports iWork.Core.Web.Controllers
-Imports iWork.Service
+Imports iWork.Entities
 
 Namespace Controllers
 
     Public Class ContactController
         Implements IContactController
+
 
         Public Sub New()
             Mapper.CreateMap(Of ivContact, Contact)()
@@ -52,6 +52,9 @@ Namespace Controllers
 
         End Function
 
+        Public Function GetList(requestModel As ivContactList) As ResponseModel Implements IContactController.GetList
+
+        End Function
     End Class
 
 End Namespace

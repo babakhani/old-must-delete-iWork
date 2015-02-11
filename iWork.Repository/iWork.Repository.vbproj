@@ -72,13 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\ContactRepository.vb" />
-    <Compile Include="EF\GenericRepository.vb" />
     <Compile Include="EF\iWorkModel.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>iWorkModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EF\UnitOfWork.vb" />
     <Compile Include="Interfaces\IContactRepository.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

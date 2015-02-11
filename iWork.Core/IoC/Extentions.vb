@@ -1,7 +1,6 @@
 ﻿Imports System.Runtime.CompilerServices
-Imports System.Web.Http
+Imports iWork.Core.Controllers
 Imports iWork.Core.Services
-Imports iWork.Core.Web.Controllers
 Imports iWork.Core.Repositories
 
 Public Module Extentions

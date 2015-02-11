@@ -1,4 +1,4 @@
-﻿Namespace Repository
+﻿Namespace Repositories
 
     Public Interface IRepository
 

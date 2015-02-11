@@ -1,15 +1,13 @@
 ﻿Imports Owin
 Imports Microsoft.Owin
 Imports System.Web.Http
-Imports iWork.Core.Web
 Imports Castle.Windsor
 Imports Castle.MicroKernel.Registration
 Imports System.Reflection
 Imports iWork.Core.Repositories
 Imports iWork.Core.Services
-Imports iWork.Core.Web.Controllers
 
-<Assembly: OwinStartup("StartupConfiguration", GetType(iWork.Core.Web.Startup))> 
+<Assembly: OwinStartup("StartupConfiguration", GetType(iWork.Core.Startup))> 
 Public Class Startup
 
     Public Sub Configuration(app As IAppBuilder)

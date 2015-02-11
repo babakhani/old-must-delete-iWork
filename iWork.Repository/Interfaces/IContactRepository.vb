@@ -1,5 +1,5 @@
 ﻿Imports iWork.Entities
-Imports iWork.Core.Repository
+Imports iWork.Core.Repositories
 
 Public Interface IContactRepository
     Inherits IGenericRepository(Of Contact)
