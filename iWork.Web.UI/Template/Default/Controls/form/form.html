@@ -29,32 +29,31 @@
         </iv-modalbody>
     </modal>
     <script>
-        iWork.controller('$iv-name_form', function ($scope, $element, $rootScope,$http) {
-            $scope.messageEnabled = $iv-show-message;
+        iWork.controller('$iv-name_form', function ($scope, $element, $rootScope, $http) {
+            $scope.$iv-model = {};
+            $scope.messageEnabled = '$iv-show-message' == 'true';
             $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
             $scope.$form = $element.find('form')
             /* Update Form
             ---------------------------------------*/
             $scope.formUpdate = function (entityID) {
-                var slickIndex = $scope.$form.parents('.slick-slide').data('slick-index');
-                $('.slick-container').slick('slickGoTo', slickIndex);
-                /*  Sample Data for update form */
-                var sampleData = {
-                    Company: "qqqqqqqqqqqqq",
-                    ContactId: 16,
-                    Description: "qqqqqqqqqq",
-                    Fullname: "qqqqd",
-                    Gender: 0,
-                    Tel1: "qqqqqqqqqqqq",
-                    Tel2: "qqqqqqqqqqqq",
-                    Tel3: "qqqqqqqqqqqq",
-                    Tel4: "qqqqqqqqqqq",
-                    Unit: "qqqqqqqqqqqqqq"
-                }
-                $.each(sampleData, function (key, val) {
-                    $scope.$form.find('[name=' + key.toLowerCase() + ']').val(val);
-                });
+                $http.post(rootControllerUrl + "$iv-controller/byid", {id:entityID}).
+                  success(function (responseData, status, headers, config) {
+                      log('update = ' + entityID);
+                      log('update form')
+                      log(responseData.Data);
+                      log($scope)
+                      log($scope.$iv-model)
+                      var slickIndex = $scope.$form.parents('.slick-slide').data('slick-index');
+                      $('.slick-container').slick('slickGoTo', slickIndex);
+                      $scope.formreset();
+                      $scope.$iv-model = responseData.Data;
+                  }).
+                  error(function (responseData, status, headers, config) {
+                      log("error Ajax Update");
+                      log(responseData)
+                  });
             }
             /* Reset Form
           ---------------------------------------*/
@@ -66,10 +65,16 @@
                 $scope.$form.find('button').show();
                 $scope.$form.find('.done-btn').hide();
                 $scope.submitted = false;
+                $scope.$iv-model = {};
             }
             /* Submit Form
           ---------------------------------------*/
             $scope.formsubmit = function () {
+
+                log($scope.$iv-model)
+                //return false;
+
+
                 $scope.submitted = true;
                 if ($scope.$form.find('.ng-invalid').length > 0) {
                     $('html, body').animate({
@@ -86,12 +91,14 @@
                     // Ajax Form
                 } else {
                     $element.find('form [type=submit]').button('loading');
-                    $http({
-                        method: 'POST',
-                        url: rootControllerUrl + "$iv-controller/$iv-action",
-                        data: $element.find('form').serialize(),
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-                    }).
+                    //$http({
+                    //    method: 'POST',
+                    //    url: rootControllerUrl + "$iv-controller/$iv-action",
+                    //    data: $scope.$iv-model,
+                    //   //data: $element.find('form').serialize(),
+                    //    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                    //}).
+                    $http.post(rootControllerUrl + "$iv-controller/$iv-action", $scope.$iv-model).
                     success(function (responseData, status, headers, config) {
                         $scope.isFormSubmitted = true;
                         $scope.result = responseData;
@@ -110,11 +117,11 @@
                         }
                         $rootScope.$broadcast('$iv-name', responseData);
                         $element.find('form [type=submit]').button('reset');
-                        if ($iv-show-modal !== false) {
+                        if ('$iv-show-modal' !== 'false') {
                             $('#formSuccessModal').modal('show');
                             $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                         }
-                        if ($iv-single-submit) {
+                        if ('$iv-single-submit' == true) {
                             $scope.$form.find('input').attr('disabled', 'disabled');
                             $scope.$form.find('button').hide();
                             $scope.$form.find('.done-btn').show();

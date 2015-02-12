@@ -1,27 +1,9 @@
-﻿var rootControllerUrl = '/api/';
+﻿
 var iDropzone;
 Dropzone.autoDiscover = false;
 
 var iWork = angular.module('iWork', ['mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
 
-var log = function (x) {
-    console.log(x);
-}
-$.fn.serializeObject = function () {
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function () {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
 
 $(document).ready(function () {
     $('#navbar li').each(function () {
@@ -46,7 +28,7 @@ $(document).ready(function () {
                 method: 'POST',
                 url: rootControllerUrl + entityController + "/remove",
                 data: {
-                    ContactId: entityID
+                    id: entityID
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).

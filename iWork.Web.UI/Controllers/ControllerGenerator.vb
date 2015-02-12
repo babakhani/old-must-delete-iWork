@@ -12,9 +12,6 @@ Namespace Controllers
 		Inherits IController
 
 		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
-		Function Add(requestModel as ivContact) as ResponseModel
-
-		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
 		Function Update(requestModel as ivContact) as ResponseModel
 
 		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
@@ -24,7 +21,7 @@ Namespace Controllers
 		Function Search(requestModel as ivContactSearch) as ResponseModel
 
 		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
-		Function GetById(requestModel as RequestIdModel) as ResponseModel
+		Function ById(requestModel as RequestIdModel) as ResponseModel
 
 		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
 		Function GetList(requestModel as ivContactList) as ResponseModel
@@ -59,15 +56,16 @@ Namespace Controllers
 
 	Public Class ivContact
 		Inherits RequestModel
-							Public Property ContactId as integer
-				Public Property Fullname as string
-				Public Property Tel1 as string
-				Public Property Tel2 as string
-				Public Property Tel3 as string
-				Public Property Tel4 as string
-				Public Property Company as string
-				Public Property Unit as string
-				Public Property Description as string
+							Public Property contactId as integer
+				Public Property fullname as string
+				Public Property gender as byte
+				Public Property tel1 as string
+				Public Property tel2 as string
+				Public Property tel3 as string
+				Public Property tel4 as string
+				Public Property company as string
+				Public Property unit as string
+				Public Property description as string
 			
 	End Class
 
