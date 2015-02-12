@@ -1,0 +1,17 @@
+﻿<h1>This is contact grid</h1>
+<grid iv-type="table" iv-observe="searchForm" iv-controller="Contact" iv-action="Search">
+    <thead ng-show="result.Data">
+        <tr>
+            <th>#</th>
+            <th>Fullname</th>
+            <th>Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="x in result.Data">
+            <td>{{ x.ContactId }}</td>
+            <td>{{ x.Fullname }}</td>
+            <td>{{ x.Company }}</td>
+        </tr>
+    </tbody>
+</grid>

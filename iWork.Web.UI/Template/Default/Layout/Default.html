@@ -21,6 +21,8 @@
     <script src="/Content/lib/datatables/js/jquery.dataTables.js"></script>
     <script src="/Content/lib/datatables/js/dataTables.bootstrap.js"></script>
     <script src="/Content/lib/angular/angular.min.js"></script>
+    <script src="/Content/lib/angular/angular-route.js"></script>
+
     <script src="/Content/lib/angular/angular-bootstrap-switch.js"></script>
     <script src="/Content/lib/angular/ng-password-strength.min.js"></script>
     <script src="/Content/lib/angular-strap/angular-strap.js"></script>
@@ -58,8 +60,10 @@
         <div class="col-md-1 sub-menu hidden-xs fit-height">
             <sidecontent></sidecontent>
         </div>
-        <div class="col-md-11 main-content ">
+        <div class="col-md-11 main-content " >
             <content></content>
+                <ng-view>Loading...</ng-view>
+            
         </div>
     </div>
 </body>

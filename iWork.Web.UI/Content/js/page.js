@@ -1,8 +1,23 @@
-﻿
-var iDropzone;
+﻿var iDropzone;
 Dropzone.autoDiscover = false;
+var iWork = angular.module('iWork', ['ngRoute', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch'])
 
-var iWork = angular.module('iWork', ['mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
+iWork.config(function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+
+    iWork.controllerProvider = $controllerProvider;
+    iWork.compileProvider = $compileProvider;
+    iWork.routeProvider = $routeProvider;
+    iWork.filterProvider = $filterProvider;
+    iWork.provide = $provide;
+
+    $routeProvider
+    .when('/contact/form', {
+        templateUrl: '/iView/Contacts/form.html',
+        controller: 'Contact_form'
+    }).when('/contact/grid', {
+        templateUrl: '/iView/Contacts/grid.html',
+    });
+});
 
 
 $(document).ready(function () {
@@ -56,6 +71,8 @@ $(document).ready(function () {
 
     /* Slick View Script's
     =====================================================================================*/
+
+   
     $('.slick-container').slick({
         adaptiveHeight: true,
         accessibility: false,
@@ -90,6 +107,7 @@ $(document).ready(function () {
     if (window.location.hash !== '') {
         $('.slick-container').slick('slickGoTo', parseInt(window.location.hash.match(/\d+/)[0]));
     }
+    
 
     //====================================================================================== END
 
