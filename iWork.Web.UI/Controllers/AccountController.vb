@@ -1,26 +1,26 @@
-﻿Imports iWork.Service
-Imports iWork.Core.Controllers
-Imports iWork.Core
-Imports iWork.Entities
+﻿'Imports iWork.Service
+'Imports iWork.Core.Controllers
+'Imports iWork.Core
+'Imports iWork.Entities
 
-Namespace Controllers
+'Namespace Controllers
 
-    Public Class AccountController
-        Implements IAccountController
+'    Public Class AccountController
+'        Implements IAccountController
 
-        Public Function Authenticate(requestModel As ivAccount) As ResponseModel Implements IAccountController.Authenticate
+'        Public Function Authenticate(requestModel As ivAccount) As ResponseModel Implements IAccountController.Authenticate
 
-            Dim isValid As Boolean = Application.GetService(Of IAccountService).Validate(requestModel.Username, requestModel.Password)
+'            Dim isValid As Boolean = Application.GetService(Of IAccountService).Validate(requestModel.Username, requestModel.Password)
 
-            If isValid Then
-                Return ResponseModel.SendOK("Valid User!", Nothing)
-            Else
-                Return ResponseModel.SendError("Invalid User!", Nothing)
-            End If
+'            If isValid Then
+'                Return ResponseModel.SendOK("Valid User!", Nothing)
+'            Else
+'                Return ResponseModel.SendError("Invalid User!", Nothing)
+'            End If
 
-        End Function
+'        End Function
 
-    End Class
+'    End Class
 
-End Namespace
+'End Namespace
 

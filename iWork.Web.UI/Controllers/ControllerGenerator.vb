@@ -28,23 +28,11 @@ Namespace Controllers
 
 	
 	End Interface
-	Public Interface IAccountController
-		Inherits IController
-
-		<Authorize(allowRoles:="*", allowUsers:="", denyRoles:="?", denyUsers:="")>
-		Function Authenticate(requestModel as ivAccount) as ResponseModel
-
-	
-	End Interface
 
 '-----------------------------------------------------------
 '------------------ Controllers ----------------------------
 '-----------------------------------------------------------
 	Partial Public Class ContactController
-		Inherits BaseController
-
-	End Class
-	Partial Public Class AccountController
 		Inherits BaseController
 
 	End Class
@@ -82,13 +70,6 @@ Namespace Controllers
 				Public Property start as integer
 				Public Property lenght as integer
 				Public Property term as string
-			
-	End Class
-
-	Public Class ivAccount
-		Inherits RequestModel
-							Public Property Username as string
-				Public Property Password as string
 			
 	End Class
 
