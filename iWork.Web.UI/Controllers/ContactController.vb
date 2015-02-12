@@ -53,8 +53,9 @@ Namespace Controllers
         End Function
 
         Public Function GetList(requestModel As ivContactList) As ResponseModel Implements IContactController.GetList
-
+            Return Nothing
         End Function
+
     End Class
 
 End Namespace

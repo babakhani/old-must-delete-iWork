@@ -10,14 +10,14 @@ Public Class AccountService
 
         Using uow = Application.GetService(Of IUnitOfWork)()
 
-            Dim repository = Application.GetService(Of IGenericRepository(Of User))()
-            Dim user = repository.GetAll.Where(Function(x) x.Username = username AndAlso x.Password = password).FirstOrDefault
-            If user Is Nothing Then
-                Return False
-            Else
-                user.LastLoginDate = Now
-                Return True
-            End If
+            'Dim repository = Application.GetService(Of IGenericRepository(Of User))()
+            'Dim user = repository.GetAll.Where(Function(x) x.Username = username AndAlso x.Password = password).FirstOrDefault
+            'If user Is Nothing Then
+            '    Return False
+            'Else
+            '    user.LastLoginDate = Now
+            '    Return True
+            'End If
 
         End Using
 

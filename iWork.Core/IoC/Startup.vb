@@ -7,15 +7,23 @@ Imports System.Reflection
 Imports iWork.Core.Repositories
 Imports iWork.Core.Services
 Imports iWork.Core.Controllers
+Imports Microsoft.Owin.Security.OAuth
+Imports Microsoft.Owin.Security.Google
+Imports Microsoft.Owin.Security.Facebook
 
 <Assembly: OwinStartup("StartupConfiguration", GetType(Startup))> 
 Public Class Startup
 
+    Public Shared OAuthBearerOptions As OAuthBearerAuthenticationOptions
+    Public Shared googleAuthOptions As GoogleOAuth2AuthenticationOptions
+    Public Shared facebookAuthOptions As FacebookAuthenticationOptions
 
     Public Sub Configuration(app As IAppBuilder)
 
         Dim container As IWindsorContainer = Bootstrap()
         Dim config As New HttpConfiguration()
+
+        ConfigureOAuth(app)
         config.DependencyResolver = New DependencyResolver(container)
 
         config.MapHttpAttributeRoutes()
@@ -26,6 +34,45 @@ Public Class Startup
         )
 
         app.UseWebApi(config)
+        app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll)
+        'Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, AngularJSAuthentication.API.Migrations.Configuration>())
+
+    End Sub
+
+    Public Sub ConfigureOAuth(app As IAppBuilder)
+
+        app.UseExternalSignInCookie(Microsoft.AspNet.Identity.DefaultAuthenticationTypes.ExternalCookie)
+        Dim OAuthBearerOptions As New OAuthBearerAuthenticationOptions()
+
+        Dim OAuthServerOptions As New OAuthAuthorizationServerOptions()
+        With OAuthServerOptions
+            .AllowInsecureHttp = True
+            .TokenEndpointPath = New PathString("/token")
+            .AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30)
+            .Provider = New SimpleAuthorizationServerProvider()
+            .RefreshTokenProvider = New SimpleRefreshTokenProvider()
+        End With
+
+
+        app.UseOAuthAuthorizationServer(OAuthServerOptions)
+        app.UseOAuthBearerAuthentication(OAuthBearerOptions)
+
+        Dim googleAuthOptions As New GoogleOAuth2AuthenticationOptions()
+        With googleAuthOptions
+            .ClientId = "xxxxxx"
+            .ClientSecret = "xxxxxx"
+            .Provider = New GoogleAuthProvider()
+        End With
+        app.UseGoogleAuthentication(googleAuthOptions)
+
+
+        Dim facebookAuthOptions As New FacebookAuthenticationOptions()
+        With facebookAuthOptions
+            .AppId = "xxxxxx"
+            .AppSecret = "xxxxxx"
+            .Provider = New FacebookAuthProvider()
+        End With
+        app.UseFacebookAuthentication(facebookAuthOptions)
 
     End Sub
 
