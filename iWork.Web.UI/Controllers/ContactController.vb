@@ -11,16 +11,8 @@ Namespace Controllers
 
         Public Sub New()
             Mapper.CreateMap(Of ivContact, Contact)()
+            Mapper.CreateMap(Of Contact, ivContact)()
         End Sub
-
-        Public Function Add(requestModel As ivContact) As ResponseModel Implements IContactController.Add
-
-            Dim contact = Mapper.Map(Of Contact)(requestModel)
-            Application.GetService(Of IContactService).Add(contact)
-
-            Return ResponseModel.SendOK("Contact has been added successfully.", contact.ContactId)
-
-        End Function
 
         Public Function Search(requestModel As ivContactSearch) As ResponseModel Implements IContactController.Search
 
@@ -39,16 +31,24 @@ Namespace Controllers
         Public Function Update(requestModel As ivContact) As ResponseModel Implements IContactController.Update
 
             Dim contact = Mapper.Map(Of Contact)(requestModel)
-            Application.GetService(Of IContactService).Update(contact)
 
-            Return ResponseModel.SendOK("Contact has been updated successfully.", contact.ContactId)
+            If contact.ContactId = 0 Then
+                'add
+                Application.GetService(Of IContactService).Add(contact)
+                Return ResponseModel.SendOK("Contact has been added successfully.", contact.ContactId)
+
+            Else
+                'update
+                Application.GetService(Of IContactService).Update(contact)
+                Return ResponseModel.SendOK("Contact has been updated successfully.", contact.ContactId)
+            End If
 
         End Function
 
-        Public Function GetById(requestModel As RequestIdModel) As ResponseModel Implements IContactController.GetById
+        Public Function ById(requestModel As RequestIdModel) As ResponseModel Implements IContactController.ById
 
             Dim data = Application.GetService(Of IContactService).GetById(requestModel.Id)
-            Return ResponseModel.SendOK("", data)
+            Return ResponseModel.SendOK("", Mapper.Map(Of ivContact)(data))
 
         End Function
 

@@ -1,27 +1,24 @@
-﻿var rootControllerUrl = '/api/';
-var iDropzone;
+﻿var iDropzone;
 Dropzone.autoDiscover = false;
+var iWork = angular.module('iWork', ['ngRoute', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch'])
 
-var iWork = angular.module('iWork', ['mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
+iWork.config(function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
 
-var log = function (x) {
-    console.log(x);
-}
-$.fn.serializeObject = function () {
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function () {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
+    iWork.controllerProvider = $controllerProvider;
+    iWork.compileProvider = $compileProvider;
+    iWork.routeProvider = $routeProvider;
+    iWork.filterProvider = $filterProvider;
+    iWork.provide = $provide;
+
+    $routeProvider
+    .when('/contact/form', {
+        templateUrl: '/iView/Contacts/form.html',
+        controller: 'Contact_form'
+    }).when('/contact/grid', {
+        templateUrl: '/iView/Contacts/grid.html',
     });
-    return o;
-};
+});
+
 
 $(document).ready(function () {
     $('#navbar li').each(function () {
@@ -46,7 +43,7 @@ $(document).ready(function () {
                 method: 'POST',
                 url: rootControllerUrl + entityController + "/remove",
                 data: {
-                    ContactId: entityID
+                    id: entityID
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).
@@ -74,6 +71,8 @@ $(document).ready(function () {
 
     /* Slick View Script's
     =====================================================================================*/
+
+   
     $('.slick-container').slick({
         adaptiveHeight: true,
         accessibility: false,
@@ -108,6 +107,7 @@ $(document).ready(function () {
     if (window.location.hash !== '') {
         $('.slick-container').slick('slickGoTo', parseInt(window.location.hash.match(/\d+/)[0]));
     }
+    
 
     //====================================================================================== END
 

@@ -1,15 +1,16 @@
 ﻿<api>
   <models>
     <model name="ivContact">
-      <property name="ContactId" type="integer"></property>
-      <property name="Fullname" type="string"></property>
-      <property name="Tel1" type="string"></property>
-      <property name="Tel2" type="string"></property>
-      <property name="Tel3" type="string"></property>
-      <property name="Tel4" type="string"></property>
-      <property name="Company" type="string"></property>
-      <property name="Unit" type="string"></property>
-      <property name="Description" type="string"></property>
+      <property name="contactId" type="integer"></property>
+      <property name="fullname" type="string"></property>
+      <property name="gender" type="byte"></property>
+      <property name="tel1" type="string"></property>
+      <property name="tel2" type="string"></property>
+      <property name="tel3" type="string"></property>
+      <property name="tel4" type="string"></property>
+      <property name="company" type="string"></property>
+      <property name="unit" type="string"></property>
+      <property name="description" type="string"></property>
     </model>
     <model name="ivContactSearch">
       <property name="term" type="string"></property>
@@ -25,11 +26,10 @@
   <controllers>
     <controller name="Contact">
       <actions>
-        <action name="Add" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
         <action name="Update" requestmodel="ivContact" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
         <action name="Remove" requestmodel="RequestIdModel" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
         <action name="Search" requestmodel="ivContactSearch" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
-        <action name="GetById" requestmodel="RequestIdModel" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
+        <action name="ById" requestmodel="RequestIdModel" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
         <action name="GetList" requestmodel="ivContactList" responsemodel="ResponseModel" allowroles="*" denyroles="?"></action>
       </actions>
     </controller>

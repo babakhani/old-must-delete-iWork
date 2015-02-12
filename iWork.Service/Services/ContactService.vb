@@ -50,7 +50,7 @@ Public Class ContactService
 
     Public Function GetById(contactId As Integer) As Contact Implements IContactService.GetById
 
-        Return Application.GetService(Of IGenericRepository(Of Contact))()
+        Return Application.GetService(Of IGenericRepository(Of Contact)).GetById(contactId)
 
     End Function
 
