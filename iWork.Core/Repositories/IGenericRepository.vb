@@ -9,7 +9,6 @@
         Sub Update(entity As TEntity)
         Sub Remove(id As TKey)
         Sub Remove(entity As TEntity)
-        Sub Commit()
 
     End Interface
 

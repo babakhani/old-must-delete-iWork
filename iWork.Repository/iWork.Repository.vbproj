@@ -72,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\ContactRepository.vb" />
+    <Compile Include="EF\DBInitializer.vb" />
+    <Compile Include="EF\iWorkContext.vb" />
     <Compile Include="EF\iWorkModel.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

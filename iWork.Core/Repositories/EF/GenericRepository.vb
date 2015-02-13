@@ -7,8 +7,8 @@ Namespace Repositories.EF
     Public Class GenericRepository(Of TEntity As Class, TKey)
         Implements IGenericRepository(Of TEntity, TKey)
 
-        Protected DbContext As DbContext
-        Protected DbSet As DbSet(Of TEntity)
+        Public Property DbContext As DbContext
+        Public Property DbSet As DbSet(Of TEntity)
 
         Public Sub New(dbContext As DbContext)
 
@@ -75,11 +75,6 @@ Namespace Repositories.EF
                 DbSet.Remove(entity)
             End If
 
-        End Sub
-
-
-        Public Sub Commit() Implements IGenericRepository(Of TEntity, TKey).Commit
-            DbContext.SaveChanges()
         End Sub
 
     End Class

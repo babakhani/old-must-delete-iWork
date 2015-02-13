@@ -32,15 +32,15 @@ Namespace Controllers
 
             Dim contact = Mapper.Map(Of Contact)(requestModel)
 
-            If contact.ContactId = 0 Then
+            If contact.Id = 0 Then
                 'add
                 Application.GetService(Of IContactService).Add(contact)
-                Return ResponseModel.SendOK("Contact has been added successfully.", contact.ContactId)
+                Return ResponseModel.SendOK("Contact has been added successfully.", contact.Id)
 
             Else
                 'update
                 Application.GetService(Of IContactService).Update(contact)
-                Return ResponseModel.SendOK("Contact has been updated successfully.", contact.ContactId)
+                Return ResponseModel.SendOK("Contact has been updated successfully.", contact.Id)
             End If
 
         End Function

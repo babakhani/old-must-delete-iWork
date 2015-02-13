@@ -1,7 +1,7 @@
 ﻿<api>
   <models>
     <model name="ivContact">
-      <property name="contactId" type="integer"></property>
+      <property name="id" type="integer"></property>
       <property name="fullname" type="string"></property>
       <property name="gender" type="byte"></property>
       <property name="tel1" type="string"></property>

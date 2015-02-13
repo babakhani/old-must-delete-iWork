@@ -23,7 +23,7 @@ Public Class Startup
         Dim container As IWindsorContainer = Bootstrap()
         Dim config As New HttpConfiguration()
 
-        ConfigureOAuth(app)
+        'ConfigureOAuth(app)
         config.DependencyResolver = New DependencyResolver(container)
 
         config.MapHttpAttributeRoutes()
@@ -34,7 +34,7 @@ Public Class Startup
         )
 
         app.UseWebApi(config)
-        app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll)
+        'app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll)
         'Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, AngularJSAuthentication.API.Migrations.Configuration>())
 
     End Sub

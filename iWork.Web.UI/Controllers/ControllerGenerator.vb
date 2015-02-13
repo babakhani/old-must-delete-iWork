@@ -44,7 +44,7 @@ Namespace Controllers
 
 	Public Class ivContact
 		Inherits RequestModel
-							Public Property contactId as integer
+							Public Property id as integer
 				Public Property fullname as string
 				Public Property gender as byte
 				Public Property tel1 as string
