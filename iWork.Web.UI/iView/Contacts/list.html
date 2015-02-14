@@ -2,63 +2,12 @@
     <sidecontent>
         <button iv-type="iconic"
                 iv-icon="address-book"
-                iv-label="Search Contact"
-                iv-toggle="slick"
+                iv-label="Add Contact"
+                iv-href="#/contact/form"
                 iv-target="0"></button>
         <button iv-type="iconic"
                 iv-icon="add-user"
-                iv-label="Add Contact"
-                iv-toggle="slick"
-                iv-target="1"></button>
+                iv-label="Search Contact"
+                iv-href="#/contact/grid"></button>
     </sidecontent>
-    <content>
-            <div class="slick-container">
-                <div>
-                    <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
-                        <fieldset>
-                            <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-label="Search contact" />
-                        </fieldset>
-                    </form>
-                    <grid iv-type="table" iv-controller="contactGrid" iv-observe="searchForm">
-                        <thead ng-show="result.Data">
-                            <tr>
-                                <th>#</th>
-                                <th>Fullname</th>
-                                <th>Company</th>
-                                <th>Unit</th>
-                                <th>Home</th>
-                                <th>Mobile</th>
-                                <th>Office</th>
-                                <th>Fax</th>
-                                <th>Description</th>
-                                <th>Update</th>
-                                <th>Del</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="x in result.Data">
-                                <td>{{ x.ContactId }}</td>
-                                <td>{{ x.Fullname }}</td>
-                                <td>{{ x.Company }}</td>
-                                <td>{{ x.Unit }}</td>
-                                <td>{{ x.Tel1 }}</td>
-                                <td>{{ x.Tel2 }}</td>
-                                <td>{{ x.Tel3 }}</td>
-                                <td>{{ x.Tel4 }}</td>
-                                <td>{{ x.Description }}</td>
-                                <td>
-                                    <button iv-type="update" iv-model="Contact" iv-entity-id="{{x.ContactId}}" iv-target-form="contactForm"></button>
-                                </td>
-                                <td>
-                                    <button iv-type="delete" iv-model="Contact" iv-entity-id="{{x.ContactId}}" iv-confirm="true"> </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </grid>
-                </div>
-                <div>
-                    <include iv-source="/iview/contacts/form.html"></include>
-                </div>
-            </div>
-    </content>
 </layout>

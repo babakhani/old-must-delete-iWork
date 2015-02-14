@@ -1,53 +1,21 @@
 ﻿<layout>
     <sidecontent>
-        <button iv-type="iconic"
-                iv-icon="grid"
-                iv-label="Observer Grid"
-                iv-toggle="slick"
-                iv-target="0"></button>
-        <button iv-type="iconic"
-                iv-icon="grid"
-                iv-label="Grid Target Form"
-                iv-toggle="slick"
-                iv-target="1"></button>
-        <button iv-type="iconic"
-                iv-icon="grid"
-                iv-label="Ajax Grid"
-                iv-toggle="slick"
-                iv-target="2"></button>
+
         <button iv-type="iconic"
                 iv-icon="upload"
                 iv-label="Form"
-                iv-toggle="slick"
-                iv-target="3"></button>
+                iv-href="#/kitchensink/form"></button>
+        <button iv-type="iconic"
+                iv-icon="grid"
+                iv-label="Observer Grid"
+                iv-href="#/kitchensink/grid-observer"></button>
+        <button iv-type="iconic"
+                iv-icon="grid"
+                iv-label="Ajax Grid"
+                iv-href="#/kitchensink/grid-ajax"></button>
         <button iv-type="iconic"
                 iv-icon="upload"
                 iv-label="Form Validation"
-                iv-toggle="slick"
-                iv-target="4"></button>
+                iv-href="#/kitchensink/form-validation"></button>
     </sidecontent>
-    <content>
-        <div class="slick-container">
-            <!-- Slick 0 -->
-            <div>
-                <include iv-source="/iview/kitchensink/grid-observer.html"></include>
-            </div>
-            <!-- Slick 1 -->
-            <div>
-                <include iv-source="/iview/contacts/form.html"></include>
-            </div>
-            <!-- Slick 2 -->
-            <div>
-                <include iv-source="/iview/kitchensink/grid-ajax.html"></include>
-            </div>
-            <!-- Slick 3 -->
-            <div>
-                <include iv-source="/iview/kitchensink/form.html"></include>
-            </div>
-            <!-- Slick 4 -->
-            <div>
-                <include iv-source="/iview/kitchensink/form-validation.html"></include>
-            </div>
-        </div>
-    </content>
 </layout>

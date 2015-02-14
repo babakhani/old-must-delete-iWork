@@ -1,9 +1,20 @@
-﻿<control iv-action="Remove" 
-         iv-model="" 
-         iv-entity-id="" 
-         iv-confirm="false">
-    <span class="remove-entity glyphicon glyphicon-trash" 
-          data-entity-id="$iv-entity-id" 
-          data-model="$iv-model"
-          data-confirm="$iv-confirm"></span>
+﻿<control iv-action="Remove"
+         iv-model=""
+         iv-entity-id=""
+         iv-placement="left">
+    <a class="remove-entity glyphicon glyphicon-trash"
+       data-toggle="confirmation"
+       data-original-title=""
+       data-entity-id="$iv-entity-id"
+       data-placement="$iv-placement"
+       data-model="$iv-model"></a>
+    <script>
+        $('[data-toggle="confirmation"]').confirmation({
+            btnOkClass: 'btn-sm btn-danger',
+            btnCancelClass: 'btn-sm btn-default',
+            singleton: true,
+            popout: true
+        });
+    </script>
+
 </control>

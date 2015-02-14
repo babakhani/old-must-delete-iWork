@@ -274,11 +274,14 @@
     <Content Include="Content\lib\angular-strap\modules\typeahead.min.js" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.js" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.min.js" />
+    <Content Include="Content\lib\angular\angular-animate.js" />
     <Content Include="Content\lib\angular\angular-bootstrap-switch.js" />
     <Content Include="Content\lib\animation\css\animsition.css" />
     <Content Include="Content\lib\animation\css\animsition.min.css" />
     <Content Include="Content\lib\animation\js\jquery.animsition.js" />
     <Content Include="Content\lib\animation\js\jquery.animsition.min.js" />
+    <Content Include="Content\lib\bootstrap-lib\bootstrap-confirmation.js" />
+    <Content Include="Content\lib\bootstrap-lib\bootstrap-tooltip.js" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.css" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.min.css" />
     <Content Include="Content\lib\bootstrap-switch\js\bootstrap-switch.js" />
@@ -320,15 +323,7 @@
     <Content Include="Content\lib\magicsugges\magicsuggest.js" />
     <Content Include="Content\lib\moment.js" />
     <Content Include="Content\lib\angular\ng-password-strength.min.js" />
-    <Content Include="Content\lib\slick\ajax-loader.gif" />
-    <Content Include="Content\lib\slick\fonts\slick.svg" />
-    <Content Include="Content\lib\slick\slick-theme.css" />
-    <Content Include="Content\lib\slick\slick-theme.min.css">
-      <DependentUpon>slick-theme.css</DependentUpon>
-    </Content>
-    <Content Include="Content\lib\slick\slick.css" />
-    <Content Include="Content\lib\slick\slick.js" />
-    <Content Include="Content\lib\slick\slick.min.js" />
+    <Content Include="Content\lib\require.js" />
     <Content Include="Content\lib\datatables\js\jquery.dataTables.min.js.map">
       <DependentUpon>jquery.dataTables.min.js</DependentUpon>
     </Content>
@@ -358,9 +353,6 @@
     </Content>
     <Content Include="Content\lib\angular-datatables\plugins\colvis\angular-datatables.colvis.min.js.map">
       <DependentUpon>angular-datatables.colvis.min.js</DependentUpon>
-    </Content>
-    <Content Include="Content\lib\slick\slick.min.js.map">
-      <DependentUpon>slick.min.js</DependentUpon>
     </Content>
     <Content Include="Content\lib\angular-datatables\plugins\fixedheader\angular-datatables.fixedheader.min.js.map">
       <DependentUpon>angular-datatables.fixedheader.min.js</DependentUpon>
@@ -416,11 +408,6 @@
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\lib\slick\config.rb" />
-    <Content Include="Content\lib\slick\fonts\slick.eot" />
-    <Content Include="Content\lib\slick\fonts\slick.ttf" />
-    <Content Include="Content\lib\slick\fonts\slick.woff" />
-    <Content Include="Content\lib\slick\slick-theme.scss" />
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
@@ -440,12 +427,10 @@
     <Content Include="Content\css\_helper.css.map">
       <DependentUpon>_helper.css</DependentUpon>
     </Content>
-    <Content Include="Content\lib\slick\slick-theme.css.map">
-      <DependentUpon>slick-theme.css</DependentUpon>
-    </Content>
     <Content Include="Content\lib\jquery\jquery-2.1.1.min.js" />
     <Content Include="iView\Contacts\Contact.xml" />
     <Content Include="iView\Contacts\form.html" />
+    <Content Include="iView\Contacts\grid.html" />
     <Content Include="iView\Contacts\list.html" />
     <Content Include="iView\kitchensink\test.html" />
     <Content Include="iView\include\contactForm.html" />
@@ -474,7 +459,6 @@
     <Content Include="Template\Default\Controls\datepicker\time.html" />
     <Content Include="Template\Default\Controls\formfield\help-message.html" />
     <Content Include="Template\Default\Controls\form\form.html" />
-    <Content Include="iView\kitchensink\validation-message.html" />
     <Content Include="Template\Default\Controls\grid\column.html" />
     <Content Include="Template\Default\Controls\grid\datatables.html" />
     <Content Include="Template\Default\Controls\grid\table.html" />

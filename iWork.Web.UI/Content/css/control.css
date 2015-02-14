@@ -261,13 +261,20 @@
 /* Iconic button
 ==================================*/
 .btn-iconic {
+  display: block;
+  width: 100%;
+  float: right;
   background-color: #eeeeee;
-  outline: none; }
+  outline: none;
+  text-align: center;
+  margin-top: 5px; }
 
 .btn-iconic:focus, .btn-iconic:active {
   outline: none; }
 
 .btn-iconic span {
+  display: block;
+  width: 100%;
   float: left;
   height: 28px;
   line-height: 28px;
@@ -295,7 +302,6 @@
   fill: #BBBBBB !important;
   width: 24px;
   height: 24px;
-  float: left;
-  margin: 0px 0px 0px 5px; }
+  margin: 0px auto 0px auto; }
 
 /*# sourceMappingURL=control.css.map */

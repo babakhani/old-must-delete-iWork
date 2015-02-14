@@ -4,6 +4,7 @@
          iv-action="formDefaultAction"
          iv-show-message="true"
          iv-show-modal="false"
+         iv-update-action="byid"
          iv-form-name="$iv-name"
          iv-single-submit="false"
          iv-filtering-form="false">
@@ -29,7 +30,7 @@
         </iv-modalbody>
     </modal>
     <script>
-        iWork.controller('$iv-name_form', function ($scope, $element, $rootScope, $http) {
+        iWork.controller('$iv-name_form', function ($scope, $routeParams, $element, $rootScope, $http) {
             $scope.$iv-model = {};
             $scope.messageEnabled = '$iv-show-message' == 'true';
             $scope.isFormSubmitted = false;
@@ -38,22 +39,16 @@
             /* Update Form
             ---------------------------------------*/
             $scope.formUpdate = function (entityID) {
-                $http.post(rootControllerUrl + "$iv-controller/byid", {id:entityID}).
+                $http.post(rootControllerUrl + "$iv-controller/$iv-update-action", {id:entityID}).
                   success(function (responseData, status, headers, config) {
-                      log('update = ' + entityID);
-                      log('update form')
-                      log(responseData.Data);
-                      log($scope)
-                      log($scope.$iv-model)
-                      var slickIndex = $scope.$form.parents('.slick-slide').data('slick-index');
-                      $('.slick-container').slick('slickGoTo', slickIndex);
                       $scope.formreset();
                       $scope.$iv-model = responseData.Data;
                   }).
                   error(function (responseData, status, headers, config) {
-                      log("error Ajax Update");
-                      log(responseData)
                   });
+            }
+            if($routeParams.entityId !== undefined){
+                $scope.formUpdate($routeParams.entityId)
             }
             /* Reset Form
           ---------------------------------------*/
@@ -70,34 +65,21 @@
             /* Submit Form
           ---------------------------------------*/
             $scope.formsubmit = function () {
-
-                log($scope.$iv-model)
-                //return false;
-
-
                 $scope.submitted = true;
                 if ($scope.$form.find('.ng-invalid').length > 0) {
-                    $('html, body').animate({
+                    $('.main-content').animate({
                         scrollTop: $element.find('form .ng-invalid').offset().top - 70
                     }, 200);
                     return false;
                 } else {
                     $element.find('form [type=submit]').removeClass('btn-warning');
                 }
-
                 // Filtering Form
                 if ('$iv-filtering-form' === 'true') {
                     $rootScope.$broadcast('$iv-name', $element.find('form'));
                     // Ajax Form
                 } else {
                     $element.find('form [type=submit]').button('loading');
-                    //$http({
-                    //    method: 'POST',
-                    //    url: rootControllerUrl + "$iv-controller/$iv-action",
-                    //    data: $scope.$iv-model,
-                    //   //data: $element.find('form').serialize(),
-                    //    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-                    //}).
                     $http.post(rootControllerUrl + "$iv-controller/$iv-action", $scope.$iv-model).
                     success(function (responseData, status, headers, config) {
                         $scope.isFormSubmitted = true;
@@ -129,6 +111,9 @@
                         setTimeout(function () {
                             $(window).trigger('resize');
                         }, 600);
+
+                        $('[data-toggle="confirmation"]').confirmation();
+
                     }).
                     error(function (responseData, status, headers, config) {
                         $scope.showErrorMessage = true;
