@@ -40,24 +40,6 @@ iWork.controller('submenu', function ($scope, $routeParams, $element, $rootScope
 });
 
 $(document).ready(function () {
-    $(document).on('confirmed.bs.confirmation', 'a.remove-entity', function () {
-        var $self = $(this);
-        var entityID = $self.attr('data-entity-id');
-        var entityController = $self.data('model');
-        $.ajax({
-            method: 'POST',
-            url: rootControllerUrl + entityController + "/remove",
-            data: {
-                id: entityID
-            },
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        }).
-       success(function (responseData, status, headers, config) {
-           $self.parents('tr').remove();
-       }).
-       error(function (responseData, status, headers, config) {
-       });
-    });
     $('#navbar li').each(function () {
         var thisUrl = $(this).find('a').attr("href");
         if (window.location.href.indexOf(thisUrl) > 0) {
