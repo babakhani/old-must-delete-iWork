@@ -1,4 +1,4 @@
-﻿angular.module('iWork').directive('deleteBtn', function () {
+﻿angular.module('iWork').directive('deleteBtn', function (appConfig) {
     return {
         link: function ($scope, element, attrs) {
             element.confirmation({
@@ -13,7 +13,7 @@
                 var entityController = $self.data('model');
                 $.ajax({
                     method: 'POST',
-                    url: rootControllerUrl + entityController + "/remove",
+                    url: appConfig.rootControllerUrl + entityController + "/remove",
                     data: {
                         id: entityID
                     },

@@ -1,6 +1,8 @@
-﻿var iDropzone;
-Dropzone.autoDiscover = false;
-var iWork = angular.module('iWork', ['ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
+﻿var iWork = angular.module('iWork', ['ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
+iWork.constant("appConfig", {
+    "animateTime": 200,
+    rootControllerUrl: '/api/'
+});
 iWork.config(function ($controllerProvider, $routeProvider, $compileProvider, $filterProvider, $provide) {
     iWork.controller = $controllerProvider.register;
     $routeProvider

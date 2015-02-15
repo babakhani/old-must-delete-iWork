@@ -8,7 +8,7 @@
     </div>
     <script>
 
-        iWork.controller('$iv-controller_table', function ($scope, $element, $rootScope, $http) {
+        iWork.controller('$iv-controller_table', function (appConfig,$scope, $element, $rootScope, $http) {
 
             if ('$iv-observe' !== 'false' && '$iv-action' == 'false') {
                 $scope.$on('$iv-observe', function (event, args) {
@@ -18,8 +18,7 @@
                 $scope.gridUpdate = function () {
                     $http({
                         method: 'POST',
-                        url: rootControllerUrl + "$iv-controller/$iv-action",
-                        // TODO Rreza: remove this line
+                        url: appConfig.rootControllerUrl + "$iv-controller/$iv-action",
                         data: 'term=a',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
                     }).

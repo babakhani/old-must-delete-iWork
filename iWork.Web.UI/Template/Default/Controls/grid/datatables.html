@@ -24,7 +24,7 @@
     </div>
     <script>
 
-        iWork.controller('$iv-name_grid', function ($scope, $element, $rootScope, $location, $window, $http) {
+        iWork.controller('$iv-name_grid', function (appConfig,$scope, $element, $rootScope, $location, $window, $http) {
             $.fn.dataTableExt.sErrMode = 'throw';
             $scope.showGridTitle = '$iv-title' !== 'null';
             $scope.initDatatable = function () {

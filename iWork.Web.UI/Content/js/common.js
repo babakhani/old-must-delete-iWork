@@ -1,4 +1,4 @@
-﻿var rootControllerUrl = '/api/';
+﻿
 var log = function (x) {
     console.log(x);
 }
