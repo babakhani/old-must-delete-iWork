@@ -183,6 +183,8 @@
     <Content Include="Content\img\upload.svg" />
     <Content Include="Content\img\user.svg" />
     <Content Include="Content\img\watch.svg" />
+    <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\directives.js" />
     <Content Include="Content\js\page.js" />
     <Content Include="Content\lib\angular-datatables\angular-datatables.js" />
     <Content Include="Content\lib\angular-datatables\angular-datatables.min.js" />
