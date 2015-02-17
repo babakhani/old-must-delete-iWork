@@ -58,7 +58,6 @@ $(document).ready(function () {
         $('a.btn-iconic').first().trigger('click');
     }
     $('.main-content').height($(window).height() - 100);
-    $('.svg-inject').svgInject();
     $(window).resize(function () {
         $('.slick-list').height('auto');
         $('.main-content').height($(window).height() - 100);

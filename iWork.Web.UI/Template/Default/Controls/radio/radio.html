@@ -1,13 +1,14 @@
-﻿<control iv-label="Radio Item"  
+﻿<control iv-label="" 
+         iv-name="" 
          iv-checked="false">
 
-    <label for="id$iv-id" class="control-label">
+    <label for="$iv-name-radio" class="control-label">
         <input type="radio"
                class="form-control"
                name="$iv-name"
-               id="id$iv-id"
+               id="$iv-name-radio"
                ng-model="$iv-model.$iv-name"
-               ng-checked="$iv-checked"/>
+               ng-checked="$iv-checked" />
         <span>
             $iv-label
         </span>

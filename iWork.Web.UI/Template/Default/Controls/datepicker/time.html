@@ -1,4 +1,13 @@
-﻿<control iv-name="" iv-label="" iv-required="false">
+﻿<control iv-name=""
+         iv-label=""
+         iv-required="false"
+         iv-size="8"
+         iv-placement="bottom-left"
+         iv-hourstep="1"
+         iv-minutestep="1"
+         iv-length="1"
+         iv-autoclose="true">
+
     <div class="form-group">
         <label for="$iv-name" class="control-label col-md-2 col-sm-3">$iv-label</label>
         <div class=" col-md-10 col-sm-9">
@@ -12,11 +21,12 @@
                        ng-model="$iv-model.$iv-name"
                        ng-required="$iv-required"
                        name="$iv-name"
-                       size="8"
+                       size="$iv-siz"
                        placement="bottom-left"
-                       autoclose="true"
-                       hourstep="1"
-                       length="1"
+                       autoclose="$iv-autoclose"
+                       hourstep="$iv-hourstep"
+                       minutestep="$iv-minutestep"
+                       length="$iv-length"
                        bs-timepicker>
             </div>
             <validation iv-type="validation"></validation>

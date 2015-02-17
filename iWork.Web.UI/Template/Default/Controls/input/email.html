@@ -1,4 +1,5 @@
 ﻿<control iv-label=""
+         iv-name=""
          iv-required="false"
          iv-minlength=""
          iv-maxlength=""
@@ -15,10 +16,9 @@
                    ng-model="$iv-model.$iv-name"
                    ng-required="$iv-required"
                    ng-minlength="$iv-minlength"
-                   ng-pattern="$iv-pattern"
-                   ng-maxlength="$iv-maxlength" />
+                   ng-maxlength="$iv-maxlength"
+                   ng-pattern="$iv-pattern" />
             <validation iv-type="validation"></validation>
-            <!--<include iv-source="/iview/kitchensink/validation-message.html"></include>-->
         </div>
     </div>
 </control>

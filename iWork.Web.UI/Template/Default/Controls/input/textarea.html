@@ -1,9 +1,10 @@
-﻿<control iv-input-type="text"
+﻿<control iv-lable=""
+         iv-name=""
+         iv-input-type="text"
          iv-required="false"
          iv-minlength=""
          iv-maxlength=""
          iv-pattern="">
-
     <div class="form-group">
         <label for="$iv-name" class="control-label col-md-2 col-sm-3">$iv-label</label>
         <div class="col-md-10 col-sm-9">
@@ -16,9 +17,7 @@
                       ng-minlength="$iv-minlength"
                       ng-maxlength="$iv-maxlength"
                       ng-pattern="$iv-pattern" />
-
             <validation iv-type="validation"></validation>
-
         </div>
     </div>
 </control>

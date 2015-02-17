@@ -1,15 +1,16 @@
-﻿<control iv-title="null" iv-observe="false" iv-url="false" iv-action="false">
+﻿<control iv-title="null" 
+         iv-observe="false" 
+         iv-url="false" 
+         iv-action="false">
     <div class="grid-container" ng-controller="$iv-controller_table">
-        <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
+        <h3 class="panel-title">$iv-title</h3>
         <table class="table table-striped table-hover ">
             <iv-content>
             </iv-content>
         </table>
     </div>
     <script>
-
         iWork.controller('$iv-controller_table', function (appConfig,$scope, $element, $rootScope, $http) {
-
             if ('$iv-observe' !== 'false' && '$iv-action' == 'false') {
                 $scope.$on('$iv-observe', function (event, args) {
                     $scope.result = args;
