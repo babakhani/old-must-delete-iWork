@@ -66,7 +66,7 @@
                 // Check Validation
                 if ($scope.$iv-name.$invalid) {
                     $('.main-content').animate({
-                        scrollTop: $scope.$form.find('.ng-invalid').offset().top - 70
+                        scrollTop: $scope.$form.find('.ng-invalid').offset().top - $('.navbar ').height()
                     }, appConfig.animateTime);
                     return false;
                 }
