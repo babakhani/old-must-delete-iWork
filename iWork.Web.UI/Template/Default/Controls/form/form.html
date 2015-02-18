@@ -3,7 +3,9 @@
          iv-controller="formDefaultController"
          iv-action="formDefaultAction"
          iv-show-message="true"
+         iv-model=""
          iv-show-modal="false"
+         iv-update-action="byid"
          iv-form-name="$iv-name"
          iv-single-submit="false"
          iv-filtering-form="false">
@@ -28,129 +30,95 @@
             <button iv-type="cancel" iv-label="Done"></button>
         </iv-modalbody>
     </modal>
-    <script>
-        iWork.controller('$iv-name_form', function ($scope, $element, $rootScope, $http) {
+    <script type="text/javascript">
+        iWork.controller('$iv-name_form', function (appConfig,$scope, $routeParams, $element, $rootScope, $http) {
+            /* Bootstrap Controller
+           ---------------------------------------*/
             $scope.$iv-model = {};
+            $scope.formSubmitted=false;
             $scope.messageEnabled = '$iv-show-message' == 'true';
-            $scope.isFormSubmitted = false;
             $scope.showFormTitle = '$iv-title' !== 'null';
-            $scope.$form = $element.find('form')
+            $scope.$form = $element.find('form');
             /* Update Form
             ---------------------------------------*/
             $scope.formUpdate = function (entityID) {
-                $http.post(rootControllerUrl + "$iv-controller/byid", {id:entityID}).
+                $http.post(appConfig.rootControllerUrl + "$iv-controller/$iv-update-action", {id:entityID}).
                   success(function (responseData, status, headers, config) {
-                      log('update = ' + entityID);
-                      log('update form')
-                      log(responseData.Data);
-                      log($scope)
-                      log($scope.$iv-model)
-                      var slickIndex = $scope.$form.parents('.slick-slide').data('slick-index');
-                      $('.slick-container').slick('slickGoTo', slickIndex);
                       $scope.formreset();
                       $scope.$iv-model = responseData.Data;
                   }).
                   error(function (responseData, status, headers, config) {
-                      log("error Ajax Update");
-                      log(responseData)
                   });
             }
+            /* Update Form From $routeParams(parameter passed from url)
+            ---------------------------------------*/
+            if($routeParams.entityId !== undefined){
+                $scope.formUpdate($routeParams.entityId)
+            }
             /* Reset Form
-          ---------------------------------------*/
+            ---------------------------------------*/
             $scope.formreset = function () {
-                $scope.$form.find("input[type=tel],input[type=text], textarea").val("");
-                $scope.showErrorMessage = false;
-                $scope.showSuccessMessage = false;
-                $scope.$form.find('input').removeAttr('disabled');
-                $scope.$form.find('button').show();
-                $scope.$form.find('.done-btn').hide();
-                $scope.submitted = false;
                 $scope.$iv-model = {};
+                $scope.formSubmitted=false;
+                $scope.showSuccessMessage = false;
+                $scope.showErrorMessage = false;
+                $scope.$iv-name.$setPristine();
             }
             /* Submit Form
-          ---------------------------------------*/
+            ---------------------------------------*/
             $scope.formsubmit = function () {
-
-                log($scope.$iv-model)
-                //return false;
-
-
-                $scope.submitted = true;
-                if ($scope.$form.find('.ng-invalid').length > 0) {
-                    $('html, body').animate({
-                        scrollTop: $element.find('form .ng-invalid').offset().top - 70
-                    }, 200);
+                $scope.formSubmitted=true;
+                // Check Validation
+                if ($scope.$iv-name.$invalid) {
+                    $('.main-content').animate({
+                        scrollTop: $scope.$form.find('.ng-invalid').offset().top - $('.navbar ').height()
+                    }, appConfig.animateTime);
                     return false;
-                } else {
-                    $element.find('form [type=submit]').removeClass('btn-warning');
                 }
-
-                // Filtering Form
+                // Check is a Filtering Form
                 if ('$iv-filtering-form' === 'true') {
-                    $rootScope.$broadcast('$iv-name', $element.find('form'));
-                    // Ajax Form
-                } else {
-                    $element.find('form [type=submit]').button('loading');
-                    //$http({
-                    //    method: 'POST',
-                    //    url: rootControllerUrl + "$iv-controller/$iv-action",
-                    //    data: $scope.$iv-model,
-                    //   //data: $element.find('form').serialize(),
-                    //    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-                    //}).
-                    $http.post(rootControllerUrl + "$iv-controller/$iv-action", $scope.$iv-model).
+                    $rootScope.$broadcast('$iv-name',  $scope.$form);
+                    return false;
+                }
+                // Ajax Form
+                $scope.$form.find('[type=submit]').button('loading');
+                $http.post(appConfig.rootControllerUrl + "$iv-controller/$iv-action", $scope.$iv-model).
                     success(function (responseData, status, headers, config) {
-                        $scope.isFormSubmitted = true;
                         $scope.result = responseData;
                         if (responseData.HasError == 'True') {
                             $scope.showErrorMessage = true;
                             $scope.showSuccessMessage = false;
-                            $scope.error = responseData.Error;
                         }
                         else {
                             $scope.showErrorMessage = false;
                             $scope.showSuccessMessage = true;
-                            $rootScope.$broadcast('$iv-name', responseData);
+                            // Check redirect url
                             if ("$iv-redirecturl" !== "null") {
                                 $window.location = "$iv-redirecturl";
                             }
+                                // Else broadcast responseData
+                            else{
+                                $rootScope.$broadcast('$iv-name', responseData);
+                            }
                         }
-                        $rootScope.$broadcast('$iv-name', responseData);
-                        $element.find('form [type=submit]').button('reset');
+                        $scope.$form.find('[type=submit]').button('reset');
                         if ('$iv-show-modal' !== 'false') {
                             $('#formSuccessModal').modal('show');
-                            $element.find('form').find("input[type=tel],input[type=text], textarea").val("");
                         }
                         if ('$iv-single-submit' == true) {
                             $scope.$form.find('input').attr('disabled', 'disabled');
                             $scope.$form.find('button').hide();
                             $scope.$form.find('.done-btn').show();
                         }
-                        setTimeout(function () {
-                            $(window).trigger('resize');
-                        }, 600);
+                        $(window).trigger('resize');
                     }).
-                    error(function (responseData, status, headers, config) {
-                        $scope.showErrorMessage = true;
-                        $scope.showSuccessMessage = false;
-                        $scope.isFormSubmitted = true;
-                        $scope.result = responseData;
-                        $scope.error = responseData.Error;
-                        $element.find('form [type=submit]').button('reset');
-                    });
-                }
+                error(function (responseData, status, headers, config) {
+                    $scope.showErrorMessage = true;
+                    $scope.showSuccessMessage = false;
+                    $scope.result = responseData;
+                    $scope.$form.find('[type=submit]').button('reset');
+                })
             };
-            $scope.phoneNumberPattern = (function () {
-                var regexp = /^\d+$/;
-                return {
-                    test: function (value) {
-                        if ($scope.requireTel === false) {
-                            return true;
-                        }
-                        return regexp.test(value);
-                    }
-                };
-            })();
         });
     </script>
 </control>

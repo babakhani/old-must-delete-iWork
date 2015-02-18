@@ -147,7 +147,8 @@
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
-  border-radius: 0px; }
+  border-radius: 0px;
+  text-align: left !important; }
 
 .form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
   border-bottom: 1px solid #286090; }
@@ -190,13 +191,14 @@
 
 /* Form Validation
 ========================================*/
-.form-horizontal input.ng-invalid.ng-dirty:focus, .form-horizontal input.ng-invalid.ng-dirty {
-  border-bottom: 1px solid #F43E00 !important; }
+.form-horizontal select.ng-invalid:focus, .form-horizontal textarea.ng-invalid:focus, .form-horizontal input.ng-invalid:focus, .form-horizontal select.ng-invalid.ng-dirty, .form-horizontal textarea.ng-invalid.ng-dirty, .form-horizontal input.ng-invalid.ng-dirty {
+  border-bottom: 1px solid #F43E00 !important;
+  background: #fff7f4 !important; }
 
 .form-horizontal .validation-message {
   color: red;
   width: 100%; }
-  .form-horizontal .validation-message span {
+  .form-horizontal .validation-message div {
     display: block;
     width: 100%;
     font-size: 11px;
@@ -261,13 +263,20 @@
 /* Iconic button
 ==================================*/
 .btn-iconic {
+  display: block;
+  width: 100%;
+  float: right;
   background-color: #eeeeee;
-  outline: none; }
+  outline: none;
+  text-align: center;
+  margin-top: 5px; }
 
 .btn-iconic:focus, .btn-iconic:active {
   outline: none; }
 
 .btn-iconic span {
+  display: block;
+  width: 100%;
   float: left;
   height: 28px;
   line-height: 28px;
@@ -295,7 +304,6 @@
   fill: #BBBBBB !important;
   width: 24px;
   height: 24px;
-  float: left;
-  margin: 0px 0px 0px 5px; }
+  margin: 0px auto 0px auto; }
 
 /*# sourceMappingURL=control.css.map */

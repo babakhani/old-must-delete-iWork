@@ -5,51 +5,20 @@
   -o-transition: all 400ms ease;
   transition: all 400ms ease; }
 
-/*.sub-menu {
-    -moz-animation-name: dropSubMenu;
-    -moz-animation-iteration-count: 1;
-    -moz-animation-timing-function: ease-in;
-    -moz-animation-duration: 0.5s;
-    -webkit-animation-name: dropSubMenu;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-in;
-    -webkit-animation-duration: 0.5s;
-    animation-name: dropSubMenu;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
-    animation-duration: 0.5s;
-}
+.validation-message {
+  -webkit-transition: all 0ms ease;
+  -moz-transition: all 0ms ease;
+  -ms-transition: all 0ms ease;
+  -o-transition: all 0ms ease;
+  transition: all 0ms ease; }
 
+table * {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none; }
 
-@-moz-keyframes dropSubMenu {
-    0% {
-        -moz-transform: translateX(-100px);
-    }
-
-    100% {
-        -moz-transform: translateX(0);
-    }
-}
-
-@-webkit-keyframes dropSubMenu {
-    0% {
-        -webkit-transform: translateX(-100px);
-    }
-
-    100% {
-        -webkit-transform: translateX(0);
-    }
-}
-
-@keyframes dropSubMenu {
-    0% {
-        transform: translateX(-100px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}*/
 .navbar {
   -webkit-transition: none;
   -moz-transition: none;
@@ -422,7 +391,8 @@ body {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
-  border-radius: 0px; }
+  border-radius: 0px;
+  text-align: left !important; }
 
 .form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
   border-bottom: 1px solid #286090; }
@@ -465,13 +435,14 @@ body {
 
 /* Form Validation
 ========================================*/
-.form-horizontal input.ng-invalid.ng-dirty:focus, .form-horizontal input.ng-invalid.ng-dirty {
-  border-bottom: 1px solid #F43E00 !important; }
+.form-horizontal select.ng-invalid:focus, .form-horizontal textarea.ng-invalid:focus, .form-horizontal input.ng-invalid:focus, .form-horizontal select.ng-invalid.ng-dirty, .form-horizontal textarea.ng-invalid.ng-dirty, .form-horizontal input.ng-invalid.ng-dirty {
+  border-bottom: 1px solid #F43E00 !important;
+  background: #fff7f4 !important; }
 
 .form-horizontal .validation-message {
   color: red;
   width: 100%; }
-  .form-horizontal .validation-message span {
+  .form-horizontal .validation-message div {
     display: block;
     width: 100%;
     font-size: 11px;
@@ -536,13 +507,20 @@ body {
 /* Iconic button
 ==================================*/
 .btn-iconic {
+  display: block;
+  width: 100%;
+  float: right;
   background-color: #eeeeee;
-  outline: none; }
+  outline: none;
+  text-align: center;
+  margin-top: 5px; }
 
 .btn-iconic:focus, .btn-iconic:active {
   outline: none; }
 
 .btn-iconic span {
+  display: block;
+  width: 100%;
   float: left;
   height: 28px;
   line-height: 28px;
@@ -570,7 +548,59 @@ body {
   fill: #BBBBBB !important;
   width: 24px;
   height: 24px;
-  float: left;
-  margin: 0px 0px 0px 5px; }
+  margin: 0px auto 0px auto; }
+
+body, html {
+  overflow: hidden !important; }
+
+.main-content {
+  overflow-x: hidden;
+  overflow-y: visible;
+  display: block;
+  float: right;
+  height: auto;
+  min-height: 10px !important; }
+
+.page-content {
+  display: block;
+  width: 100%;
+  float: right;
+  background-color: #ffffff;
+  padding: 10px 10px 30px 10px !important;
+  min-height: 100%; }
+
+.slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; }
+
+.slide.ng-enter, .slide.ng-leave {
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease; }
+
+.slide.ng-enter {
+  left: 100%;
+  opacity: 0; }
+
+.slide.ng-enter-active {
+  left: 0;
+  opacity: 1; }
+
+.slide.ng-leave {
+  left: 0;
+  opacity: 1; }
+
+.slide.ng-leave-active {
+  left: -100%; }
+
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
 
 /*# sourceMappingURL=style.css.map */

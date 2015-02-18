@@ -24,7 +24,7 @@
     </div>
     <script>
 
-        iWork.controller('$iv-name_grid', function ($scope, $element, $rootScope, $location, $window, $http) {
+        iWork.controller('$iv-name_grid', function (appConfig,$scope, $element, $rootScope, $location, $window, $http) {
             $.fn.dataTableExt.sErrMode = 'throw';
             $scope.showGridTitle = '$iv-title' !== 'null';
             $scope.initDatatable = function () {
@@ -88,18 +88,11 @@
                             if (config.type == 'btn.edite') {
                                 var $column = $($row.find('td')[index]);
                                 $column.empty();
-                                $column.append($('<span class="update-entity glyphicon glyphicon-pencil"></span>').data({
-                                    'entity-id': data.id,
-                                    'target-form': config.targetForm
-                                }));
+                                $column.append($('<a class="update-entity glyphicon glyphicon-pencil" href="#/contact/form/' + data.id + '"></a>'));
                             } else if (config.type == 'btn.delete') {
                                 var $column = $($row.find('td')[index]);
                                 $column.empty();
-                                $column.append($('<span class="remove-entity glyphicon glyphicon-trash" ></span>').data({
-                                    'entity-id': data.id,
-                                    'model': '$iv-controller',
-                                    'confirm': "true"
-                                }));
+                                $column.append($('<a class="remove-entity glyphicon glyphicon-trash" data-toggle="confirmation" data-original-title="" data-entity-id="63" data-placement="left" data-model="Contact" delete-btn></a>'));
                             }
                         });
                         $(window).trigger('resize');

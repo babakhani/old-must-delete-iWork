@@ -1,15 +1,9 @@
 ﻿<control iv-label=""
-         iv-id="SampleId">
+         iv-name="">
     <div class="form-group magicsuggest-box">
         <label class="control-label col-md-2 col-sm-3">$iv-label</label>
         <div class="col-md-10 col-sm-9">
-            <div id="$iv-id" class="form-control"  ></div>
+            <div magic-suggest data-name="$iv-name" class="form-control"></div>
         </div>
-        
-        <script>
-            $('#$iv-id').magicSuggest({
-                name: '$iv-name'
-            });
-        </script>
     </div>
 </control>

@@ -1,8 +1,17 @@
-﻿<control iv-name="" iv-label="" iv-required="false" >
+﻿<control iv-name=""
+         iv-label=""
+         iv-format="yyyy-MM-dd"
+         iv-date-type="number"
+         iv-min-date=""
+         iv-max-date=""
+         iv-autoclose="1"
+         iv-placement="bottom-left"
+         iv-required="false">
+
     <div class="form-group">
         <label for="$iv-name" class="control-label col-md-2 col-sm-3">$iv-label</label>
         <div class=" col-md-10 col-sm-9">
-            <div class='input-group date' >
+            <div class='input-group date'>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -12,13 +21,12 @@
                        placeholder="$iv-label"
                        name="$iv-name"
                        ng-required="$iv-required"
-                       data-date-format="yyyy-MM-dd"
-                       data-date-type="number"
-                       data-min-date=""
-                       data-max-date=""
-                       data-autoclose="1"
-                       autoclose="true"
-                       placement="bottom-left"
+                       data-date-format="$iv-format"
+                       data-date-type="$iv-date-type"
+                       data-min-date="$iv-min-date"
+                       data-max-date="$iv-max-date"
+                       autoclose="$iv-autoclose"
+                       placement="$iv-placement"
                        bs-datepicker>
             </div>
             <validation iv-type="validation"></validation>

@@ -12,7 +12,9 @@ Namespace EF
         Private Sub InitContacts(context As iWorkContext)
             context.Set(Of Contact).Add(New Contact With {.Fullname = "Microsoft"})
             context.Set(Of Contact).Add(New Contact With {.Fullname = "Google"})
-            context.Set(Of Contact).Add(New Contact With {.Fullname = "Apple"})
+            context.Set(Of Contact).Add(New Contact With {.Fullname = "Apple4"})
+            context.Set(Of Contact).Add(New Contact With {.Fullname = "Apple2"})
+            context.Set(Of Contact).Add(New Contact With {.Fullname = "Apple1"})
             context.SaveChanges()
         End Sub
 

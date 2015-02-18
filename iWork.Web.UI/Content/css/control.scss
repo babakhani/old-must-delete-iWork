@@ -172,6 +172,7 @@
     -webkit-box-shadow: none;
     color: #333333 !important;
     @include border-radius(0px);
+    text-align: left !important;
 }
 
 .form-horizontal .form-group textarea:focus,
@@ -227,29 +228,35 @@
 
 /* Form Validation
 ========================================*/
-.form-horizontal input.ng-invalid.ng-dirty:focus,
+
+.form-horizontal select.ng-invalid:focus,
+.form-horizontal textarea.ng-invalid:focus,
+.form-horizontal input.ng-invalid:focus,
+.form-horizontal select.ng-invalid.ng-dirty,
+.form-horizontal textarea.ng-invalid.ng-dirty,
 .form-horizontal input.ng-invalid.ng-dirty {
     border-bottom: 1px solid #F43E00 !important;
+    background: lighten(#F43E00,50%) !important;
 }
+
 
 .form-horizontal .validation-message {
     color: red;
     width: 100%;
 
-    span {
+    div {
         display: block;
         width: 100%;
         font-size: 11px;
-        text-indent:10px;
+        text-indent: 10px;
     }
 }
 
+//.error-messages.ng-active:after
 /*::-webkit-validation-bubble {border:1px solid red !important;}
 ::-webkit-validation-bubble-arrow-clipper {border:1px solid red !important;}
 ::-webkit-validation-bubble-arrow {border:1px solid red !important;}
 ::-webkit-validation-bubble-message {border:1px solid red !important;}*/
-
-
 .form-help-message {
     font-size: 12px;
     margin-bottom: 10px;
@@ -258,12 +265,10 @@
 }
 
 .form-horizontal {
-   
     textarea:invalid,
     input:invalid {
-        outline:none;
+        outline: none;
     }
-
 }
 
 /* Checklist
@@ -343,8 +348,13 @@
 ==================================*/
 
 .btn-iconic {
+    display: block;
+    width: 100%;
+    float: right;
     background-color: #eeeeee;
     outline: none;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .btn-iconic:focus,
@@ -353,6 +363,8 @@
 }
 
 .btn-iconic span {
+    display: block;
+    width: 100%;
     float: left;
     height: 28px;
     line-height: 28px;
@@ -386,6 +398,5 @@
     fill: #BBBBBB !important;
     width: 24px;
     height: 24px;
-    float: left;
-    margin: 0px 0px 0px 5px;
+    margin: 0px auto 0px auto;
 }

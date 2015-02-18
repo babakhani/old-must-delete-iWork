@@ -1,0 +1,46 @@
+﻿<control>
+
+
+
+    <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
+        <fieldset>
+            <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-label="Search contact" />
+        </fieldset>
+    </form>
+    <grid iv-type="table" iv-controller="contactGrid" iv-observe="searchForm">
+        <thead ng-show="result.Data">
+            <tr>
+                <th>#</th>
+                <th>Fullname</th>
+                <th>Company</th>
+                <th>Unit</th>
+                <th>Home</th>
+                <th>Mobile</th>
+                <th>Office</th>
+                <th>Fax</th>
+                <th>Description</th>
+                <th>Update</th>
+                <th>Del</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in result.Data">
+                <td>{{ x.Id }}</td>
+                <td>{{ x.Fullname }}</td>
+                <td>{{ x.Company }}</td>
+                <td>{{ x.Unit }}</td>
+                <td>{{ x.Tel1 }}</td>
+                <td>{{ x.Tel2 }}</td>
+                <td>{{ x.Tel3 }}</td>
+                <td>{{ x.Tel4 }}</td>
+                <td>{{ x.Description }}</td>
+                <td>
+                    <button iv-type="update" iv-entity-id="{{x.Id}}" iv-href="#/contact/form"></button>
+                </td>
+                <td>
+                    <button iv-type="delete" iv-model="Contact" iv-entity-id="{{x.Id}}" iv-confirm="true"> </button>
+                </td>
+            </tr>
+        </tbody>
+    </grid>
+</control>

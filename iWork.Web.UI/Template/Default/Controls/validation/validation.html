@@ -1,9 +1,32 @@
 ﻿<control>
-    <span class="validation-message" ng-show="submitted && $iv-form-name.$iv-name.$invalid">
-        <span ng-show="$iv-form-name.$iv-name.$error.required">'$iv-label' is required.</span>
-        <span ng-show="$iv-form-name.$iv-name.$error.maxlength">'$iv-label' is too long.</span>
-        <span ng-show="$iv-form-name.$iv-name.$error.minlength">'$iv-label' is too short.</span>
-        <span ng-show="$iv-form-name.$iv-name.$error.email">Invalid email!! Should be like name@web.com</span>
-        <span ng-show="$iv-form-name.$iv-name.$error.pattern">'$iv-label' is not match Pattern.</span>
-    </span>
+    <div ng-messages="$iv-form-name.$iv-name.$error"
+         class="validation-message"
+         ng-show="!$iv-form-name.$iv-name.$pristine && $iv-form-name.$iv-name.$invalid ||  formSubmitted && $iv-form-name.$iv-name.$invalid">
+        <div ng-message="required" error>
+            You forgot to enter $iv-label
+        </div>
+        <div ng-message="maxlength" error>
+            '$iv-label' is too long.
+        </div>
+        <div ng-message="max" error>
+            '$iv-label' is too long.
+        </div>
+        <div ng-message="minlength" error>
+            $iv-label' is too short.
+        </div>
+        <div ng-message="min" error>
+            $iv-label' is too short.
+        </div>
+        <div ng-message="email" error>
+            Invalid email!! Should be like name@web.com
+        </div>
+        <div ng-message="pattern" error>
+            '$iv-label' is not match Pattern.
+        </div>
+        <div ng-message="number" error>
+            '$iv-label' is not a valid number.
+        </div>
+        <iv-content></iv-content>
+        <!--<div ng-message="customValidation">Checking database...</div>-->
+    </div>
 </control>

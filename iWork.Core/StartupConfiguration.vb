@@ -59,22 +59,22 @@ Public Module StartupConfiguration
         app.UseOAuthAuthorizationServer(OAuthServerOptions)
         app.UseOAuthBearerAuthentication(OAuthBearerOptions)
 
-        googleAuthOptions = New GoogleOAuth2AuthenticationOptions()
-        With googleAuthOptions
-            .ClientId = "-.googleusercontent.com"
-            .ClientSecret = ""
-            .Provider = New GoogleAuthenticationService()
-        End With
-        app.UseGoogleAuthentication(googleAuthOptions)
+        'googleAuthOptions = New GoogleOAuth2AuthenticationOptions()
+        'With googleAuthOptions
+        '    .ClientId = "-.googleusercontent.com"
+        '    .ClientSecret = ""
+        '    .Provider = New GoogleAuthenticationService()
+        'End With
+        'app.UseGoogleAuthentication(googleAuthOptions)
 
 
-        facebookAuthOptions = New FacebookAuthenticationOptions()
-        With facebookAuthOptions
-            .AppId = ""
-            .AppSecret = ""
-            .Provider = New FacebookAuthenticationService()
-        End With
-        app.UseFacebookAuthentication(facebookAuthOptions)
+        'facebookAuthOptions = New FacebookAuthenticationOptions()
+        'With facebookAuthOptions
+        '    .AppId = ""
+        '    .AppSecret = ""
+        '    .Provider = New FacebookAuthenticationService()
+        'End With
+        'app.UseFacebookAuthentication(facebookAuthOptions)
 
     End Sub
 

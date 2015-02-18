@@ -55,12 +55,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
-    </Reference>
     <Reference Include="iView.ViewEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\iView.1.0.4\lib\iView.ViewEngine.dll</HintPath>
+      <HintPath>Assemblies\iView.ViewEngine.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -137,6 +134,12 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assemblies\HtmlAgilityPack.dll" />
+    <Content Include="Assemblies\HtmlAgilityPack.pdb" />
+    <Content Include="Assemblies\HtmlAgilityPack.xml" />
+    <Content Include="Assemblies\iView.ViewEngine.dll" />
+    <Content Include="Assemblies\iView.ViewEngine.pdb" />
+    <Content Include="Assemblies\iView.ViewEngine.xml" />
     <Content Include="Content\css\control.css">
       <DependentUpon>control.scss</DependentUpon>
     </Content>
@@ -180,7 +183,18 @@
     <Content Include="Content\img\upload.svg" />
     <Content Include="Content\img\user.svg" />
     <Content Include="Content\img\watch.svg" />
+    <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\controllers\login.js" />
+    <Content Include="Content\js\controllers\logout.js" />
+    <Content Include="Content\js\controllers\navbar.js" />
+    <Content Include="Content\js\controllers\profile.js" />
+    <Content Include="Content\js\controllers\signup.js" />
+    <Content Include="Content\js\directives.js" />
+    <Content Include="Content\js\directives\passwordMatch.js" />
+    <Content Include="Content\js\directives\passwordStrength.js" />
+    <Content Include="Content\js\login.js" />
     <Content Include="Content\js\page.js" />
+    <Content Include="Content\js\services\account.js" />
     <Content Include="Content\lib\angular-datatables\angular-datatables.js" />
     <Content Include="Content\lib\angular-datatables\angular-datatables.min.js" />
     <Content Include="Content\lib\angular-datatables\plugins\bootstrap\angular-datatables.bootstrap.js" />
@@ -271,11 +285,20 @@
     <Content Include="Content\lib\angular-strap\modules\typeahead.min.js" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.js" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.min.js" />
+    <Content Include="Content\lib\angular\angular-animate.js" />
     <Content Include="Content\lib\angular\angular-bootstrap-switch.js" />
+    <Content Include="Content\lib\angular\angular-messages.js" />
+    <Content Include="Content\lib\angular\angular-mocks.js" />
+    <Content Include="Content\lib\angular\angular-resource.js" />
+    <Content Include="Content\lib\angular\angular-strap.js" />
+    <Content Include="Content\lib\angular\angular-strap.tpl.js" />
+    <Content Include="Content\lib\angular\angular-ui-router.js" />
     <Content Include="Content\lib\animation\css\animsition.css" />
     <Content Include="Content\lib\animation\css\animsition.min.css" />
     <Content Include="Content\lib\animation\js\jquery.animsition.js" />
     <Content Include="Content\lib\animation\js\jquery.animsition.min.js" />
+    <Content Include="Content\lib\bootstrap-lib\bootstrap-confirmation.js" />
+    <Content Include="Content\lib\bootstrap-lib\bootstrap-tooltip.js" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.css" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.min.css" />
     <Content Include="Content\lib\bootstrap-switch\js\bootstrap-switch.js" />
@@ -317,15 +340,7 @@
     <Content Include="Content\lib\magicsugges\magicsuggest.js" />
     <Content Include="Content\lib\moment.js" />
     <Content Include="Content\lib\angular\ng-password-strength.min.js" />
-    <Content Include="Content\lib\slick\ajax-loader.gif" />
-    <Content Include="Content\lib\slick\fonts\slick.svg" />
-    <Content Include="Content\lib\slick\slick-theme.css" />
-    <Content Include="Content\lib\slick\slick-theme.min.css">
-      <DependentUpon>slick-theme.css</DependentUpon>
-    </Content>
-    <Content Include="Content\lib\slick\slick.css" />
-    <Content Include="Content\lib\slick\slick.js" />
-    <Content Include="Content\lib\slick\slick.min.js" />
+    <Content Include="Content\lib\require.js" />
     <Content Include="Content\lib\datatables\js\jquery.dataTables.min.js.map">
       <DependentUpon>jquery.dataTables.min.js</DependentUpon>
     </Content>
@@ -355,9 +370,6 @@
     </Content>
     <Content Include="Content\lib\angular-datatables\plugins\colvis\angular-datatables.colvis.min.js.map">
       <DependentUpon>angular-datatables.colvis.min.js</DependentUpon>
-    </Content>
-    <Content Include="Content\lib\slick\slick.min.js.map">
-      <DependentUpon>slick.min.js</DependentUpon>
     </Content>
     <Content Include="Content\lib\angular-datatables\plugins\fixedheader\angular-datatables.fixedheader.min.js.map">
       <DependentUpon>angular-datatables.fixedheader.min.js</DependentUpon>
@@ -413,11 +425,6 @@
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\lib\slick\config.rb" />
-    <Content Include="Content\lib\slick\fonts\slick.eot" />
-    <Content Include="Content\lib\slick\fonts\slick.ttf" />
-    <Content Include="Content\lib\slick\fonts\slick.woff" />
-    <Content Include="Content\lib\slick\slick-theme.scss" />
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
@@ -437,14 +444,11 @@
     <Content Include="Content\css\_helper.css.map">
       <DependentUpon>_helper.css</DependentUpon>
     </Content>
-    <Content Include="Content\lib\slick\slick-theme.css.map">
-      <DependentUpon>slick-theme.css</DependentUpon>
-    </Content>
     <Content Include="Content\lib\jquery\jquery-2.1.1.min.js" />
     <Content Include="iView\Contacts\Contact.xml" />
     <Content Include="iView\Contacts\form.html" />
+    <Content Include="iView\Contacts\grid.html" />
     <Content Include="iView\Contacts\list.html" />
-    <Content Include="iView\Default.html" />
     <Content Include="iView\kitchensink\test.html" />
     <Content Include="iView\include\contactForm.html" />
     <Content Include="iView\kitchensink\angularstrap.html" />
@@ -454,16 +458,16 @@
     <Content Include="iView\kitchensink\grid-observer.html" />
     <Content Include="iView\kitchensink\kitchensink.html" />
     <Content Include="iView\login\login.html" />
+    <Content Include="iView\login\partials\home.html" />
+    <Content Include="iView\login\partials\login.html" />
+    <Content Include="iView\login\partials\profile.html" />
+    <Content Include="iView\login\partials\signup.html" />
     <Content Include="iView\Rollcall\list.html" />
     <Content Include="iView\Rollcall\Rollcall.xml" />
-    <None Include="iViewManifest.config">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="Manifest.xml" />
     <Content Include="Template\Default\Controls\button\done.html" />
     <Content Include="Template\Default\Controls\button\cancel.html" />
-    <Content Include="Template\Default\Controls\button\add.html" />
     <Content Include="Template\Default\Controls\button\iconic.html" />
-    <Content Include="Template\Default\Controls\button\info.html" />
     <Content Include="Template\Default\Controls\button\update.html" />
     <Content Include="Template\Default\Controls\button\delete.html" />
     <Content Include="Template\Default\Controls\button\submit.html" />
@@ -474,7 +478,6 @@
     <Content Include="Template\Default\Controls\datepicker\time.html" />
     <Content Include="Template\Default\Controls\formfield\help-message.html" />
     <Content Include="Template\Default\Controls\form\form.html" />
-    <Content Include="iView\kitchensink\validation-message.html" />
     <Content Include="Template\Default\Controls\grid\column.html" />
     <Content Include="Template\Default\Controls\grid\datatables.html" />
     <Content Include="Template\Default\Controls\grid\table.html" />
@@ -501,18 +504,11 @@
     <Content Include="Template\Default\Controls\uploader\dropzone.html" />
     <Content Include="Template\Default\Controls\validation\validation.html" />
     <Content Include="Template\Default\Controls\view\column.html" />
-    <Content Include="Template\Default\Controls\view\heading.html" />
-    <Content Include="Template\Default\Controls\view\paragraph.html" />
     <Content Include="Template\Default\Controls\view\row.html" />
-    <Content Include="Template\Default\Controls\view\section.html" />
-    <Content Include="Template\Default\Controls\view\slik.html" />
     <Content Include="Template\Default\Controls\view\spacer.html" />
     <Content Include="Template\Default\Layout\Default.html" />
-    <Content Include="Template\Default\Layout\DefaultWithMenu.html" />
     <Content Include="Template\Default\Layout\login.html" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.vb" />
@@ -541,7 +537,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
