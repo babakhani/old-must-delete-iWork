@@ -200,7 +200,6 @@
     <Content Include="Content\js\directives.js" />
     <Content Include="Content\js\directives\passwordMatch.js" />
     <Content Include="Content\js\directives\passwordStrength.js" />
-    <Content Include="Content\js\login.js" />
     <Content Include="Content\js\page.js" />
     <Content Include="Content\js\services\account.js" />
     <Content Include="Content\lib\angular-datatables\angular-datatables.js" />
