@@ -191,11 +191,7 @@
 
 /* Form Validation
 ========================================*/
-.form-horizontal input.ng-invalid.ng-pristine:focus, .form-horizontal input.ng-invalid.ng-pristine {
-  border-bottom: 1px solid #eeeeee !important;
-  background: none !important; }
-
-.form-horizontal input.ng-invalid.ng-dirty:focus, .form-horizontal input.ng-invalid.ng-dirty {
+.form-horizontal select.ng-invalid:focus, .form-horizontal textarea.ng-invalid:focus, .form-horizontal input.ng-invalid:focus, .form-horizontal select.ng-invalid.ng-dirty, .form-horizontal textarea.ng-invalid.ng-dirty, .form-horizontal input.ng-invalid.ng-dirty {
   border-bottom: 1px solid #F43E00 !important;
   background: #fff7f4 !important; }
 
