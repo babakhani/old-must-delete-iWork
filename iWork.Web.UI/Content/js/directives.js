@@ -85,3 +85,27 @@ angular.module('iWork').directive('dropzone', function (appConfig) {
         }
     }
 });
+
+
+/* Sample Custom validator*/
+iWork.directive('customValidation',
+  ['$http', function ($http) {
+      return {
+          require: 'ngModel',
+          link: function (scope, element, attrs, ngModel) {
+              ngModel.$setValidity('customValidation', true);
+          }
+      }
+  }]);
+
+/* Input Mask Directive 
+    https://github.com/RobinHerbots/jquery.inputmask */
+
+iWork.directive('inputMask', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, el, attrs) {
+            $(el).inputmask(scope.$eval(attrs.inputMask));
+        }
+    };
+});

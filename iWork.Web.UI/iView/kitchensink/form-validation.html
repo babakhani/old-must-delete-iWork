@@ -10,13 +10,39 @@
 
             <input iv-type="text"
                    iv-name="textpattern"
-                   iv-label="Number pattern"
+                   iv-label="Text"
                    iv-required="true"
-                   iv-maxlength="6"
-                   iv-minlength="2"
-                   iv-pattern="phoneNumberPattern" />
+                   iv-maxlength="60"
+                   iv-minlength="2" />
 
-            <formfield iv-type="help-message">This is help message!  Only accept numbers.</formfield>
+            <input iv-type="text"
+                   iv-name="textmask"
+                   iv-label="Mask '9999-99-99'"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="9999-99-99" />
+
+            <input iv-type="text"
+                   iv-name="textmaskinteger"
+                   iv-label="Mask alais : integer"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="integer" />
+
+            <input iv-type="text"
+                   iv-name="textmaskcurrency"
+                   iv-label="Mask alais : currency"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="currency" />
+
+
+            <formfield iv-type="help-message">
+                This is help message!  Only accept numbers.
+            </formfield>
             <input iv-type="text" iv-name="text" iv-label="Text" iv-required="true" iv-maxlength="6" iv-minlength="2">
             <input iv-type="password" iv-name="password" iv-label="Password" iv-required="true" iv-minlength="2" />
 
@@ -39,9 +65,12 @@
                 <option value="6">5</option>
             </select>
 
-
-            <button iv-type="submit" iv-name="submit" iv-label="Submit" />
-            <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
+            <!---->
+            <view iv-type="column" iv-size="2"></view>
+            <view iv-type="column" iv-size="3">
+                <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
+            </view>
             <button iv-type="done" iv-name="done" iv-label="Done" />
         </fieldset>
     </form>

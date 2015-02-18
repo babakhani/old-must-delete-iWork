@@ -5,6 +5,13 @@
   -o-transition: all 400ms ease;
   transition: all 400ms ease; }
 
+.validation-message {
+  -webkit-transition: all 0ms ease;
+  -moz-transition: all 0ms ease;
+  -ms-transition: all 0ms ease;
+  -o-transition: all 0ms ease;
+  transition: all 0ms ease; }
+
 table * {
   -webkit-transition: none;
   -moz-transition: none;
@@ -384,7 +391,8 @@ body {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
-  border-radius: 0px; }
+  border-radius: 0px;
+  text-align: left !important; }
 
 .form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
   border-bottom: 1px solid #286090; }
@@ -427,13 +435,18 @@ body {
 
 /* Form Validation
 ========================================*/
+.form-horizontal input.ng-invalid.ng-pristine:focus, .form-horizontal input.ng-invalid.ng-pristine {
+  border-bottom: 1px solid #eeeeee !important;
+  background: none !important; }
+
 .form-horizontal input.ng-invalid.ng-dirty:focus, .form-horizontal input.ng-invalid.ng-dirty {
-  border-bottom: 1px solid #F43E00 !important; }
+  border-bottom: 1px solid #F43E00 !important;
+  background: #fff7f4 !important; }
 
 .form-horizontal .validation-message {
   color: red;
   width: 100%; }
-  .form-horizontal .validation-message span {
+  .form-horizontal .validation-message div {
     display: block;
     width: 100%;
     font-size: 11px;
@@ -587,5 +600,11 @@ body, html {
 
 .slide.ng-leave-active {
   left: -100%; }
+
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
 
 /*# sourceMappingURL=style.css.map */

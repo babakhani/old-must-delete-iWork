@@ -1,0 +1,89 @@
+﻿<content>
+    <form iv-type="form"
+          iv-title="Mask Sink"
+          iv-name="formValidation"
+          iv-model="ivContact"
+          iv-controller="Contact"
+          iv-action="add">
+        <fieldset>
+            <input iv-type="text"
+                   iv-name="textmask"
+                   iv-label="Mask '9999-99-99'"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="9999-99-99" />
+
+            <input iv-type="text"
+                   iv-name="textmaskpattern"
+                   iv-label="Mask '99 A *****'"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="99 A *****" />
+
+            <input iv-type="text"
+                   iv-name="textmaskinteger"
+                   iv-label="Mask alais : integer"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="integer" />
+
+            <input iv-type="text"
+                   iv-name="textmaskcurrency"
+                   iv-label="Mask alais : currency"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="currency" />
+
+            <input iv-type="text"
+                   iv-name="textmaskdate"
+                   iv-label="Mask alais : date"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="date" />
+
+            <input iv-type="text"
+                   iv-name="textmaskdatetime"
+                   iv-label="Mask alais : datetime"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="datetime" />
+
+            <input iv-type="text"
+                   iv-name="textmaskdecimal"
+                   iv-label="Mask alais : decimal"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="decimal" />
+
+            <input iv-type="text"
+                   iv-name="textmaskemail"
+                   iv-label="Mask alais : email"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="email" />
+
+            <input iv-type="text"
+                   iv-name="textmaskIp"
+                   iv-label="Mask alais : IP"
+                   iv-required="true"
+                   iv-maxlength="60"
+                   iv-minlength="2"
+                   iv-mask="ip" />
+
+            <view iv-type="column" iv-size="2"></view>
+            <view iv-type="column" iv-size="3">
+                <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
+            </view>
+            <button iv-type="done" iv-name="done" iv-label="Done" />
+        </fieldset>
+    </form>
+</content>

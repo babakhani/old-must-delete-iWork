@@ -1,4 +1,4 @@
-﻿var iWork = angular.module('iWork', ['ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
+﻿var iWork = angular.module('iWork', ['ngRoute', 'ngMessages', 'ngAnimate', 'mgcrea.ngStrap', 'frapontillo.bootstrap-switch']);
 iWork.constant("appConfig", {
     "animateTime": 200,
     rootControllerUrl: '/api/'
@@ -26,6 +26,8 @@ iWork.config(function ($controllerProvider, $routeProvider, $compileProvider, $f
     })
     .when('/kitchensink/form-validation', {
         templateUrl: '/iView/kitchensink/form-validation.html',
+    }).when('/kitchensink/mask', {
+        templateUrl: '/iView/kitchensink/mask.html',
     });
 });
 
@@ -34,7 +36,7 @@ iWork.controller('submenu', function ($scope, $routeParams, $element, $rootScope
         $('a.btn-iconic').each(function () {
             $(this).removeClass('selected');
             var thisUrl = $(this).attr("href");
-            if (window.location.hash.indexOf(thisUrl) >= 0) {
+            if (window.location.hash == thisUrl) {
                 $(this).addClass('selected');
             }
         });
@@ -54,6 +56,10 @@ $(document).ready(function () {
             $(this).addClass('selected');
         }
     });
+
+    // Just Used by member-territory
+    $('img.svg-inject').svgInject();
+
     if (window.location.hash == '') {
         $('a.btn-iconic').first().trigger('click');
     }

@@ -5,6 +5,7 @@
          iv-minlength=""
          iv-maxlength=""
          iv-pattern=""
+         iv-mask=""
          iv-button-text="Search"
          $iv-autofocus="autofocus">
     <div class="form-group">
@@ -20,6 +21,7 @@
                    ng-minlength="$iv-minlength"
                    ng-maxlength="$iv-maxlength"
                    ng-pattern="$iv-pattern"
+                   input-mask="'$iv-mask'"
                    $iv-autofocus />
             <div class="input-group-addon button-box">
                 <button iv-type="submit" iv-name="submit" iv-label="$iv-button-text" />

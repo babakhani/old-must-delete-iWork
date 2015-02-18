@@ -3,6 +3,7 @@
          iv-controller="formDefaultController"
          iv-action="formDefaultAction"
          iv-show-message="true"
+         iv-model=""
          iv-show-modal="false"
          iv-update-action="byid"
          iv-form-name="$iv-name"
@@ -29,11 +30,12 @@
             <button iv-type="cancel" iv-label="Done"></button>
         </iv-modalbody>
     </modal>
-    <script type="text/javascript" >
+    <script type="text/javascript">
         iWork.controller('$iv-name_form', function (appConfig,$scope, $routeParams, $element, $rootScope, $http) {
             /* Bootstrap Controller
            ---------------------------------------*/
             $scope.$iv-model = {};
+            $scope.formSubmitted=false;
             $scope.messageEnabled = '$iv-show-message' == 'true';
             $scope.showFormTitle = '$iv-title' !== 'null';
             $scope.$form = $element.find('form');
@@ -56,13 +58,16 @@
             /* Reset Form
             ---------------------------------------*/
             $scope.formreset = function () {
-                $scope.showErrorMessage = false;
-                $scope.showSuccessMessage = false;
                 $scope.$iv-model = {};
+                $scope.formSubmitted=false;
+                $scope.showSuccessMessage = false;
+                $scope.showErrorMessage = false;
+                $scope.$iv-name.$setPristine();
             }
             /* Submit Form
             ---------------------------------------*/
             $scope.formsubmit = function () {
+                $scope.formSubmitted=true;
                 // Check Validation
                 if ($scope.$iv-name.$invalid) {
                     $('.main-content').animate({
@@ -91,7 +96,7 @@
                             if ("$iv-redirecturl" !== "null") {
                                 $window.location = "$iv-redirecturl";
                             }
-                            // Else broadcast responseData
+                                // Else broadcast responseData
                             else{
                                 $rootScope.$broadcast('$iv-name', responseData);
                             }
