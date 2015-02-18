@@ -151,7 +151,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\Models\ParsedExternalAccessToken.vb" />
     <Compile Include="Controllers\Models\RegisterExternalBindingModel.vb" />
     <Compile Include="NewFolder1\Class1.vb" />
