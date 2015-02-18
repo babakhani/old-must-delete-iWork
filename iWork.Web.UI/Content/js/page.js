@@ -28,6 +28,8 @@ iWork.config(function ($controllerProvider, $routeProvider, $compileProvider, $f
         templateUrl: '/iView/kitchensink/form-validation.html',
     }).when('/kitchensink/mask', {
         templateUrl: '/iView/kitchensink/mask.html',
+    }).when('/kitchensink/password', {
+        templateUrl: '/iView/kitchensink/password.html',
     });
 });
 
