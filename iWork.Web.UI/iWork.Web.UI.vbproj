@@ -55,9 +55,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="iView.ViewEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assemblies\iView.ViewEngine.dll</HintPath>
+      <HintPath>..\packages\iView.1.0.4\lib\iView.ViewEngine.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -134,12 +137,6 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assemblies\HtmlAgilityPack.dll" />
-    <Content Include="Assemblies\HtmlAgilityPack.pdb" />
-    <Content Include="Assemblies\HtmlAgilityPack.xml" />
-    <Content Include="Assemblies\iView.ViewEngine.dll" />
-    <Content Include="Assemblies\iView.ViewEngine.pdb" />
-    <Content Include="Assemblies\iView.ViewEngine.xml" />
     <Content Include="Content\css\control.css">
       <DependentUpon>control.scss</DependentUpon>
     </Content>
@@ -447,6 +444,7 @@
     <Content Include="iView\Contacts\Contact.xml" />
     <Content Include="iView\Contacts\form.html" />
     <Content Include="iView\Contacts\list.html" />
+    <Content Include="iView\Default.html" />
     <Content Include="iView\kitchensink\test.html" />
     <Content Include="iView\include\contactForm.html" />
     <Content Include="iView\kitchensink\angularstrap.html" />
@@ -458,7 +456,9 @@
     <Content Include="iView\login\login.html" />
     <Content Include="iView\Rollcall\list.html" />
     <Content Include="iView\Rollcall\Rollcall.xml" />
-    <Content Include="Manifest.xml" />
+    <None Include="iViewManifest.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Template\Default\Controls\button\done.html" />
     <Content Include="Template\Default\Controls\button\cancel.html" />
     <Content Include="Template\Default\Controls\button\add.html" />
@@ -501,12 +501,18 @@
     <Content Include="Template\Default\Controls\uploader\dropzone.html" />
     <Content Include="Template\Default\Controls\validation\validation.html" />
     <Content Include="Template\Default\Controls\view\column.html" />
+    <Content Include="Template\Default\Controls\view\heading.html" />
+    <Content Include="Template\Default\Controls\view\paragraph.html" />
     <Content Include="Template\Default\Controls\view\row.html" />
+    <Content Include="Template\Default\Controls\view\section.html" />
     <Content Include="Template\Default\Controls\view\slik.html" />
     <Content Include="Template\Default\Controls\view\spacer.html" />
     <Content Include="Template\Default\Layout\Default.html" />
+    <Content Include="Template\Default\Layout\DefaultWithMenu.html" />
     <Content Include="Template\Default\Layout\login.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.vb" />
@@ -535,6 +541,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

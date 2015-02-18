@@ -151,9 +151,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AccountController.vb" />
-    <Compile Include="Account\ChallengeResult.vb" />
-    <Compile Include="Helpers\Application.vb" />
+    <Compile Include="Controllers\AccountController.vb" />
+    <Compile Include="Controllers\Models\ParsedExternalAccessToken.vb" />
+    <Compile Include="Controllers\Models\RegisterExternalBindingModel.vb" />
+    <Compile Include="NewFolder1\Class1.vb" />
+    <Compile Include="NewFolder1\SimpleAuthorizationServerProvider.vb" />
+    <Compile Include="NewFolder1\User.vb" />
+    <Compile Include="Controllers\Models\ExternalLoginViewModel.vb" />
+    <Compile Include="Repositories\EF\AccountRepository.vb" />
+    <Compile Include="Application.vb" />
     <Compile Include="Controllers\BaseController.vb" />
     <Compile Include="Controllers\IController.vb" />
     <Compile Include="Controllers\Models\RequestIdModel.vb" />
@@ -165,7 +171,11 @@
     <Compile Include="IoC\DependencyScope.vb" />
     <Compile Include="IoC\Extentions.vb" />
     <Compile Include="IoC\ServiceContainer.vb" />
-    <Compile Include="IoC\Startup.vb" />
+    <Compile Include="Services\AccountService.vb" />
+    <Compile Include="Services\IAccountService.vb" />
+    <Compile Include="Services\IAuthorizationServerService.vb" />
+    <Compile Include="Services\IRefreshTokenService.vb" />
+    <Compile Include="StartupConfiguration.vb" />
     <Compile Include="Helpers\Mapper.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -182,20 +192,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Account\AuthContext.vb" />
-    <Compile Include="Account\AuthRepository.vb" />
-    <Compile Include="Account\Entites\ApplicationTypes.vb" />
-    <Compile Include="Account\Entites\Client.vb" />
-    <Compile Include="Account\Entites\RefreshToken.vb" />
-    <Compile Include="Account\Entites\Role.vb" />
-    <Compile Include="Account\Entites\UserClaim.vb" />
-    <Compile Include="Account\Entites\UserLogin.vb" />
-    <Compile Include="Account\FacebookAuthProvider.vb" />
-    <Compile Include="Account\GoogleAuthProvider.vb" />
-    <Compile Include="Account\Helper.vb" />
-    <Compile Include="Account\SimpleAuthorizationServerProvider.vb" />
-    <Compile Include="Account\Entites\User.vb" />
-    <Compile Include="Account\SimpleRefreshTokenProvider.vb" />
+    <Compile Include="Repositories\EF\AccountContext.vb" />
+    <Compile Include="NewFolder1\FacebookAuthenticationService.vb" />
+    <Compile Include="NewFolder1\GoogleAuthenticationService.vb" />
+    <Compile Include="Helpers\Helper.vb" />
+    <Compile Include="Services\AuthorizationServerService.vb" />
+    <Compile Include="Services\RefreshTokenService.vb" />
+    <Compile Include="Repositories\IAccountRepository.vb" />
     <Compile Include="Repositories\IGenericRepository.vb" />
     <Compile Include="Repositories\IRepository.vb" />
     <Compile Include="Repositories\IUnitOfWork.vb" />
@@ -229,6 +232,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
