@@ -476,6 +476,7 @@
     <Content Include="iView\Rollcall\Rollcall.xml" />
     <Content Include="Template\Default\Controls\button\done.html" />
     <Content Include="Template\Default\Controls\button\cancel.html" />
+    <Content Include="Template\Default\Controls\button\iconictest.html" />
     <Content Include="Template\Default\Controls\button\iconic.html" />
     <Content Include="Template\Default\Controls\button\update.html" />
     <Content Include="Template\Default\Controls\button\delete.html" />
@@ -513,8 +514,11 @@
     <Content Include="Template\Default\Controls\uploader\dropzone.html" />
     <Content Include="Template\Default\Controls\validation\validation.html" />
     <Content Include="Template\Default\Controls\view\column.html" />
+    <Content Include="Template\Default\Controls\view\contentdef.html" />
+    <Content Include="Template\Default\Controls\view\contentview.html" />
     <Content Include="Template\Default\Controls\view\row.html" />
     <Content Include="Template\Default\Controls\view\spacer.html" />
+    <Content Include="Template\Default\Layout\AngularDefault.html" />
     <Content Include="Template\Default\Layout\Default.html" />
     <Content Include="Template\Default\Layout\Empty.html" />
     <Content Include="Template\Default\Layout\login.html" />

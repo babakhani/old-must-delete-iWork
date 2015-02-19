@@ -45,6 +45,30 @@
     <script src="/Content/js/directives.js"></script>
 </head>
 <body>
+
+    <view iv-type="contentdef" iv-href="/contact/form" iv-name="contactform"></view>
+    <view iv-type="contentdef" iv-href="/contact/grid" iv-name="contactgrid"></view>
+
+    <control>
+        <script>
+
+            var sitemapDefinition = [];
+            // TODO: remove this script and movbe to angulkar directive
+           $(document).ready(function () {
+               $('a[viewname]').each(function () {
+                   var $link = $(this);
+                   var thisViewname = $link.attr('viewname');
+                   $.each(sitemapDefinition,function (index,item) {
+                       if (thisViewname == item.viewname) {
+                           $link.attr({
+                               href: '#' + item.href
+                           });
+                       }
+                   });
+               });
+           });
+        </script>
+    </control>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header col-md-1 col-xs-9">
             <a class="navbar-brand" href="#">iWork</a>
@@ -70,7 +94,6 @@
         </div>
         <div class="col-md-11 main-content " >
             <content></content>
-            <div ng-view class="slide page-content"></div>
         </div>
     </div>
 </body>
