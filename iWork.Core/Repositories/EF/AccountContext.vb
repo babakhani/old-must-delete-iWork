@@ -1,30 +1,29 @@
-﻿'Imports Microsoft.AspNet.Identity.EntityFramework
-'Imports System.Data.Entity
+﻿Imports Microsoft.AspNet.Identity.EntityFramework
+Imports System.Data.Entity
 
-'Namespace Repositories.EF
+Namespace Repositories.EF
 
-'    Public Class AccountContext
-'        Inherits DbContext
+    Public Class AccountContext
+        Inherits IdentityDbContext(Of User, Role, Integer, UserLogin, UserRole, UserClaim)
 
-'        Public Property Users As IDbSet(Of User)
-'        Public Property Roles As IDbSet(Of Role)
+        Public Sub New(nameOrConnectionString As String)
+            MyBase.New(nameOrConnectionString)
+            MyBase.Configuration.LazyLoadingEnabled = False
+            MyBase.Configuration.ProxyCreationEnabled = False
+        End Sub
 
-'        Public Sub New(nameOrConnectionString As String)
-'            MyBase.New(nameOrConnectionString)
-'            Database.SetInitializer(New AccountDBInitializer)
-'        End Sub
+        Protected Overrides Sub OnModelCreating(modelBuilder As Entity.DbModelBuilder)
 
-'    End Class
+            MyBase.OnModelCreating(modelBuilder)
 
-'    Public Class AccountDBInitializer
-'        Inherits CreateDatabaseIfNotExists(Of AccountContext)
+            modelBuilder.Entity(Of User)().ToTable("Users")
+            modelBuilder.Entity(Of Role)().ToTable("Roles")
+            modelBuilder.Entity(Of UserRole)().ToTable("UserRoles")
+            modelBuilder.Entity(Of UserLogin)().ToTable("UserLogins")
+            modelBuilder.Entity(Of UserClaim)().ToTable("UserClaims")
 
-'        Protected Overrides Sub Seed(context As AccountContext)
-'            context.Users.Add(New User With {.UserName = "tajan", .Password = "123", .Email = "info@tajan.ir"})
-'            context.Roles.Add(New Role With {.Name = "admins"})
-'            context.SaveChanges()
-'        End Sub
+        End Sub
 
-'    End Class
+    End Class
 
-'End Namespace
+End Namespace

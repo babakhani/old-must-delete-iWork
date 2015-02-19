@@ -151,11 +151,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\Models\ParsedExternalAccessToken.vb" />
     <Compile Include="Controllers\Models\RegisterExternalBindingModel.vb" />
-    <Compile Include="NewFolder1\Class1.vb" />
-    <Compile Include="NewFolder1\SimpleAuthorizationServerProvider.vb" />
-    <Compile Include="NewFolder1\User.vb" />
+    <Compile Include="Model\ChallengeResult.vb" />
+    <Compile Include="Services\SimpleAuthorizationServerProvider.vb" />
+    <Compile Include="Model\User.vb" />
     <Compile Include="Controllers\Models\ExternalLoginViewModel.vb" />
     <Compile Include="Repositories\EF\AccountRepository.vb" />
     <Compile Include="Application.vb" />
@@ -192,8 +193,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Repositories\EF\AccountContext.vb" />
-    <Compile Include="NewFolder1\FacebookAuthenticationService.vb" />
-    <Compile Include="NewFolder1\GoogleAuthenticationService.vb" />
+    <Compile Include="Services\FacebookAuthenticationService.vb" />
+    <Compile Include="Services\GoogleAuthenticationService.vb" />
     <Compile Include="Helpers\Helper.vb" />
     <Compile Include="Services\AuthorizationServerService.vb" />
     <Compile Include="Services\RefreshTokenService.vb" />

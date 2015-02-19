@@ -1,23 +1,15 @@
-﻿'Imports Microsoft.AspNet.Identity
-'Imports Microsoft.AspNet.Identity.EntityFramework
+﻿Imports Microsoft.AspNet.Identity
+Imports Microsoft.AspNet.Identity.EntityFramework
 
-'Namespace Repositories
+Namespace Repositories
 
-'    Public Interface IAccountRepository
-'        Inherits IGenericRepository(Of User)
+    Public Interface IAccountRepository
+        Inherits IRepository
+        Function RegisterUser(username As String, password As String) As Task(Of IdentityResult)
+        Function FindUser(userName As String, password As String) As Task(Of User)
+        Function FindAsync(loginInfo As UserLoginInfo) As Task(Of User)
+        Function CreateAsync(user As User) As Task(Of IdentityResult)
+        Function AddLoginAsync(userId As String, login As UserLoginInfo) As Task(Of IdentityResult)
+    End Interface
 
-'        'Function RegisterUser(user As User) As Boolean
-'        'Function FindUser(username As String, password As String) As User
-'        'Function FindClient(clientId As String) As Client
-'        'Function AddRefreshToken(token As RefreshToken) As Boolean
-'        'Function RemoveRefreshToken(refreshToken As RefreshToken) As Boolean
-'        'Function RemoveRefreshToken(refreshTokenId As String) As Boolean
-'        'Function FindRefreshToken(refreshTokenId As String) As RefreshToken
-'        'Function GetAllRefreshTokens() As RefreshToken
-'        'Function FindAsync(loginInfo As UserLoginInfo) As IdentityUser
-'        'Function CreateAsync(user As IdentityUser) As IdentityResult
-'        'Function AddLogin(user As User) As Boolean
-
-'    End Interface
-
-'End Namespace
+End Namespace

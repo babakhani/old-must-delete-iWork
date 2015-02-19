@@ -1,105 +1,51 @@
-﻿'Imports Microsoft.AspNet.Identity.EntityFramework
-'Imports Microsoft.AspNet.Identity
+﻿Imports Microsoft.AspNet.Identity.EntityFramework
+Imports Microsoft.AspNet.Identity
 
-'Namespace Repositories.EF
+Namespace Repositories.EF
 
-'    Public Class AccountRepository
-'        Inherits GenericRepository(Of User)
-'        Implements IAccountRepository
+   Public Class AuthRepository
+        Implements IAccountRepository
 
-'        Public Sub New(dbContext As AccountContext)
-'            MyBase.New(dbContext)
-'        End Sub
+        Private _ctx As AccountContext
+        Private _userManager As UserManager(Of User, Integer)
 
-'    End Class
+        Public Sub New(context As AccountContext)
+            _ctx = context
+            Dim store As New UserStore(Of User, Role, Integer, UserLogin, UserRole, UserClaim)(_ctx)
+            _userManager = New UserManager(Of User, Integer)(store)
+        End Sub
 
-'    'Public Class AuthenticationRepository
-'    '    Implements IRepository
-'    '    Implements IAuthenticationRepository
+        Public Async Function RegisterUser(username As String, password As String) As Task(Of IdentityResult) Implements IAccountRepository.RegisterUser
+            Dim user As New User With {.UserName = username}
+            Dim result = Await _userManager.CreateAsync(user, password)
+            Return result
+        End Function
 
-'    '    Private context As AuthenticationContext
-'    '    Private _userManager As UserManager(Of IdentityUser)
+        Public Async Function FindUser(userName As String, password As String) As Task(Of User) Implements IAccountRepository.FindUser
+            Dim user As User = Await _userManager.FindAsync(userName, password)
+            Return user
+        End Function
 
-'    '    Public Sub New(dbContext As AuthenticationContext)
-'    '        context = dbContext
-'    '        '_userManager = New UserManager(Of IdentityUser)(New UserStore(Of IdentityUser)(context))
-'    '    End Sub
+        Public Async Function FindAsync(loginInfo As UserLoginInfo) As Task(Of User) Implements IAccountRepository.FindAsync
+            Dim user As User = Await _userManager.FindAsync(loginInfo)
 
-'    '    Public Function RegisterUser(userModel As User) As Boolean Implements IAuthenticationRepository.RegisterUser
+            Return user
+        End Function
 
-'    '        Dim user As New IdentityUser
-'    '        user.UserName = userModel.UserName
-'    '        Return _userManager.CreateAsync(user, userModel.Password).Result.Succeeded
+        Public Async Function CreateAsync(user As User) As Task(Of IdentityResult) Implements IAccountRepository.CreateAsync
+            Dim result = Await _userManager.CreateAsync(user)
 
-'    '    End Function
+            Return result
+        End Function
 
-'    '    Public Function FindUser(userName As String, password As String) As User Implements IAuthenticationRepository.FindUser
-'    '        Return (From p In context.Users Where p.Password = password And p.UserName.ToLower = userName.ToLower).SingleOrDefault
-'    '    End Function
+        Public Async Function AddLoginAsync(userId As String, login As UserLoginInfo) As Task(Of IdentityResult) Implements IAccountRepository.AddLoginAsync
+            Dim result = Await _userManager.AddLoginAsync(userId, login)
 
-'    '    Public Function FindClient(clientId As String) As Client Implements IAuthenticationRepository.FindClient
-'    '        Dim client = context.Set(Of Client).Find(clientId)
-'    '        Return client
-'    '    End Function
+            Return result
+        End Function
 
-'    '    Public Async Function AddRefreshToken(token As RefreshToken) As Task(Of Boolean) Implements IAuthenticationRepository.AddRefreshToken
+    End Class
 
-'    '        Dim existingToken = context.Set(Of RefreshToken).Where(Function(r) r.Subject = token.Subject AndAlso r.ClientId = token.ClientId).SingleOrDefault()
-
-'    '        If existingToken IsNot Nothing Then
-'    '            Dim result = Await RemoveRefreshToken(existingToken)
-'    '        End If
-
-'    '        context.Set(Of RefreshToken).Add(token)
-'    '        Return Await context.SaveChangesAsync() > 0
-
-'    '    End Function
-
-'    '    Public Async Function RemoveRefreshToken(refreshTokenId As String) As Task(Of Boolean) Implements IAuthenticationRepository.RemoveRefreshToken
-'    '        Dim refreshToken = Await context.Set(Of RefreshToken).FindAsync(refreshTokenId)
-
-'    '        If refreshToken IsNot Nothing Then
-'    '            context.Set(Of RefreshToken).Remove(refreshToken)
-'    '            Return Await context.SaveChangesAsync() > 0
-'    '        End If
-
-'    '        Return False
-
-'    '    End Function
-
-'    '    Public Async Function RemoveRefreshToken(refreshToken As RefreshToken) As Task(Of Boolean) Implements IAuthenticationRepository.RemoveRefreshToken
-'    '        context.Set(Of RefreshToken).Remove(refreshToken)
-'    '        Return Await context.SaveChangesAsync() > 0
-'    '    End Function
-
-'    '    Public Async Function FindRefreshToken(refreshTokenId As String) As Task(Of RefreshToken) Implements IAuthenticationRepository.FindRefreshToken
-'    '        Dim refreshToken = Await context.Set(Of RefreshToken).FindAsync(refreshTokenId)
-'    '        Return refreshToken
-'    '    End Function
-
-'    '    Public Function GetAllRefreshTokens() As List(Of RefreshToken) Implements IAuthenticationRepository.GetAllRefreshTokens
-'    '        Return context.Set(Of RefreshToken).ToList()
-'    '    End Function
-
-'    '    Public Async Function FindAsync(loginInfo As UserLoginInfo) As Task(Of IdentityUser) Implements IAuthenticationRepository.FindAsync
-'    '        Dim user As IdentityUser = Await _userManager.FindAsync(loginInfo)
-'    '        Return user
-'    '    End Function
-
-'    '    Public Async Function CreateAsync(user As IdentityUser) As Task(Of IdentityResult) Implements IAuthenticationRepository.CreateAsync
-'    '        Dim result = Await _userManager.CreateAsync(user)
-'    '        Return result
-'    '    End Function
-
-'    '    Public Function AddLogin(user As User) As Boolean Implements IAuthenticationRepository.AddLogin
-
-
-
-'    '    End Function
-
-
-'    'End Class
-
-'End Namespace
+End Namespace
 
 
