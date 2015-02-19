@@ -138,12 +138,6 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assemblies\HtmlAgilityPack.dll" />
-    <Content Include="Assemblies\HtmlAgilityPack.pdb" />
-    <Content Include="Assemblies\HtmlAgilityPack.xml" />
-    <Content Include="Assemblies\iView.ViewEngine.dll" />
-    <Content Include="Assemblies\iView.ViewEngine.pdb" />
-    <Content Include="Assemblies\iView.ViewEngine.xml" />
     <Content Include="Content\css\control.css">
       <DependentUpon>control.scss</DependentUpon>
     </Content>
@@ -472,6 +466,7 @@
     <Content Include="iView\kitchensink\grid-ajax.html" />
     <Content Include="iView\kitchensink\grid-observer.html" />
     <Content Include="iView\kitchensink\kitchensink.html" />
+    <Content Include="iView\LoginTest.html" />
     <Content Include="iView\login\partials\home.html" />
     <Content Include="iView\login\partials\login.html" />
     <Content Include="iView\login\partials\profile.html" />
@@ -521,6 +516,7 @@
     <Content Include="Template\Default\Controls\view\row.html" />
     <Content Include="Template\Default\Controls\view\spacer.html" />
     <Content Include="Template\Default\Layout\Default.html" />
+    <Content Include="Template\Default\Layout\Empty.html" />
     <Content Include="Template\Default\Layout\login.html" />
     <Content Include="Web.config" />
   </ItemGroup>

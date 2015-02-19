@@ -155,6 +155,7 @@
     <Compile Include="Controllers\Models\ParsedExternalAccessToken.vb" />
     <Compile Include="Controllers\Models\RegisterExternalBindingModel.vb" />
     <Compile Include="Model\ChallengeResult.vb" />
+    <Compile Include="Security\Models\ApplicationTypes.vb" />
     <Compile Include="Services\SimpleAuthorizationServerProvider.vb" />
     <Compile Include="Model\User.vb" />
     <Compile Include="Controllers\Models\ExternalLoginViewModel.vb" />
