@@ -439,6 +439,7 @@
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
+    <Content Include="Content\js\login.js" />
     <Content Include="Controllers\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.vb</LastGenOutput>
@@ -471,11 +472,11 @@
     <Content Include="iView\kitchensink\grid-ajax.html" />
     <Content Include="iView\kitchensink\grid-observer.html" />
     <Content Include="iView\kitchensink\kitchensink.html" />
-    <Content Include="iView\login\login.html" />
     <Content Include="iView\login\partials\home.html" />
     <Content Include="iView\login\partials\login.html" />
     <Content Include="iView\login\partials\profile.html" />
     <Content Include="iView\login\partials\signup.html" />
+    <Content Include="iView\login\login.html" />
     <Content Include="iView\Rollcall\list.html" />
     <Content Include="iView\Rollcall\Rollcall.xml" />
     <Content Include="Template\Default\Controls\button\done.html" />
