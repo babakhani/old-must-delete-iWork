@@ -1,0 +1,69 @@
+﻿{
+    "direction": {
+        "from": "left"
+    },
+    "global": {
+        "areYouSure": "Are your sure?",
+        "yes": "yes",
+        "no": "no"
+    },
+    "pageTitle": {
+        "contactForm": "Add Contact",
+        "contactSearch": "Search Contacts",
+        "kitchensink": "Kitchensink"
+    },
+    "form": {
+        "fullname": "Fullname",
+        "fax": "Fax",
+        "tell": "Tell",
+        "home": "Home",
+        "address": "Address",
+        "company": "Company",
+        "unit": "Unit",
+        "description": "Description",
+        "office": "Office",
+        "mobile": "Mobile",
+        "submitBtn": "Submit",
+        "updateBtn": "Update",
+        "resetBtn": "Reset",
+        "doneBtn": "Done",
+        "searchBtn": "Search",
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
+    },
+    "grid": {
+        "#": "#",
+        "fullname": "Fullname",
+        "fax": "Fax",
+        "tell": "Tell",
+        "home": "Home",
+        "address": "Address",
+        "company": "Company",
+        "unit": "Unit",
+        "description": "Description",
+        "office": "Office",
+        "mobile": "Mobile",
+        "update": "",
+        "delete": ""
+    },
+    "validation": {
+        "required": "You forgot to enter {{name}}",
+        "maxLength": "{{name}} is too long.",
+        "minLength": " {{name}} is too short.",
+        "email": " Invalid email!! Should be like name@web.com",
+        "pattern": " {{name}} is not match Pattern.",
+        "number": "  {{name}} is not a valid number.",
+        "match": " Password Dos not match!",
+        "pwd": "Password strength!"
+    },
+    "contact": {
+        "title": "Contacts",
+        "addFormTitle": "Add Conatct",
+        "sideMenuAddTitle": "Add Conatct",
+        "sideMenuSearchTitle": "Search",
+        "searchPlacholder": "Search in Contacts"
+    },
+    "kitchensink": {
+        "title": "Kitchensink"
+    }
+}

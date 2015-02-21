@@ -2,23 +2,23 @@
     <content>
         <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
             <fieldset>
-                <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-label="Search contact" />
+                <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-placeholder="contact.searchPlacholder" />
             </fieldset>
         </form>
         <grid iv-type="table" iv-controller="contactGrid" iv-observe="searchForm">
             <thead ng-show="result.Data">
                 <tr>
-                    <th>#</th>
-                    <th>Fullname</th>
-                    <th>Company</th>
-                    <th>Unit</th>
-                    <th>Home</th>
-                    <th>Mobile</th>
-                    <th>Office</th>
-                    <th>Fax</th>
-                    <th>Description</th>
-                    <th>Update</th>
-                    <th>Del</th>
+                    <th translate>{{'#'}}</th>
+                    <th translate>{{'grid.fullname'}}</th>
+                    <th translate>{{'grid.company'}}</th>
+                    <th translate>{{'grid.unit'}}</th>
+                    <th translate>{{'grid.home'}}</th>
+                    <th translate>{{'grid.mobile'}}</th>
+                    <th translate>{{'grid.office'}}</th>
+                    <th translate>{{'grid.fax'}}</th>
+                    <th translate>{{'grid.description'}}</th>
+                    <th translate>{{'grid.update'}}</th>
+                    <th translate>{{'grid.delete'}}</th>
                 </tr>
             </thead>
             <tbody>

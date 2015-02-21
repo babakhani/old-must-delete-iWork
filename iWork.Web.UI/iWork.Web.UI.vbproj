@@ -156,6 +156,12 @@
     <Content Include="Content\css\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\style.rtl.css">
+      <DependentUpon>style.rtl.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\style.rtl.min.css">
+      <DependentUpon>style.rtl.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\_helper.css">
       <DependentUpon>_helper.scss</DependentUpon>
     </Content>
@@ -169,6 +175,11 @@
       <DependentUpon>login.css</DependentUpon>
     </Content>
     <Content Include="Content\font\OpenSans-Regular.svg" />
+    <Content Include="Content\css\style.rtl.css.map">
+      <DependentUpon>style.rtl.css</DependentUpon>
+    </Content>
+    <None Include="Content\i18n\en.json" />
+    <None Include="Content\i18n\fa.json" />
     <Content Include="Content\img\add-user.svg" />
     <Content Include="Content\img\address-book.svg" />
     <Content Include="Content\img\area-graph.svg" />
@@ -187,12 +198,14 @@
     <Content Include="Content\img\wand.svg" />
     <Content Include="Content\img\watch.svg" />
     <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\controllers\iwrokroot.js" />
     <Content Include="Content\js\controllers\login.js" />
     <Content Include="Content\js\controllers\logout.js" />
     <Content Include="Content\js\controllers\navbar.js" />
     <Content Include="Content\js\controllers\profile.js" />
     <Content Include="Content\js\controllers\signup.js" />
     <Content Include="Content\js\controllers\submenu.js" />
+    <Content Include="Content\js\controllers\translate.js" />
     <Content Include="Content\js\directives\directives.js" />
     <Content Include="Content\js\directives\passwordMatch.js" />
     <Content Include="Content\js\directives\passwordStrength.js" />
@@ -288,6 +301,10 @@
     <Content Include="Content\lib\angular-strap\modules\typeahead.min.js" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.js" />
     <Content Include="Content\lib\angular-strap\modules\typeahead.tpl.min.js" />
+    <Content Include="Content\lib\angular-translate\angular-translate.min.js" />
+    <Content Include="Content\lib\angular-translate\loader-partial.js" />
+    <Content Include="Content\lib\angular-translate\loader-static-files.js" />
+    <Content Include="Content\lib\angular-translate\loader-url.js" />
     <Content Include="Content\lib\angular\angular-animate.js" />
     <Content Include="Content\lib\angular\angular-bootstrap-switch.js" />
     <Content Include="Content\lib\angular\angular-messages.js" />
@@ -302,7 +319,14 @@
     <Content Include="Content\lib\animation\js\jquery.animsition.js" />
     <Content Include="Content\lib\animation\js\jquery.animsition.min.js" />
     <Content Include="Content\lib\bootstrap-lib\bootstrap-confirmation.js" />
-    <Content Include="Content\lib\bootstrap-lib\bootstrap-tooltip.js" />
+    <Content Include="Content\lib\bootstrap-rtl\css\bootstrap-flipped.css" />
+    <Content Include="Content\lib\bootstrap-rtl\css\bootstrap-flipped.min.css" />
+    <Content Include="Content\lib\bootstrap-rtl\css\bootstrap-rtl.css" />
+    <Content Include="Content\lib\bootstrap-rtl\css\bootstrap-rtl.min.css" />
+    <Content Include="Content\lib\bootstrap-rtl\js\holder.js" />
+    <Content Include="Content\lib\bootstrap-rtl\js\html5shiv.js" />
+    <Content Include="Content\lib\bootstrap-rtl\js\jquery.min.js" />
+    <Content Include="Content\lib\bootstrap-rtl\js\respond.min.js" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.css" />
     <Content Include="Content\lib\bootstrap-switch\css\bootstrap-switch.min.css" />
     <Content Include="Content\lib\bootstrap-switch\js\bootstrap-switch.js" />
@@ -424,6 +448,8 @@
     <Content Include="Content\lib\animation\css\animsition.css.map" />
     <Content Include="Config\Castle.config" />
     <Content Include="Config\Logging.config" />
+    <Content Include="Content\lib\bootstrap-rtl\css\bootstrap-flipped.css.map" />
+    <Content Include="Content\lib\bootstrap-rtl\css\bootstrap-rtl.css.map" />
     <None Include="Content\sample_data\grid.json" />
     <Content Include="Content\lib\angular\angular.min.js" />
     <Content Include="Content\lib\bootstrap\css\bootstrap-theme.css.map" />
@@ -632,6 +658,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties Content_2i18n_2fa_1json__JSONSchema="http://json.schemastore.org/chrome-manifest" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -147,8 +147,7 @@
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
-  border-radius: 0px;
-  text-align: left !important; }
+  border-radius: 0px; }
 
 .form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
   border-bottom: 1px solid #286090; }

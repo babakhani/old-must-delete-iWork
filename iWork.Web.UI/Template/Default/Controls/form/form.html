@@ -10,8 +10,8 @@
          iv-single-submit="false"
          iv-filtering-form="false">
     <div class="form-container" ng-controller="$iv-name_form" onsubmit="return false;">
-        <h3 class="panel-title" ng-show="showFormTitle">$iv-title</h3>
-        <form name="$iv-name" class="form-horizontal">
+        <h3 class="panel-title" ng-show="showFormTitle" translate >{{'$iv-title'}}</h3>
+        <form name="$iv-name" class="form-horizontal" novalidate >
             <iv-content>
             </iv-content>
             <div class="alert alert-dismissable alert-danger" ng-show="showErrorMessage && messageEnabled">
@@ -26,7 +26,7 @@
         <modal iv-type="modal" iv-modal-id="formSuccessModal">
             <iv-modalbody>
                 <h3>$iv-controller Add/Update Successfully.</h3>
-                <button iv-type="cancel" iv-label="Done"></button>
+                <button iv-type="cancel" iv-label="form.doneBtn"></button>
             </iv-modalbody>
         </modal>
     </div>

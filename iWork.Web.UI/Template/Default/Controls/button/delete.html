@@ -1,9 +1,15 @@
 ﻿<control iv-model=""
          iv-entity-id=""
-         iv-placement="left">
+         iv-title="global.areYouSure"
+         iv-btn-ok-label="global.yes"
+         iv-btn-cancel-label="global.no"
+         iv-placement="direction.from">
     <a class="remove-entity glyphicon glyphicon-trash"
        data-entity-id="$iv-entity-id"
-       data-placement="$iv-placement"
+       data-placement="{{'$iv-placement' | translate }}"
        data-model="$iv-model"
-       delete-btn></a>
+       delete-btn
+       data-btn-ok-label="{{'$iv-btn-ok-label' | translate}}"
+       data-btn-cancel-label="{{'$iv-btn-cancel-label' | translate}}"
+       data-title="{{'$iv-title' | translate}}"></a>
 </control>

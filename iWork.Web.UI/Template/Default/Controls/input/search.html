@@ -1,12 +1,12 @@
-﻿<control iv-label=""
-         iv-name=""
+﻿<control iv-name=""
          iv-input-type="text"
          iv-required="false"
          iv-minlength=""
          iv-maxlength=""
          iv-pattern=""
          iv-mask=""
-         iv-button-text="Search"
+         iv-placeholder="form.searchBtn"
+         iv-button-text="form.searchBtn"
          $iv-autofocus="autofocus">
     <div class="form-group">
         <div class="input-group search-box">
@@ -15,7 +15,7 @@
                    type="$iv-input-type"
                    name="$iv-name"
                    id="$iv-name"
-                   placeholder="$iv-label"
+                   placeholder="{{'$iv-placeholder' | translate }}"
                    ng-model="$iv-model.$iv-name"
                    ng-required="$iv-required"
                    ng-minlength="$iv-minlength"

@@ -334,3 +334,20 @@ html {
 .btn {
     @include border-radius(0);
 }
+
+
+.translate-buttton-box {
+    margin-top: 26px;
+    padding: 0px 6px;
+
+    button {
+        height: 22px;
+        line-height: 0px;
+        padding: 3px 10px;
+    }
+
+    .selected {
+        background: #2c77ba !important;
+        color:#ffffff;
+    }
+}

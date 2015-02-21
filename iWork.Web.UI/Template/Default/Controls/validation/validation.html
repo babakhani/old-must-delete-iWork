@@ -3,27 +3,28 @@
          class="validation-message"
          ng-show="!$iv-form-name.$iv-name.$pristine && $iv-form-name.$iv-name.$invalid ||  formSubmitted && $iv-form-name.$iv-name.$invalid">
         <div ng-message="required" error>
-            You forgot to enter $iv-label
+            <span translate="validation.required" translate-value-name="{{'$iv-label' | translate }}"></span>
         </div>
         <div ng-message="maxlength" error>
-            '$iv-label' is too long.
+            <span translate="validation.maxLength" translate-value-name="{{'$iv-label' | translate }}"></span>
         </div>
         <div ng-message="max" error>
-            '$iv-label' is too long.
+            <span translate="validation.maxLength" translate-value-name="{{'$iv-label' | translate }}"></span>
         </div>
         <div ng-message="minlength" error>
-            $iv-label' is too short.
+            <span translate="validation.minLength" translate-value-name="{{'$iv-label' | translate }}"></span>
         </div>
         <div ng-message="min" error>
-            $iv-label' is too short.
+            <span translate="validation.minLength" translate-value-name="{{'$iv-label' | translate }}"></span>
         </div>
         <div ng-message="email" error>
-            Invalid email!! Should be like name@web.com
+            <span translate="validation.email" translate-value-name="{{'$iv-label' | translate }}"></span>
         </div>
         <div ng-message="pattern" error>
-            '$iv-label' is not match Pattern.
+            <span translate="validation.pattern" translate-value-name="{{'$iv-label' | translate }}"></span>
         </div>
         <div ng-message="number" error>
+            <span translate="validation.number" translate-value-name="{{'$iv-label' | translate }}"></span>
             '$iv-label' is not a valid number.
         </div>
         <iv-content></iv-content>

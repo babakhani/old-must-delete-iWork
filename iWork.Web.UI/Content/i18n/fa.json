@@ -1,0 +1,69 @@
+﻿{
+    "direction": {
+        "from": "right"
+    },
+    "global": {
+        "areYouSure": "آیا مطمین هستید؟",
+        "yes": "بله",
+        "no": "خیر"
+    },
+    "pageTitle": {
+        "contactForm": "افزودن تماس",
+        "contactSearch": "جستجو تماس",
+        "kitchensink": "صفحه چرکنویس"
+    },
+    "form": {
+        "fullname": "نام و نام خوانوادگی",
+        "fax": "دورنما",
+        "tell": "تلفن",
+        "home": "محل سکونت",
+        "address": "آدرس",
+        "company": "شرکت",
+        "unit": "واحد",
+        "description": "توضیحات",
+        "office": "اداره",
+        "mobile": "تلفن همراه",
+        "submitBtn": "تایید",
+        "updateBtn": "بروزرسانی",
+        "resetBtn": "پاک کن",
+        "doneBtn": "انجام شد",
+        "searchBtn": "جستجو",
+        "password": "گذرواژه",
+        "confirmPassword": "تایید گذرواژه"
+    },
+    "grid": {
+        "#": "ردیف",
+        "fullname": "نام و نام خوانوادگی",
+        "fax": "دورنما",
+        "tell": "تلفن",
+        "home": "محل سکونت",
+        "address": "آدرس",
+        "company": "شرکت",
+        "unit": "واحد",
+        "description": "توضیحات",
+        "office": "اداره",
+        "mobile": "تلفن همراه",
+        "update": "",
+        "delete": ""
+    },
+    "validation": {
+        "required": "شما {{name}} راوارد نکرده اید.",
+        "maxLength": "{{name}} بیشتر از حد مجاز است.",
+        "minLength": "{{name}} کمتر از حد مجاز است.",
+        "email": "آدرس پست الکترونیک درست نیست.",
+        "pattern": "{{name}} با فرمت تعریف شده همخوانی ندارد.",
+        "number": "{{name}} عدد صحیح نیست.",
+        "match": "گذرواژه های وارد شده همخوانی ندارد.",
+        "pwd": "گذرواژه وارد شده نا امن است."
+    },
+    "contact": {
+        "title": "تماس",
+        "addFormTitle": "افزودن تماس جدید",
+        "sideMenuAddTitle": "افزودن تماس",
+        "sideMenuSearchTitle": "جستجو",
+        "searchPlacholder": "جستجو در تماس ها"
+    },
+    "kitchensink": {
+        "title": "چرکنویس"
+    }
+}

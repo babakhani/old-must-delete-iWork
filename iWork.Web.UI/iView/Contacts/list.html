@@ -2,16 +2,16 @@
     <sidecontent>
         <button iv-type="iconic"
                 iv-icon="add-user"
-                iv-label="Add Contact"
+                iv-label="contact.sideMenuAddTitle"
                 iv-viewname="contactform"></button>
         <button iv-type="iconic"
                 iv-icon="address-book"
-                iv-label="Search Contact"
+                iv-label="contact.sideMenuSearchTitle"
                 iv-viewname="contactgrid"></button>
 </sidecontent>
     <content>
-        <view iv-type="partial" iv-href="/contacts/form" iv-name="contactform"></view>
-        <view iv-type="partial" iv-href="/contacts/grid" iv-name="contactgrid"></view>
+        <view iv-type="partial" iv-href="/contacts/form" iv-name="contactform" iv-title="pageTitle.contactForm" ></view>
+        <view iv-type="partial" iv-href="/contacts/grid" iv-name="contactgrid" iv-title="pageTitle.contactSearch"></view>
         <view iv-type="contentview">
         </view>
     </content>

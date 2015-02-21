@@ -5,7 +5,10 @@
                 btnOkClass: 'btn-sm btn-danger',
                 btnCancelClass: 'btn-sm btn-default',
                 singleton: true,
-                popout: true
+                popout: true,
+                title: attrs.title,
+                btnOkLabel: attrs.btnOkLabel,
+                btnCancelLabel: attrs.btnCancelLabel,
             });
             element.bind('click', function () {
                 var $self = $(this);

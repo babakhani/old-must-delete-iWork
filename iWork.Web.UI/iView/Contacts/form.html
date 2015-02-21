@@ -1,7 +1,7 @@
 ﻿<layout iv-source="Partial.html">
     <content>
         <form iv-type="form"
-              iv-title="Contact Form"
+              iv-title="contact.addFormTitle"
               iv-name="contactForm"
               iv-model="ivContact"
               iv-show-modal="false"
@@ -9,18 +9,18 @@
               iv-single-submit="true"
               iv-action="update">
             <fieldset>
-                <input iv-type="text" iv-name="fullname" iv-label="Fullname" iv-required="true" iv-maxlength="20" iv-minlength="2" />
-                <input iv-type="text" iv-name="tel1" iv-label="Home" />
-                <input iv-type="text" iv-name="tel2" iv-label="Mobile" iv-input-type="tel" />
-                <input iv-type="text" iv-name="tel3" iv-label="Office" />
-                <input iv-type="text" iv-name="tel4" iv-label="Fax" />
-                <input iv-type="text" iv-name="company" iv-label="Company" />
-                <input iv-type="text" iv-name="unit" iv-label="Unit" />
-                <input iv-type="text" iv-name="description" iv-label="Description" />
+                <input iv-type="text" iv-name="fullname" iv-label="form.fullname" iv-required="true" iv-maxlength="20" iv-minlength="2" />
+                <input iv-type="text" iv-name="tel1" iv-label="form.home" />
+                <input iv-type="text" iv-name="tel2" iv-label="form.mobile" iv-input-type="tel" />
+                <input iv-type="text" iv-name="tel3" iv-label="form.office" />
+                <input iv-type="text" iv-name="tel4" iv-label="form.fax" />
+                <input iv-type="text" iv-name="company" iv-label="form.company" />
+                <input iv-type="text" iv-name="unit" iv-label="form.unit" />
+                <input iv-type="text" iv-name="description" iv-label="form.description" />
                 <view iv-type="column" iv-size="2"></view>
                 <view iv-type="column" iv-size="3">
-                    <button iv-type="submit" iv-name="submit" iv-label="Submit" />
-                    <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
+                    <button iv-type="submit" iv-name="submit" iv-label="form.submitBtn" />
+                    <button iv-type="cancel" iv-name="cancel" iv-label="form.resetBtn" />
                     <button iv-type="done" iv-name="done" iv-label="Done" />
                 </view>
             </fieldset>

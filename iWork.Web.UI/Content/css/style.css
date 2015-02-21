@@ -391,8 +391,7 @@ body {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
-  border-radius: 0px;
-  text-align: left !important; }
+  border-radius: 0px; }
 
 .form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
   border-bottom: 1px solid #286090; }
@@ -602,5 +601,16 @@ body, html {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0; }
+
+.translate-buttton-box {
+  margin-top: 26px;
+  padding: 0px 6px; }
+  .translate-buttton-box button {
+    height: 22px;
+    line-height: 0px;
+    padding: 3px 10px; }
+  .translate-buttton-box .selected {
+    background: #2c77ba !important;
+    color: #ffffff; }
 
 /*# sourceMappingURL=style.css.map */
