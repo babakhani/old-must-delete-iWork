@@ -1,4 +1,4 @@
-﻿
+﻿// NOTE: This is sample code and all off this remove on release;
 angular.module('MyApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStrap', 'satellizer'])
   .config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 

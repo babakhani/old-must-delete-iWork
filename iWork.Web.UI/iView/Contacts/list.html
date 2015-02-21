@@ -1,16 +1,17 @@
 ﻿<layout>
     <sidecontent>
-        <button iv-type="iconictest"
-                iv-icon="address-book"
+        <button iv-type="iconic"
+                iv-icon="add-user"
                 iv-label="Add Contact"
                 iv-viewname="contactform"></button>
-        <button iv-type="iconictest"
-                iv-icon="add-user"
+        <button iv-type="iconic"
+                iv-icon="address-book"
                 iv-label="Search Contact"
                 iv-viewname="contactgrid"></button>
-    </sidecontent>
+</sidecontent>
     <content>
-                
+        <view iv-type="partial" iv-href="/contacts/form" iv-name="contactform"></view>
+        <view iv-type="partial" iv-href="/contacts/grid" iv-name="contactgrid"></view>
         <view iv-type="contentview">
         </view>
     </content>

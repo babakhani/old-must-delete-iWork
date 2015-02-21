@@ -1,12 +1,11 @@
-﻿
-<content>
-    <form iv-type="form"
-          iv-title="Validation Sink"
-          iv-name="formValidation"
-          iv-model="ivContact"
-          iv-controller="Contact"
-          iv-action="add">
-        <fieldset>
+﻿<layout iv-source="Partial.html">
+    <content>
+        <form iv-type="form"
+              iv-title="Validation Sink"
+              iv-name="formValidation"
+              iv-model="ivContact"
+              iv-controller="Contact"
+              iv-action="add">
 
             <input iv-type="text"
                    iv-name="textpattern"
@@ -14,6 +13,10 @@
                    iv-required="true"
                    iv-maxlength="60"
                    iv-minlength="2" />
+
+            <formfield iv-type="help-message">
+                This is help message!  Only accept numbers.
+            </formfield>
 
             <input iv-type="text"
                    iv-name="textmask"
@@ -39,15 +42,9 @@
                    iv-minlength="2"
                    iv-mask="currency" />
 
-
-            <formfield iv-type="help-message">
-                This is help message!  Only accept numbers.
-            </formfield>
-            <input iv-type="text" iv-name="text" iv-label="Text" iv-required="true" iv-maxlength="6" iv-minlength="2">
+            <input iv-type="text" iv-name="texte43qw" iv-label="Text" iv-required="true" iv-maxlength="6" iv-minlength="2" />
             <input iv-type="password" iv-name="password" iv-label="Password" iv-required="true" iv-minlength="2" />
-
             <input iv-type="email" iv-name="email" iv-label="Email" iv-required="true" iv-minlength="2" />
-
             <input iv-type="textarea" iv-name="textarea" iv-label="TextArea" iv-required="true" iv-maxlength="6" iv-minlength="2" />
             <input iv-type="spinner" iv-name="spinner" iv-label="Spinner" iv-required="true" iv-max="200" iv-min="0" />
             <checkbox iv-type="checkbox" iv-name="checkbox" iv-label="Checkbox" iv-required="true"></checkbox>
@@ -55,8 +52,8 @@
             <datepicker iv-type="date" iv-name="date" iv-label="Datepicker" iv-required="true"></datepicker>
             <datepicker iv-type="time" iv-name="time" iv-label="Timepicker" iv-required="true"></datepicker>
 
-
             <select iv-type="select" iv-name="select" iv-label="Dropdown" iv-required="true">
+
                 <option></option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -65,13 +62,13 @@
                 <option value="6">5</option>
             </select>
 
-            <!---->
             <view iv-type="column" iv-size="2"></view>
             <view iv-type="column" iv-size="3">
                 <button iv-type="submit" iv-name="submit" iv-label="Submit" />
                 <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
             </view>
             <button iv-type="done" iv-name="done" iv-label="Done" />
-        </fieldset>
-    </form>
-</content>
+
+        </form>
+    </content>
+</layout>

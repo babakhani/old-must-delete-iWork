@@ -192,10 +192,11 @@
     <Content Include="Content\js\controllers\navbar.js" />
     <Content Include="Content\js\controllers\profile.js" />
     <Content Include="Content\js\controllers\signup.js" />
-    <Content Include="Content\js\directives.js" />
+    <Content Include="Content\js\controllers\submenu.js" />
+    <Content Include="Content\js\directives\directives.js" />
     <Content Include="Content\js\directives\passwordMatch.js" />
     <Content Include="Content\js\directives\passwordStrength.js" />
-    <Content Include="Content\js\page.js" />
+    <Content Include="Content\js\app.js" />
     <Content Include="Content\js\services\account.js" />
     <Content Include="Content\lib\angular-datatables\angular-datatables.js" />
     <Content Include="Content\lib\angular-datatables\angular-datatables.min.js" />
@@ -433,7 +434,7 @@
     <Content Include="Content\font\OpenSans-Regular.eot" />
     <Content Include="Content\font\OpenSans-Regular.ttf" />
     <Content Include="Content\font\OpenSans-Regular.woff" />
-    <Content Include="Content\js\login.js" />
+    <Content Include="Content\js\login-app.js" />
     <Content Include="Controllers\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.vb</LastGenOutput>
@@ -457,26 +458,20 @@
     <Content Include="iView\Contacts\list.html" />
     <Content Include="iView\kitchensink\mask.html" />
     <Content Include="iView\kitchensink\password.html" />
-    <Content Include="iView\kitchensink\route.html" />
     <Content Include="iView\kitchensink\test.html" />
-    <Content Include="iView\include\contactForm.html" />
     <Content Include="iView\kitchensink\angularstrap.html" />
     <Content Include="iView\kitchensink\form-validation.html" />
     <Content Include="iView\kitchensink\form.html" />
     <Content Include="iView\kitchensink\grid-ajax.html" />
     <Content Include="iView\kitchensink\grid-observer.html" />
     <Content Include="iView\kitchensink\kitchensink.html" />
-    <Content Include="iView\LoginTest.html" />
     <Content Include="iView\login\partials\home.html" />
     <Content Include="iView\login\partials\login.html" />
     <Content Include="iView\login\partials\profile.html" />
     <Content Include="iView\login\partials\signup.html" />
     <Content Include="iView\login\login.html" />
-    <Content Include="iView\Rollcall\list.html" />
-    <Content Include="iView\Rollcall\Rollcall.xml" />
     <Content Include="Template\Default\Controls\button\done.html" />
     <Content Include="Template\Default\Controls\button\cancel.html" />
-    <Content Include="Template\Default\Controls\button\iconictest.html" />
     <Content Include="Template\Default\Controls\button\iconic.html" />
     <Content Include="Template\Default\Controls\button\update.html" />
     <Content Include="Template\Default\Controls\button\delete.html" />
@@ -493,6 +488,7 @@
     <Content Include="Template\Default\Controls\grid\table.html" />
     <Content Include="Template\Default\Controls\icon\svg.html" />
     <Content Include="Template\Default\Controls\input\email.html" />
+    <Content Include="Template\Default\Controls\input\password-confirm.html" />
     <Content Include="Template\Default\Controls\input\password.html" />
     <Content Include="Template\Default\Controls\input\search.html" />
     <Content Include="Template\Default\Controls\input\spinner.html" />
@@ -514,13 +510,13 @@
     <Content Include="Template\Default\Controls\uploader\dropzone.html" />
     <Content Include="Template\Default\Controls\validation\validation.html" />
     <Content Include="Template\Default\Controls\view\column.html" />
-    <Content Include="Template\Default\Controls\view\contentdef.html" />
+    <Content Include="Template\Default\Controls\view\partial.html" />
     <Content Include="Template\Default\Controls\view\contentview.html" />
     <Content Include="Template\Default\Controls\view\row.html" />
     <Content Include="Template\Default\Controls\view\spacer.html" />
     <Content Include="Template\Default\Layout\AngularDefault.html" />
     <Content Include="Template\Default\Layout\Default.html" />
-    <Content Include="Template\Default\Layout\Empty.html" />
+    <Content Include="Template\Default\Layout\Partial.html" />
     <Content Include="Template\Default\Layout\login.html" />
     <Content Include="Web.config" />
   </ItemGroup>

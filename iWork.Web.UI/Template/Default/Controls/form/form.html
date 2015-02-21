@@ -23,13 +23,14 @@
             <result>
             </result>
         </form>
+        <modal iv-type="modal" iv-modal-id="formSuccessModal">
+            <iv-modalbody>
+                <h3>$iv-controller Add/Update Successfully.</h3>
+                <button iv-type="cancel" iv-label="Done"></button>
+            </iv-modalbody>
+        </modal>
     </div>
-    <modal iv-type="modal" iv-modal-id="formSuccessModal">
-        <iv-modalbody>
-            <h3>$iv-controller Add/Update Successfully.</h3>
-            <button iv-type="cancel" iv-label="Done"></button>
-        </iv-modalbody>
-    </modal>
+   
     <script type="text/javascript">
         iWork.controller('$iv-name_form', function (appConfig,$scope, $routeParams, $element, $rootScope, $http) {
             /* Bootstrap Controller
@@ -63,6 +64,7 @@
                 $scope.showSuccessMessage = false;
                 $scope.showErrorMessage = false;
                 $scope.$iv-name.$setPristine();
+                $('#formSuccessModal').modal('hide');
             }
             /* Submit Form
             ---------------------------------------*/
@@ -104,6 +106,7 @@
                         $scope.$form.find('[type=submit]').button('reset');
                         if ('$iv-show-modal' !== 'false') {
                             $('#formSuccessModal').modal('show');
+                            $scope.messageEnabled = false;
                         }
                         if ('$iv-single-submit' == true) {
                             $scope.$form.find('input').attr('disabled', 'disabled');

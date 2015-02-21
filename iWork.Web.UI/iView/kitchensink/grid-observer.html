@@ -1,33 +1,35 @@
-﻿<control>
-    <form iv-type="form"
-          iv-title="Observer gird example"
-          iv-name="contactSearchForm"
-          iv-controller="Contact"
-          iv-model="Contact"
-          iv-show-message="false"
-          iv-filtering-form="true">
-        <fieldset>
-            <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-label="Search contact" />
-        </fieldset>
-    </form>
-    <grid iv-type="datatables"
-          iv-name="filteringGrid"
-          iv-controller="Contact"
-          iv-action="GetList"
-          iv-url="/content/sample_data/grid.json"
-          iv-observe="contactSearchForm"
-          iv-ordering="true"
-          iv-searching="false"
-          iv-display-length="15"
-          iv-serverside="true"
-          iv-auto-load="false">
-        <grid iv-type="column" iv-title="Name" iv-data="name" iv-targets="0"></grid>
-        <grid iv-type="column" iv-title="Position" iv-data="position" iv-targets="1"></grid>
-        <grid iv-type="column" iv-title="salary" iv-data="salary" iv-targets="2"></grid>
-        <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-targets="3"></grid>
-        <grid iv-type="column" iv-title="office" iv-data="office" iv-targets="4"></grid>
-        <grid iv-type="column" iv-title="extn" iv-data="extn" iv-targets="5"></grid>
-        <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-target-form="contactForm" iv-targets="6" iv-width="100"></grid>
-        <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-targets="7" iv-width="100"></grid>
-    </grid>
-</control>
+﻿<layout iv-source="Partial.html">
+    <content>
+        <form iv-type="form"
+              iv-title="Observer gird example"
+              iv-name="contactSearchForm"
+              iv-controller="Contact"
+              iv-model="Contact"
+              iv-show-message="false"
+              iv-filtering-form="true">
+            <fieldset>
+                <input iv-autofocus="autofocus" iv-type="search" iv-name="term" iv-label="Search contact" />
+            </fieldset>
+        </form>
+        <grid iv-type="datatables"
+              iv-name="filteringGrid"
+              iv-controller="Contact"
+              iv-action="GetList"
+              iv-url="/content/sample_data/grid.json"
+              iv-observe="contactSearchForm"
+              iv-ordering="true"
+              iv-searching="false"
+              iv-display-length="15"
+              iv-serverside="true"
+              iv-auto-load="false">
+            <grid iv-type="column" iv-title="Name" iv-data="name" iv-targets="0"></grid>
+            <grid iv-type="column" iv-title="Position" iv-data="position" iv-targets="1"></grid>
+            <grid iv-type="column" iv-title="salary" iv-data="salary" iv-targets="2"></grid>
+            <grid iv-type="column" iv-title="start_date" iv-data="start_date" iv-targets="3"></grid>
+            <grid iv-type="column" iv-title="office" iv-data="office" iv-targets="4"></grid>
+            <grid iv-type="column" iv-title="extn" iv-data="extn" iv-targets="5"></grid>
+            <grid iv-type="column" iv-title="Edit button" iv-kind="btn.edite" iv-target-form="contactForm" iv-targets="6" iv-width="100"></grid>
+            <grid iv-type="column" iv-title="Delete button" iv-kind="btn.delete" iv-targets="7" iv-width="100"></grid>
+        </grid>
+    </content>
+</layout>

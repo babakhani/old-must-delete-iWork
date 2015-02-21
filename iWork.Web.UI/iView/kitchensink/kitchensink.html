@@ -1,30 +1,38 @@
 ﻿<layout>
     <sidecontent>
-
         <button iv-type="iconic"
-                iv-icon="wand"
-                iv-label="Form"
-                iv-href="#/kitchensink/form"></button>
+                button iv-icon="wand"
+                button iv-label="Form"
+                button iv-viewname="kithenForm"></button>
         <button iv-type="iconic"
-                iv-icon="grid"
-                iv-label="Observer Grid"
-                iv-href="#/kitchensink/grid-observer"></button>
+                button iv-icon="grid"
+                button iv-label="Observer Grid"
+                button iv-viewname="gridObserver"></button>
         <button iv-type="iconic"
-                iv-icon="loader"
-                iv-label="Ajax Grid"
-                iv-href="#/kitchensink/grid-ajax"></button>
+                button iv-icon="loader"
+                button iv-label="Ajax Grid"
+                button iv-viewname="gridAjax"></button>
         <button iv-type="iconic"
-                iv-icon="puzzle"
-                iv-label="Form Validation"
-                iv-href="#/kitchensink/form-validation"></button>
+                button iv-icon="puzzle"
+                button iv-label="Form Validation"
+                button iv-viewname="formValidation"></button>
         <button iv-type="iconic"
-                iv-icon="mask"
-                iv-label="Form Mask"
-                iv-href="#/kitchensink/mask"></button>
-
+                button iv-icon="mask"
+                button iv-label="Form Mask"
+                button iv-viewname="mask"></button>
         <button iv-type="iconic"
                 iv-icon="key"
                 iv-label="Password"
-                iv-href="#/kitchensink/password"></button>
+                iv-viewname="password"></button>
     </sidecontent>
+    <content>
+        <view iv-type="partial" iv-href="/kitchensink/form" iv-name="kithenForm"></view>
+        <view iv-type="partial" iv-href="/kitchensink/grid-observer" iv-name="gridObserver"></view>
+        <view iv-type="partial" iv-href="/kitchensink/grid-ajax" iv-name="gridAjax"></view>
+        <view iv-type="partial" iv-href="/kitchensink/form-validation" iv-name="formValidation"></view>
+        <view iv-type="partial" iv-href="/kitchensink/mask" iv-name="mask"></view>
+        <view iv-type="partial" iv-href="/kitchensink/password" iv-name="password"></view>
+        <view iv-type="contentview">
+        </view>
+    </content>
 </layout>

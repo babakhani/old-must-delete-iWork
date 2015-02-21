@@ -20,7 +20,9 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
                 }).
                success(function (responseData, status, headers, config) {
-                   $self.parents('tr').remove();
+                   $self.parents('tr').fadeOut('slow', function () {
+                       $(this).remove();
+                   });
                }).
                error(function (responseData, status, headers, config) {
                });
@@ -139,6 +141,36 @@ iWork.directive('match', ['$parse', function ($parse) {
                 }
                 return viewValue;
             });
+        },
+    };
+}]);
+
+
+iWork.controller('viewLinkController', function ($scope, $attrs) {
+    this.init = function (elem) {
+        var $link = $(elem);
+        var thisViewname = $link.attr('viewname');
+        $.each(sitemap, function (index, item) {
+            if (thisViewname == item.viewname) {
+                $link.attr({
+                    href: '#' + item.href
+                });
+            }
+        });
+
+        var thisUrl = $link.attr("href");
+        if (window.location.hash.indexOf(thisUrl) >= 0) {
+            $link.addClass('selected');
+        }
+
+    };
+});
+
+iWork.directive('viewLink', ['$parse', function ($parse) {
+    return {
+        controller: 'viewLinkController',
+        link: function (scope, elem, attrs, ctrl) {
+            ctrl.init(elem);
         },
     };
 }]);

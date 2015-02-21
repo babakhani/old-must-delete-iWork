@@ -1,4 +1,4 @@
-﻿<layout iv-source="Empty.html">
+﻿<layout iv-source="Partial.html">
     <content>
         <form iv-type="form" iv-name="searchForm" iv-controller="Contact" iv-model="Contact" iv-action="Search" iv-show-message="false">
             <fieldset>
@@ -33,7 +33,7 @@
                     <td>{{ x.Tel4 }}</td>
                     <td>{{ x.Description }}</td>
                     <td>
-                        <button iv-type="update" iv-entity-id="{{x.Id}}" iv-href="#/contact/form"></button>
+                        <button iv-type="update" iv-entity-id="{{x.Id}}" iv-href="#/contacts/form"></button>
                     </td>
                     <td>
                         <button iv-type="delete" iv-model="Contact" iv-entity-id="{{x.Id}}" iv-confirm="true"> </button>
