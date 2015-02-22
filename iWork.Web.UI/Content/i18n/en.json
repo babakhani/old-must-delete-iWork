@@ -5,7 +5,10 @@
     "global": {
         "areYouSure": "Are your sure?",
         "yes": "yes",
-        "no": "no"
+        "no": "no",
+        "form": "Form",
+        "grid": "Grid",
+        "password": "Password"
     },
     "pageTitle": {
         "contactForm": "Add Contact",
@@ -64,6 +67,9 @@
         "searchPlacholder": "Search in Contacts"
     },
     "kitchensink": {
-        "title": "Kitchensink"
+        "title": "Kitchensink",
+        "ajaxGrid": "Ajax grid",
+        "formValidatin": "Form Validation",
+        "formMask": "Form Mask"
     }
 }

@@ -1,0 +1,75 @@
+﻿{
+    "direction": {
+        "from": "left"
+    },
+    "global": {
+        "areYouSure": "Etes-vous sûr?",
+        "yes": "Oui",
+        "no": "Aucun",
+        "form": "Forme",
+        "grid": "Grille",
+        "password": "Mot de passe"
+    },
+    "pageTitle": {
+        "contactForm": "Ajouter un contact",
+        "contactSearch": "contact Rechercher",
+        "kitchensink": "évier de cuisine"
+    },
+    "form": {
+        "fullname": "Nom Et Prénom",
+        "fax": "Fax",
+        "tell": "Dire",
+        "home": "Maison",
+        "address": "Adresse",
+        "company": "Société",
+        "unit": "Unité",
+        "description": "Description",
+        "office": "Bureau",
+        "mobile": "Mobile",
+        "submitBtn": "Soumettre",
+        "updateBtn": "Mettre à jour",
+        "resetBtn": "Remettre",
+        "doneBtn": "Fini",
+        "searchBtn": "recherche",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmez Le Mot De Passe"
+    },
+    "grid": {
+        "#": "#",
+        "fullname": "Nom Et Prénom",
+        "fax": "Fax",
+        "tell": "Dire",
+        "home": "Maison",
+        "address": "Adresse",
+        "company": "Société",
+        "unit": "Unité",
+        "description": "Description",
+        "office": "Bureau",
+        "mobile": "Mobile",
+        "update": "",
+        "delete": ""
+    },
+    "validation": {
+        "required": "Vous avez oublié de saisir {{name}}",
+        "maxLength": "{{name}} est trop long.",
+        "minLength": " {{name}} est trop courte.",
+        "email": " Email valide !! Devrait être comme name@web.com",
+        "pattern": " {{name}} ne est pas correspondre Motif.",
+        "number": "  {{name}} ne est pas un nombre valide.",
+        "match": " Mot de passe Dos correspondait pas!",
+        "pwd": "Mot de passe force!"
+    },
+    "contact": {
+        "title": "Contacts",
+        "addFormTitle":  "Ajouter un contact",
+        "sideMenuAddTitle":  "Ajouter un contact",
+        "sideMenuSearchTitle": "Recherche",
+        "searchPlacholder": "Rechercher dans les contacts"
+    },
+    "kitchensink": {
+        "title": "évier de cuisine",
+        "ajaxGrid": "Grille Ajax",
+        "formValidatin": "validation de formulaire",
+        "formMask": "Formulaire Masque"
+    }
+}

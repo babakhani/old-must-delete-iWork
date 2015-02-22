@@ -5,7 +5,10 @@
     "global": {
         "areYouSure": "آیا مطمین هستید؟",
         "yes": "بله",
-        "no": "خیر"
+        "no": "خیر",
+        "form": "فرم",
+        "grid": "جدول",
+        "password": "گذرواژه"
     },
     "pageTitle": {
         "contactForm": "افزودن تماس",
@@ -64,6 +67,9 @@
         "searchPlacholder": "جستجو در تماس ها"
     },
     "kitchensink": {
-        "title": "چرکنویس"
+        "title": "چرکنویس",
+        "ajaxGrid": "جدول آورنده",
+        "formValidatin": "تصحیح فرم",
+        "formMask": "فرم محدود"
     }
 }

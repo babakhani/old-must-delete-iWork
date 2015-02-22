@@ -178,6 +178,7 @@
     <Content Include="Content\css\style.rtl.css.map">
       <DependentUpon>style.rtl.css</DependentUpon>
     </Content>
+    <Content Include="Content\i18n\fr.json" />
     <None Include="Content\i18n\en.json" />
     <None Include="Content\i18n\fa.json" />
     <Content Include="Content\img\add-user.svg" />
@@ -307,6 +308,7 @@
     <Content Include="Content\lib\angular-translate\loader-url.js" />
     <Content Include="Content\lib\angular\angular-animate.js" />
     <Content Include="Content\lib\angular\angular-bootstrap-switch.js" />
+    <Content Include="Content\lib\angular\angular-cookies.js" />
     <Content Include="Content\lib\angular\angular-messages.js" />
     <Content Include="Content\lib\angular\angular-mocks.js" />
     <Content Include="Content\lib\angular\angular-resource.js" />

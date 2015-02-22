@@ -1,6 +1,7 @@
 ﻿
-iWork.controller('TranslateController', function ($rootScope, $translate, $scope) {
+iWork.controller('TranslateController', function ($rootScope, $translate, $scope, $cookies, $cookieStore) {
     $scope.changeLanguage = function (langKey) {
+        $cookies.lang = langKey;
         $translate.use(langKey);
     };
     $rootScope.$on('$translateChangeSuccess', function (a, b) {
@@ -23,4 +24,9 @@ iWork.controller('TranslateController', function ($rootScope, $translate, $scope
 
         }
     }
+
+    if (!$cookies.lang && $cookies.lang == 'undefined') {
+        $cookies.lang = 'en';
+    }
+    $translate.use($cookies.lang);
 });

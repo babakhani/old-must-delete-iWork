@@ -1,6 +1,6 @@
 ﻿<!--    Datatables self data loader -->
 <control iv-controller="gridController"
-         iv-title="null"
+         iv-title=""
          iv-url="false"
          iv-serverside="false"
          iv-searching="true"
@@ -17,7 +17,7 @@
          iv-auto-load="true">
 
     <div ng-controller="$iv-name_grid">
-        <h3 ng-show="showGridTitle">$iv-title</h3>
+        <h3 ng-show="showGridTitle" translate >{{'$iv-title'}}</h3>
         <table id="$iv-controller" class="table row-border hover">
             <iv-content></iv-content>
         </table>
