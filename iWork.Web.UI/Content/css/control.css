@@ -1,4 +1,15 @@
-﻿/* Over bootstrap
+﻿.unselectable {
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none; }
+
+/* Over bootstrap
 ====================================================*/
 .input-group-addon {
   border: none;
@@ -83,26 +94,39 @@
 /* Search Box
 ----------------------------------------------------------------*/
 .search-box {
-  border: 1px solid #eeeeee;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px; }
+  border-bottom: 1px solid #CCCCCC;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px; }
   .search-box .button-box {
     padding: 0px;
     border: none;
     background: none; }
   .search-box .input-group-addon {
-    border: none; }
+    border: none;
+    background: #F9F9F9; }
   .search-box input {
     border: none !important;
     padding-right: 0px;
     padding-left: 0px; }
+  .search-box .search-box-icon {
+    font-size: 20px;
+    color: #aaaaaa; }
   .search-box button {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     -ms-border-radius: 0px;
-    border-radius: 0px; }
+    border-radius: 0px;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    border: 1px solid #eeeeee;
+    height: 35px;
+    padding: 0px 20px !important;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important; }
 
 .search-box-message {
   display: block;
@@ -115,6 +139,8 @@
 .form-container {
   display: block;
   width: 100% !important; }
+  .form-container .col-md-12 {
+    padding: 0px; }
 
 .form-container fieldset {
   margin-bottom: 8px; }
@@ -130,9 +156,9 @@
   margin: 10px 0px !important; }
 
 .form-horizontal .form-group label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: lighter;
-  color: #333333;
+  color: #888888;
   text-align: left;
   padding-right: 0px;
   padding-left: 0px; }
@@ -147,7 +173,8 @@
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
-  border-radius: 0px; }
+  border-radius: 0px;
+  background: #F9F9F9; }
 
 .form-horizontal .form-group textarea:focus, .form-horizontal .form-group select:focus, .form-horizontal .form-group input:focus {
   border-bottom: 1px solid #286090; }
@@ -216,7 +243,7 @@
 .form-horizontal textarea:invalid, .form-horizontal input:invalid {
   outline: none; }
 
-/* Checklist
+/* Magic Suggest
 ===================================*/
 .magicsuggest-box .form-control {
   box-shadow: none;
@@ -249,7 +276,7 @@
 .checklist .form-group, .checklist .checkbox-input-column {
   width: auto;
   float: left;
-  padding-left: 0px; }
+  padding: 0px 0px 0px 6px; }
 .checklist div .form-group {
   margin-top: 0 !important;
   padding-top: 0 !important; }
@@ -265,10 +292,16 @@
   display: block;
   width: 100%;
   float: right;
-  background-color: #eeeeee;
   outline: none;
   text-align: center;
-  margin-top: 5px; }
+  margin-top: 5px;
+  padding-top: 9px;
+  overflow: hidden;
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -ms-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  transition: all 100ms ease; }
 
 .btn-iconic:focus, .btn-iconic:active {
   outline: none; }
@@ -277,9 +310,12 @@
   display: block;
   width: 100%;
   float: left;
-  height: 28px;
-  line-height: 28px;
-  color: #bbbbbb; }
+  margin-top: 8px;
+  min-height: 20px;
+  line-height: 20px;
+  color: #AED9FB;
+  white-space: normal;
+  font-size: 14px; }
 
 .icon-element {
   margin: 0px 0px 0px 5px;
@@ -291,18 +327,36 @@
   background-repeat: no-repeat; }
 
 .btn-iconic.selected {
-  color: #2196F3; }
+  color: #2196F3;
+  border-left: 4px solid #2196F3;
+  background: #FEFEFE; }
 
-.btn-iconic.selected .svg-inject {
-  fill: #2196F3 !important; }
+.btn-iconic:hover {
+  background: #f4f4f4; }
+  .btn-iconic:hover .svg-inject {
+    fill: #2196F3 !important; }
+  .btn-iconic:hover span {
+    color: #2196F3; }
+
+.btn-iconic:hover:active {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
 
 .btn-iconic.selected span {
   color: #2196F3; }
 
 .btn-iconic .svg-inject {
-  fill: #BBBBBB !important;
   width: 24px;
   height: 24px;
-  margin: 0px auto 0px auto; }
+  margin: 0px auto 0px auto;
+  fill: #AED9FB !important;
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -ms-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  transition: all 100ms ease; }
+
+.btn-iconic.selected .svg-inject {
+  fill: #2196F3 !important; }
 
 /*# sourceMappingURL=control.css.map */

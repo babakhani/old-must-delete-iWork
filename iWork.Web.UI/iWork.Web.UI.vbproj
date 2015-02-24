@@ -150,6 +150,12 @@
     <Content Include="Content\css\datatabels.min.css">
       <DependentUpon>datatabels.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\overstrap.css">
+      <DependentUpon>overstrap.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\overstrap.min.css">
+      <DependentUpon>overstrap.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\style.css">
       <DependentUpon>style.scss</DependentUpon>
     </Content>
@@ -179,6 +185,10 @@
       <DependentUpon>style.rtl.css</DependentUpon>
     </Content>
     <Content Include="Content\i18n\fr.json" />
+    <Content Include="Content\css\overstrap.scss" />
+    <Content Include="Content\css\overstrap.css.map">
+      <DependentUpon>overstrap.css</DependentUpon>
+    </Content>
     <None Include="Content\i18n\en.json" />
     <None Include="Content\i18n\fa.json" />
     <Content Include="Content\img\add-user.svg" />

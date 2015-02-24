@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="iWork" ng-controller="iWorkRoot">
 <head>
     <meta charset="utf-8">
-    <title translate >{{title}}</title>
+    <title translate>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/Content/lib/bootstrap/css/bootstrap.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/Content/lib/dropzone/dropzone.css" />
@@ -55,13 +55,20 @@
             </div>
         </div>
         <div class="navbar-right col-md-2 col-xs-3">
-            <div ng-controller="TranslateController" class="pull-right flip translate-buttton-box">
-                <button class="btn" ng-click="changeLanguage('fa')">fa</button>
-                <button class="btn" ng-click="changeLanguage('en')">en</button>
-                <button class="btn" ng-click="changeLanguage('fr')">fr</button>
-            </div>
             <div class="member-territory pull-right flip">
-                <img svg-inject class="svg-inject" src="/Content/img/user.svg" />
+                <div class="avatar-box" >
+                    <img svg-inject class="svg-inject" src="/Content/img/user.svg" />
+                </div>
+                <div class="member-territory-box">
+                    <span class="member-info" >Reza babakhani</span>
+                    <button>Profile </button>
+                    <button>Sign Out </button>
+                    <div ng-controller="TranslateController" class="pull-right flip translate-buttton-box">
+                        <button class="btn" ng-click="changeLanguage('fa')">FA</button>
+                        <button class="btn" ng-click="changeLanguage('en')">EN</button>
+                        <button class="btn" ng-click="changeLanguage('fr')">FR</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="bottom-inner-shadow"></div>

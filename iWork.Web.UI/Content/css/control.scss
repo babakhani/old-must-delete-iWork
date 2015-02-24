@@ -99,8 +99,8 @@
 /* Search Box
 ----------------------------------------------------------------*/
 .search-box {
-    border: 1px solid #eeeeee;
-    @include border-radius(5px);
+    border-bottom: 1px solid #CCCCCC;
+    @include border-radius(0px);
 
     .button-box {
         padding: 0px;
@@ -110,6 +110,7 @@
 
     .input-group-addon {
         border: none;
+        background: #F9F9F9;
     }
 
     input {
@@ -118,8 +119,22 @@
         padding-left: 0px;
     }
 
+    .search-box-icon {
+        font-size: 20px;
+        color: #aaaaaa;
+    }
+
     button {
         @include border-radius(0px);
+        -webkit-border-radius: 0px !important;
+        -moz-border-radius: 0px !important;
+        border-radius: 0px !important;
+        border: 1px solid #eeeeee;
+        height: 35px;
+        padding: 0px 20px !important;
+        box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
     }
 }
 
@@ -135,6 +150,10 @@
 .form-container {
     display: block;
     width: 100% !important;
+
+    .col-md-12 {
+        padding: 0px;
+    }
 }
 
 .form-container fieldset {
@@ -154,9 +173,9 @@
 }
 
 .form-horizontal .form-group label {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: lighter;
-    color: #333333;
+    color: #888888;
     text-align: left;
     padding-right: 0px;
     padding-left: 0px;
@@ -172,6 +191,7 @@
     -webkit-box-shadow: none;
     color: #333333 !important;
     @include border-radius(0px);
+    background: #F9F9F9;
 }
 
 .form-horizontal .form-group textarea:focus,
@@ -270,7 +290,7 @@
     }
 }
 
-/* Checklist
+/* Magic Suggest
 ===================================*/
 .magicsuggest-box {
     .form-control {
@@ -322,7 +342,7 @@
     .checkbox-input-column {
         width: auto;
         float: left;
-        padding-left: 0px;
+        padding: 0px 0px 0px 6px;
     }
 
     div .form-group {
@@ -350,10 +370,16 @@
     display: block;
     width: 100%;
     float: right;
-    background-color: #eeeeee;
     outline: none;
     text-align: center;
     margin-top: 5px;
+    padding-top: 9px;
+    overflow: hidden;
+    -webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -ms-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;
 }
 
 .btn-iconic:focus,
@@ -365,9 +391,12 @@
     display: block;
     width: 100%;
     float: left;
-    height: 28px;
-    line-height: 28px;
-    color: #bbbbbb;
+    margin-top: 8px;
+    min-height: 20px;
+    line-height: 20px;
+    color: #AED9FB;
+    white-space: normal;
+    font-size: 14px;
 }
 
 
@@ -383,10 +412,26 @@
 
 .btn-iconic.selected {
     color: #2196F3;
+    border-left: 4px solid #2196F3;
+    background: #FEFEFE;
 }
 
-.btn-iconic.selected .svg-inject {
-    fill: #2196F3 !important;
+
+.btn-iconic:hover {
+    background: #f4f4f4;
+
+    .svg-inject {
+        fill: #2196F3 !important;
+    }
+
+    span {
+        color: #2196F3;
+    }
+}
+
+.btn-iconic:hover:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .btn-iconic.selected span {
@@ -394,8 +439,17 @@
 }
 
 .btn-iconic .svg-inject {
-    fill: #BBBBBB !important;
     width: 24px;
     height: 24px;
     margin: 0px auto 0px auto;
+    fill: #AED9FB !important;
+    -webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -ms-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;
+}
+
+.btn-iconic.selected .svg-inject {
+    fill: #2196F3 !important;
 }

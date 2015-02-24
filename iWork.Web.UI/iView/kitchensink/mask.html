@@ -6,7 +6,7 @@
               iv-model="ivContact"
               iv-controller="Contact"
               iv-action="add">
-            <fieldset>
+            <view iv-type="column" iv-size="6">
                 <input iv-type="text"
                        iv-name="textmask"
                        iv-label="Mask 9999-99-99"
@@ -46,7 +46,8 @@
                        iv-maxlength="60"
                        iv-minlength="2"
                        iv-mask="date" />
-
+            </view>
+            <view iv-type="column" iv-size="6">
                 <input iv-type="text"
                        iv-name="textmaskdatetime"
                        iv-label="Mask alais : datetime"
@@ -78,14 +79,12 @@
                        iv-maxlength="60"
                        iv-minlength="2"
                        iv-mask="ip" />
-
-                <view iv-type="column" iv-size="2"></view>
-                <view iv-type="column" iv-size="3">
-                    <button iv-type="submit" iv-name="submit" iv-label="Submit" />
-                    <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
-                </view>
+            </view>
+            <view iv-type="column" iv-size="12">
+                <button iv-type="submit" iv-name="submit" iv-label="Submit" />
+                <button iv-type="cancel" iv-name="cancel" iv-label="Reset" />
                 <button iv-type="done" iv-name="done" iv-label="Done" />
-            </fieldset>
+            </view>
         </form>
     </content>
 </layout>

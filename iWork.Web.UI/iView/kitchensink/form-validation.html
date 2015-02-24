@@ -6,69 +6,71 @@
               iv-model="ivContact"
               iv-controller="Contact"
               iv-action="add">
+            <view iv-type="column" iv-size="6">
+                <input iv-type="text"
+                       iv-name="textpattern"
+                       iv-label="Text"
+                       iv-required="true"
+                       iv-maxlength="60"
+                       iv-minlength="2" />
 
-            <input iv-type="text"
-                   iv-name="textpattern"
-                   iv-label="Text"
-                   iv-required="true"
-                   iv-maxlength="60"
-                   iv-minlength="2" />
+                <formfield iv-type="help-message">
+                    This is help message!  Only accept numbers.
+                </formfield>
 
-            <formfield iv-type="help-message">
-                This is help message!  Only accept numbers.
-            </formfield>
+                <input iv-type="text"
+                       iv-name="textmask"
+                       iv-label="Mask 9999-99-99"
+                       iv-required="true"
+                       iv-maxlength="60"
+                       iv-minlength="2"
+                       iv-mask="9999-99-99" />
 
-            <input iv-type="text"
-                   iv-name="textmask"
-                   iv-label="Mask 9999-99-99"
-                   iv-required="true"
-                   iv-maxlength="60"
-                   iv-minlength="2"
-                   iv-mask="9999-99-99" />
+                <input iv-type="text"
+                       iv-name="textmaskinteger"
+                       iv-label="Mask alais : integer"
+                       iv-required="true"
+                       iv-maxlength="60"
+                       iv-minlength="2"
+                       iv-mask="integer" />
 
-            <input iv-type="text"
-                   iv-name="textmaskinteger"
-                   iv-label="Mask alais : integer"
-                   iv-required="true"
-                   iv-maxlength="60"
-                   iv-minlength="2"
-                   iv-mask="integer" />
+                <input iv-type="text"
+                       iv-name="textmaskcurrency"
+                       iv-label="Mask alais : currency"
+                       iv-required="true"
+                       iv-maxlength="60"
+                       iv-minlength="2"
+                       iv-mask="currency" />
 
-            <input iv-type="text"
-                   iv-name="textmaskcurrency"
-                   iv-label="Mask alais : currency"
-                   iv-required="true"
-                   iv-maxlength="60"
-                   iv-minlength="2"
-                   iv-mask="currency" />
+                <input iv-type="text" iv-name="texte43qw" iv-label="Text" iv-required="true" iv-maxlength="6" iv-minlength="2" />
+                <input iv-type="password" iv-name="password" iv-label="Password" iv-required="true" iv-minlength="2" />
 
-            <input iv-type="text" iv-name="texte43qw" iv-label="Text" iv-required="true" iv-maxlength="6" iv-minlength="2" />
-            <input iv-type="password" iv-name="password" iv-label="Password" iv-required="true" iv-minlength="2" />
-            <input iv-type="email" iv-name="email" iv-label="Email" iv-required="true" iv-minlength="2" />
-            <input iv-type="textarea" iv-name="textarea" iv-label="TextArea" iv-required="true" iv-maxlength="6" iv-minlength="2" />
-            <input iv-type="spinner" iv-name="spinner" iv-label="Spinner" iv-required="true" iv-max="200" iv-min="0" />
-            <checkbox iv-type="checkbox" iv-name="checkbox" iv-label="Checkbox" iv-required="true"></checkbox>
-            <checkbox iv-type="switch" iv-name="switch" iv-label="Switch" iv-required="true"></checkbox>
-            <datepicker iv-type="date" iv-name="date" iv-label="Datepicker" iv-required="true"></datepicker>
-            <datepicker iv-type="time" iv-name="time" iv-label="Timepicker" iv-required="true"></datepicker>
+                <input iv-type="email" iv-name="email" iv-label="Email" iv-required="true" iv-minlength="2" />
+            </view>
+            <view iv-type="column" iv-size="6">
+                <input iv-type="textarea" iv-name="textarea" iv-label="TextArea" iv-required="true" iv-maxlength="6" iv-minlength="2" />
+                <input iv-type="spinner" iv-name="spinner" iv-label="Spinner" iv-required="true" iv-max="200" iv-min="0" />
 
-            <select iv-type="select" iv-name="select" iv-label="Dropdown" iv-required="true">
+                <checkbox iv-type="checkbox" iv-name="checkbox" iv-label="Checkbox" iv-required="true"></checkbox>
+                <checkbox iv-type="switch" iv-name="switch" iv-label="Switch" iv-required="true"></checkbox>
+                <datepicker iv-type="date" iv-name="date" iv-label="Datepicker" iv-required="true"></datepicker>
+                <datepicker iv-type="time" iv-name="time" iv-label="Timepicker" iv-required="true"></datepicker>
 
-                <option></option>
-                <option value="2">1</option>
-                <option value="3">2</option>
-                <option value="41">3</option>
-                <option value="5">4</option>
-                <option value="6">5</option>
-            </select>
+                <select iv-type="select" iv-name="select" iv-label="Dropdown" iv-required="true">
 
-            <view iv-type="column" iv-size="2"></view>
-            <view iv-type="column" iv-size="3">
+                    <option></option>
+                    <option value="2">1</option>
+                    <option value="3">2</option>
+                    <option value="41">3</option>
+                    <option value="5">4</option>
+                    <option value="6">5</option>
+                </select>
+            </view>
+            <view iv-type="column" iv-size="12">
                 <button iv-type="submit" iv-name="submit" />
                 <button iv-type="cancel" iv-name="cancel" />
+                <button iv-type="done" iv-name="done" iv-label="Done" />
             </view>
-            <button iv-type="done" iv-name="done" iv-label="Done" />
-
         </form>
     </content>
 </layout>
