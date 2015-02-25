@@ -1,7 +1,7 @@
 ﻿
-iWork.controller('TranslateController', function ($rootScope, $translate, $scope, $cookies, $cookieStore) {
+iWork.controller('TranslateController', function ($rootScope, $translate, $scope, ipCookie) {
     $scope.changeLanguage = function (langKey) {
-        $cookies.lang = langKey;
+        ipCookie('lang', langKey, { path: '/' });
         $translate.use(langKey);
     };
     $rootScope.$on('$translateChangeSuccess', function (a, b) {
@@ -25,8 +25,8 @@ iWork.controller('TranslateController', function ($rootScope, $translate, $scope
         }
     }
 
-    if (!$cookies.lang && $cookies.lang == 'undefined') {
-        $cookies.lang = 'en';
+    if (!ipCookie('lang') | ipCookie('lang') == 'undefined') {
+        ipCookie('lang', 'en', { path: '/' });
     }
-    $translate.use($cookies.lang);
+    $translate.use( ipCookie('lang'));
 });
