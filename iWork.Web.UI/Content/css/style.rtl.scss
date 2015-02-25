@@ -29,3 +29,9 @@
 .input-group-addon:first-child {
     border: none;
 }
+
+
+.form-horizontal .form-group label {
+    direction:rtl;
+    text-align:right;
+}

@@ -43,24 +43,29 @@
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-header col-md-1 col-xs-9">
+        <div class="navbar-header col-md-1 col-sm-2 col-xs-3">
             <a class="navbar-brand" href="#">iWork</a>
         </div>
-        <div id="navbar" class="col-md-9 hidden-xs">
-            <ul class="nav navbar-nav">
+        <div id="navbar" class="col-md-9  col-xs-3 col-sm-8">
+            <ul class="nav navbar-nav hidden-xs active">
                 <li><a href="/iView/Contacts/list.html" translate>{{'contact.title'}}</a></li>
                 <li><a href="/iView/kitchensink/kitchensink.html" translate>{{'kitchensink.title'}}</a></li>
             </ul>
             <div class="nav navbar-nav navbar-right">
             </div>
         </div>
-        <div class="navbar-right col-md-2 col-xs-3">
+        <div class="navbar-right col-md-2 col-xs-3  col-sm-2">
+            <div class="ribbon-bar pull-right">
+
+            </div>
             <div class="member-territory pull-right flip">
-                <div class="avatar-box" >
-                    <img svg-inject class="svg-inject" src="/Content/img/user.svg" />
+                
+                <div class="avatar-box">
+                    <img src="/Content/img/identicon.png" />
+                    <!--<img svg-inject class="svg-inject" src="/Content/img/user.svg" />-->
                 </div>
                 <div class="member-territory-box">
-                    <span class="member-info" >Reza babakhani</span>
+                    <span class="member-info">Reza babakhani</span>
                     <button>Profile </button>
                     <button>Sign Out </button>
                     <div ng-controller="TranslateController" class="pull-right flip translate-buttton-box">
@@ -74,10 +79,10 @@
         <div class="bottom-inner-shadow"></div>
     </nav>
     <div class="container page-container">
-        <div class="col-md-1 sub-menu hidden-xs fit-height" ng-controller="submenu">
+        <div class="col-md-1 sub-menu hidden-xs hidden-sm fit-height" ng-controller="submenu">
             <sidecontent></sidecontent>
         </div>
-        <div class="col-md-11 main-content ">
+        <div class="col-sm-12 col-md-11 main-content">
             <content></content>
         </div>
     </div>

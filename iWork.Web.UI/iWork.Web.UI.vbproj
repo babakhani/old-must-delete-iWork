@@ -195,6 +195,7 @@
     <Content Include="Content\img\address-book.svg" />
     <Content Include="Content\img\area-graph.svg" />
     <Content Include="Content\img\grid.svg" />
+    <Content Include="Content\img\identicon.png" />
     <Content Include="Content\img\key.svg" />
     <Content Include="Content\img\loader.svg" />
     <Content Include="Content\img\loading.gif" />

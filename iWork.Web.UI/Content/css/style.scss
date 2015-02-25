@@ -225,6 +225,14 @@ body {
     @include box-shadow(0px, -2px, 3px, 1px,rgba(0,0,0,0.2));
 }
 
+
+.ribbon-bar{
+    display:block;
+    width:6px;
+    height:72px;
+    background: #F43E00 !important;
+}
+
 .sub-menu {
     background: none !important;
     padding: 0px 5px 0px 0px !important;
@@ -332,6 +340,9 @@ body {
         position: absolute;
         z-index: 31000;
         overflow: hidden;
+        img{
+            width:100%;
+        }
     }
 
     .svg-inject {
@@ -349,7 +360,6 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
     display: block;
-    float: right;
     height: auto;
     min-height: 10px !important;
 }
